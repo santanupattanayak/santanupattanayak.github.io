@@ -1,2 +1,2 @@
-# santanupattanayak.github.io
-Machine Learning Blogs
+# EigenTalks
+Blogs by Santanu Pattanayak
