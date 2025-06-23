@@ -73,7 +73,8 @@ Some of the similarities of RNNs with State Space Models(SSM) are as follows:
 1. The hidden state $`h_t`$  in both SSMs and RNNs capture historical information.
 2. RNNs generalize this concept of SSM Models with nonlinear hidden state transitions and outputs using activations like tanh, sigmoid and ReLU.
 3. Unlike SSMs, which are often interpretable and analytically tractable, RNNs are expressive but harder to analyze.
-4. In essence, RNNs can be thought of as learnable, nonlinear state space models trained end-to-end via gradient descent.
+
+In essence, RNNs can be thought of as learnable, nonlinear state space models trained end-to-end via gradient descent.
 
 ## Understanding Vanishing Gradient in RNN
 
@@ -105,5 +106,5 @@ Some of the similarities of RNNs with State Space Models(SSM) are as follows:
 
 11. Alternately if the magnitude of the eigen values are > 1 then it may lead to exploding gradient causing unstable weight updates. 
 
-   
+The vanishing gradient problem is to some extent handled by the LSTM formulation which I plan to publish in the next article.   
 
