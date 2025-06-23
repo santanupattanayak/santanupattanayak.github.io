@@ -1,2 +1,2 @@
 # Symmetries & Signals
-A Blog by Santanu Pattanayak
+EigenTalks by Santanu Pattanayak
