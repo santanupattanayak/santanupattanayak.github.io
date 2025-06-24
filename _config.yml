@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
 title: Symmetries & Signals
 description: EigenTalks by Santanu Pattanayak
+markdown: kramdown
