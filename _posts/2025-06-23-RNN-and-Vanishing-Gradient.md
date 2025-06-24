@@ -106,7 +106,7 @@ In essence, RNNs can be thought of as learnable, nonlinear state space models tr
 
    Do note that the eigen values may have imaginary component too and hence can be complex numbers, which may lead to oscillatory behavior in learning. However for the purpose of our vanishing gradient analysis focusing on the magnitude of the eigen values should suffice.
    
-10. When the magnitude of the eigen values $$\lvert \lambda_{i} \rvert$$ of $$W_{hh}$$ housed in $$S$$ are less than 1 then  $$\lvert\lambda_{i}\rvert^{k} \rightarrow 0 $$  when $$k$$ is large. Likewise, the eigen values with magnitude > 1 with explode for large $$k$$. Vanishing gradient happens when the largest of the eigen value $$max_{i}\lvert\lambda_{i}\rvert < 1$$ as then $$S^{k} \rightarrow 0$$ . The $$f^{'}(t)$$ won't be able to help much in avoiding the vanishing gradient in this case as the derivatives of the $$tanh$$ is used for the function $$f$$  whose gradient is at all times < 1.
+10. When the magnitude of the eigen values $$\lvert \lambda_{i} \rvert$$ of $$W_{hh}$$ housed in $$S$$ are less than 1 then  $$\lvert\lambda_{i}\rvert^{k} \rightarrow 0 $$  when $$k$$ is large. Likewise, the eigen values with magnitude > 1 with explode for large $$k$$. Vanishing gradient happens when the largest of the eigen value $$\max_{i}\lvert\lambda_{i}\rvert < 1$$ as then $$S^{k} \rightarrow 0$$ . The $$f^{'}(t)$$ won't be able to help much in avoiding the vanishing gradient in this case as the derivatives of the $$tanh$$ is used for the function $$f$$  whose gradient is at all times < 1.
 
 11. Alternately if the magnitude of the eigen values are > 1 then it may lead to exploding gradient causing unstable weight updates. 
 
