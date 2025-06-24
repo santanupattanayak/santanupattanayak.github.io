@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "RNNs and the Infamous Vanishing Gradient Problem"
+title:  "Understanding RNNs and the Vanishing Gradient Problem"
 ---
 ## Introduction to RNNs
 
@@ -15,8 +15,7 @@ Natural language processing (NLP): language modeling, machine translation, senti
 Time series forecasting: stock prediction, sensor data analysis
 Sequence labeling and generation: named entity recognition, handwriting and speech generation
 
-However, traditional RNNs struggle with long-term dependencies due to vanishing and exploding gradient problems during backpropagation through time (BPTT). To overcome this, more advanced variants like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) were developed, incorporating gating mechanisms to regulate information flow.
-
+However, training RNNs effectively is often hindered by a fundamental issue: the vanishing gradient problem
 
 
 ## Mathematical Equations governing RNNs
