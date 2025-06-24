@@ -1,3 +1,8 @@
+---
+layout: default
+title: This is my Hello World sample blog post
+---
+Welcome to my very first post! I am excited to share...
 ## Introduction to RNNs
 
 Recurrent Neural Networks (RNNs) are a class of neural architectures designed to model sequential or time-dependent data. 
