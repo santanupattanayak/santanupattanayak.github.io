@@ -8,7 +8,7 @@ Recurrent Neural Networks (RNNs) are a class of neural architectures designed to
 
 Unlike feedforward networks, RNNs incorporate memory of previous inputs through cycles in the network’s structure, enabling them to capture temporal dynamics.
 
-At their core, RNNs maintain a hidden state $$h_t$$ that is updated at each time step $$t$$ based on the current input $$x_t$$ and the previous hidden state $$h_{t-1}$$. 
+At their core, RNNs maintain a hidden state $h_t$ that is updated at each time step $t$ based on the current input $x_t$ and the previous hidden state $h_{t-1}$. 
 
 This recursive formulation allows the network to maintain context over sequences, making them well-suited for tasks like:
 Natural language processing (NLP): language modeling, machine translation, sentiment analysis
