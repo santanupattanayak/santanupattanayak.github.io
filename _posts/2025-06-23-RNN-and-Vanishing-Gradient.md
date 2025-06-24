@@ -85,7 +85,7 @@ In essence, RNNs can be thought of as learnable, nonlinear state space models tr
 1. Traditional sequence models like RNNs and LSTMs suffer from loss of memory as sequences get longer.
 2. This can be explained mathematically how RNNs typically work. As we have seen in the RNN formulation the input $$x_t$$ at time $$t$$ updates the hidden state $$h_{t}$$ using the  recurrence  $$h_t = f( W_{hh}h_{t-1}  + W_{xh}h_{t-1})$$ where the function $$f$$ is applied elementwise on the linear transform. The $$f$$ function is usually the $$tanh$$ function.
 
-3. Now for the RNN to learn useful correlation between words/subtokens at positions $`t`$ and $`t-k`$ esentially at distance $`k`$ during backpropagation the Jacobian of $`h_t`$ wrt to  $`h_{t-k}`$ i.e.  $`\nabla_{h_{t-k}} h_t`$ should have significant value.
+3. Now for the RNN to learn useful correlation between words/subtokens at positions $$t$$ and $$t-k$$ essentially at distance $$k$$ during backpropagation the Jacobian of $$h_t$$ wrt to  $$h_{t-k}$$ i.e.  $$\nabla_{h_{t-k}} h_t$$ should have significant value.
 
 4. Let's probe $$\nabla_{h_{t-k}} h_t$$ . It can be expressed by chain rule as   $$\prod_{j=t:t-k+1}\nabla_{h_{j-1}} h_j$$
 
