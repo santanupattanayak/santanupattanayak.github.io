@@ -23,7 +23,7 @@ However, traditional RNNs struggle with long-term dependencies due to vanishing 
 There are two equations that govern the dynamics of a RNN
 1. The hidden state update equation where hidden state $`h_t`$ that is updated at each time step $`t`$ based on the current input $`x_t`$ and the previous hidden state $`h_{t-1}`$ as below:
    
-   $`h_t`$ = $`f(`$ $`W_{hh}`$$`h_{t-1}`$  + $`W_{xh}`$$`x_{t})`$ where
+   $h_t$ = $`f(`$ $`W_{hh}`$$`h_{t-1}`$  + $`W_{xh}`$$`x_{t})`$ where
 
    $`h_t \in \mathbb{R}^{n}`$ : hidden state at time $`t`$ containing the information of inputs seen till time $`t`$
    
