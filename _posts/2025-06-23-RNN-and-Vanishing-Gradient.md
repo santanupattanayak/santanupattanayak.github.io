@@ -67,7 +67,7 @@ Every model comes with assumptions about the data — this is called its inducti
 This bias makes RNNs efficient for sequence modeling but also introduces challenges like vanishing gradients when learning long-term dependencies which we will discuss in detail.
 
 ## RNNs and the State Space Connection
-In control theory systems evolve over time via a latent "state". In the linear dynamical system the latent or the hidden variable $`h_t`$ at $`t`$ evolves linearly as a function of $`h_{t-1}`$ and input $`x_t`$ at time $`t`$. Below are the governing equations of the hiddens state evolution and the output.
+In control theory systems evolve over time via a latent "state". In the linear dynamical system the latent or the hidden variable $$h_t$$ at $$t$$ evolves linearly as a function of $$h_{t-1}$$ and input $$x_t$$ at time $$t$$. Below are the governing equations of the hidden state evolution and the output.
 
 $$h_t = Ah_{t-1} + Bx_{t}$$
 
