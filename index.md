@@ -1,18 +1,14 @@
----
-layout: home
-title: "Symmetries & Signals"
-subtitle: "Explorations in Machine Learning, Deep Learning, Optimization, and Beyond"
-description: "A blog on technical deep dives, elegant math, and the occasional philosophical tangent."
-permalink: /
----
+##  Welcome to Santanu's EigenTalks 
 
-## 👋 Welcome
-
-Welcome to my digital notebook—a space where I unpack ideas in machine learning, optimization, and the occasional philosophical rabbit hole. Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
+Welcome to my Blog space "Symmetries and Signals" where I unpack techniques and concepts in machine learning, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
 
 ---
 
-## 🧠 Recent Posts
+## About me 
+I am a Data Science, Artificial intelligence and Machine learning professional with nearly 19 years of industrial experience. Currently I am working as a Senior Staff Machine Learning Specialist with Qualcomm, R&D. As a Senior Staff Machine Learning Researcher at Qualcomm, I have spent the past seven years leading ML-driven innovation in physical design automation and wireless applications. My work focuses on large-scale optimization and data-efficient learning, significantly reducing cost and time-to-market in chip design workflows. These projects involved marrying machine learning fundamentals with systems-level constraints using both traditional ML , Deep learning and optimization techniques.
+
+
+## Recent Posts 
 
 {% for post in site.posts limit:5 %}
 - 📅 {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
@@ -22,7 +18,7 @@ Welcome to my digital notebook—a space where I unpack ideas in machine learnin
 
 ---
 
-## 🔍 Topics I Explore
+## Topics I Explore
 
 - Machine Learning & Deep Learning  
 - Optimization & Domain Adaptation  
@@ -39,4 +35,4 @@ Reach out via [GitHub](https://github.com/santanupattanayak) or drop me a note o
 
 ---
 
-*Thanks for stopping by. Stay curious.*
+*Knowledge is not memorized – it is realized. Saraswati sits with the still-hearted, not the loud-minded.*
