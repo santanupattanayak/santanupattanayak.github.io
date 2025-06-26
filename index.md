@@ -1,11 +1,8 @@
-##  Welcome to Santanu's EigenTalks 
+##  Welcome to Symmetries and Signals
 
-Welcome to my Blog space "Symmetries and Signals" where I unpack techniques and concepts in machine learning, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
+Welcome to my Blog space "Symmetries and Signals" where I unpack techniques and concepts in machine learning, quantum computing, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
 
 ---
-
-## About me 
-I am a Data Science, Artificial intelligence and Machine learning professional with nearly 19 years of industrial experience. Currently I am working as a Senior Staff Machine Learning Specialist with Qualcomm, R&D. As a Senior Staff Machine Learning Researcher at Qualcomm, I have spent the past seven years leading ML-driven innovation in physical design automation and wireless applications. My work focuses on large-scale optimization and data-efficient learning, significantly reducing cost and time-to-market in chip design workflows. These projects involved marrying machine learning fundamentals with systems-level constraints using both traditional ML , Deep learning and optimization techniques.
 
 
 ## Recent Posts 
@@ -28,7 +25,11 @@ I am a Data Science, Artificial intelligence and Machine learning professional w
 
 ---
 
-## 📬 Get in Touch
+## Machine Learning/Quantum Machine Learning Books Authored by me
+- [Pro Deep Learning with Tensorflow] https://link.springer.com/book/10.1007/978-1-4842-8931-0
+- [Quantum Machine Learning] https://link.springer.com/book/10.1007/978-1-4842-6522-2
+
+## Get in Touch
 
 Have feedback, questions, or just want to say hi?  
 Reach out via [GitHub](https://github.com/santanupattanayak) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/).
