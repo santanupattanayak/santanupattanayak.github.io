@@ -1,6 +1,6 @@
-##  Welcome to Symmetries and Signals
+##  Welcome to Symmetries & Signals
 
-Welcome to my Blog space "Symmetries and Signals" where I unpack techniques and concepts in machine learning, quantum computing, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
+Welcome to my Blog space "Symmetries & Signals" where I unpack techniques and concepts in machine learning, quantum computing, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
 
 ---
 
@@ -11,23 +11,24 @@ Welcome to my Blog space "Symmetries and Signals" where I unpack techniques and 
 - 📅 {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
 {% endfor %}
 
-[→ View all posts](/blog)
+[→ View all posts](/_posts)
 
 ---
 
 ## Topics I Explore
 
-- Machine Learning & Deep Learning  
+- Machine Learning & Deep Learning 
+- Quantum Machine Learning 
 - Optimization & Domain Adaptation  
-- Diffusion Models & Spatial Reasoning  
-- Technical Writing & Visualization  
+- Diffusion Models & Spatial Reasoning 
+- LLMs 
 - Philosophy of Intelligence
 
 ---
 
-## Machine Learning/Quantum Machine Learning Books Authored by me
-- [Pro Deep Learning with Tensorflow] https://link.springer.com/book/10.1007/978-1-4842-8931-0
-- [Quantum Machine Learning] https://link.springer.com/book/10.1007/978-1-4842-6522-2
+##  Books Authored by me
+- [Pro Deep Learning with Tensorflow] (https://link.springer.com/book/10.1007/978-1-4842-8931-0)
+- [Quantum Machine Learning] (https://link.springer.com/book/10.1007/978-1-4842-6522-2)
 
 ## Get in Touch
 
