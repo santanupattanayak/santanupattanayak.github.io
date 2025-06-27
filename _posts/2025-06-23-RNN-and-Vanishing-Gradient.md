@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Understanding RNNs and the Vanishing Gradient Problem"
 ---
 ## Introduction to RNNs

@@ -27,13 +27,13 @@ Welcome to my Blog space "Symmetries & Signals" where I unpack techniques and co
 ---
 
 ##  Books Authored by me
-- [Pro Deep Learning with Tensorflow] (https://link.springer.com/book/10.1007/978-1-4842-8931-0)
-- [Quantum Machine Learning] (https://link.springer.com/book/10.1007/978-1-4842-6522-2)
+- [Pro Deep Learning with Tensorflow](https://link.springer.com/book/10.1007/978-1-4842-8931-0)
+- [Quantum Machine Learning](https://link.springer.com/book/10.1007/978-1-4842-6522-2)
 
 ## Get in Touch
 
 Have feedback, questions, or just want to say hi?  
-Reach out via [GitHub](https://github.com/santanupattanayak) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/).
+Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/).
 
 ---
 
