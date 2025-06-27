@@ -1,4 +1,9 @@
-# Understanding RNNs and the Vanishing Gradient Problem
+---
+layout: post
+title: "Understanding RNNs and its Vanishing Gradient Problem"
+date: 2025-06-23 00:00:00 -0000
+tags: RNNs
+---
 
 ## Introduction to RNNs
 
