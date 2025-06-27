@@ -1,6 +1,5 @@
----
-title:  "Understanding RNNs and the Vanishing Gradient Problem"
----
+# Understanding RNNs and the Vanishing Gradient Problem
+
 ## Introduction to RNNs
 
 Recurrent Neural Networks (RNNs) are a class of neural architectures designed to model sequential or time-dependent data. 
