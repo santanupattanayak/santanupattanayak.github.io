@@ -1,27 +1,72 @@
----
----
+// Variables
+$header-height: 80px;
+$header-bg: #1f1f1f;
+$header-text: #ffffff;
+$font-stack: 'Segoe UI', Roboto, sans-serif;
 
-@import "jekyll-theme-minimal";
-
-.post-wrapper {
-  padding-top: 400px; /* Adjust to match header height */
-}
-
-.title {
-  width: 100%; // or any desired width like 400px
-}
-
-
-.post-header {
-  position: sticky;
-  top: 0;
+// Reset some basics
+* {
   margin: 0;
-  height: auto; /* 🔧 Set to desired fixed height */
-  width:  auto; /* width */
-  overflow: auto;  /* ✂️ Prevents overflow if content exceeds height */
-  background-color: white;
-  z-index: 1000;
-  padding: 20px 0;
-
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: $font-stack;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+// Header styles
+header {
+  width: 100%;
+  height: $header-height;
+  background-color: $header-bg;
+  color: $header-text;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: fixed; // Change to 'static' if you don't want it fixed
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  nav {
+    a {
+      color: $header-text;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: lighten($header-text, 20%);
+      }
+    }
+  }
+}
+
+// Push content below the header
+main {
+  padding-top: $header-height + 20px; // Add some breathing room
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// Optional footer
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
