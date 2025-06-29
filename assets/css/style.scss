@@ -20,13 +20,10 @@
   top: 500px;
   height: 500px; /* 🔧 Set to desired fixed height */
   width:  100% /* width */
-  overflow: hidden; /* ✂️ Prevents overflow if content exceeds height */
+  /*overflow: hidden;  ✂️ Prevents overflow if content exceeds height */
   background-color: white;
   z-index: 1000;
   padding: 1rem;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  /*display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; /* 🧭 Center content vertically */
+
 }
 
