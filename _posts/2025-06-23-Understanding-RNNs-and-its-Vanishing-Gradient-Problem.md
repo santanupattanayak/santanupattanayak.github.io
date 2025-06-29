@@ -55,7 +55,10 @@ Since the weights remain same at every step the above flow can be folded into on
 
 ![image](https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1)
 
-![img.png](img.png)
+
+<img src="https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1" alt="My cool photo" width="100" height="100">
+
+
 
 
 
