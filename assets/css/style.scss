@@ -12,18 +12,23 @@
 }
 
 .header {
-  width: 100%; // or any desired width like 400px
+  width: 100%;
+  margin: 0;
+  padding: 20px 0; /* Optional: adjust padding as needed */
+  background-color: #f5f5f5; /* Or any background you prefer */
+  box-sizing: border-box;
 }
 
 .post-header {
   position: sticky;
   top: 0;
+  margin: 0;
   height: auto; /* 🔧 Set to desired fixed height */
   width:  auto; /* width */
   overflow: auto;  ✂️ Prevents overflow if content exceeds height */
   background-color: white;
   z-index: 1000;
-  padding: 1rem;
+  padding: 20px 0;
 
 }
 
