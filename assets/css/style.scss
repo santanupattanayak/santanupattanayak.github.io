@@ -4,16 +4,21 @@
 @import "jekyll-theme-minimal";
 
 .post-wrapper {
-  padding-top: 200px; /* Adjust to match header height */
+  padding-top: 100px; /* Adjust to match header height */
 }
 
 
 .post-header {
   position: sticky;
   top: 0;
+  height: 80px; /* 🔧 Set to desired fixed height */
+  overflow: hidden; /* ✂️ Prevents overflow if content exceeds height */
   background-color: white;
   z-index: 1000;
   padding: 1rem;
-  /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 🧭 Center content vertically */
 }
 
