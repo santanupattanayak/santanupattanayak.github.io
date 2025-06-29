@@ -53,14 +53,7 @@ Following is the flow of information in an RNN across timesteps.
 
 Since the weights remain same at every step the above flow can be folded into one compact block as below 
 
-![image](https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1)
-
-
-
-![img.png](img.png)
-
-
-
+<img src="https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1" alt="My cool photo" width="300" height="300">
 
 ## Inductive Bias
 
