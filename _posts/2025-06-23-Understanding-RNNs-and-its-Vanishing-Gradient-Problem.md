@@ -2,20 +2,8 @@
 layout: post
 title: "Understanding RNNs and its Vanishing Gradient Problem"
 date: 2025-06-23 00:00:00 -0000
-tags: RNNs
+tags: RNNs, Vanishing Gradient Problem in RNN, 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Introduction to RNNs
 
@@ -66,6 +54,8 @@ Following is the flow of information in an RNN across timesteps.
 Since the weights remain same at every step the above flow can be folded into one compact block as below 
 
 ![image](https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1)
+
+![img.png](img.png)
 
 
 
