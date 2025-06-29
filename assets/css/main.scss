@@ -1,0 +1,26 @@
+.page__hero {
+  min-height: 300px;
+  padding-bottom: 2rem;
+}
+
+.page__content {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+.site-header {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .page__hero {
+    min-height: 200px;
+    padding-bottom: 1rem;
+  }
+
+  .page__content {
+    margin-top: 1.5rem;
+  }
+}
