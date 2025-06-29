@@ -18,7 +18,7 @@
 .post-header {
   position: sticky;
   top: 500px;
-  height: 500px; /* 🔧 Set to desired fixed height */
+  height: auto; /* 🔧 Set to desired fixed height */
   width:  100% /* width */
   /*overflow: hidden;  ✂️ Prevents overflow if content exceeds height */
   background-color: white;
