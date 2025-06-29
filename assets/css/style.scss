@@ -7,12 +7,19 @@
   padding-top: 100px; /* Adjust to match header height */
 }
 
+.title {
+  width: 100%; // or any desired width like 400px
+}
+
+.header {
+  width: 100%; // or any desired width like 400px
+}
 
 .post-header {
   position: sticky;
   top: 0;
   height: 80px; /* 🔧 Set to desired fixed height */
-  width:  300px /* width */
+  width:  100% /* width */
   overflow: hidden; /* ✂️ Prevents overflow if content exceeds height */
   background-color: white;
   z-index: 1000;
