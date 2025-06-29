@@ -8,10 +8,9 @@ Welcome to my Blog space "Symmetries & Signals" where I unpack techniques and co
 ## Recent Posts 
 
 {% for post in site.posts limit:5 %}
-- 📅 {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
+-  {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
 {% endfor %}
 
-[→ View all posts](/_posts)
 
 ---
 
