@@ -13,10 +13,10 @@ Unlike feedforward networks, RNNs incorporate memory of previous inputs through 
 
 At their core, RNNs maintain a hidden state $$h_t$$ that is updated at each time step $$t$$ based on the current input $$x_t$$ and the previous hidden state $$h_{t-1}$$. 
 
-This recursive formulation allows the network to maintain context over sequences, making them well-suited for tasks like:
-Natural language processing (NLP): language modeling, machine translation, sentiment analysis
-Time series forecasting: stock prediction, sensor data analysis
-Sequence labeling and generation: named entity recognition, handwriting and speech generation
+This recursive formulation allows the network to maintain context over sequences, making them well-suited for :
+1. Natural language tasks such as text generation from prompts, machine translation, sentiment analysis
+2. Time series forecasting such as stock prediction as well as sensor data analysis
+3. Sequence labeling and generation tasks such as named entity recognition, handwriting and speech generation.
 
 However, training RNNs effectively is often hindered by a fundamental issue: the vanishing gradient problem
 
@@ -88,7 +88,7 @@ In essence, RNNs can be thought of as learnable, nonlinear state space models tr
 
 4. Let's probe $$\nabla_{h_{t-k}} h_t$$ . It can be expressed by chain rule as   $$\prod_{j=t:t-k+1}\nabla_{h_{j-1}} h_j$$
 
-5. Now $$\nabla_{h_{t-1}} h_t = f^{'}(t)W_{hh}$$ where $$f^{'}(t)$$ is a diagonal matrix housing the  derivatives for each dimension of hidden variable $$h_t$$. To make it more clear if we represent  $$\tilde{h_{t}}= \begin{bmatrix}\tilde{h_{t}^{(0)}} & .. & \tilde{h_{t}^{(i)}} & ..\end{bmatrix}^{T} = W_{hh}h_{t-1}  + W_{xh}h_{t-1}$$  then $$f^{'}(t)$$ in its $$i$$th diagonal entry would house $$\frac{\partial h_{t}^{(i)}}{\partial \tilde{h_{t}^{(i)}}}$$
+5. Now $$\nabla_{h_{t-1}} h_t = f^{'}(t)W_{hh}$$ where $$f^{'}(t)$$ is a diagonal matrix housing the  derivatives for each dimension of hidden variable $$h_t$$. To make it clearer if we represent  $$\tilde{h_{t}}= \begin{bmatrix}\tilde{h_{t}^{(0)}} & .. & \tilde{h_{t}^{(i)}} & ..\end{bmatrix}^{T} = W_{hh}h_{t-1}  + W_{xh}h_{t-1}$$  then $$f^{'}(t)$$ in its $$i$$th diagonal entry would house $$\frac{\partial h_{t}^{(i)}}{\partial \tilde{h_{t}^{(i)}}}$$
 
 6. Now that we have laid out the required maths and notations the  Jacobian $$\nabla_{h_{t-k}} h_t$$ can be expressed as
    
