@@ -12,9 +12,9 @@ sampled from $$\doubleP(x,y)$$ which we call as training dataset D. The training
 as $$D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$ where each of the $$(x_i,y_i)$$ are independently  and identically sampled from
 $$P(x,y)$$.
 2. Since everytime during training we can select a different set of m data-points from the distribution $$P(x,y)$$ we end up having a 
-distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$
-=======
-Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of $$m$$ point from $$P(x,y)$$ which we call as training dataset D. Esssentially the dataset $$D$$ can be represented as below 
+distribution over the training dataset $$D$$ such that $$D \tilda P^{n} (x_i,y_i) $$
+
+Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of $$m$$ point from $$P(x,y)$$ which we call as training dataset D. Esssentially, the dataset $$D$$ can be represented as below 
 
 $$D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$
 
