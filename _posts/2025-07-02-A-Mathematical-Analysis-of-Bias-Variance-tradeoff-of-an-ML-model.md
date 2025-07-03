@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Understanding RNNs and its Vanishing Gradient Problem"
-date: 2025-06-23 00:00:00 -0000
-tags: RNNs, Vanishing Gradient Problem in RNN, 
+title: "A Mathematical Analysis of Bias-Variance tradeoff of an ML model"
+date: 2025-07-02 00:00:00 -0000
+tags: Bias, Variance. 
 ---
 
 ## Bias and Variance of a Model
@@ -13,6 +13,10 @@ as $$D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$ where each of the $$(x_i,y_i)$$ 
 $$P(x,y)$$.
 2. Since everytime during training we can select a different set of m data-points from the distribution $$P(x,y)$$ we end up having a 
 distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$
+=======
+Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of $$m$$ point from $$P(x,y)$$ which we call as training dataset D. Esssentially the dataset $$D$$ can be represented as below 
+
+$$D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$
 
 ## Mathematical Equations governing RNNs
 There are two equations that govern the dynamics of a RNN
