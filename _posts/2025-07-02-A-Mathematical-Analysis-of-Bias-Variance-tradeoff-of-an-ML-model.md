@@ -8,16 +8,15 @@ tags: Bias, Variance.
 ## Bias and Variance of a Model
 
 1. Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of m points
-sampled from $$P(x,y)$$ which we call as training dataset D. The training dataset $$D$$ of $$m$$ points can be represented as
-
-$$D = {(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
+sampled from $$P(x,y)$$ which we call as training dataset D. The training dataset $$D$$ of $$m$$ points can be represented as $$D = {(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
 where each of the $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.
-3. Since everytime during training we can select a different set of m data-points from the distribution $$P(x,y)$$ we end up having a 
-distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$
 
-Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of $$m$$ point from $$P(x,y)$$ which we call as training dataset D. Esssentially, the dataset $$D$$ can be represented as below 
+2. Since we can select a different set of m data-points from the distribution $$P(x,y)$$ everytime during training we end up having a 
+distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$.
 
-$$D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$
+3. Given a training methodology each dataset $$D$$ would produce a different model $$f(y/x;\theta_{D})$$ and thats what lead to the variance of the model. 
+
+
 
 ## Mathematical Equations governing RNNs
 There are two equations that govern the dynamics of a RNN
