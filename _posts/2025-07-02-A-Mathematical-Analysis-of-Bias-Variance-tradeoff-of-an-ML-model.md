@@ -9,7 +9,7 @@ tags: Bias, Variance.
 
 1. Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$ we sample a small set of m points
 sampled from $$P(x,y)$$ which we call as training dataset D. The training dataset $$D$$ of $$m$$ points can be represented  
-as $$ D = (x_1,y_1), (x_2,y_2), .... (x_m,y_m)$$ where each of the $$(x_i,y_i)$$ are independently  and identically sampled from
+as $$D = {(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$ where each of the $$(x_i,y_i)$$ are independently  and identically sampled from
 $$P(x,y)$$.
 2. Since everytime during training we can select a different set of m data-points from the distribution $$P(x,y)$$ we end up having a 
 distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$
