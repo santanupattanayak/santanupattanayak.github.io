@@ -17,6 +17,10 @@ distribution over the training dataset $$D$$ such that $$D \sim P^{n} (x_i,y_i) 
 
 4. The other source of variability comes from the fact that the target $$y$$ in not fully predictable from $$x$$ for most of the applications and for regression problems the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$. In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$
 
+5. Given an input $$x$$ with target $$y$$ during the test time the model is not able to exact prediction of $$y$$ because of these two variabilities - the limiatation imposed by the dataset $$D$$ which is a small sample of the distribution we wish to learn on, and the noise $$\epsilon$$ associated with target $$y$$ which is uncorrelated with input $$x$$ and hence is unpredictable from $$x$$
+   
+   
+
 
 
 ## Mathematical Equations governing RNNs
