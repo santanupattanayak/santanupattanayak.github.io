@@ -11,8 +11,8 @@ tags: Bias, Variance.
 sampled from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D = {(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
 where each of the $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.
 
-2. Since we can select a different set of m data-points from the distribution $$P(x,y)$$ everytime during training we end up having a 
-distribution over the training dataset $$D$$ such that $$D ~ P^{n} (x_i,y_i) $$.
+2. Since we can select a different set of $$m$$ data-points from the distribution $$P(x,y)$$ everytime during training we end up having a 
+distribution over the training dataset $$D$$ such that $$D \sim P^{n} (x_i,y_i) $$.
 
 3. Given a training methodology each dataset $$D$$ would produce a different model $$f(y/x;\theta_{D})$$ and thats what lead to the variance of the model. 
 
