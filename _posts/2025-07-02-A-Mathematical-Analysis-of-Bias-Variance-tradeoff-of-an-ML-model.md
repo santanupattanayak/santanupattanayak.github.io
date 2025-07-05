@@ -29,8 +29,5 @@ $$\mathop {\mathbb E}_{D \sim P(D)} \hat{y{_D}} = \bar{y}$$ and hence the bias o
 
 $$\mathop {\mathbb E}_{D \sim P(D)} (\hat{y{_D}} - \bar{y})$$
 
-So even if theoretically we are able to train on all data from the distribution with the right model, the error in prediction during test time cannot be zero as we will see in the next section.
 
-
-With the given information let's try to do a bias variance decomposition of the test error.
 
