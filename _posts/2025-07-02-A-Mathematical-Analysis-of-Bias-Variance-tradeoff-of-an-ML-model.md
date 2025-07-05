@@ -7,17 +7,19 @@ tags: Bias, Variance.
 
 ## Bias and Variance of a Model
 
-1. Whenever we build a model, instead of training the model with all the data possible under the distribution $$P(x,y)$$, where $$x$$ is the feature vector and $$y$$ is the correponding target variable, we sample a small set of $$m$$ points from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D = {(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
-where each of the $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.
+1. Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  We sample a set of $$m$$ points from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
+where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.
 
-2. Since we can select a different set of $$m$$ data-points from the distribution $$P(x,y)$$ everytime during training we end up having a 
-distribution over the training dataset $$D$$ such that $$D \sim P^{n} (x_i,y_i) $$.
+2. Since $$m$$ data-points from the distribution $$P(x,y)$$ can be chosen in multiple ways the training dataset $$D$$ has a distribution which follows   
+$$D \sim P^{n} (x_i,y_i) $$.
 
-3. Given a training methodology each dataset $$D$$ would produce a different model $$f(y/x;\theta_{D})$$ and thats what lead to the variance of the model.
+3. Given a model class and training methodology each dataset $$D$$ would produce a different model $$f(y|x;\theta_{D})$$ and that's what lead to the variance of the model. Because of this variability for a given $x$ models trained on different datasets $$D$$ would produce different predictions $$\hat{y}_{D} = f(y|x; \theta_{D})$$. Also since the model doesn't see the entire distribution $$P(x,y)$$ during training there would always be error in predicting for test samples that the model hasn't seen enough off.   
 
-4. The other source of variability comes from the fact that the target $$y$$ in not fully predictable from $$x$$ for most of the applications and for regression problems the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$. In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$
 
-5. Given an input $$x$$ with target $$y$$ during the test time the model is not able to exact prediction of $$y$$ because of these two variabilities - the limitation in learning imposed by the dataset $$D$$ which is a small sample of the distribution we wish to learn on, and the noise $$\epsilon$$ associated with target $$y$$ but is uncorrelated with input $$x$$ and hence is unpredictable from $$x$$. Had we trained on all data under the distribution
+4. The other source of unpredictibility comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For example for regression problems which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$. In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$
+So even if theoretically we are able to train on all data from the distribution with the right model, the error in prediction during test time cannot be zero as well will see. 
+
+5. Given an input $$x$$ with target $$y$$ during the test time the model is not able to exact prediction of $$y$$ because of these two factors - the limitation in learning imposed by the dataset $$D$$ which is a small sample of the distribution we wish to learn on, and the noise $$\epsilon$$ associated with target $$y$$ but is uncorrelated with input $$x$$ and hence is unpredictable from $$x$$. Had we trained on all data under the distribution
    
    
 
