@@ -13,7 +13,7 @@ where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sa
 2. Since $$m$$ data-points from the distribution $$P(x,y)$$ can be chosen in multiple ways the training dataset $$D$$ has a distribution which follows   
 $$D \sim P^{m} (x_i,y_i) $$.
 
-3. Given a model class and training methodology each dataset $$D$$ would produce a different model parameterized by $$\theta_{D}$$ and that's what leads to the **variance of the model** . Because of this variability for a given input vecgtor $x$ models trained on different datasets $$D$$ would produce different predictions $$\hat{y_{D}}$$ . The variance of the model can be represented in terms of variance over the parameters of the models trained with datasets $$D \sim P(D)$$
+3. Given a model class and training methodology each dataset $$D$$ would produce a different model parameterized by $$\theta_{D}$$ and that's what leads to the **variance of the model** . Because of this variability for a given input vecgtor $$x$$ models trained on different datasets $$D$$ would produce different predictions $$\hat{y_{D}}$$ . The variance of the model can be represented in terms of variance over the parameters of the models trained with datasets $$D \sim P(D)$$
 
 $$\mathop {\mathbb E}_{D \sim P(D)} ({\theta{_D}} - {\mathbb E}    [{\theta{_D}}])^{2} $$                                                      
 
