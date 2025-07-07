@@ -42,6 +42,6 @@ $$\mathop {\mathbb E}_{D \sim P(D)} [\hat{y{_D}}] - \bar{y}$$
 <img width="1061" alt="image" src="https://github.com/user-attachments/assets/9c02ce3c-c0bb-4ca3-b295-a5af1af8d258" />
 
 
-    Figure-2.  Error for a given test input $$x$$  
+    Figure-2.  Error for a given test input x  
 
 
