@@ -28,6 +28,7 @@ We will choose this prediction representation for variance of model for our  bia
 <img width="968" alt="image" src="https://github.com/user-attachments/assets/5a166d40-4ee1-422c-a186-0625bd663249" />
 
 
+                    Figure-1. Illustration of Variance of a Model
 
 
 
