@@ -25,7 +25,11 @@ $$\mathop {\mathbb E}_{D \sim P(D)} (\hat{y{_D}} - {\mathbb E}    [{\hat y{_D}}]
 
 We will choose this prediction representation for variance of model for our  bias-variance decomposition analysis.
 
-<img width="968" alt="image" src="https://github.com/user-attachments/assets/4b448e51-5bf5-4e42-8cd3-65a42ced21ed" />
+<img width="968" alt="image" src="https://github.com/user-attachments/assets/5a166d40-4ee1-422c-a186-0625bd663249" />
+
+
+
+
 
 
 4. The other source of unpredictibility as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For example for regression problems which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$. In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
