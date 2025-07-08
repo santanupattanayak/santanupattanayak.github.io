@@ -68,6 +68,13 @@ $$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0
 
 $$                = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2} + 2\epsilon (\bar{y}   - \hat{y{_D}} ) + \epsilon^{2}] $$
 
+Lets look at the second term :
+
+$$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )]$$ 
+
+$$ 2 \mathop {\mathbb E}_ {D \sim P(D)} [ (\bar{y}   - \hat{y{_D}} )] $$ 
+
+$$ \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [\epsilon] $$
 
 
 
