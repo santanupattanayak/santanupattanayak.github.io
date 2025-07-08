@@ -36,10 +36,14 @@ We will choose this prediction representation for variance of model for our  bia
 4. The other source of unpredictibility as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For example for regression problems which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$. In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
 $$\mathop {\mathbb E}_{D \sim P(D)} \hat{y{_D}} = \bar{y}$$ and hence the **bias of the model** is defined as 
 
-$$\mathop {\mathbb E}_{D \sim P(D)} [\hat{y{_D}}] - \bar{y}$$
+$$\mathop {\mathbb E}_{D \sim P(D)} \bar{y} - [\hat{y{_D}}] $$
+
+So bias is the model's inability to catch up to the predictable component of the target. It often stems from the model being too simplistic to capture the nuanaces in the input to output relation. For instance using a Linear regression model to solve a problem where the dependency between input and target is non linear might introduce high bias in the model.   
 
 
-<img width="1061" alt="image" src="https://github.com/user-attachments/assets/9c02ce3c-c0bb-4ca3-b295-a5af1af8d258" />
+<img width="1049" alt="image" src="https://github.com/user-attachments/assets/c075678b-7496-4b64-a0a6-2d9c20e2b854" />
+
+
 
 
     Figure-2.  Error for a given test input x  
