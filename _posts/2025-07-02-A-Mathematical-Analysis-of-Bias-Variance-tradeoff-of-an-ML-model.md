@@ -60,7 +60,11 @@ The meaan of the conditional distribution  (we will drop the suffix $$x$$ from $
 Similarly the variability in the model prediction $$\hat{y_{D}})$$ is because of the distribution over the training datasets leading to different different model parameters $$\theta{_D}$$ pertaining to each dataset $$D \sim P(D)$$
 
 
-$$ \mathop {\mathbb E}_{D \sim P(D)} \mathop {\mathbb E} (y|x) $$
+$$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{y \sim N(\bar{y},\sigma^{2})} (y - \hat{y{_D}} )^{2} $$
+
+
+
+
 
 
 
