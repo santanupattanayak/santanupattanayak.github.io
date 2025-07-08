@@ -35,7 +35,7 @@ We will choose this prediction representation for variance of model for our  bia
 
 
 
-4. The other source of unpredictibility as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For example for regression problems which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$ (See Figure-2). In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $$E(y|x) = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
+4. The other source of unpredictibility as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For example for regression problems which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$ (See Figure-2). In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $${\mathbb E(y|x)} = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
 $$\mathop {\mathbb E}_{D \sim P(D)} \hat{y{_D}} = \bar{y}$$ and hence the **bias of the model** is defined as 
 
 $$\mathop {\mathbb E}_{D \sim P(D)} \bar{y} - [\hat{y{_D}}] $$
@@ -54,7 +54,16 @@ So bias is the model's inability to catch up to the predictable component of the
 
 ## Bias Viariance and Irreducible Error decomposition
 
-We will chose to look at the test loss for a given input vector $$x$$. As I have illustrated in Figure-2 given the input $$x$$ the variability in the target $$y$$ is because of the distribution over $$y$$ given $$x$$ i.e $$P(y|x) ~ N(\bar{y_{x}}, sigma^2) $$ . 
-The meaan of the conditional distribution is the predictable component So(we will drop the suffix $$x$$ from $$\bar{y}_{x} $$ for ease of notation)  is the predictable component of the $$y$$  
+We will chose to look at the test loss for a given input vector $$x$$. As I have illustrated in Figure-2 given the input $$x$$ the variability in the target $$y$$ is because of the distribution over $$y$$ given $$x$$ i.e $$P(y|x) ~ N(\bar{y_{x}}, \sigma^2) $$ . 
+The meaan of the conditional distribution  (we will drop the suffix $$x$$ from $$\bar{y}_{x} $$ for ease of notation)  is the predictable component of the $$y$$ and the variance is because of the unpredictable noise component \epsilon.
+
+Similarly the variability in the model prediction $$\hat{y_{D})$$ is because of the distribution over the training datasets leading to different different model parameters $$\theta_{D}$$ pertaining to each dataset $$D \sim P(D)$$
+
+So the test loss for the a given input $$x$$ is basically the  mean squared error between the target and predictions over the target and the prediction distributions as follows:
+
+$$ $\mathop {\mathbb E}_{D \sim P(D)} \mathop {\mathbb E} (y|x) $$
+
+
+
 
 
