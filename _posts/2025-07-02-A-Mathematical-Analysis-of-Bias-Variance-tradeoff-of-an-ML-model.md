@@ -55,13 +55,18 @@ So bias is the model's inability to catch up to the predictable component of the
 ## Bias Viariance and Irreducible Error decomposition
 
 We will chose to look at the test loss for a given input vector $$x$$. As I have illustrated in Figure-2 given the input $$x$$ the variability in the target $$y$$ is because of the distribution over $$y$$ given $$x$$ i.e $$P(y|x) ~ N(\bar{y_{x}}, \sigma^2) $$ . 
-The meaan of the conditional distribution  (we will drop the suffix $$x$$ from $$\bar{y}_{x} $$ for ease of notation)  is the predictable component of the $$y$$ and the variance is because of the unpredictable noise component $$\epsilon$$. 
+The meaan of the conditional distribution  (we will drop the suffix $$x$$ from $$\bar{y}_{x} $$ for ease of notation)  is the predictable component of the $$y$$ and the variance is because of the unpredictable noise component $$\epsilon$$ and as discussed earlier  $$y = \bar{y} + \epsilon$$
 
-Similarly the variability in the model prediction $$\hat{y_{D}})$$ is because of the distribution over the training datasets leading to different different model parameters $$\theta{_D}$$ pertaining to each dataset $$D \sim P(D)$$
+Similarly the variability in the model prediction $$\hat{y_{D}}$$ is because of the distribution over the training datasets leading to different different model parameters $$\theta{_D}$$ pertaining to each dataset $$D \sim P(D)$$
 
 
 $$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{y \sim N(\bar{y},\sigma^{2})} (y - \hat{y{_D}} )^{2} $$
 
+We can replace $$y$$ by $$\bar{y} + \epsilon$$ in $$L$$ and change the expectation over $$y \sim N(\bar{y},\sigma^{2})$$ to expectation over the noise $$\epsilon \sim N(0,\sigma^{2})$$. 
+
+$$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} (\bar{y} + \epsilon - \hat{y{_D}} )^{2} $$
+
+$$                = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2} + 2\epsilon (\bar{y}   - \hat{y{_D}} ) + \epsilon^{2}] $$
 
 
 
