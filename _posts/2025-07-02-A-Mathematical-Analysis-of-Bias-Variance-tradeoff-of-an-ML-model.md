@@ -90,6 +90,12 @@ $$ = 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \matho
  $$\mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}] = \sigma^{2}$$
 
 
+ Finally lets target the **1st term** which would give us our bias and variance component of the test loss. 
+
+
+ 
+
+
 
 
 
