@@ -113,12 +113,12 @@ Since $${\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_
 
 $$ \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} $$
 
-None of them is dependent on the noise distribution and hence we can rewrite the terms as 
+None of the remaining terms is dependent on the noise distribution and hence we can rewrite the terms as 
 
 $$ \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + (\hat{y{_D}} - {\mathbb E}[\hat{y{_D}}] )^{2}] $$
 
-So combining the terms left after all the simplifications of the 3 terms in the loss:
+So combining the components left after all the **simplifications of the 3 terms** in the test loss $$L$$:
 
 $$ L = \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + (\hat{y{_D}} - {\mathbb E}[\hat{y{_D}}] )^{2}]  + \sigma^{2} $$
 
-the first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
+The first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
