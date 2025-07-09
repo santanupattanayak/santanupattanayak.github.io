@@ -90,18 +90,35 @@ $$ = 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \matho
  $$\mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}] = \sigma^{2}$$
 
 
- Finally lets target the **1st term** which would give us our bias and variance component of the test loss. 
+ Finally lets target the **1st term** which would give us our **bias** and **variance** component of the test loss. For starters we will add and subract the mean of the predictions over various model $$\mathop {\mathbb E}_ {D \sim P(D)} [\hat{y{_D}}] $$ as it concerns both the bias and variance. To avoid clutter of notation we will just refer to it as $${\mathbb E} [\hat{y{_D}}] $$ in the below deduction.   
 
+ $$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2}] $$
 
+ $$ = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] $$
+
+$$ = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})] $$
  
+Lets inspect the final product term here. The noise distribution doesn't involve either of the product term and hence can be eliminated. 
+
+$$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})$$
+
+$$= \mathop {\mathbb E}_ {D \sim P(D)} 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})$$
+
+The first product term $$(\bar{y}   - {\mathbb E} [\hat{y{_D}}])$$  is constant with respect to the distribution of training dataset $$D$$ and hence can be taken out of expectation. We denote it by $$C$$. So the product term simplifies to 
+
+ $$= C*{\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})} $$
 
 
+Since $${\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})}= 0$$ the product term vanishes from the **1st term** and we are left with 
 
+$$ \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} $$
 
+None of them is dependent on the noise distribution and hence we can rewrite the terms as 
 
+$$ \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + (\hat{y{_D}} - {\mathbb E}[\hat{y{_D}}] )^{2}] $$
 
+So combining the terms left after all the simplifications of the 3 terms in the loss:
 
+$$ L = \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + (\hat{y{_D}} - {\mathbb E}[\hat{y{_D}}] )^{2}]  + \sigma^{2} $$
 
-
-
-
+the first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
