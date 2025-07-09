@@ -68,7 +68,7 @@ $$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0
 
 $$                = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2} + 2\epsilon (\bar{y}   - \hat{y{_D}} ) + \epsilon^{2}] $$
 
-Lets look at the second term :
+Lets look at the **second term** :
 
 $$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )]$$ 
 
@@ -79,8 +79,15 @@ $$ = 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \matho
 
 
  Since  the mean of the noise $$\mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon] = 0 $$ hence the second term is 0. 
+ 
+ The **third term** also simplies to be the noise variance which is the irreducible component of the error.
 
+ $$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon^{2}]$$ 
 
+ $$ = \mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}]$$  
+ 
+ Since $$\sigma$$ doesnt depend on the distribution over $$D$$ hence 
+ $$\mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}] = \sigma^{2}$$
 
 
 
