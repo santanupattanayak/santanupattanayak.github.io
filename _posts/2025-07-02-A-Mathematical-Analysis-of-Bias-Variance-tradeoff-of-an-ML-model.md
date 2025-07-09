@@ -72,9 +72,19 @@ Lets look at the second term :
 
 $$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )]$$ 
 
-$$ 2 \mathop {\mathbb E}_ {D \sim P(D)} [ (\bar{y}   - \hat{y{_D}} )] $$ 
+$$ = 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon]  $$ 
 
-$$ \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [\epsilon] $$
+
+
+
+
+ Since  the mean of the noise $$\mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon] = 0 $$ hence the second term is 0. 
+
+
+
+
+
+
 
 
 
