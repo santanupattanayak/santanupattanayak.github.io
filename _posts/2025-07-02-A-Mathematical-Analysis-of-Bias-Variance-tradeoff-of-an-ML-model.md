@@ -68,7 +68,7 @@ $$ L = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0
 
 $$                = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2} + 2\epsilon (\bar{y}   - \hat{y{_D}} ) + \epsilon^{2}] $$
 
-Lets look at the **second term** :
+Lets look at the **second term** which we are able to factorize as product of expectations as the model predictions $$\hat{y{_D}}$$ doesnt have noise distribution dependency which the noise $$\epsilon$$ doesnt have data distribution dependency :
 
 $$\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )]$$ 
 
