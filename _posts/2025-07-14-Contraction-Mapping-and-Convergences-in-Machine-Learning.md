@@ -8,8 +8,7 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 ## Contraction Mapping 
 
-A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if the $$T$$ brings the points closer to each other.
-Mathematically for a contraction mapping 
+A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction mapping if there exists $$0 \le c \le 1$$ such that
 
-$$ \norm{Tx - Ty} <= c\norm{x-y} \forall x \in X$$
+$$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
