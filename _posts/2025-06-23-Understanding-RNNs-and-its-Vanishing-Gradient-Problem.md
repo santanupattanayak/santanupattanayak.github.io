@@ -2,6 +2,7 @@
 layout: post
 title: "Understanding RNNs and its Vanishing Gradient Problem"
 date: 2025-06-23 00:00:00 -0000
+author: Santanu Pattanayak
 tags: RNNs, Vanishing Gradient Problem in RNN, 
 ---
 

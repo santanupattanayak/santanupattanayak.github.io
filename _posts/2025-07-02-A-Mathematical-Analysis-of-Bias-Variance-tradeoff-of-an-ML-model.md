@@ -2,6 +2,7 @@
 layout: post
 title: "A Mathematical Analysis of Bias-Variance tradeoff of an ML model"
 date: 2025-07-02 00:00:00 -0000
+author: Santanu Pattanayak
 tags: Bias, Variance. 
 ---
 
