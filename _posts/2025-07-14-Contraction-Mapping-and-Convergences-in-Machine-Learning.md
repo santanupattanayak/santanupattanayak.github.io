@@ -12,3 +12,7 @@ A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
+
+When $$c \< 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
+
+
