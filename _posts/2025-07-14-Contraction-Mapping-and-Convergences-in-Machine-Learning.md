@@ -13,7 +13,7 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
 
-2. When $$c \< 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
+2. When $$c \lt 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
 
 3. In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$  
 
