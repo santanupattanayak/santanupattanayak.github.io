@@ -8,12 +8,12 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 ## Contraction Mapping 
 
-1. A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction mapping if there exists $$0 \le c \le 1$$ such that
+1.  A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction mapping if there exists $$0 \le c \le 1$$ such that
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
 
-2. When $$c \lt 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
+2.  When $$c \lt 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
 
 3. In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$
 
@@ -25,7 +25,7 @@ We can see in the definition of Contraction Mapping theorem the term **Complete 
 
 $$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$
 
-**Example** - The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence.
+Example - The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence.
 
    a. To prove the same we would like to find an $$N$$ for every $$\epsilon$$ such that fo every pair $$m,n \ge N $$  the inequality $$\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$  holds.
    
