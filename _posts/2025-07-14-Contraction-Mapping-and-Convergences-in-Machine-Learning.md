@@ -28,14 +28,21 @@ $$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$
 
 Example - The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence.
 
-This is because for a given $$\epsilon$$ we can choose $$N \gt \frac{2}{\epsilon} $$ which will ensure for any two positive integers $$m,n \ge N$$ we will have $$\frac{1}{n} \gt \frac{\epsilon}{2}$$ and $$\frac{1}{m} \gt \frac{\epsilon}{2}$$.
+To prove the same we would like to find an $$N$$ for every $$\epsilon$$ such that fo every pair $$m,n \ge N $$  the inequality $$\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$  holds.
 
-Now 
+We have,
 
 $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert$$
 
+For a given $$\epsilon$$ we can choose $$N \gt \frac{2}{\epsilon} $$ which will ensure for both positive integers $$m,n \ge N$$ we will have $$\frac{1}{n} \gt \frac{\epsilon}{2}$$ and $$\frac{1}{m} \gt \frac{\epsilon}{2}$$. Hence,
 
-\lt \lvert \frac{1}{m} \rvert \+ \lvert \frac{1}{m} \rvert $$
+$$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert \lt \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon $$
+
+
+Since we are able to find $$N \gt \frac{2}{\epsilon} $$ for the chosen $$\epsilon$$ in $$\lvert x_{m} - x_{n} \rvert \lt \epsilon$$ the sequence is a Cauchy sequence.
+
+
+
 
 
 
