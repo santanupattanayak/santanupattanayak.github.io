@@ -20,6 +20,12 @@ $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 We can see in the definition of Contraction Mapping theorem the term **Complete metric space** has come up. We will first discuss about **Cauchy sequences** to help define **Complete metric spaces**  
 
 ## Cauchy sequences
-Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence is the distance between the consecutive terms shrinks as the sequence proceeds.   
+1. Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms shrinks as the sequence progresses.
+   
+2. Mathematically, if for every positive real number $$\epsilon \gt 0 $$ there exists a positive integer $$N$$ such that for any pair of positive integers $$m,n > N$$ the below holds, the sequence $${\{ x_n \}}$$ is said to be Cauchy.
+
+$$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$ 
+
+
 
 
