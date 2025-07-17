@@ -33,6 +33,17 @@ The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence. To
    
 Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. Hence $$x_{n} = \frac{1}{n}$$ is a Cauchy sequence.
 
+To determine what the sequence converges we can compute $$lim_{n \to \infty} \frac{1}{n} $$ which is $$0$$. Hence $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called limit of the sequence.
+
+## Complete Metric Space 
+
+Now that we have defined **Cauchy sequences** it would be easy to define the Complete Metric Space. 
+
+1. A **Complete Metric Space** is a metric space in which every Cauchy sequence converges to a point in the space called the **limit** of the sequence.  In essence its a space which contains all the limit points of every possible Cauchy sequence in the metric space.
+2. Let's take the example of sequence 
+
+
+
 
 
 
