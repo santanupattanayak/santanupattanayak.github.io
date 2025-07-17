@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Contraction Mapping and Convergences in Machine Learning"
-date: 2025-07-02 00:00:00 -0000
+date: 2025-07-14 00:00:00 -0000
 author: Santanu Pattanayak
 tags: banach fixed point, Contraction Mapping, gradient descent convergence through Contraction Mapping. 
 ---
