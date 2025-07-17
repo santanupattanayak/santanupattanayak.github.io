@@ -44,15 +44,16 @@ Now that we have defined **Cauchy sequences** it would be easy to define the Com
 
 $$ x_{n} = \left(1 + \frac{1}{n}\right)^{n} ; n \in \mathbb{N} $$
 
-The sequence proceeds as a sequence of rationals 
+This sequence proceeds as a sequence of rationals 
    
    $$ {2}, \frac{9}{4},\frac{64}{27} ... $$
    
    and finally would have converged to  
    
    $$ \lim_{n\to\infty} x_{n} = \left(1 + \frac{1}{n}\right)^{n}  = e $$
+   
 
-   However $$e$$ is not a rational number and hence the sequence can't be converge in the metric space of $$\mathbb{Q} $$. In essense $$\mathbb{Q} $$ is not a complete metric space. The sequence would converge in the metric space $$\mathbb{R} $$ as the limit of the sequence $$e \in \mathbb{R} $$.
+   The sequence is Cauchy, however since $$e$$ is not a rational number hence it cannot converge in the metric space of $$\mathbb{Q} $$. In essense $$\mathbb{Q} $$ is not a complete metric space. The sequence would have converged in the metric space $$\mathbb{R} $$ as the limit of the sequence $$e \in \mathbb{R} $$. So for a sequence to converge the terms of the sequence have to get arbritarily close to each other as the sequence progresses (Cauchy sequence) and the limit of the sequence also needs to be in the metric space. So for convergence we desire a Complete metric space where all Cauchy sequences can converge.
 
    
 
