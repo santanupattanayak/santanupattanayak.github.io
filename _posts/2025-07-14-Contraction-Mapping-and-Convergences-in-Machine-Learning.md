@@ -33,7 +33,7 @@ The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence. To
    
 Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. Hence $$x_{n} = \frac{1}{n}$$ is a Cauchy sequence.
 
-To determine what the sequence converges we can compute $$lim_{n \to \infty} \frac{1}{n} $$ which is $$0$$. Hence $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called limit of the sequence.
+To determine what the sequence converges we can compute $$\lim_{n\to\infty} \frac{1}{n} $$ which is $$0$$. Hence $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called limit of the sequence.
 
 ## Complete Metric Space 
 
