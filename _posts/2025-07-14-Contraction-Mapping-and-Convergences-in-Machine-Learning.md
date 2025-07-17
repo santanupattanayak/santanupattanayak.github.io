@@ -55,6 +55,25 @@ This sequence proceeds as a sequence of rationals
 
    The sequence is Cauchy, however since $$e$$ is not a rational number hence it cannot converge in the metric space of $$\mathbb{Q} $$. In essense $$\mathbb{Q} $$ is not a complete metric space. The sequence would have converged in the metric space $$\mathbb{R} $$ as the limit of the sequence $$e \in \mathbb{R} $$. So for a sequence to converge the terms of the sequence have to get arbritarily close to each other as the sequence progresses (Cauchy sequence) and the limit of the sequence also needs to be in the metric space. So for convergence we desire a Complete metric space where all Cauchy sequences can converge.
 
+## Revisiting the Contraction Mapping Theorem 
+
+1. Now that we know about Cauchy Sequences and Complete metric spaces, all that we need to see if the sequence determined by the contraction mapping $$T$$ starting from some initial point $$x_0$$ leads to a Cauchy sequence to prove the existance of a fixed point satisfying $$Tx = x$$
+
+2. The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
+
+If we take the sequence values at $$x_{m}$$ and $$x_{n}$$ for positive integers $$m,n \ge N$$ and use the Contraction mapping property  
+
+$$ \lvert x_{m} - x_{n} \rvert = \lvert Tx_{m-1} - Tx_{n-1} \rvert \le c\lvert x_{m-1} - x_{n-1} \rvert$$ 
+
+ 
+   
+
+    
+
+
+
+
+
    
 
 
