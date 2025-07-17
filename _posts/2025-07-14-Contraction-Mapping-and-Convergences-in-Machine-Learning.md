@@ -25,21 +25,11 @@ We can see in the definition of Contraction Mapping theorem the term **Complete 
 
 $$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$
 
-Example - The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence.
-
-   a. To prove the same we would like to find an $$N$$ for every $$\epsilon$$ such that fo every pair $$m,n \ge N $$  the inequality $$\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$  holds.
+Example - The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence. To prove the same we would like to find an $$N_{\epsilon}$$ for every $$\epsilon \gt 0$$ such that fo every pair $$m,n \ge N_{\epsilon} $$  the inequality $$\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$  holds.  Applying the modulus inequality and the fact that $$\frac{1}{n} < \frac{1}{N_\epsilon}$$ and $$\frac{1}{m} < \frac{1}{N_\epsilon}$$ we get 
    
-   b. Applying the modulus inequality we get 
+   $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert \le \frac{2}{N} \lt \epsilon $$  
    
-   $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert$$
-   
-   c. For a given $$\epsilon$$ we can choose $$N \gt \frac{2}{\epsilon} $$ which will ensure for both positive integers $$m,n \ge N$$ we will have $$\frac{1}{n} \gt \frac{\epsilon}{2}$$ and $$\frac{1}{m} \gt \frac{\epsilon}{2}$$. Hence,
-   
-   $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert \lt \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon $$
-      
-   d. Since we are able to find $$N \gt \frac{2}{\epsilon} $$ for the chosen $$\epsilon$$ in $$\lvert x_{m} - x_{n} \rvert \lt \epsilon$$ the sequence is a Cauchy sequence.
-
-
+Hence we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. hence $$\{x_n\}$$ is a Cauchy sequence.
 
 
 
