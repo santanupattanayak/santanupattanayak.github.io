@@ -40,7 +40,23 @@ To determine what the sequence converges we can compute $$lim_{n \to \infty} \fr
 Now that we have defined **Cauchy sequences** it would be easy to define the Complete Metric Space. 
 
 1. A **Complete Metric Space** is a metric space in which every Cauchy sequence converges to a point in the space called the **limit** of the sequence.  In essence its a space which contains all the limit points of every possible Cauchy sequence in the metric space.
-2. Let's take the example of sequence 
+2. Let's us look at the convergence of the sequence below in the metric space of rationals $$\mathbb{Q} $$
+
+$$ x_{n} = \left(1 + \frac{1}{n}\right)^{n} ; n \in \mathbb{N} $$
+
+The sequence proceeds as a sequence of rationals 
+   
+   $$ {2}, \frac{9}{4},\frac{64}{27} ... $$
+   
+   and finally would have converged to  
+   
+   $$ \lim_{n\to\infty} x_{n} = \left(1 + \frac{1}{n}\right)^{n}  = e $$
+
+   However $$e$$ is not a rational number and hence the sequence can't be converge in the metric space of $$\mathbb{Q} $$. In essense $$\mathbb{Q} $$ is not a complete metric space. The sequence would converge in the metric space $$\mathbb{R} $$ as the limit of the sequence $$e \in \mathbb{R} $$.
+
+   
+
+
 
 
 
