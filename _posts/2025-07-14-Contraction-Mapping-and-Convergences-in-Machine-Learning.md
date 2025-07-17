@@ -57,13 +57,13 @@ This sequence proceeds as a sequence of rationals
 
 ## Revisiting the Contraction Mapping Theorem 
 
-1. Now that we know about Cauchy Sequences and Complete metric spaces, all that we need to see if the sequence determined by the contraction mapping $$T$$ starting from some initial point $$x_0$$ leads to a Cauchy sequence to prove the existance of a fixed point satisfying $$Tx = x$$
+1. Now that we know about Cauchy Sequences and Complete metric spaces, we will try to prove the existence of the fixed point satisfying $$Tx = x$$ by showing that the contraction mapping $$T$$ leads to a Cauchy sequence.  The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
 
-2. The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
+2. If we take the sequence values at $$x_{m}$$ and $$x_{n}$$ for positive integers $$m,n \ge N$$ and use the Contraction mapping property
 
-If we take the sequence values at $$x_{m}$$ and $$x_{n}$$ for positive integers $$m,n \ge N$$ and use the Contraction mapping property  
-
-$$ \lvert x_{m} - x_{n} \rvert = \lvert Tx_{m-1} - Tx_{n-1} \rvert \le c\lvert x_{m-1} - x_{n-1} \rvert$$ 
+$$ \lvert x_{m} - x_{n} \rvert = \lvert Tx_{m-1} - Tx_{n-1} \rvert $$
+                               $$\le c\lvert x_{m-1} - x_{n-1} \rvert$$ 
+                               $$\le c^{n}\lvert x_{m-n} - x_{0} \rvert$$ 
 
  
    
