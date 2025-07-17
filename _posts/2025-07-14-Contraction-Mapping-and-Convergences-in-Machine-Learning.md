@@ -31,7 +31,7 @@ The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence. To
    
    $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert \le \frac{2}{N} \lt \epsilon $$  
    
-Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. Hence $$x_{n} = \frac{1}{n} is a Cauchy sequence.
+Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. Hence $$x_{n} = \frac{1}{n}$$ is a Cauchy sequence.
 
 
 
