@@ -85,7 +85,8 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 4. Lets look at the the gradient descent operstion at iterations $$m$$ and $$n$$
 
-$$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert =\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert$$
+$$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert$$ 
+$$=\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert$$
 $$= \lVert (\theta^{(m)} - \theta^{(n)}) - \eta(X^{T}X\theta^{(m)} - X^{T}X\theta^{(n)}) \rVert  $$
 $$= \lVert (I - \eta X^{T}X) (\theta^{(m)} - \theta^{(n)}) \rVert  $$
 $$\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert  $$
