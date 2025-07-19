@@ -72,6 +72,28 @@ As $$m,n\to\infty$$ since for the contraction mapping $$c \lt 1$$ hence $$c^{n}\
 
 In the rest of the Chapter we will try to prove the Convergence of iterative alogithms in Machine Learning using the Contraction Mapping Theorem. Specifically we will study the Convergence of Gradient Descent for Convex functions as well as the Convergence of the Value Function in Reinformacement learning using Contraction Mapping theorem.
 
+## Gradient Descent Convergence of Linear Regression
+
+1. Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$m$$ datapoints of dimension $$n$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{n}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{m}$$ is the vector containing the targets for the $$m$$ datapoints.
+
+3. The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
+     $$\theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)})$$ .The gradient of the objective $$L$$ with repsect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same to below
+
+   $$\theta^{(t+1)} = \theta^{(t)} - \eta(X^{T}(X\theta^{(t)} - Y)) = \theta^{(t)} - \eta(X^{T}X\theta^{(t)} - X^{T}Y)$$
+   
+   We can think about gradient descent as an interative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. We would like to see if the Gradient descent operator $$T$$ is a contraction mapping.
+
+4. Lets look at the the gradient descent operstion at iterations $$m$$ and $$n$$
+
+
+   $$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert$$
+   
+
+   
+
+    
+         
+
     
 
 
