@@ -96,14 +96,14 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
    $$\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert  $$
 
 * So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ . $$X^{T}*X$$ being a positive semidefinite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
-
+  
 $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
+  
+* This norm should be less than 1 for gradient descent to be a contraction and subsequently gurantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated   with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tigest bound of the learning rate is provided by the maximum eigen value as shown below
 
-  and this norm should be less than 1 for gradient descent to be a contraction as subsequently gurantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tigest bound of the learning rate is provided by the maximum eigen value as shown below 
-
-  $$ \lvert 1 - \eta\lambda_{max} \rvert < 1 $$
-  $$ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1 $$
-  $$ \Rightarrow \eta \lt \frac{2}{\lambda_{max}} $$ 
+$$ \lvert 1 - \eta\lambda_{max} \rvert < 1 $$
+$$ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1 $$
+$$ \Rightarrow \eta \lt \frac{2}{\lambda_{max}} $$ 
   
 
 
