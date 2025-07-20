@@ -74,7 +74,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 ## Gradient Descent Convergence of Linear Regression
 
-* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$m$$ datapoints of dimension $$n$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{n}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{m}$$ is the vector containing the targets for the $$m$$ datapoints.
+* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
 
 * The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
      $$\theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)})$$ .The gradient of the objective $$L$$ with repsect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same to below
@@ -83,7 +83,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
    
    We can think about gradient descent as an interative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. We would like to see if the Gradient descent operator $$T$$ is a contraction mapping.
 
-* Lets look at the the gradient descent operstion at iterations $$m$$ and $$n$$
+* Lets look at the the gradient descent operation at iterations $$m$$ and $$n$$ using the L2 norm 
 
    $$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert$$
    
