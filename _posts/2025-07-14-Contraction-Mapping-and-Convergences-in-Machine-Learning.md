@@ -99,8 +99,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
 
-and this norm should be less than 1 for contraction mapping and subsequent convergence of the gradient descent.
-
+  and this norm should be less than 1 for gradient descent to be a contraction as subsequently gurantee convergence.
 
 
 
