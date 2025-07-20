@@ -95,6 +95,16 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
    
    $$\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert  $$
 
+* So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ . $$X^{T}*X$$ being a positive semidefinite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
+
+$$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
+
+and this norm should be less than 1 for contraction mapping and subsequent convergence of the gradient descent.
+
+
+
+
+
 
 
    
