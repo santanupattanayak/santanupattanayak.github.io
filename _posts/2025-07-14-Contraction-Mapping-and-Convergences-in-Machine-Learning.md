@@ -8,25 +8,25 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 ## Contraction Mapping 
 
-1.  A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction mapping if there exists $$0 \le c \le 1$$ such that
+*  A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction mapping if there exists $$0 \le c \le 1$$ such that
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
 
-2.  When $$c \lt 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
+*  When $$c \lt 1 $$ we call it a strict contraction. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
 
-3. In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$
+* In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$
 
 
 We can see in the definition of Contraction Mapping theorem the term **Complete metric space** has come up. We will first discuss about **Cauchy sequences** to help define **Complete metric spaces**  
 
 ## Cauchy sequences
-1. Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms get arbitrarily closer as the sequence progresses.
-2.  Mathematically, if for every positive real number $$\epsilon \gt 0 $$ there exists a positive integer $$N$$ such that for any pair of positive integers $$m,n \ge N$$ the below holds, the sequence $${\{ x_n \}}$$ is said to be Cauchy. 
+* Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms get arbitrarily closer as the sequence progresses.
+  Mathematically, if for every positive real number $$\epsilon \gt 0 $$ there exists a positive integer $$N$$ such that for any pair of positive integers $$m,n \ge N$$ the below holds, the sequence $${\{ x_n \}}$$ is said to be Cauchy. 
 
 $$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$
 
-3.  Alternatelty if $$\lim_{m,n\to\infty} \lvert x_{m} - x_{n} \rvert \to 0 $$ the sequence $$\{x_n\}$$ is Cauchy.
+*  Alternatelty if $$\lim_{m,n\to\infty} \lvert x_{m} - x_{n} \rvert \to 0 $$ the sequence $$\{x_n\}$$ is Cauchy.
 
 **Example**
 
@@ -42,8 +42,8 @@ To determine what the sequence converges we can compute $$\lim_{n\to\infty} \fra
 
 Now that we have defined **Cauchy sequences** it would be easy to define the Complete Metric Space. 
 
-1. A **Complete Metric Space** is a metric space in which every Cauchy sequence converges to a point in the space called the **limit** of the sequence.  In essence its a space which contains all the limit points of every possible Cauchy sequence in the metric space.
-2. Let's us look at the convergence of the sequence below in the metric space of rationals $$\mathbb{Q} $$
+* A **Complete Metric Space** is a metric space in which every Cauchy sequence converges to a point in the space called the **limit** of the sequence.  In essence its a space which contains all the limit points of every possible Cauchy sequence in the metric space.
+*  Let's us look at the convergence of the sequence below in the metric space of rationals $$\mathbb{Q} $$
 
 $$ x_{n} = \left(1 + \frac{1}{n}\right)^{n} ; n \in \mathbb{N} $$
 
@@ -60,9 +60,9 @@ This sequence proceeds as a sequence of rationals
 
 ## Revisiting the Contraction Mapping Theorem 
 
-1. Now that we know about Cauchy Sequences and Complete metric spaces, we will try to prove the existence of the fixed point satisfying $$Tx = x$$ by showing that the contraction mapping $$T$$ leads to a Cauchy sequence.  The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
+* Now that we know about Cauchy Sequences and Complete metric spaces, we will try to prove the existence of the fixed point satisfying $$Tx = x$$ by showing that the contraction mapping $$T$$ leads to a Cauchy sequence.  The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
 
-2. If we take the sequence values at $$x_{m}$$ and $$x_{n}$$ for positive integers $$m,n \ge N$$ and use the Contraction mapping property
+* If we take the sequence values at $$x_{m}$$ and $$x_{n}$$ for positive integers $$m,n \ge N$$ and use the Contraction mapping property
 
 $$ \lvert x_{m} - x_{n} \rvert = \lvert Tx_{m-1} - Tx_{n-1} \rvert $$
                                $$\le c\lvert x_{m-1} - x_{n-1} \rvert$$ 
@@ -74,16 +74,16 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 ## Gradient Descent Convergence of Linear Regression
 
-1. Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$m$$ datapoints of dimension $$n$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{n}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{m}$$ is the vector containing the targets for the $$m$$ datapoints.
+* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$m$$ datapoints of dimension $$n$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{n}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{m}$$ is the vector containing the targets for the $$m$$ datapoints.
 
-3. The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
+* The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
      $$\theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)})$$ .The gradient of the objective $$L$$ with repsect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same to below
 
    $$\theta^{(t+1)} = \theta^{(t)} - \eta(X^{T}(X\theta^{(t)} - Y)) = \theta^{(t)} - \eta(X^{T}X\theta^{(t)} - X^{T}Y)$$
    
    We can think about gradient descent as an interative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. We would like to see if the Gradient descent operator $$T$$ is a contraction mapping.
 
-4. Lets look at the the gradient descent operstion at iterations $$m$$ and $$n$$
+* Lets look at the the gradient descent operstion at iterations $$m$$ and $$n$$
 
    $$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert$$
    
