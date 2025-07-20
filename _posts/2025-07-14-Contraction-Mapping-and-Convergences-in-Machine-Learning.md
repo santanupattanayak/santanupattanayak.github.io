@@ -74,7 +74,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 ## Gradient Descent Convergence of Linear Regression
 
-* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{m\times n} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
+* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
 
 * The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
      $$\theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)})$$ .The gradient of the objective $$L$$ with repsect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same to below
