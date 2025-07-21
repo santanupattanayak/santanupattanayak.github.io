@@ -104,6 +104,21 @@ $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
 $$ \lvert 1 - \eta\lambda_{max} \rvert < 1 $$
 $$ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1 $$
 $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$ 
+
+## Value function convergence under the Bellman operator
+
+* In this section we will look at the $Value function convergence$ under a given policy $\pi$ using the Supremum norm over the state space. We will use the standard notations of $s$ and $s^{'}$ for current and next state, $a$ for action at current state $s$. We denote the immediate reward at state $s$ on taking action $a$ as per the policy $\pi$ as $r(s,a)$ and \gamma as the discount factor.
+
+* We denote the value function at a given state by $V(s)$ while the overall Value function for all states as $V$
+
+* As per the $Bellman operator$, which we denote by $T$ here we have the following recurrence wrt to Value function
+
+  $TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s_{'}) $     
+
+  
+     
+
+    
   
 
 
