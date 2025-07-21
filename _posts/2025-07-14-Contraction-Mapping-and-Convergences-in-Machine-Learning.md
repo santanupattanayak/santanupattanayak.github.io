@@ -113,9 +113,22 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 * As per the **Bellman operator**, which we denote by $$T$$ here we have the following recurrence wrt to Value function
 
-  $$TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s') $$     
+  $$TV(s) = \max_{a} \[r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s')\] $$
 
-  
+* Lets take a lookat the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their different
+
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert   = \lvert \max_{a} \[r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s')\] - \max_{a} \[r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')\]  \rvert$$      
+
+* The immediate reward cancels out and the expression simplifies to
+
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert = \lvert \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert $$ 
+
+* Since $$\lvert \max_a (x_a - y_a) \rvert  \le \max_a\lvert x_a - y_a \rvert $$ we can convert our equality equation into an inequality one as below
+
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert $$ 
+
+
+   
      
 
     
