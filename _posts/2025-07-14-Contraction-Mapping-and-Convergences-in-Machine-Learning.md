@@ -103,7 +103,7 @@ $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
 
 $$ \lvert 1 - \eta\lambda_{max} \rvert < 1 $$
 $$ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1 $$
-$$ \Rightarrow \eta \lt \frac{2}{\lambda_{max}} $$ 
+$$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$ 
   
 
 
