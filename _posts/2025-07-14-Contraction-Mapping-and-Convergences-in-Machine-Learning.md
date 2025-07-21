@@ -113,7 +113,7 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 * As per the **Bellman operator**, which we denote by $$T$$ here we have the following recurrence wrt to Value function
 
-  $$TV(s) = \max_{a} \(r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s')) $$
+  $$TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s')) $$
 
 * Lets take a lookat the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their different
 
@@ -135,7 +135,7 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
- The fact that the sum of the probability across all states is 1 i.e. $$\sum_{s'} \mathbb{P}(s^{'} | s,a) = 1$$ the inequality further simplies to 
+ * The sum of the probability across all states is 1 i.e. $$\sum_{s'} \mathbb{P}(s^{'} | s,a) = 1$$ and hence the inequality further simplies to 
  
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
