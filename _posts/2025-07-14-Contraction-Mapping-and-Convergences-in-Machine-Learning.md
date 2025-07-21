@@ -113,7 +113,7 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 * As per the **Bellman operator**, which we denote by $$T$$ here we have the following recurrence wrt to Value function
 
-  $$TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s_{'}) $$     
+  $$TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s') $$     
 
   
      
