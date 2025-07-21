@@ -107,7 +107,7 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 ## Value function convergence under the Bellman operator
 
-* In this section we will look at the **Value function convergence** under a given policy $$\pi$$ using the Supremum norm(max norm) over the state space. We will use the standard notations of $$s$$ and $$s^{'}$$ for current and next state, $$a$$ for action at current state $$s$$. We denote the immediate reward at state $s$ on taking action $$a$$ as per the policy $$\pi$$ as $$r(s,a)$$ and $$\gamma$$ as the discount factor.
+* In this section we will look at the **Value function convergence** under a given policy $$\pi$$ using the Supremum norm(max norm) over the state space. We will use the standard notations of $$s$$ and $$s^{'}$$ for current and next state, $$a$$ for action at current state $$s$$. We denote the immediate reward at state $s$ on taking action $$a$$ as per the policy $$\pi$$ as $$r(s,a)$$ and $$\gamma$$ as the discount factor such that $$ 0 \le \gamma < 1 $$.
 
 * We denote the value function at a given state by $$V(s)$$ while the overall Value function for all states as $$V$$
 
@@ -121,49 +121,26 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 * The immediate reward cancels out and the expression simplifies to
 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert = \lvert \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert $$ 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert = \lvert \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - V^{(n)}(s') \]   \rvert $$ 
 
 * Since $$\lvert \max_a (x_a - y_a) \rvert  \le \max_a\lvert x_a - y_a \rvert $$ we can convert our equality equation into an inequality one as below
 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert $$ 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') -  V^{(n)}(s') \]   \rvert $$ 
 
-* The weighted sum inside the abs value $$\lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert \le  \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s')   \rvert $$ because of the Triangle inequality and hence
+* The weighted sum inside the abs value $$\lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') -  V^{(n)}(s') \]   \rvert \le  \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') -  V^{(n)}(s')   \rvert $$ because of the Triangle inequality and hence
 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s')    \rvert $$ 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ 
 
-  
+* The fact that $$\lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ is no greater than the maximum across all states $$\max_{s} \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ which is nothing but the supremum norm  $${\lVert V^{(m)} - V^{(n)}    \rVert}_{\infty} $$  the Bellaman operator inequality simplifies to
 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
-   
-     
+ The fact that the sum of the probability across all states is 1 i.e. $\sum_{s'} \mathbb{P}(s^{'} | s,a) = 1$$ the inequality further simplies to 
+ 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
-    
-  
+* Finally since $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$ for any state $$s$$ it should be true for the state $$s$$ corresponding to the maximum value of $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$ which is nothing but the supremum norm of $$TV^{(m)} - TV^{(n)} $$ . Hence the inequality takes the final form as below
 
+ $$ \lVert TV^{(m)} - TV^{(n)} \rVert_{\infty} \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
-
-
-
-
-   
-
-   
-
-    
-         
-
-    
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
+ Since the discount factor $$ 0  \le \gamma \le 1$$ hence the Bellman operator is a contraction mapping and the Value function converges.
