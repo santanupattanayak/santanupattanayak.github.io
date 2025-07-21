@@ -127,6 +127,12 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert $$ 
 
+* The weighted sum inside the abs value $$\lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) \[V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s') \]   \rvert \le  \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s')   \rvert $$ because of the Triangle inequality and hence
+
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - \mathbb{P}(s^{'} | s,a) V^{(n)}(s')    \rvert $$ 
+
+  
+
 
    
      
