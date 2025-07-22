@@ -118,7 +118,8 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 * Lets take a lookat the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their different
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$
- $$= \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s')) - \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert$$      
+ $$= \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s'))$$
+ $$ - \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert$$      
 
 * The immediate reward cancels out and the expression simplifies to
 
