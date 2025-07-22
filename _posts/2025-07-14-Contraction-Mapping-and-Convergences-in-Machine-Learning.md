@@ -117,7 +117,8 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
 * Lets take a lookat the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their different
 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert   = \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s')) - \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert$$      
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$
+ $$= \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s')) - \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert$$      
 
 * The immediate reward cancels out and the expression simplifies to
 
@@ -127,11 +128,11 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) (V^{(m)}(s') -  V^{(n)}(s') )  \rvert $$ 
 
-* The weighted sum inside the abs value $$\lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) (V^{(m)}(s') -  V^{(n)}(s') )   \rvert \le  \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') -  V^{(n)}(s')   \rvert $$ because of the Triangle inequality and hence
-
+* Applying triangle inequality to the weighted sum inside the abs value we get
+  
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ 
 
-* The fact that $$\lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ is no greater than the maximum across all states $$\max_{s} \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ which is nothing but the supremum norm  $${\lVert V^{(m)} - V^{(n)}    \rVert}_{\infty} $$  the Bellaman operator inequality simplifies to
+* The fact that $$\lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ is no greater than the supremum norm(maximum across all states) the Bellaman operator inequality simplifies to
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
