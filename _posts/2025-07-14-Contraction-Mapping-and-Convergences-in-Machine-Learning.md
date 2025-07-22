@@ -101,9 +101,12 @@ $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
   
 * This norm should be less than 1 for gradient descent to be a contraction and subsequently gurantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated   with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tigest bound of the learning rate is provided by the maximum eigen value as shown below
 
-$$ \lvert 1 - \eta\lambda_{max} \rvert < 1 $$
-$$ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1 $$
-$$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$ 
+$$
+\begin{flalign*}
+ \lvert 1 - \eta\lambda_{max} \rvert < 1            \\
+ \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1  \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}}      \\
+ \end{flalign*}
+$$
 
 ## Value function convergence under the Bellman operator
 
@@ -146,3 +149,6 @@ $$ \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}} $$
  $$ \lVert TV^{(m)} - TV^{(n)} \rVert_{\infty} \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
 * Since the discount factor $$0\le \gamma \le 1 $$ hence the Bellman operator is a contraction mapping and the Value function converges.
+
+
+
