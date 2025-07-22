@@ -83,17 +83,19 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
    
    We can think about gradient descent as an interative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. We would like to see if the Gradient descent operator $$T$$ is a contraction mapping.
 
-* Lets look at the the gradient descent operation at iterations $$m$$ and $$n$$ using the L2 norm 
+* Lets look at the the gradient descent operation at iterations $$m$$ and $$n$$ using the L2 norm
 
-   $$\lVert T\theta^{(m)} - T\theta^{(n)} \rVert$$
-   
-   $$=\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert$$
-   
-   $$= \lVert (\theta^{(m)} - \theta^{(n)}) - \eta(X^{T}X\theta^{(m)} - X^{T}X\theta^{(n)}) \rVert  $$
-   
-   $$= \lVert (I - \eta X^{T}X) (\theta^{(m)} - \theta^{(n)}) \rVert  $$
-   
-   $$\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert  $$
+$$
+\begin{eqnarray}
+\lVert T\theta^{(m)} - T\theta^{(n)} \rVert \\
+=\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert \\
+= \lVert (\theta^{(m)} - \theta^{(n)}) - \eta(X^{T}X\theta^{(m)} - X^{T}X\theta^{(n)}) \rVert \\
+= \lVert (I - \eta X^{T}X) (\theta^{(m)} - \theta^{(n)}) \rVert  \\
+\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert
+\end{eqnarray}
+$$
+
+
 
 * So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ . $$X^{T}*X$$ being a positive semidefinite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
   
