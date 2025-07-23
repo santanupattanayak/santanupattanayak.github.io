@@ -80,7 +80,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 
 * Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
 
-* The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
+* The **gradient descent parameter update** rule is as follows where $$t$$ is the iteration number:
 
   
   $$
@@ -120,7 +120,7 @@ $$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
 
 $$
 \begin{align}
- &\lvert 1 - \eta\lambda_{max} \rvert < 1            \\
+ &    \lvert 1 - \eta\lambda_{max} \rvert < 1            \\
  &  \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1  \\
  &  \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}}   
  \end{align}
