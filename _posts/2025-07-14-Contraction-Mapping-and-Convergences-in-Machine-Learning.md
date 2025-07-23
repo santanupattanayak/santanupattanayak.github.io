@@ -12,6 +12,10 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
+<img width="320" height="320" align="center" alt="image"  src="https://github.com/user-attachments/assets/9f7c9ff7-37a4-42cb-bfc2-cd97a443b996" />
+
+
+
 
 *  When $$c \lt 1 $$ we call it a **strict contraction**. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
 
