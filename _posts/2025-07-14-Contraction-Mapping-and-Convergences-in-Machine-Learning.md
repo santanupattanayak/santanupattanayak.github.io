@@ -12,7 +12,21 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
-<img width="320" height="320" align="center" alt="image"  src="https://github.com/user-attachments/assets/9f7c9ff7-37a4-42cb-bfc2-cd97a443b996" />
+&nbsp; &nbsp; &nbsp; As illustrated in the Figure 1. we can see that the distance between two points $$x$$ and $$y$$ shrinks on application of the transform
+<br>
+&nbsp; &nbsp; &nbsp;  $$T$$  and hence $$T$$ is a   contraction.
+
+<p align="center">
+<img  width="320" height="320" alt="image" src="https://github.com/user-attachments/assets/55ebd7b5-9e9c-462b-8d63-4d5e4d967ff5" />
+<\p>
+
+
+
+*Figure 1. Contraction Mapping in a 2D metric space*
+
+  
+    
+
 
 
 
