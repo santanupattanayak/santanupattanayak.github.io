@@ -85,7 +85,7 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
   
   $$
   \begin{align}
-  \theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)}) \\
+  \theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)}) 
   \end{align}
   $$
   
