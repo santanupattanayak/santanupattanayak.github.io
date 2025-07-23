@@ -81,13 +81,11 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alo
 * Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
 
 * The **gradient descent parameter update** rule is as follows where $$t$$ is the interation number:
-  
   $$
-  \begin{align}
-  \theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)}) 
+  \theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)})
   \end{align}
   $$
-
+  
   The gradient of the objective $$L$$ with respect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same as follows:
 
   $$
