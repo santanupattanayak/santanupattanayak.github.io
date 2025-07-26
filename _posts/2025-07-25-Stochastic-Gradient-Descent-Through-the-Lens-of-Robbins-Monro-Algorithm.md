@@ -12,9 +12,11 @@ tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm
 
  $$
  \begin{align}
- L(\theta) &= {\mathbb{E}} [l(\theta,x,y)] \\
+ L(\theta) &= \mathop {\mathbb E}
  \nabla_{\theta} L(\theta) &= \mathbb{E} [\nabla_{\theta} l(\theta,x,y)] 
+ $$\mathop {\mathbb E}_{D \sim P(D)} \bar{y} - [\hat{y{_D}}] $$
  \end{align}
  $$
+  [l(\theta,x,y)] \\
 
 
