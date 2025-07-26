@@ -8,15 +8,17 @@ tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm
 
 ## Introduction
 
-* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient over a set of randomly sampled datapoints. When the randomly sampled datapoints in each iteration is $$1$$ it's called Stochastic Gradient Descent whereas when the number of points is some $$m << N$$ where $$N$$ is the number of training datapoints its called a Minibatch Gradient Descent.
+* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient over a set of **randomly sampled datapoints**. When the randomly sampled datapoints in each iteration is $$1$$ it's called Stochastic Gradient Descent whereas when the number of points is some $$m << N$$ where $$N$$ is the number of training datapoints its called a Minibatch Gradient Descent.
 
  $$
- \begin{align}
- L(\theta) &= \mathop {\mathbb E}
- \nabla_{\theta} L(\theta) &= \mathbb{E} [\nabla_{\theta} l(\theta,x,y)] 
- $$\mathop {\mathbb E}_{D \sim P(D)} \bar{y} - [\hat{y{_D}}] $$
+  \begin{align}
+  \mathop {\mathbb E}_{x,y \sim P(x,y)} l(\theta,x,y)] \\
+  \mathop {\mathbb E}_{x,y \sim P(x,y)} l(\theta,x,y)] 
+
+    
  \end{align}
  $$
-  [l(\theta,x,y)] \\
+
+
 
 
