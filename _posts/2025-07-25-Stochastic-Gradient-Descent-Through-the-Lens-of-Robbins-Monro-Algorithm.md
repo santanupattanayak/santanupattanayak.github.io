@@ -18,6 +18,8 @@ L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \[l(\theta,x,y)\] \\
 \end{align}
 $$
 
+* The gradient of the loss naturally can be expressed as the gradient of the 
+
 
 
 
