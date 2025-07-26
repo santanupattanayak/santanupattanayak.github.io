@@ -18,7 +18,13 @@ L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \[l(\theta,x,y)\] \\
 \end{align}
 $$
 
-* The gradient of the loss naturally can be expressed as the gradient of the 
+* The gradient of the loss naturally can be expressed as the sum or integral over the gradient of the individual datapoints $$x,y$$. The same can expressed as
+
+$$
+\begin{align}
+\nabla_{\theta}L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \[ {\nabla}{\theta}  l(\theta,x,y)\] \\
+\end{align}
+$$
 
 
 
