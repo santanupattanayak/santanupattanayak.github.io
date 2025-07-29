@@ -35,7 +35,7 @@ $$
 \end{align}
 $$
 
-* Similarly for minibatch Stochastic gradient descent we have the estimated gradient from $$m$$ datapoints (see below). And taking the expectation of the minibatch gradient over the entire data distribution again gives is the gradient over the entire data distribution as shown below
+* Similarly, for minibatch Stochastic gradient descent we have the estimated gradient from $$m$$ datapoints (see below). And taking the expectation of the minibatch gradient over the entire data distribution again gives is the gradient over the entire data distribution as shown below
 
 $$
 \begin{align}
@@ -44,6 +44,39 @@ $$
 &= \frac{1}{m}.m.\nabla_{\theta} L(\theta) = \nabla_{\theta} L(\theta) 
 \end{align}
 $$
+
+* We will now prove that the minibatch gradient is an unbiased estimator of the finite training dataset gradient. For that we assume that we have $$N$$ iid datapoints from the data distribution $$\mathbb{P}(x,y)$$. The full dataset gradient is 
+
+$$
+\begin{align}
+\nabla_{\theta} L(\theta)  = \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
+\end{align}
+$$
+
+The expectation over the minibatch $$B$$ gradient is equivalent to the expectation over each datapoint gradient in the minibatch as shown below
+
+$$
+\begin{align}
+&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{1:m}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+&= \left[\frac{1}{m} \sum_{1:m} \mathbb{E}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+\end{align}
+$$
+
+* For the finite dataset of size $$N$$ this expectation over each datapoint gradient is nothing but the full dataset gradient and hence we can simplify the above as 
+
+$$
+\begin{align}
+&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{1:m}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+&= \left[\frac{1}{m} \sum_{1:m} \mathbb{E}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+&= \frac{1}{m} \sum_{1:m} \nabla_{\theta} L(\theta)   \\
+&= \frac{1}{m} \sum_{1:m}\frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
+&= \frac{1}{m}.m \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
+&= \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] = \nabla_{\theta} L(\theta)
+\end{align}
+$$
+ 
+
+
 
  
 
