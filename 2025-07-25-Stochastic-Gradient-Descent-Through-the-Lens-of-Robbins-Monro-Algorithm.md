@@ -14,7 +14,7 @@ tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm
   
 $$
 \begin{align}
-L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \[l(\theta,x,y)\] \\
+L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \left[\ell(\theta,x,y)\right] \\
 \end{align}
 $$
 
