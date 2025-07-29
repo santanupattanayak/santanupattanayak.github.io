@@ -22,7 +22,7 @@ $$
 
 $$
 \begin{align}
-\nabla_{\theta} L(\theta) = \mathop {\mathbb E}_{x,y \sim P(x,y)} [\nabla_{\theta}l(\theta,x,y)]
+\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim P(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]
 \end{align}
 $$
 
