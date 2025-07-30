@@ -83,7 +83,7 @@ $$
 $$
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
 
-## SGD connection to Robbins Monroe Algorithm
+## Robbins Monroe Algorithm
 
 * Robbins Monroe Algorithm is a class of optimization technique that deals with finding the root $$x^{*} $$ of a equation $$g(x^{*}) = 0$$. When the function $$g(x)$$ is known or accessible we have in our high school maths taken help of Netwon Raphson method where iteratively we reached the solution by applying the below recurrence starting from some $$x_0$$
 
@@ -103,7 +103,7 @@ $$
 
 $$
 \begin{align}
-x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
+x_{t+1} = x_{t} - \eta_{t}\tilde{g}(x_t)  
 \end{align}
 $$
 
@@ -115,6 +115,11 @@ $$
 \sum_{t=1:\infty} \eta_{t}^{2} \lt \infty \\
 \end{align}
 $$ 
+
+## Stochastic Gradient Descent connection to Robbins Monroe Algorithm
+
+* Generally we solve optimization problems by setting the gradient  to zero.  if we know that the functions we are optimizing are convex 
+
 
  
 
