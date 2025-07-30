@@ -6,7 +6,7 @@ author: Santanu Pattanayak
 tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm 
 ---
 
-## Introduction
+## Introduction to Stochastic Gradient Descent 
 
 * **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient over a set of **randomly sampled datapoints**. When the randomly sampled datapoints in each iteration is $$1$$ it's called Stochastic Gradient Descent whereas when the number of points is some $$m << N$$ where $$N$$ is the number of training datapoints its called a Minibatch Gradient Descent.
 
@@ -83,6 +83,16 @@ $$
 $$
 
  where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
+
+## SGD connection to Robbins Monroe Algorithm
+
+* Robbins Monroe Algorithm is a class of optimization technique that deals with finding the root $$x^{*} $$ of a equation $$g(x^{*}) = 0$$. When the function $$g(x)$$ is known or accessible we have in our high school maths taken help of Netwon Raphson method where iteratively we reached the solution by applying the below recurrence starting from some $$x_0$$
+
+$$
+\begin{align}
+x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)} 
+\end{align}
+
  
 
 
