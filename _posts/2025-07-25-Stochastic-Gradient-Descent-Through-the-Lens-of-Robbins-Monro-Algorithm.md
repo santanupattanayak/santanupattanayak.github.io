@@ -8,9 +8,9 @@ tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm
 
 ## Introduction to Stochastic Gradient Descent 
 
-* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient over a set of **randomly sampled datapoints**. When the randomly sampled datapoints in each iteration is $$1$$ it's called Stochastic Gradient Descent whereas when the number of points is some $$m << N$$ where $$N$$ is the number of training datapoints its called a Minibatch Gradient Descent.
+* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient of a **randomly sampled datapoint** in each iteration. When the number of randomly sampled datapoints in each iteration is some $$m << N$$ where $$N$$ is the number of training datapoints its called a **Minibatch Gradient Descent**.
 
-* If the loss for the datapoint $$x,y$$ is denoted by $$l(x,y)$$ then the total loss considering entire data distribution is as follows:
+* If the loss objective for the datapoint $$(x,y)$$ is denoted by $$l(x,y)$$ where $$x$$ is the input feature vector and $$y$$ is the output, then the total loss objective considering entire data distribution is as follows:
   
 $$
 \begin{align}
@@ -18,7 +18,7 @@ L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \left[\ell(\theta,x,y)\right]
 \end{align}
 $$
 
-* The gradient of the loss naturally can be expressed as the expectation of the gradient of the individual datapoints $$x,y$$ over the data distribution as shown below
+* The gradient of the loss objective naturally can be expressed as the expectation of the gradient of the individual datapoints $$(x,y)$$ over the data distribution as shown below
 
 $$
 \begin{align}
@@ -26,8 +26,8 @@ $$
 \end{align}
 $$
 
-* In Stochastic gradient descent the entire gradient is approximated by the gradient of the loss of a single datapoint. It is obvious it's an unbiased estimator of the actual dataset gradient as the expectation over the single datapoint loss gradient is equal to the gradient over the entire dataset loss gradient.
- If the gradient of the single datapoint loss is $$\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]$$ then taking expectation of it over the entire dataset distribution we get
+* As stated earlier, in Stochastic gradient descent the entire gradient is approximated by the gradient of the loss objective of a single datapoint. It is obvious that the loss objective for the single datapoint is an **unbiased estimator** of the loss objective of the actual data distribution gradient as the expectation over the single datapoint loss gradient is equal to the gradient over the entire dataset loss gradient.
+ If the gradient of the single datapoint loss is $$\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]$$ then taking expectation of it over the entire dataset distribution $$\mathbb{P}(x,y) $$ we get
 
 $$
 \begin{align}
@@ -83,9 +83,9 @@ $$
 $$
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
 
-## Robbins Monroe Algorithm
+## Robbins Monro Algorithm
 
-* Robbins Monroe Algorithm is a class of optimization technique that deals with finding the root $$x^{*} $$ of a equation $$g(x^{*}) = 0$$. When the function $$g(x)$$ is known or accessible we have in our high school maths taken help of Netwon Raphson method where iteratively we reached the solution by applying the below recurrence starting from some $$x_0$$
+* Robbins Monro Algorithm is a class of optimization technique that deals with finding the root $$x^{*} $$ of an equation $$g(x^{*}) = 0$$. When the function $$g(x)$$ is known or accessible we have in our high school taken help of algorithms such as Netwon Raphson method where iteratively we reached the solution by applying the below recurrence starting from some $$x_0$$
 
 $$
 \begin{align}
@@ -93,13 +93,13 @@ x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)}
 \end{align}
 $$ 
 
-* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)} = g(x) + \epsilon$$. In such cases if
+* However, not all functions $$g(x)$$ are directly observable or computable and what we can get is some noisy version of $$g(x)$$ say $$\tilde{g(x)} = g(x) + \epsilon$$. If in such cases
 $$
 \begin{align}
 \mathbb{E}_{\epsilon \sim \mathbb{P}(\epsilon)} \left[\tilde{g(x)}\right] = g(x)
 \end{align}
 $$
-&emsp;&emsp;&emsp;then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
+&emsp;&emsp;&emsp; then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monro Algorithm
 
 $$
 \begin{align}
@@ -116,7 +116,7 @@ $$
 \end{align}
 $$ 
 
-## Stochastic Gradient Descent connection to Robbins Monroe Algorithm
+## Stochastic Gradient Descent connection to Robbins Monro Algorithm
 
 * In Stochastic Gradient Descent we aim to minimize an expected objective $$L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\ell(x,y)\right] $$ by finding the $$\theta^{*}$$ that makes the gradient $$\nabla_{\theta}L(\theta^{*}) = 0$$
 
@@ -128,7 +128,7 @@ $$
 \end{align}
 $$
 
-* Since the gradient of the loss expectation $$\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\nabla_{\theta}\ell(x,y)\right] $$ or its finite approximation using a large training dataset of $$N$$ samples $$\frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]$$ is not tractable especially in deep learning network for resource constraints we compute minibatch gradients $$\nabla_{\theta}L_{m}(\theta) $$ which are noisy versions of the expected gradients $$\nabla_{\theta}L(\theta) $$. Also as we have seen before the minibatch gradients are unbiased estimators of full dataset gradients or expected data distribution gradient both of which we have represented by $$\nabla_{\theta}L(\theta) $$. Hence 
+* Since the gradient of the loss expectation $$\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\nabla_{\theta}\ell(x,y)\right] $$ or it's finite approximation using a large training dataset of $$N$$ samples $$\frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]$$ is not tractable especially in deep learning network for resource constraints we compute minibatch gradients $$\nabla_{\theta}L_{m}(\theta) $$ which are noisy versions of the expected gradients $$\nabla_{\theta}L(\theta) $$. Also as we have seen before the minibatch gradients are unbiased estimators of full dataset gradients or expected data distribution gradient both of which we have represented by $$\nabla_{\theta}L(\theta) $$. Hence 
 
 $$
 \begin{align}
@@ -144,16 +144,6 @@ $$
 $$
 
 * So we see here the update rule given by the Robbins Monro algorithm is nothing but the Stochastic Gradient Descent update rule.
-
-
-
-
-
-
-
-
-
-
 
 
 
