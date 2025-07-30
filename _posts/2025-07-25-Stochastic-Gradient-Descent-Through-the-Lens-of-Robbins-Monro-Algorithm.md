@@ -39,8 +39,8 @@ $$
 
 $$
 \begin{align}
-&\mathbb{E}_{x,y \sim P(x,y)} \left[\frac{1}{m} \sum_{1:m}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
-&= \frac{1}{m} \sum_{1:m}\left[\mathbb{E}_{x,y \sim P(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+&\mathbb{E}_{x,y \sim P(x,y)} \left[\frac{1}{m} \sum_{i=1:m}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
+&= \frac{1}{m} \sum_{i=1:m}\left[\mathbb{E}_{x_i,y_i \sim \mathbb{P}(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
 &= \frac{1}{m}.m.\nabla_{\theta} L(\theta) = \nabla_{\theta} L(\theta) 
 \end{align}
 $$
@@ -49,7 +49,7 @@ $$
 
 $$
 \begin{align}
-\nabla_{\theta} L(\theta)  = \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
+\nabla_{\theta} L(\theta)  = \frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right] \\
 \end{align}
 $$
 
@@ -57,8 +57,8 @@ The expectation over the minibatch $$B$$ gradient is equivalent to the expectati
 
 $$
 \begin{align}
-&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{1:m}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
-&= \left[\frac{1}{m} \sum_{1:m} \mathbb{E}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
+&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{i=1:m}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
+&= \left[\frac{1}{m} \sum_{i=1:m} \mathbb{E}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
 \end{align}
 $$
 
@@ -66,16 +66,22 @@ $$
 
 $$
 \begin{align}
-&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{1:m}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
-&= \left[\frac{1}{m} \sum_{1:m} \mathbb{E}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]\right] \\
-&= \frac{1}{m} \sum_{1:m} \nabla_{\theta} L(\theta)   \\
-&= \frac{1}{m} \sum_{1:m}\frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
-&= \frac{1}{m}.m \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] \\
-&= \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] = \nabla_{\theta} L(\theta)
+&\mathbb{E}_{B} \left[\frac{1}{m} \sum_{i=1:m}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
+&= \left[\frac{1}{m} \sum_{i=1:m} \mathbb{E}_{x_i, y_i \sim \mathbb{P}(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]\right] \\
+&= \frac{1}{m} \sum_{i=1:m} \nabla_{\theta} L(\theta)   \\
+&= \frac{1}{m} \sum_{i=1:m}\frac{1}{N} \sum_{j=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_j, y_j) \right] \\
+&= \frac{1}{m}.m \frac{1}{N} \sum_{j=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_j, y_j) \right] \\
+&= \frac{1}{N} \sum_{j=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_j, y_j) \right] = \nabla_{\theta} L(\theta)
 \end{align}
 $$
 
-* 
+* So the gradient used in Stochastic gradient descent is an unbiased Estimator of the full dataset gradient descent. The gradient descent rule for Stochastic Gradient descent is given by
+$$
+\begin{align}
+\theta^{(t+1)} = \theta^{(t)} - \eta_{t}\nabla_{\theta} L_{m}(\theta)
+\end{align}
+$$
+ where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
  
 
 
