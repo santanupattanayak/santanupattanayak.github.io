@@ -99,14 +99,13 @@ $$
 \mathbb{E}_{x \sim \mathbb{P}(x)} \left[\tilde{g(x)}\right] = g(x)
 \end{align}
 $$
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
-
+&emsp;&emsp;&emsp;then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
 $$
 \begin{align}
 x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
 \end{align}
 $$ 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
+&emsp; To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
 
 $$
 \begin{align}
