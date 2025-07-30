@@ -103,7 +103,7 @@ $$
 
 $$
 \begin{align}
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
+x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
 \end{align}
 $$
 
