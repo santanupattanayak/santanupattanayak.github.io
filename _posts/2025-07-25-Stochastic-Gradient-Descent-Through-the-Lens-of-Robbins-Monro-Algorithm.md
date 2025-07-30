@@ -93,13 +93,12 @@ x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)}
 \end{align}
 $$ 
 
-* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)}$$. In such cases if  
-
+* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)}$$. In such cases if
 $$
 \begin{align}
 \mathbb{E}_{x \sim \mathbb{P}(x)} \left[\tilde{g(x)}\right] = g(x)
 \end{align}
-$$ 
+$$
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
 
 $$
