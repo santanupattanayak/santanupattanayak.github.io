@@ -93,6 +93,29 @@ x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)}
 \end{align}
 $$ 
 
+* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)}$$. In such cases if  
+
+$$
+\begin{align}
+\mathbb{E}_{x \sim \mathbb{P}(x)} \left[\tilde{g(x)}\right] = g(x)
+\end{align}
+$$ 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
+
+$$
+\begin{align}
+x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
+\end{align}
+$$ 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
+
+$$
+\begin{align}
+\sum_{t=1:\infty} \eta_{t} = \infty \\
+\sum_{t=1:\infty} \eta_{t}^{2} \lt \infty \\
+\end{align}
+$$ 
+
  
 
 
