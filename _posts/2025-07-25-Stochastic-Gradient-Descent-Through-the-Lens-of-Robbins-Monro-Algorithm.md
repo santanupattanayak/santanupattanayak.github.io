@@ -8,9 +8,9 @@ tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm
 
 ## Introduction to Stochastic Gradient Descent 
 
-* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient over an entire dataset at all iterations, we compute the gradient of a **randomly sampled datapoint** in each iteration. When the number of randomly sampled datapoints in each iteration is some $$m << N$$ where $$N$$ is the number of training datapoints its called a **Minibatch Gradient Descent**.
+* **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient of the loss over an entire dataset at all iterations, we compute the gradient of the loss of a **randomly sampled datapoint** in each iteration. When each iteration uses a subset $$m << N$$ where $$N$$ is the number of  datapoints its called a **Minibatch Gradient Descent**.
 
-* If the loss objective for the datapoint $$(x,y)$$ is denoted by $$l(x,y)$$ where $$x$$ is the input feature vector and $$y$$ is the output, then the total loss objective considering entire data distribution is as follows:
+* If the loss for the datapoint $$(x,y)$$ is $$l(x,y)$$ where $$x$$ is the input feature vector and $$y$$ is the output, then the total expected loss assuming data distribution $$\mathbb{P}(x,y)$$ is as follows:
   
 $$
 \begin{align}
@@ -18,15 +18,14 @@ L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \left[\ell(\theta,x,y)\right]
 \end{align}
 $$
 
-* The gradient of the loss objective naturally can be expressed as the expectation of the gradient of the individual datapoints $$(x,y)$$ over the data distribution as shown below
-
+* The gradient of the loss similarly can be expressed as:
 $$
 \begin{align}
 \nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim P(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]
 \end{align}
 $$
 
-* As stated earlier, in Stochastic gradient descent the entire gradient is approximated by the gradient of the loss objective of a single datapoint. It is obvious that the loss objective for the single datapoint is an **unbiased estimator** of the loss objective of the actual data distribution gradient as the expectation over the single datapoint loss gradient is equal to the gradient over the entire dataset loss gradient.
+* As stated earlier, in Stochastic gradient descent the entire gradient is approximated by the gradient of the loss objective of a single datapoint. It is obvious that the loss for the single datapoint is an **unbiased estimator** of the loss objective of the actual data distribution gradient as the expectation over the single datapoint loss gradient is equal to the gradient over the entire dataset loss gradient.
  If the gradient of the single datapoint loss is $$\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]$$ then taking expectation of it over the entire dataset distribution $$\mathbb{P}(x,y) $$ we get
 
 $$
