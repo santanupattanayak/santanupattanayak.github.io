@@ -103,11 +103,11 @@ $$
 
 $$
 \begin{align}
-x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
 \end{align}
 $$
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
+* To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
 
 $$
 \begin{align}
