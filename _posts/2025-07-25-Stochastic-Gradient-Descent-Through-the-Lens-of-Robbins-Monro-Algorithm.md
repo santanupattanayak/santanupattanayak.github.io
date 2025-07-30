@@ -128,14 +128,25 @@ $$
 \end{align}
 $$
 
-* Since the gradient of the entire expectation $$\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\nabla_{\theta}\ell(x,y)\right] $$ or its finite approximation using a large training dataset of $$N$$ samples $$\frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]$$ is not tractable especially in deep learning network for resource constraints we compute minibatch gradients $$\nabla_{\theta}L_{m}(\theta) $$ which are noisy versions of the expected gradients $$\nabla_{\theta}L(\theta) $$. Also as we have seen before the minibatch gradients are unbiased estimators of full dataset gradients or expected data distribution gradient both of which we have represented by $$\nabla_{\theta}L(\theta) $$. Hence 
+* Since the gradient of the loss expectation $$\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\nabla_{\theta}\ell(x,y)\right] $$ or its finite approximation using a large training dataset of $$N$$ samples $$\frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]$$ is not tractable especially in deep learning network for resource constraints we compute minibatch gradients $$\nabla_{\theta}L_{m}(\theta) $$ which are noisy versions of the expected gradients $$\nabla_{\theta}L(\theta) $$. Also as we have seen before the minibatch gradients are unbiased estimators of full dataset gradients or expected data distribution gradient both of which we have represented by $$\nabla_{\theta}L(\theta) $$. Hence 
 
 $$
 \begin{align}
-
 \mathbb{E} \nabla_{\theta}L_{m}(\theta) = \nabla_{\theta}L(\theta)
 \end{align}
 $$
+
+* The above two points allow us to use Robbins Monro algorithm to solve the optimization problem using approximate gradients given by the mini-batches. The update rule for the same is as follows
+$$
+\begin{align}
+\theta^{(t+1)} = \theta^{(t)}- \eta_{t} \nabla_{\theta} L_{m}(\theta)
+\end{align}
+$$
+
+* So we see here the update rule given by the Robbins Monro algorithm is nothing but the Stochastic Gradient Descent update rule.
+
+
+
 
 
 
