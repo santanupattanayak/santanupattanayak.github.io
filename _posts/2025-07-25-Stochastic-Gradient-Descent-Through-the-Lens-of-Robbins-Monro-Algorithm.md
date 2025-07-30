@@ -142,7 +142,6 @@ $$
 \end{align}
 $$
 
-* So we see here the update rule given by the Robbins Monro algorithm is nothing but the Stochastic Gradient Descent update rule.
-
+* Thus, we see Stochastic Grdient Descent is a practical application of Robbins-Monro stochastic approximation to modern optimization problems.
 
 
