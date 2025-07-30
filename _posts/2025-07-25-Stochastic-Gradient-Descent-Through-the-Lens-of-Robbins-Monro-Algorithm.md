@@ -26,8 +26,7 @@ $$
 \end{align}
 $$
 
-* As stated earlier, in Stochastic gradient descent the entire gradient is approximated by the gradient of the loss objective of a single datapoint. It is obvious that the loss for the single datapoint is an **unbiased estimator** of the loss objective of the actual data distribution gradient as the expectation over the single datapoint loss gradient is equal to the gradient over the entire dataset loss gradient.
- If the gradient of the single datapoint loss is $$\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]$$ then taking expectation of it over the entire dataset distribution $$\mathbb{P}(x,y) $$ we get
+* As stated earlier, in Stochastic gradient descent the entire gradient is approximated by the gradient of the loss objective of a single datapoint. It is easy to see that the loss gradient $$\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]$$ for the single datapoint is an **unbiased estimator** of the loss of the actual data distribution gradient as :
 
 $$
 \begin{align}
