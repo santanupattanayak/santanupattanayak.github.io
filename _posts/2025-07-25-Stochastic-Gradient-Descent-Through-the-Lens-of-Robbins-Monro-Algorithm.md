@@ -105,7 +105,8 @@ $$
 \begin{align}
 x_{t+1} = x_{t} - \eta_{t}(\tilde{g}(x_t)   - \alpha)  
 \end{align}
-$$ 
+$$
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; To avoid divergence the sequence of the learning rate $$\eta$$ should follow  
 
 $$
