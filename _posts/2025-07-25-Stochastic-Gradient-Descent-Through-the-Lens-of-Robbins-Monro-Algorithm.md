@@ -19,6 +19,7 @@ L(\theta) &= \mathop {\mathbb E}_{x,y \sim P(x,y)} \left[\ell(\theta,x,y)\right]
 $$
 
 * The gradient of the loss similarly can be expressed as:
+  
 $$
 \begin{align}
 \nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim P(x,y)} \left[ \nabla_{\theta} \, \ell(\theta, x, y) \right]
