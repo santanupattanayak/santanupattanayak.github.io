@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Stochastic Gradient Descent through Robbins Monro Algorithm"
+date: 2025-07-23 00:00:00 -0000
+author: Santanu Pattanayak
+tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm 
+---
 # Stochastic Gradient Descent Through the Lens of the Robbins-Monro Algorithm
 
 ## Introduction to Stochastic Gradient Descent
