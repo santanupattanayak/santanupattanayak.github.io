@@ -35,7 +35,7 @@ $$
 \end{align}
 $$
 
-* Similarly, for minibatch Stochastic gradient descent we have the estimated gradient from $$m$$ datapoints (see below). And taking the expectation of the minibatch gradient over the entire data distribution again gives is the gradient over the entire data distribution as shown below
+* For minibatch Stochastic gradient descent we estimate the gradient from $$m$$ i.i.d datapoints from $$\mathbb{P}(x,y)$$ which we will denote as $$B=\{(x_i,y_i)\}_{1:m}$$  . Taking the expectation of the minibatch loss $$L_m(\theta)$$ gradient over the batch distribution $$\mathbb{P}^{m}(x,y)$$ is equivalent to the expectation over $$\mathbb{P}(x,y)$$ for each of the i.i.d samples in the batch
 
 $$
 \begin{align}
@@ -74,6 +74,8 @@ $$
 &= \frac{1}{N} \sum_{1:N}\left[ \nabla_{\theta} \, \ell(\theta, x, y) \right] = \nabla_{\theta} L(\theta)
 \end{align}
 $$
+
+* 
  
 
 
