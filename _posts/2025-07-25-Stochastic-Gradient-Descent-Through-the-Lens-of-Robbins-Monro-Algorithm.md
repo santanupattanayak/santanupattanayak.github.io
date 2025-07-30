@@ -93,10 +93,10 @@ x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)}
 \end{align}
 $$ 
 
-* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)}$$. In such cases if
+* However, not all functions g(x) are directly observable or computable and what we can get is some noisy version of g(x) say $$\tilde{g(x)} = g(x) + \epsilon$$. In such cases if
 $$
 \begin{align}
-\mathbb{E}_{x \sim \mathbb{P}(x)} \left[\tilde{g(x)}\right] = g(x)
+\mathbb{E}_{\epsilon \sim \mathbb{P}(\epsilon)} \left[\tilde{g(x)}\right] = g(x)
 \end{align}
 $$
 &emsp;&emsp;&emsp;then we can iteratively solve for $$x^{*}$$ by the below update rule given by the Morris Monroe Algorithm as below
@@ -118,14 +118,28 @@ $$
 
 ## Stochastic Gradient Descent connection to Robbins Monroe Algorithm
 
-* Generally we solve optimization problems by setting the gradient  to zero.  if we know that the functions we are optimizing are convex 
+* In Stochastic Gradient Descent we aim to minimize an expected objective $$L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\ell(x,y)\right] $$ by finding the $$\theta^{*}$$ that makes the gradient $$\nabla_{\theta}L(\theta^{*}) = 0$$
+
+* We can think of this minimization problem as a root finding problem to the equation 
+
+$$
+\begin{align}
+\nabla_{\theta}L(\theta) = 0
+\end{align}
+$$
+
+* Since the gradient of the entire expectation $$\nabla_{\theta} L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\nabla_{\theta}\ell(x,y)\right] $$ or its finite approximation using a large training dataset of $$N$$ samples $$\frac{1}{N} \sum_{i=1:N}\left[ \nabla_{\theta} \, \ell(\theta, x_i, y_i) \right]$$ is not tractable especially in deep learning network for resource constraints we compute minibatch gradients $$\nabla_{\theta}L_{m}(\theta) $$ which are noisy versions of the expected gradients $$\nabla_{\theta}L(\theta) $$. Also as we have seen before the minibatch gradients are unbiased estimators of full dataset gradients or expected data distribution gradient both of which we have represented by $$\nabla_{\theta}L(\theta) $$. Hence 
+
+$$
+\begin{align}
+
+\mathbb{E} \nabla_{\theta}L_{m}(\theta) = \nabla_{\theta}L(\theta)
+\end{align}
+$$
 
 
- 
 
 
-
- 
 
 
 
