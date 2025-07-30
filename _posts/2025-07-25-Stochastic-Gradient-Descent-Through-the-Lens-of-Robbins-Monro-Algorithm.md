@@ -91,6 +91,7 @@ $$
 \begin{align}
 x_{n+1} = x_{n} - \frac {g(x_n)}{g'(x_n)} 
 \end{align}
+$$ 
 
  
 
