@@ -81,7 +81,7 @@ $$
 \theta^{(t+1)} = \theta^{(t)} - \eta_{t}\nabla_{\theta} L_{m}(\theta)
 \end{align}
 $$
-&emsp;where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
 
 ## SGD connection to Robbins Monroe Algorithm
 
