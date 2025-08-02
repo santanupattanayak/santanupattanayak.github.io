@@ -136,6 +136,7 @@ $$
 $$
 
 * The above two points allow us to use Robbins Monro algorithm to solve the optimization problem using approximate gradients given by the mini-batches. The update rule for the same is as follows
+  
 $$
 \begin{align}
 \theta^{(t+1)} = \theta^{(t)}- \eta_{t} \nabla_{\theta} L_{m}(\theta)
