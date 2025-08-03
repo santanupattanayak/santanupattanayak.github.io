@@ -45,6 +45,19 @@ Instead of taking the feedback of the users to a completion based on a given que
 
 Figure 1: Illustration of the SFT training, Reward Model training and Reinforcement learning for Alignment using Reward Model. 
 
+## Reward Model Construction from SFT Model
+
+1. The reward model architecture in used in RLHF pipelines such as InstructGPT or ChatGPT builds on top of the SFT Model architecture and its weights as the starting weights for the Reward Model with one exception - the final layer which gives the next token probability scores over the vocabulary is replaced by a layer that gives the reward the final output. 
+2. The input to the reward model is the prompt $$x$$ along with the completion $$y$$ while the output is the reward $$r_{\phi}(x,y)$$
+3. Training the Reward Model is on the preference data. Let's say for the prompt $$x$$ the completion $$y^{+}$$ is preferred over the completion $$y^{-}$$  
+The reward model is trained with the softmax loss over the two completions $$y^{+}$$ and $$y^{-}$$ as follows:  
+$$
+\begin{align}
+L(\phi) = -\log\left[\frac {\exp(r_{\phi}(x,y^{+})} {\exp(r_{\phi}(x,y^{+}) + \exp(r_{\phi}(x,y^{-})}\right] 
+\end{align}
+$$
+
+
 
 
 
