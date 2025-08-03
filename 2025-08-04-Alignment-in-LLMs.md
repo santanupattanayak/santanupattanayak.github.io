@@ -31,7 +31,18 @@ The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_
 
 ## Training the Reward Model
 
-Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained.
+Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper https://arxiv.org/pdf/2203.02155  
+1. First step is to sample prompts from a Prompts Dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
+
+
+2. Second step is where we build a reward model. For a given prompt, several model outputs are sampled. The labelers ranks the outputs from best to worst. This comparison data is used to train the reward model. Generally the SFT model from first step is taken as a starting point for the Reward Model.
+
+3. Finally the SFT model from first step is optimized using the reward model using Reinforcement Learning.
+
+
+![img_2.png](img_2.png)
+
+Figure 1: Illustration of the SFT training, Reward Model training and Reinforcement learning for Alignment using Reward Model. 
 
 
 
