@@ -51,6 +51,7 @@ Figure 1: Illustration of the SFT training, Reward Model training and Reinforcem
 2. The input to the reward model is the prompt $$x$$ along with the completion $$y$$ while the output is the reward $$r_{\phi}(x,y)$$
 3. Training the Reward Model is on the preference data. Let's say for the prompt $$x$$ the completion $$y^{+}$$ is preferred over the completion $$y^{-}$$  
 The reward model is trained with the softmax loss over the two completions $$y^{+}$$ and $$y^{-}$$ as follows:  
+
 $$
 \begin{align}
 L(\phi) = -\log\left[\frac {\exp(r_{\phi}(x,y^{+})} {\exp(r_{\phi}(x,y^{+}) + \exp(r_{\phi}(x,y^{-})}\right] 
