@@ -40,7 +40,8 @@ Instead of taking the feedback of the users to a completion based on a given que
 3. Finally the SFT model from first step is optimized using the reward model using Reinforcement Learning.
 
 
-![img_2.png](img_2.png)
+<img width="760" height="493" alt="image" src="https://github.com/user-attachments/assets/db8438df-10a5-4b87-a3f7-6f3e5b11af73" />
+
 
 Figure 1: Illustration of the SFT training, Reward Model training and Reinforcement learning for Alignment using Reward Model. 
 
