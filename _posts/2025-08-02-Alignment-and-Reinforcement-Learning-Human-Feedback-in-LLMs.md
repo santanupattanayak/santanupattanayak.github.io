@@ -58,6 +58,12 @@ L(\phi) = -\mathbb{E}_{(x,y^{+},y^{-}) \sim D}  \log\left[\frac {\exp(r_{\phi}(x
 \end{align}
 $$
 
+One important aspect to note here, that we are not regressing on the reward $$r(x,y)$$ directly, but rather they act as logits for the completions $$y$$ given the prompt $$x$$. 
+
+## Direct Preference Optimization
+Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and given preference pairs dataset $$ x,y^{+}, y_D 
+
+
 
 
 
