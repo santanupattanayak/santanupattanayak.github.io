@@ -54,14 +54,25 @@ The reward model is trained with the softmax loss over the two completions $$y^{
 
 $$
 \begin{align}
-L(\phi) = -\mathbb{E}_{(x,y^{+},y^{-}) \sim D}  \log\left[\frac {\exp(r_{\phi}(x,y^{+})} {\exp(r_{\phi}(x,y^{+}) + \exp(r_{\phi}(x,y^{-})}\right] 
+L(\phi) = -\mathbb{E}_{(x,y^{+},y^{-}) \sim D}  \log\left[\frac {\exp(r_{\phi}(x,y^{+}))} {\exp(r_{\phi}(x,y^{+})) + \exp(r_{\phi}(x,y^{-}))}\right] 
+\end{align}
+$$
+
+The softmax is inspired by Bradley Terry Model which for preference pairs models the Probability of the preference completion as follows  :
+
+$$
+\begin{align}
+\mathbb{P}(y^{+} > y^{-} | x ) = \frac {\exp(r_{\phi}(x,y^{+}))} {\exp(r_{\phi}(x,y^{+})) + \exp(r_{\phi}(x,y^{-}))} 
 \end{align}
 $$
 
 One important aspect to note here, that we are not regressing on the reward $$r(x,y)$$ directly, but rather they act as logits for the completions $$y$$ given the prompt $$x$$. 
 
 ## Direct Preference Optimization
-Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and given preference pairs dataset $$ x,y^{+}, y_D 
+
+Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly.
+
+
 
 
 
