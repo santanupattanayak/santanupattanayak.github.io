@@ -72,7 +72,8 @@ One important aspect to note here, that we are not regressing on the reward $$r(
 
 Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
 
-![img_1.png](img_1.png)
+<img width="926" height="190" alt="image" src="https://github.com/user-attachments/assets/823dd379-7cc9-457a-94bb-e7a0ca222f32" />
+
 
 Figure 2: DPO optimizing for human preferences while avoiding reinforcement learning.
 
