@@ -85,6 +85,68 @@ L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac
 \end{align}
 $$
 
+## Derivation of DPO Objective from PPO and the Reward Model Training loss
+
+Let's look at the PPO objective and try to get an optimal policy $$\pi^{*}$$ by minimizing the same.
+
+$$
+\begin{align}
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{ref}}(y|x)}\right] 
+\end{align}
+$$
+
+Diving both sides by $$\beta$$ just scales the DPO objective and hence the optimal policy derived by minimizing the same wont change. Also, to bring the beta normalized reward to log scale we exponentiate it so that it can be tied to the log associated with the policies. See below:  
+
+
+$$
+\begin{align}
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r_{\phi}(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r_{\phi}(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}\right] 
+\end{align}
+$$
+
+If we normalize $${\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}$$ by the partition function $$Z(x)$$ to sum over all $$y$$ given $$x$$ we would be sure the same would be a probability and hence a policy which we denote by $$\pi^{*}$$. See below 
+
+
+$$
+\begin{align}
+Z(x) = \sum_{y}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)} \\
+\pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}
+\end{align}
+$$
+
+Using the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ we can modify the PPO loss as below:  
+
+
+$$
+\begin{align}
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}\right] \\
+&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\frac{1}{Z(x)}\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}+ \log Z(x)\right] \\
+&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \log Z(x)\right] \\
+&=\mathbb{E}_{x \sim D_x}-\mathbb{E}_{y \sim \pi_{\theta}(y|x)}  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \mathbb{E}_{x \sim D_x}\log Z(x) \\
+&=\mathbb{E}_{x \sim D_x} - KL(\pi_{\theta}||\pi^{*}) + c
+\end{align}
+$$
+
+We can see from above to maximize the PPO objective we need to minimize the KL divergence and KL divergence is minimum when the distribution match. Hence, our desired optimal policy $$\pi_{\theta}$$ should be as follows:  
+
+$$
+\begin{align}
+\pi_{\theta}(y|x) = \pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}
+\end{align}
+$$
+
+
+
+
+
+
+
+
+
+
+
 
 
 
