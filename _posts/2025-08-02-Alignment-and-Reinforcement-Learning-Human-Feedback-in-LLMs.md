@@ -106,9 +106,7 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\
 \end{align}
 $$
 
-If we normalize  
-$$\exp(\frac{r_{\phi}(x,y)}{\beta})\pi_{ref}(y|x)$$  
-by the partition function $$Z(x)$$ to sum over all $$y$$ given $$x$$ we would be sure the same would be a probability and hence a policy which we denote by $$\pi^{*}$$. See below 
+If we normalize $$\exp({r_{\phi}(x,y)}{\beta^{-}})\pi_{ref}(y|x)$$ by the partition function $$Z(x)$$ to sum over all $$y$$ given $$x$$ we would be sure the same would be a probability and hence a policy which we denote by $$\pi^{*}$$. See below 
 
 $$
 \begin{align}
