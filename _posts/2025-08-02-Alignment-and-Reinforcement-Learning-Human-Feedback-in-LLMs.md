@@ -70,7 +70,27 @@ One important aspect to note here, that we are not regressing on the reward $$r(
 
 ## Direct Preference Optimization
 
-Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly.
+Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
+
+![img_1.png](img_1.png)
+
+Figure 2: DPO optimizing for human preferences while avoiding reinforcement learning.
+
+If the LLM we want to align through DPO is presented by parameterized policy $$\pi_{\theta}(.)$$ while the SFT LLM is represented as  $$\pi_{ref}(.)$$ given the preference dataset $$D$$ which contains tuples of $$x,y^{+},y^{-}$$ where $$x$$ is the prompt $$y^{+},y^{-}$$ are the winning and losing completions given the prompt, the DPO loss is given as follows:  
+
+$$
+\begin{align}
+L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)})}  \right]
+\end{align}
+$$
+
+
+
+
+
+
+
+
 
 
 
