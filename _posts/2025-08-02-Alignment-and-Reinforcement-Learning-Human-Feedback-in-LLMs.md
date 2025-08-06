@@ -170,7 +170,8 @@ $$
 \begin{align}
 -\log \mathbb{P}(y^{+} > y^{-} | x )&= -\log\left[ \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) }\right] 
 \end{align}
-$$
+$$  
+
 
 ## Feature Comparison between PPO style Alignment vs DPO
 
@@ -187,12 +188,10 @@ $$
 | **Sample efficiency**         |  Low – requires rollouts + reward model scoring |  High – no reward model or environment interaction    |
 | **Risk of reward hacking**    |  Moderate – depends on reward model quality   |  Low – no scalar reward to over-optimize              |
 | **Compute cost**              | High – due to reward model inference + RL rollouts | Low – simple gradient-based updates                   |
-| **Empirical performance**     | Good (used in ChatGPT v1)                     | Better in open benchmarks (Anthropic, OpenChat, Zephyr) |
 | **Scalability**               |  Harder to scale due to PPO complexity        |  Highly scalable – behaves like supervised fine-tuning |
 
 
-
-
+We will end this blog here and discuss about GRPO in a Part 2 edition of this topic.
 
 
 
