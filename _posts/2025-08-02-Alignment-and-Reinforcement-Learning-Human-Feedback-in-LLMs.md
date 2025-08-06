@@ -147,16 +147,30 @@ r(x,y) =  \beta \log \frac{\pi_{\theta}(y|x)}{\pi_{ref}(y|x)} + \beta Z(x)
 $$
 
 
-Now substituting the $$r(x,y)$$ from above into the Bradley Terry Preference objective we have seen earlier for preference pairs.
+Now substituting the deduced $$r(x,y)$$ into the Bradley Terry Preference Model we get:  
+
 
 $$
 \begin{align}
 \mathbb{P}(y^{+} > y^{-} | x ) &= \frac {\exp(r(x,y^{+}))} {\exp(r(x,y^{+}) + \exp(r(x,y^{-}))} \\
-&= \frac {1} {\exp(r(x,y^{-}) - r(x,y^{+})) } \\
-&= \frac {1} {\exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)} + \beta Z(x)) - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)} - \beta Z(x))) } \\
-&= \frac {1} {\exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) } \\
+&= \frac {1} {1 + \exp(r(x,y^{-}) - r(x,y^{+})) } \\
+&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)} + \beta Z(x)) - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)} - \beta Z(x))) } \\
+&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) } \\
 \end{align}
 $$
+
+Taking negative logarithm on either side of the above equation we get the objective for DPO alignment as we can see below:
+
+$$
+\begin{align}
+-\log \mathbb{P}(y^{+} > y^{-} | x )&= -\log\left[ \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) }\right] 
+\end{align}
+$$
+
+
+
+
+
 
 
 
