@@ -17,7 +17,7 @@ The most commonly form of RLHF methods used are:
 ## Proximal Policy Optimization 
 
 Proximal Policy Optimization is a trust method Policy gradient method of Reinforcement Learning Technique where the updates to the policy in each step is done in such a way that the policy parameters doesn't change too much from that in the earlier iteration. Given a stochastic policy $$\pi$$ parameterized by $$\theta$$ that maps any state $$s$$ to an action $$a$$ probabilistically the update rule of PPO is given by  
-In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We assume that we don't want the PPO to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then as per PPO the optimization objective is as below 
+In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We don't want to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then the modified PPO objective for RLHF is as below 
 
 $$
 \begin{align}
@@ -28,6 +28,11 @@ $$
 
 The hyperparameter $$\beta$$ balances the reward maximization objective and the objective to prevent too much deviation of the model parameters from the SFT model capture through the KL divergence of the policies.
 The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_{\phi}(x,y)$$ is generally computed from a trained reward model. Since the reward model assigns a score at the end of the completion of $$y$$ there isn't any reward after each token generation.
+
+There are few differences between the PPO objective shown above modified for alignment from the traditional RL PPO objective. 
+
+1. The reward from reward model is used directly and the formulation doesn't have any baseline subtraction from reward to work with Advantages.
+2. The KL divergence in standard PPO is with respect to old policy $$\pi_{old}$$, which constraints the updates for exploration stability. In Alignment objective the KL divergence is with respect to the SFT model $$\pi_{SFT}$$ which ensures that the aligned model is not too different from the SFT model.
 
 ## Training the Reward Model
 
