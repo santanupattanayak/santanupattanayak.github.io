@@ -91,7 +91,7 @@ Let's look at the PPO objective and try to get an optimal policy $$\pi^{*}$$ by 
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{ref}}(y|x)}\right] 
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{ref}}(y|x)}\right] 
 \end{align}
 $$
 
@@ -100,20 +100,20 @@ Diving both sides by $$\beta$$ just scales the DPO objective and hence the optim
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r_{\phi}(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
-&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r_{\phi}(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
-&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}\right] 
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}\right] 
 \end{align}
 $$
 
 If we normalize
-$$\exp(\frac{r_{\phi}(x,y)}{\beta})\pi_{ref}(y|x)$$  
+$$\exp(\frac{r(x,y)}{\beta})\pi_{ref}(y|x)$$  
 by the partition function $$Z(x)$$ to sum over all $$y$$ given $$x$$ we would be sure the same would be a probability and hence a policy which we denote by $$\pi^{*}$$. See below 
 
 $$
 \begin{align}
-Z(x) = \sum_{y}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)} \\
-\pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}
+Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)} \\
+\pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}
 \end{align}
 $$
 
@@ -122,8 +122,8 @@ Using the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ we
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}\right] \\
-&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\frac{1}{Z(x)}\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}+ \log Z(x)\right] \\
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}\right] \\
+&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\frac{1}{Z(x)}\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}+ \log Z(x)\right] \\
 &=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \log Z(x)\right] \\
 &=\mathbb{E}_{x \sim D_x}-\mathbb{E}_{y \sim \pi_{\theta}(y|x)}  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \mathbb{E}_{x \sim D_x}\log Z(x) \\
 &=\mathbb{E}_{x \sim D_x} - KL(\pi_{\theta}||\pi^{*}) + c
@@ -134,9 +134,34 @@ We can see from above to maximize the PPO objective we need to minimize the KL d
 
 $$
 \begin{align}
-\pi_{\theta}(y|x) = \pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r_{\phi}(x,y)}{\beta}) \pi_{ref}(y|x)}
+\pi_{\theta}(y|x) = \pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}
 \end{align}
 $$
+
+If we were to express the reward as a function of the policies from the above we would get 
+
+$$
+\begin{align}
+r(x,y) =  \beta \log \frac{\pi_{\theta}(y|x)}{\pi_{ref}(y|x)} + \beta Z(x)
+\end{align}
+$$
+
+
+Now substituting the $$r(x,y)$$ from above into the Bradley Terry Preference objective we have seen earlier for preference pairs.
+
+$$
+\begin{align}
+\mathbb{P}(y^{+} > y^{-} | x ) &= \frac {\exp(r(x,y^{+}))} {\exp(r(x,y^{+}) + \exp(r(x,y^{-}))} \\
+&= \frac {1} {\exp(r(x,y^{-}) - r(x,y^{+})) } \\
+&= \frac {1} {\exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)} + \beta Z(x)) - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)} - \beta Z(x))) } \\
+&= \frac {1} {\exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) } \\
+\end{align}
+$$
+
+
+
+
+
 
 
 
