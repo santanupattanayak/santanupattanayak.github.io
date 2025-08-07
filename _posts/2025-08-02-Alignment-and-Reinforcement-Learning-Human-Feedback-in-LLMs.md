@@ -7,16 +7,16 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 ---
 
 # Table of Contents
-1. [Introduction](#Introduction)
-2. [Proximal Policy Optimization ](#Proximal Policy Optimization)
-3. [Training the Reward Model](#Training the Reward Model)
-4. [Reward Model Construction from SFT Model](#Reward Model Construction from SFT Model)
-5. [Direct Preference Optimization](#Direct Preference Optimization)
-6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#Derivation of DPO Objective from PPO and the Reward Model Training loss)
-7. [Feature Comparison between PPO style Alignment vs DPO](#Feature Comparison between PPO style Alignment vs DPO)
+1. [Introduction](#introduction)
+2. [Proximal Policy Optimization ](#ppo)
+3. [Training the Reward Model](#trm)
+4. [Reward Model Construction from SFT Model](#Rrmcfsft)
+5. [Direct Preference Optimization](#dpo)
+6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#ppo2dpo)
+7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
 
 
-## Introduction
+## Introduction <a name="introduction"></a>
 
 Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals. This approach is essential for mitigating issues such as harmful content, logical inconsistencies, and hallucinations—challenges that next-token prediction alone does not address or prevent. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
 The most commonly form of RLHF methods used are:  
@@ -24,7 +24,7 @@ The most commonly form of RLHF methods used are:
 2. Direct Preference Optimization(DPO)
 3. Group Relative Policy Optimization(GRPO)
 
-## Proximal Policy Optimization 
+## Proximal Policy Optimization <a name="ppo"></a>
 
 Proximal Policy Optimization is a trust method Policy gradient method of Reinforcement Learning Technique where the updates to the policy in each step is done in such a way that the policy parameters doesn't change too much from that in the earlier iteration. Given a stochastic policy $$\pi$$ parameterized by $$\theta$$ that maps any state $$s$$ to an action $$a$$ probabilistically the update rule of PPO is given by  
 In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We don't want to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then the modified PPO objective for RLHF is as below 
@@ -44,7 +44,7 @@ There are few differences between the PPO objective shown above modified for ali
 1. The reward from reward model is used directly and the formulation doesn't have any baseline subtraction from reward to work with Advantages.
 2. The KL divergence in standard PPO is with respect to old policy $$\pi_{old}$$, which constraints the updates for exploration stability. In Alignment objective the KL divergence is with respect to the SFT model $$\pi_{SFT}$$ which ensures that the aligned model is not too different from the SFT model.
 
-## Training the Reward Model
+## Training the Reward Model <a name="trm"></a>
 
 Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper https://arxiv.org/pdf/2203.02155  
 1. First step is to sample prompts from a Prompts Dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
@@ -60,7 +60,7 @@ Instead of taking the feedback of the users to a completion based on a given que
 
 Figure 1: Illustration of the SFT training, Reward Model training and Reinforcement learning for Alignment using Reward Model. 
 
-## Reward Model Construction from SFT Model
+## Reward Model Construction from SFT Model <a name="rmcfsft"></a>
 
 1. The reward model architecture in used in RLHF pipelines such as InstructGPT or ChatGPT builds on top of the SFT Model architecture and its weights as the starting weights for the Reward Model with one exception - the final layer which gives the next token probability scores over the vocabulary is replaced by a layer that gives the reward the final output. 
 2. The input to the reward model is the prompt $$x$$ along with the completion $$y$$ while the output is the reward $$r_{\phi}(x,y)$$
@@ -83,7 +83,7 @@ $$
 
 One important aspect to note here, that we are not regressing on the reward $$r(x,y)$$ directly, but rather they act as logits for the completions $$y$$ given the prompt $$x$$. 
 
-## Direct Preference Optimization
+## Direct Preference Optimization <a name="dpo"></a>
 
 Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
 
@@ -100,7 +100,7 @@ L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac
 \end{align}
 $$
 
-## Derivation of DPO Objective from PPO and the Reward Model Training loss
+## Derivation of DPO Objective from PPO and the Reward Model Training loss <a name="ppo2dpo"></a>
 
 Let's look at the PPO objective and try to get an optimal policy $$\pi^{*}$$ by minimizing the same.
 
@@ -183,7 +183,7 @@ $$
 $$  
 
 
-## Feature Comparison between PPO style Alignment vs DPO
+## Feature Comparison between PPO style Alignment vs DPO <a name="ppovsdpo"></a>
 
 
 | **Feature / Aspect**          | **InstructGPT (PPO)**                         | **DPO**                                               |
