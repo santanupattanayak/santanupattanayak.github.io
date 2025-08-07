@@ -6,6 +6,16 @@ author: Santanu Pattanayak
 tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF  
 ---
 
+# Table of Contents
+1. [Introduction](#Introduction)
+2. [Proximal Policy Optimization ](#Proximal Policy Optimization)
+3. [Training the Reward Model](#Training the Reward Model)
+4. [Reward Model Construction from SFT Model](#Reward Model Construction from SFT Model)
+5. [Direct Preference Optimization](#Direct Preference Optimization)
+6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#Derivation of DPO Objective from PPO and the Reward Model Training loss)
+7. [Feature Comparison between PPO style Alignment vs DPO](#Feature Comparison between PPO style Alignment vs DPO)
+
+
 ## Introduction
 
 Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals. This approach is essential for mitigating issues such as harmful content, logical inconsistencies, and hallucinations—challenges that next-token prediction alone does not address or prevent. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
