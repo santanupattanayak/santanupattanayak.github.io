@@ -29,7 +29,7 @@ This recursive formulation allows the network to maintain context over sequences
 However, training RNNs effectively is often hindered by a fundamental issue: the vanishing gradient problem
 
 
-## Mathematical Equations governing RNNs <a name="#mathematical-equations-governing-rnns"></a>
+## Mathematical Equations governing RNNs <a name="mathematical-equations-governing-rnns"></a>
 There are two equations that govern the dynamics of a RNN
 1. The hidden state update equation where hidden state $$h_t$$ that is updated at each time step $$t$$ based on the current input $$x_t$$ and the previous hidden state $$h_{t-1}$$ as below:
    
