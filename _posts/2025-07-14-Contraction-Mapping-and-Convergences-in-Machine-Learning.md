@@ -5,8 +5,16 @@ date: 2025-07-14 00:00:00 -0000
 author: Santanu Pattanayak
 tags: banach fixed point, Contraction Mapping, gradient descent convergence through Contraction Mapping. 
 ---
+# Table of Contents
+1. [Contraction Mapping](#cm)
+2. [Cauchy sequences](#cs)
+3. [Complete Metric Space](#cms)
+4. [Revisiting the Contraction Mapping Theorem ](#rcm)
+5. [Gradient Descent Convergence of Linear Regression](#cmlr)
+6. [Value function convergence under the Bellman operator](#bc)
 
-## Contraction Mapping 
+
+## Contraction Mapping <a name="cm"></a>
 
 *  A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction  if there exists $$0 \le c \le 1$$ such that
 
@@ -27,7 +35,7 @@ Figure 1. Contraction Mapping in a 2D metric space
 
 We can see in the definition of Contraction Mapping theorem the term **Complete metric space** has come up. We will first discuss about **Cauchy sequences** to help define **Complete metric spaces**  
 
-## Cauchy sequences
+## Cauchy sequences <a name="cs"></a>
 * Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms get arbitrarily smaller as the sequence progresses.
   Mathematically, if for every positive real number $$\epsilon \gt 0 $$ there exists a positive integer $$N$$ such that for any pair of positive integers $$m,n \ge N$$ the below holds, the sequence $${\{ x_n \}}$$ is said to be Cauchy. 
 
@@ -45,7 +53,7 @@ Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to stat
 
 To determine what the sequence converges to, we can compute $$\lim_{n\to\infty} \frac{1}{n} $$ which is $$0$$. Hence $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called **limit of the sequence**.
 
-## Complete Metric Space 
+## Complete Metric Space <a name="cms"></a>
 
 Now that we have defined **Cauchy sequences** it would be easy to define the Complete Metric Space. 
 
@@ -65,7 +73,7 @@ This sequence proceeds as a sequence of rationals
 
    The sequence is Cauchy, however since $$e$$ is not a rational number hence it cannot converge in the metric space of $$\mathbb{Q} $$. In essense $$\mathbb{Q} $$ is not a complete metric space. The sequence would have converged in the metric space $$\mathbb{R} $$ as the limit of the sequence $$e \in \mathbb{R} $$. For a sequence to converge the terms of the sequence have to get arbritarily close to each other as the sequence progresses (it has to be a Cauchy sequence) and the limit of the sequence also needs to be in the metric space. So for convergence we desire a Complete metric space where all Cauchy sequences can converge.
 
-## Revisiting the Contraction Mapping Theorem 
+## Revisiting the Contraction Mapping Theorem <a name="rcm"></a>
 
 * Now that we know about Cauchy Sequences and Complete metric spaces, we will try to prove the existence of the fixed point satisfying $$Tx = x$$ by showing that the contraction mapping $$T$$ leads to a Cauchy sequence.  The sequence is defined by the iteration $$x_{n+1} = Tx_{n}$$
 
@@ -83,7 +91,7 @@ As $$m,n\to\infty$$ since for the contraction mapping $$c \lt 1$$ hence $$c^{n}\
 
 In the rest of the Chapter we will try to prove the Convergence of iterative alogithms in Machine Learning using the Contraction Mapping Theorem. Specifically we will study the Convergence of Gradient Descent for a well known Convex function as well as the Convergence of the Value Function in Reinformacement learning using Contraction Mapping theorem.
 
-## Gradient Descent Convergence of Linear Regression
+## Gradient Descent Convergence of Linear Regression <a name="cmlr"></a>
 
 * Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
 
@@ -133,7 +141,7 @@ $$
  \end{align}
 $$
 
-## Value function convergence under the Bellman operator
+## Value function convergence under the Bellman operator <a name="bc"></a>
 
 * In this section we will look at the **Value function convergence** under a given policy $$\pi$$ using the Supremum norm(max norm) over the state space. We will use the standard notations of $$s$$ and $$s^{'}$$ for current and next state, $$a$$ for action at current state $$s$$. We denote the immediate reward at state $s$ on taking action $$a$$ as per the policy $$\pi$$ as $$r(s,a)$$ and $$\gamma$$ as the discount factor such that $$ 0 \le \gamma < 1 $$.
 
