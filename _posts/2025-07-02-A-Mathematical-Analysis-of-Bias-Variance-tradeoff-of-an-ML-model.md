@@ -6,7 +6,11 @@ author: Santanu Pattanayak
 tags: Bias, Variance. 
 ---
 
-## Introduction
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Bias Viariance and Irreducible Error decomposition](#bvd)
+
+## Introduction <a name="introduction"></a>
 
 1. Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  We sample a set of $$m$$ points from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
 where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.
@@ -53,7 +57,7 @@ So bias is the model's inability to catch up to the predictable component of the
     Figure-2.  Error for a given test input x  
 
 
-## Bias Viariance and Irreducible Error decomposition
+## Bias Viariance and Irreducible Error decomposition <a name="bvd"></a>
 
 We will chose to look at the test loss for a given input vector $$x$$. As I have illustrated in Figure-2 given the input $$x$$ the variability in the target $$y$$ is because of the distribution over $$y$$ given $$x$$ i.e $$P(y|x) ~ N(\bar{y_{x}}, \sigma^2) $$ . 
 The meaan of the conditional distribution  (we will drop the suffix $$x$$ from $$\bar{y}_{x} $$ for ease of notation)  is the predictable component of the $$y$$ and the variance is because of the unpredictable noise component $$\epsilon$$ and as discussed earlier  $$y = \bar{y} + \epsilon$$
