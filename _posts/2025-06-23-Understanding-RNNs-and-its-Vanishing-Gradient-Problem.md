@@ -6,7 +6,16 @@ author: Santanu Pattanayak
 tags: RNNs, Vanishing Gradient Problem in RNN, 
 ---
 
-## Introduction to RNNs
+# Table of Contents
+1. [Introduction to RNNs](#introduction)
+2. [Mathematical Equations governing RNNs](#mathematical-equations-governing-rnns)
+3. [Inductive Bias of RNNs](#inductive-bias)
+4. [RNNs and the State Space Connection](#state-space)
+5. [Understanding Vanishing Gradient in RNN](#vangrad)
+6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#ppo2dpo)
+7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
+
+## Introduction to RNNs <a name="introduction"></a>
 
 Recurrent Neural Networks (RNNs) are a class of neural architectures designed to model sequential or time-dependent data. 
 
@@ -22,7 +31,7 @@ This recursive formulation allows the network to maintain context over sequences
 However, training RNNs effectively is often hindered by a fundamental issue: the vanishing gradient problem
 
 
-## Mathematical Equations governing RNNs
+## Mathematical Equations governing RNNs <a name=#mathematical-equations-governing-rnns"></a>
 There are two equations that govern the dynamics of a RNN
 1. The hidden state update equation where hidden state $$h_t$$ that is updated at each time step $$t$$ based on the current input $$x_t$$ and the previous hidden state $$h_{t-1}$$ as below:
    
@@ -56,7 +65,7 @@ Since the weights remain same at every step the above flow can be folded into on
 
 <img src="https://github.com/user-attachments/assets/fbf972f8-e0bb-4594-928b-6adb7a65bfa1" alt="My cool photo" width="250" height="250">
 
-## Inductive Bias
+## Inductive Bias of RNNs <a name="inductive-bias"></a>
 
 Every model comes with assumptions about the data — this is called its inductive bias. RNNs assume:
 1. $$\textbf{Temporal causality}$$: Future states depend on the past (not vice versa).
@@ -66,7 +75,7 @@ Every model comes with assumptions about the data — this is called its inducti
 3. $$\textbf{Sequential dependence}$$: Outputs are generated one step at a time, making RNNs ideal for tasks like text generation or speech recognition.
 This bias makes RNNs efficient for sequence modeling but also introduces challenges like vanishing gradients when learning long-term dependencies which we will discuss in detail.
 
-## RNNs and the State Space Connection
+## RNNs and the State Space Connection <a name="state-space"></a>
 In control theory systems evolve over time via a latent "state". In the linear dynamical system the latent or the hidden variable $$h_t$$ at $$t$$ evolves linearly as a function of $$h_{t-1}$$ and input $$x_t$$ at time $$t$$. Below are the governing equations of the hidden state evolution and the output.
 
 $$h_t = Ah_{t-1} + Bx_{t}$$
@@ -80,7 +89,7 @@ Some of the similarities of RNNs with State Space Models(SSM) are as follows:
 
 In essence, RNNs can be thought of as learnable, nonlinear state space models trained end-to-end via gradient descent.
 
-## Understanding Vanishing Gradient in RNN
+## Understanding Vanishing Gradient in RNN <a name="vangrad"></a>
 
 1. Traditional sequence models like RNNs and LSTMs suffer from loss of memory as sequences get longer.
 2. This can be explained mathematically how RNNs typically work. As we have seen in the RNN formulation the input $$x_t$$ at time $$t$$ updates the hidden state $$h_{t}$$ using the  recurrence  $$h_t = f( W_{hh}h_{t-1}  + W_{xh}h_{t-1})$$ where the function $$f$$ is applied elementwise on the linear transform. The $$f$$ function is usually the $$tanh$$ function.
