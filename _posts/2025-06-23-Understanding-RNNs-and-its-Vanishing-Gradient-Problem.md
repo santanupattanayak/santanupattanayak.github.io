@@ -12,8 +12,6 @@ tags: RNNs, Vanishing Gradient Problem in RNN,
 3. [Inductive Bias of RNNs](#inductive-bias)
 4. [RNNs and the State Space Connection](#state-space)
 5. [Understanding Vanishing Gradient in RNN](#vangrad)
-6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#ppo2dpo)
-7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
 
 ## Introduction to RNNs <a name="introduction"></a>
 
