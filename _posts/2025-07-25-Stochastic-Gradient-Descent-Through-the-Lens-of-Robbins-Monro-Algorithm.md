@@ -6,7 +6,13 @@ author: Santanu Pattanayak
 tags: Gradient Descent, Stochastic Gradient Descent, Robbins Monro Algorithm 
 ---
 
-## Introduction to Stochastic Gradient Descent 
+# Table of Contents
+1. [Introduction to Stochastic Gradient Descent ](#introduction)
+2. [Robbins Monro Algorithm](#robbins-monro-algorithm)
+2. [Stochastic Gradient Descent connection to Robbins Monro Algorithm](#connection)
+
+
+## Introduction to Stochastic Gradient Descent <a name="introduction"></a>
 
 * **Stochastic Gradient Descent** is a variant of Gradient Descent where instead of computing the Gradient of the loss over an entire dataset at all iterations, we compute the gradient of the loss of a **randomly sampled datapoint** in each iteration. When each iteration uses a subset $$m << N$$ where $$N$$ is the number of  datapoints its called a **Minibatch Gradient Descent**.
 
@@ -82,7 +88,7 @@ $$
 $$
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;where $$t$$ is the iteration number, $$\eta_{t}$$ is the learning rate at iteration $$t$$ while $$L_{m}(\theta)$$ is the mini-batch gradient based on $$m$$ samples. For strict stochastic gradient descent $$m= 1$$.
 
-## Robbins Monro Algorithm
+## Robbins Monro Algorithm <a name="robbins-monro-algorithm"></a>
 
 * Robbins Monro Algorithm is a class of optimization technique that deals with finding the root $$x^{*} $$ of an equation $$g(x^{*}) = 0$$. When the function $$g(x)$$ is known or accessible we have in our high school taken help of algorithms such as Netwon Raphson method where iteratively we reached the solution by applying the below recurrence starting from some $$x_0$$
 
@@ -115,7 +121,7 @@ $$
 \end{align}
 $$ 
 
-## Stochastic Gradient Descent connection to Robbins Monro Algorithm
+## Stochastic Gradient Descent connection to Robbins Monro Algorithm <a name="connection"></a>
 
 * In Stochastic Gradient Descent we aim to minimize an expected objective $$L(\theta) = \mathbb{E}_{x,y \sim \mathbb{P}(x,y)}\left[\ell(x,y)\right] $$ by finding the $$\theta^{*}$$ that makes the gradient $$\nabla_{\theta}L(\theta^{*}) = 0$$
 
