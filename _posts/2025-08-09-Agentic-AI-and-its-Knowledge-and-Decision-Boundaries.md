@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Agentic AI and its Knowledge and Decision Boundary"
-date: 2025-08-02 00:00:00 -0000
+date: 2025-08-09 00:00:00 -0000
 author: Santanu Pattanayak
 tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF  
 ---
