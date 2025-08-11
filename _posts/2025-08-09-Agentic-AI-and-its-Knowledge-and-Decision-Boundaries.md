@@ -23,3 +23,25 @@ In our discussion, we focus mainly on **LLM-based agents**. Given a task, such a
 1. What additional information is required to solve the task.
 2. Whether this information can be obtained through internal reasoning techniques — such as **Chain of Thought** or **Tree of Thought** — or if it requires querying external tools.
 As a general principle, the agent should only resort to external tools when the necessary knowledge lies **outside the model’s parametric space**.
+
+Given a task $$q$$ to an agentic model $$M$$ equipped with access to a set of external tools  
+
+$$T = {t_{0},t_{1},......t_{n}}$$ the reasoning at step $$k$$ of the agent can be represented as a **tool-integrated trajectory** \( \tau_{k} \) as follows:
+
+$$
+\begin{align}
+\tau_{k} = (r_0,tc_{0},o_{0}),(r_1,tc_{1},o_{1}),.....,(r_k,tc_{k},o_{k})
+\end{align}
+$$
+
+Here, each tuple $$(r_i,tc_{i},o_{i})$$ represents:  
+- $$r_i$$ : The reasoning process at step $$i$$.  
+- $$tc_{i)$$ : The tool called at step $$i$$ (if any).  
+- $$o_i$$ : The output returned by the tool at step $$i$$.
+
+If, for some step $$j$$, no tool invocation is required, the variables $$tc_{j}$$ and $$o_{j}$$ can be considered **empty**.  
+
+The reasoning information from step $$j$$ can be:  
+- Integrated into the reasoning of the subsequent step $$j+1$$, or  
+- Used directly to produce the **final answer** if it is the last step.
+
