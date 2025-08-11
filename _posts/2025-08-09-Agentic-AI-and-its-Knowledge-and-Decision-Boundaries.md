@@ -8,19 +8,18 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 
 # Table of Contents
 1. [Introduction to Agentic AI](#introduction)
-2. [Proximal Policy Optimization ](#ppo)
-3. [Training the Reward Model](#trm)
-4. [Reward Model Construction from SFT Model](#Rrmcfsft)
-5. [Direct Preference Optimization](#dpo)
-6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#ppo2dpo)
-7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
+
 
 
 ## Introduction to Agentic AI<a name="introduction"></a>
 
-Up until now our AI models have been passive assistants — we provide an input or prompt, they produce an output, and the interaction ends there.
-Agentic AI marks a shift from this reactive pattern to a more proactive one. In this framework, systems are designed to act autonomously: they can reason through problems, take multiple sequential steps, interact with external tools or environments, and adapt their approach based on feedback.
+Up until now, most AI models have been passive assistants — we provide an input or prompt, they generate an output, and the interaction ends.
+Agentic AI represents a shift from this reactive pattern to a proactive one. In this framework, systems are built to act autonomously: reasoning through problems, taking multiple sequential steps, interacting with external tools or environments, and adapting their approach based on feedback.
 
-Much like a capable human assistant, an agentic AI’s objective is not just to respond, but to actively work toward achieving a specified goal.
+Much like a capable human assistant, an agentic AI’s goal is not just to respond, but to actively work toward achieving a specific objective.
 
-Mostly the agents we are going to talk about are LLM based - where the LLM agent given a task tries to accomplish the same through a trajectory of internal reasoning and external tool usage. At every step the LLM agent is supposed to reason what additional information is required to solve a task and whether additional information can we achieved through internal reasoning using techniques such as  Chain of Thought and Tree of thought or the agent needs to take help of external tools to acquire the same. In general the LLM agent should only take help of a tool if the information is not available within the parametric space of the model.
+In our discussion, we focus mainly on LLM-based agents. Given a task, such an agent attempts to accomplish it through a trajectory of internal reasoning and external tool usage. At each step, the LLM agent must determine:
+
+What additional information is required to solve the task.
+Whether this information can be obtained through internal reasoning techniques — such as Chain of Thought or Tree of Thought — or if it requires querying external tools.
+As a general principle, the agent should only resort to external tools when the necessary knowledge lies outside the model’s parametric space.
