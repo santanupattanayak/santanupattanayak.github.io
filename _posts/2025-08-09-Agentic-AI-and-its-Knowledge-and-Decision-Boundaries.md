@@ -64,6 +64,16 @@ $$
 \end{align}
 $$
 
+Now to define decision boundary we consider the internal reasoning methodologies like Chain of Thought, Tree of Thought, etc as internal reasoning tools as formalized in [4]
+If the model at any time $$t$$ can take help of $$m$$ internal reasoning tools $$T_{int} = \{t_{int}^{0},t_{int}^{1},..,t_{int}^{m}\}$$ and $$n$$ external tools $$T_{ext} = \{t_{ext}^{0},t_{ext}^{1},..,t_{ext}^{n}\}$$ then the decision boundary $$\partial D(M,t)$$ is the point at which the model decides whether to use the internal reasoning tools $$T_{int}$$ or the external tools $$T_{ext}$$.  
+
+$$
+\begin{align}
+\partial D(M,t) = \partial T_{int}(M,t) = \partial T_{ext}(M,t)
+\end{align}
+$$
+
+
 
 
 ## References
