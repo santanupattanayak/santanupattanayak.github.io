@@ -44,8 +44,8 @@ If, for some step $$j$$, no tool invocation is required, the variables $$tc_{j}$
 ## Knowledge Boundary and Decision Boundary of an Agent 
 
 Each AI model $$M$$ has knowledge compressed within its parametric space generally acquired during Model pre-training. Such knowledge can be retrieved using a combination of **internal reasoning methodologies** such as Chain of thought(CoT) [1] , Tree of Thought [2], Reflection [3].
-Also, each model $$M$$ has its own understanding of what it knows and what it doesn't and hence a decision boundary of whether it should use internal reasoning or take help from external tools. If the model is self-conscious, then the knowledge boundary should match the decision boundary. The decision boundary generally is tuned during *Supervised Finetuning(SFT)* and during *Alignment using RLHF*.
-The paper *Toward a Theory of Agents as Tool-Use Decision-Makers* [4] defines the Knowledge and Decision boundary very aptly.
+Also, each model $$M$$ has its own understanding of what it knows and what it doesn't and hence a decision boundary of whether it should use internal reasoning or take help from external tools. If the **model is self-conscious**, then the **knowledge boundary should match the decision boundary**. The decision boundary generally is tuned during **Supervised Finetuning(SFT)** and during **Alignment using RLHF**.
+The paper **Toward a Theory of Agents as Tool-Use Decision-Makers** [4] defines the Knowledge and Decision boundary very aptly.
 
 Let for a given time step $$t$$, let $$W$$ represent the complete set of world knowledge. The author's define the internal and external knowledge of model $$M$$ as:
 
