@@ -8,6 +8,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 
 # Table of Contents
 1. [Introduction to Agentic AI](#introduction)
+2. [Knowledge Boundary and Decision Boundary of an Agent](#knowledge-decision-boundary)
 
 
 
@@ -41,7 +42,7 @@ If, for some step $$j$$, no tool invocation is required, the variables $$tc_{j}$
 - Integrated into the reasoning of the subsequent step $$j+1$$, or  
 - Used directly to produce the **final answer** if it is the last step.
 
-## Knowledge Boundary and Decision Boundary of an Agent 
+## Knowledge Boundary and Decision Boundary of an Agent <a name="knowledge-decision-boundary"></a>
 
 Each AI model $$M$$ has knowledge compressed within its parametric space generally acquired during Model pre-training. Such knowledge can be retrieved using a combination of **internal reasoning methodologies** such as Chain of thought(CoT) [1] , Tree of Thought [2], Reflection [3].
 Also, each model $$M$$ has its own understanding of what it knows and what it doesn't and hence a decision boundary of whether it should use internal reasoning or take help from external tools. If the **model is self-conscious**, then the **knowledge boundary should match the decision boundary**. The decision boundary generally is tuned during **Supervised Finetuning(SFT)** and during **Alignment using RLHF**.
