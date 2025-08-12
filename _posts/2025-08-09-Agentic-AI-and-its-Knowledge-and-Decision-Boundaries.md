@@ -24,7 +24,7 @@ In our discussion, we focus mainly on **LLM-based agents**. Given a task, such a
 2. Whether this information can be obtained through internal reasoning techniques — such as **Chain of Thought** or **Tree of Thought** — or if it requires querying external tools.
 As a general principle, the agent should only resort to external tools when the necessary knowledge lies **outside the model’s parametric space**.
 
-Given a task $$q$$ to an agentic model $$M$$ equipped with access to a set of external tools $$T = {t_{0},t_{1},......t_{n}}$$ the reasoning at step $$k$$ of the agent can be represented as a **tool-integrated trajectory** $$\tau_{k}$$ as follows:
+Given a task $$q$$ to an agentic model $$M$$ equipped with access to a set of external tools $$T = \{t_{0},t_{1},......t_{n}\}$$ the reasoning at step $$k$$ of the agent can be represented as a **tool-integrated trajectory** $$\tau_{k}$$ as follows:
 
 $$
 \begin{align}
