@@ -52,7 +52,7 @@ Let for a given time step $$t$$, let $$W$$ represent the complete set of world k
 $$
 \begin{align}
 K_{int}(M,t) &\subseteq W \\
-K_{ext}(M,t) &W - K_{int}(M,t)
+K_{ext}(M,t) &=W - K_{int}(M,t)
 \end{align}
 $$
 
@@ -66,7 +66,7 @@ $$
 
 
 
-##References
+## References
 
 [1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models : https://arxiv.org/abs/2201.11903  
 
