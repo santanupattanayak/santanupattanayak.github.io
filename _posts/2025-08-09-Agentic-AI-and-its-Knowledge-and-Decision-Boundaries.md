@@ -50,17 +50,17 @@ The paper *Toward a Theory of Agents as Tool-Use Decision-Makers* [4] defines th
 Let for a given time step $$t$$, let $$W$$ represent the complete set of world knowledge. The author's define the internal and external knowledge of model $$M$$ as:
 
 $$
-\align{begin}
+\begin{align}
 K_{int}(M,t) &\subseteq W \\
 K_{ext}(M,t) &W \complement K_{int}(M,t)
-\align{end}
+\end{align}
 $$
 where $$K_{int}(M,t)$$ is the internal knowledge embedded in the model $$M$$ while $$K_{ext}(M,t)$$ represents the external information available from the world. The knowledge boundary is the separation between the two:   
 
 $$
-\align{begin}
-\del K(M,t) = \del K_{int}(M,t) = \del K_{ext}(M,t)
-\align{end}
+\begin{align}
+\partial K(M,t) = \partial K_{int}(M,t) = \partial K_{ext}(M,t)
+\end{align}
 $$
 
 
