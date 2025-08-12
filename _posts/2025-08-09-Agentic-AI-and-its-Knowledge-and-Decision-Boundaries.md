@@ -52,9 +52,10 @@ Let for a given time step $$t$$, let $$W$$ represent the complete set of world k
 $$
 \begin{align}
 K_{int}(M,t) &\subseteq W \\
-K_{ext}(M,t) &W \complement K_{int}(M,t)
+K_{ext}(M,t) &W - K_{int}(M,t)
 \end{align}
 $$
+
 where $$K_{int}(M,t)$$ is the internal knowledge embedded in the model $$M$$ while $$K_{ext}(M,t)$$ represents the external information available from the world. The knowledge boundary is the separation between the two:   
 
 $$
@@ -67,7 +68,10 @@ $$
 
 ##References
 
-[1] *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models* : https://arxiv.org/abs/2201.11903
-[2] *Tree of Thoughts: Deliberate Problem Solving with Large Language Models* : https://arxiv.org/pdf/2305.10601
-[3] *Self-Reflection in LLM Agents: Effects on Problem-Solving Performance* : https://arxiv.org/abs/2405.06682
-[4] *Toward a Theory of Agents as Tool-Use Decision-Makers* : https://arxiv.org/pdf/2506.00886v1
+[1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models : https://arxiv.org/abs/2201.11903  
+
+[2] Tree of Thoughts: Deliberate Problem Solving with Large Language Models : https://arxiv.org/pdf/2305.10601  
+
+[3] Self-Reflection in LLM Agents: Effects on Problem-Solving Performance : https://arxiv.org/abs/2405.06682  
+
+[4] Toward a Theory of Agents as Tool-Use Decision-Makers : https://arxiv.org/pdf/2506.00886v1
