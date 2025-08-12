@@ -9,6 +9,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 # Table of Contents
 1. [Introduction to Agentic AI](#introduction)
 2. [Knowledge Boundary and Decision Boundary of an Agent](#knowledge-decision-boundary)
+3. [Misalignment between Knowledge and Decision Boundary](#knowledge-decision-misalign)
 
 
 
@@ -81,6 +82,13 @@ As stated earlier the Knowledge boundary and the Decision boundary of the Model 
 
 Figure 1. Knowledge and Decision Boundary of Self Aware Agent.
 
+## Misalignment between Knowledge and Decision Boundary <a name="knowledge-decision-misalign"></a>
+
+In general the AI Models are not self-aware and hence their knowledge and decision boundaries don't align.  This leads to two problems:
+- When the model has the information stored in its parametric space but still calls an external tool to get the information, excessive tool calling takes place. In this case the model underestimates its knowledge. 
+- When the model overestimates the knowledge that it doesn't have, the output responses suffer from hallucination. 
+
+Generally till now, the model used to acquire knowledge during the pretraining phase which didn't involve any tool calling. During the Supervised finetuning(SFT) step learns to align its Decision boundary to its knowledge boundary through curated tool calling specific illustrations followed up by Alignment through RLHF.
 
 
 
