@@ -74,6 +74,12 @@ $$
 \end{align}
 $$
 
+As stated earlier the Knowledge boundary and the Decision boundary of the Model $$M$$ should match for optimal performance, where the external tools from $$T_ext$$ would only be called when required.
+
+![img_2.png](img_2.png)
+
+Figure 1. Knowledge and Decision Boundary of Self Aware Agent.
+
 
 
 
