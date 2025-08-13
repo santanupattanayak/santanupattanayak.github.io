@@ -84,7 +84,7 @@ Figure 1. Knowledge and Decision Boundary of Self Aware Agent.
 
 ## Misalignment between Knowledge and Decision Boundary <a name="knowledge-decision-misalign"></a>
 
-In general the AI Models are not self-aware and hence their knowledge and decision boundaries don't align.  This leads to two problems:
+In general the AI Models are **not self-aware** as their  knowledge and decision boundaries **don't align**.  This leads to two problems:
 - When the model has the information stored in its parametric space but still calls an external tool to get the information, excessive tool calling takes place. In this case the model underestimates its knowledge. 
 - When the model overestimates the knowledge that it doesn't have, the output responses suffer from hallucination.
 
@@ -92,9 +92,8 @@ In general the AI Models are not self-aware and hence their knowledge and decisi
 
 Figure 2. Misaligned Knowledge and Decision Boundary
 
-We can see in Figure 2. the knowledge boundary and the decision boundary doesn't match which leads to suboptimal tool calling and performance. The query $$q_1$$  given the model $$M$$ has the potential to answer the question using internal reasoning methods such as COT, Tree of Thought, etc. as the query is within the knowledge boundary of the model. However since it falls outside of the Decision boundary it would take help of the external tools to answer the question when its not really required.
-Similarly, for query $$q3$$ the answer is not there in the model parametric space as it falls outside the knowledge boundary, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
-
+We can see in Figure 2. the knowledge boundary and the decision boundary doesn't match which leads to suboptimal tool calling and performance. The model $$M$$ has the potential to answer the question $$q_1$$ using internal reasoning methods such as COT, Tree of Thought, etc. as the query is **within the knowledge boundary** of the model. However since it falls outside of the Decision boundary it would take help of the external tools to answer the question when it's not really required.
+Similarly, for query $$q3$$ the **answer is not there in the model parametric space** as it falls **outside the knowledge boundary**, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
 
 
 Generally till now, the model used to acquire knowledge during the pretraining phase which didn't involve any tool calling. During the Supervised finetuning(SFT) step learns to align its Decision boundary to its knowledge boundary through curated tool calling specific illustrations followed up by Alignment through RLHF.
