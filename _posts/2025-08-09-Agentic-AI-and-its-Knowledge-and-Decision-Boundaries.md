@@ -86,7 +86,16 @@ Figure 1. Knowledge and Decision Boundary of Self Aware Agent.
 
 In general the AI Models are not self-aware and hence their knowledge and decision boundaries don't align.  This leads to two problems:
 - When the model has the information stored in its parametric space but still calls an external tool to get the information, excessive tool calling takes place. In this case the model underestimates its knowledge. 
-- When the model overestimates the knowledge that it doesn't have, the output responses suffer from hallucination. 
+- When the model overestimates the knowledge that it doesn't have, the output responses suffer from hallucination.
+
+<img width="846" height="531" alt="image" src="https://github.com/user-attachments/assets/7c59a857-fe20-4021-be1e-aa53de4119fd" />
+
+Figure 2. Misaligned Knowledge and Decision Boundary
+
+We can see in Figure 2. the knowledge boundary and the decision boundary doesnt match which leads to sub-optimal tool calling and performance. The query 
+
+
+
 
 Generally till now, the model used to acquire knowledge during the pretraining phase which didn't involve any tool calling. During the Supervised finetuning(SFT) step learns to align its Decision boundary to its knowledge boundary through curated tool calling specific illustrations followed up by Alignment through RLHF.
 
