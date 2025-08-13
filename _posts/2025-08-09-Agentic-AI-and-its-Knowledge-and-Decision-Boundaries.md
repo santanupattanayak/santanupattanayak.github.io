@@ -92,8 +92,8 @@ In general the AI Models are not self-aware and hence their knowledge and decisi
 
 Figure 2. Misaligned Knowledge and Decision Boundary
 
-We can see in Figure 2. the knowledge boundary and the decision boundary doesnt match which leads to sub-optimal tool calling and performance. The query 
-
+We can see in Figure 2. the knowledge boundary and the decision boundary doesn't match which leads to suboptimal tool calling and performance. The query $$q_1$$  given the model $$M$$ has the potential to answer the question using internal reasoning methods such as COT, Tree of Thought, etc. as the query is within the knowledge boundary of the model. However since it falls outside of the Decision boundary it would take help of the external tools to answer the question when its not really required.
+Similarly, for query $$q3$$ the answer is not there in the model parametric space as it falls outside the knowledge boundary, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
 
 
 
