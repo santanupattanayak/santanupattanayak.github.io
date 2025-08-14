@@ -10,6 +10,10 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 1. [Introduction to Agentic AI](#introduction)
 2. [Knowledge Boundary and Decision Boundary of an Agent](#knowledge-decision-boundary)
 3. [Misalignment between Knowledge and Decision Boundary](#knowledge-decision-misalign)
+4. [Techniques to align decision boundary to the knowledge boundary](#knowledge-decision-align) 
+    a. [Agentic Pretraining](#agentic-pretraining)
+    b. [Agentic Supervised Finetuning](#agentic-sft)
+    c. [Agentic Reinforcement Learning](#agentic-rl)
 
 
 
@@ -111,20 +115,20 @@ Over-optimizing for internal reasoning can be detrimental, especially for highly
 The authors of [4] advocates a modification of Pretraining, Supervised Finetuning and Reinforcement Learning for better aligning the Knowledge boundary with the Decision boundary.
 
 
-### Agentic Pretraining
+### Agentic Pretraining <a name="agentic-pretraining"></a>
 
 - Next-token prediction helps model compress world knowledge into a model’s parametric space, but it doesn’t teach models to acquire new knowledge through interaction. 
 - Instead, we should move towards **next-tool prediction** — training the model to decide the most appropriate external tool to invoke at each step to acquire appropriate external knowledge. 
 - This makes interaction a first-class learning objective, enabling agents to actively seek information they lack. 
 - Treating all forms of interaction (API calls, UI navigation, environment manipulation) as structured outputs paves the way for a new scaling law — one that measures knowledge acquisition, not just compression.
 
-### Agentic Supervised Finetuning
+### Agentic Supervised Finetuning <a name="agentic-sft"></a>
 
 - Agents are typically taught to use external tools **during supervised fine-tuning on task-specific datasets**. A key issue with this approach is that using the **same dataset across all models implicitly assumes a uniform knowledge boundary** — which is rarely true.
 -  For example, a model $$A$$ with more parameters and trained on a larger pretraining corpus will generally have a broader knowledge boundary than a smaller model $$B$$ trained with fewer parameters and less data. In such cases, applying the same SFT dataset for tool calling is suboptimal. 
 - Hence, SFT datasets should be designed with **each model’s knowledge boundary in mind**, ensuring that every model receives its own tailored dataset.
 
-### Agentic Reinforcement Learning 
+### Agentic Reinforcement Learning <a name="agentic-rl"></a>
 
 - Reinforcement Learning (RL) offers a stronger framework for enabling models to understand their knowledge boundary by **allowing them to make mistakes and learn to adaptively align their decision boundary to their knowledge boundary**.
 - In this context, a traditional **reward function that values only correctness is insufficient** — the reward must also account for **tool-calling efficiency**.
