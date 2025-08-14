@@ -88,7 +88,7 @@ In general the AI Models are **not self-aware** as their  knowledge and decision
 - When the model has the information stored in its parametric space but still calls an external tool to get the information, excessive tool calling takes place. In this case the model underestimates its knowledge. 
 - When the model overestimates the knowledge that it doesn't have, the output responses suffer from hallucination.
 
-<img width="846" height="531" alt="image" src="https://github.com/user-attachments/assets/7c59a857-fe20-4021-be1e-aa53de4119fd" />
+<img width="770" height="285" alt="image" src="https://github.com/user-attachments/assets/7c59a857-fe20-4021-be1e-aa53de4119fd" />
 
 Figure 2. Misaligned Knowledge and Decision Boundary
 
