@@ -10,10 +10,10 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 1. [Introduction to Agentic AI](#introduction)
 2. [Knowledge Boundary and Decision Boundary of an Agent](#knowledge-decision-boundary)
 3. [Misalignment between Knowledge and Decision Boundary](#knowledge-decision-misalign)
-4. [Techniques to align decision boundary to the knowledge boundary](#knowledge-decision-align) 
-    a. [Agentic Pretraining](#agentic-pretraining)
-    b. [Agentic Supervised Finetuning](#agentic-sft)
-    c. [Agentic Reinforcement Learning](#agentic-rl)
+4. [Techniques to align decision boundary to the knowledge boundary](#knowledge-decision-align)
+   1. [Agentic Pretraining](#agentic-pretraining)
+   2. [Agentic Supervised Finetuning](#agentic-sft)
+   3. [Agentic Reinforcement Learning](#agentic-rl)
 
 
 
