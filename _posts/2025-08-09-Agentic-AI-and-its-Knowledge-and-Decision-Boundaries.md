@@ -98,6 +98,11 @@ Similarly, for query $$q3$$ the **answer is not there in the model parametric sp
 
 Generally till now, the model used to acquire knowledge during the pretraining phase which didn't involve any tool calling. During the Supervised finetuning(SFT) step learns to align its Decision boundary to its knowledge boundary through curated tool calling specific illustrations followed up by Alignment through RLHF.
 
+## Techniques to align decision boundary to the knowledge boundary <a name="knowledge-decision-align"></a>
+
+
+
+
 
 
 ## References
