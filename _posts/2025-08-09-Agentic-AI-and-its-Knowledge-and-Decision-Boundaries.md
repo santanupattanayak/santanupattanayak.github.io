@@ -96,11 +96,21 @@ We can see in Figure 2. the knowledge boundary and the decision boundary doesn't
 Similarly, for query $$q3$$ the **answer is not there in the model parametric space** as it falls **outside the knowledge boundary**, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
 
 
-Generally till now, the model used to acquire knowledge during the pretraining phase which didn't involve any tool calling. During the Supervised finetuning(SFT) step learns to align its Decision boundary to its knowledge boundary through curated tool calling specific illustrations followed up by Alignment through RLHF. However, most of such alignment relied on correctness rather than tool calling efficiency leading to overuse of both internal and external tools. An optimal agent is one which should optimize for both **internal reasoning tools such as CoT, Tree of Thought, Reflection** as well as **external tools**. However, optimizing too much for internal reasoning can have adverse effects especially when the tasks are too complex. Hence, while training agents reducing reliance on the external tools while preserving task success is a key objective of SFT and Alignment for Agent Models.
+Generally, until now, models have acquired knowledge primarily during the pretraining phase, which did not involve any tool usage. In the supervised fine-tuning (SFT) stage, models learn to better align their decision boundary with their knowledge boundary through curated, tool-calling–specific examples, followed by alignment via RLHF.
+However, much of this alignment has focused on correctness rather than tool-use efficiency, often leading to overuse of both internal and external tools.
 
+An optimal agent should balance and optimize for:
 
+- Internal reasoning methods such as Chain of Thought (CoT), Tree of Thought (ToT), and Reflection.
+- External tools for acquiring information beyond its parametric knowledge.
+
+Over-optimizing for internal reasoning can be detrimental, especially for highly complex tasks. Therefore, in training agentic models, a key objective of SFT and alignment is to reduce unnecessary reliance on external tools while preserving task success.
 
 ## Techniques to align decision boundary to the knowledge boundary <a name="knowledge-decision-align"></a>
+
+
+
+
 
 
 
