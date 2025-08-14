@@ -113,14 +113,16 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 
 ### Agentic Pretraining
 
-Next-token prediction helps model compress world knowledge into a model’s parametric space, but it doesn’t teach models to acquire new knowledge through interaction. Instead, we should move towards **next-tool prediction** — training the model to decide the most appropriate external tool to invoke at each step to acquire appropriate external knowledge. This makes interaction a first-class learning objective, enabling agents to actively seek information they lack. Treating all forms of interaction (API calls, UI navigation, environment manipulation) as structured outputs paves the way for a new scaling law — one that measures knowledge acquisition, not just compression. This will help build adaptive, self-improving agents in dynamic, open-ended environments.
+- Next-token prediction helps model compress world knowledge into a model’s parametric space, but it doesn’t teach models to acquire new knowledge through interaction. 
+- Instead, we should move towards **next-tool prediction** — training the model to decide the most appropriate external tool to invoke at each step to acquire appropriate external knowledge. 
+- This makes interaction a first-class learning objective, enabling agents to actively seek information they lack. 
+- Treating all forms of interaction (API calls, UI navigation, environment manipulation) as structured outputs paves the way for a new scaling law — one that measures knowledge acquisition, not just compression.
 
 ### Agentic Supervised Finetuning
 
-Agents are typically taught to use external tools **during supervised fine-tuning on task-specific datasets**. A key issue with this approach is that using the **same dataset across all models implicitly assumes a uniform knowledge boundary** — which is rarely true.
-For example, a model $$A$$ with more parameters and trained on a larger pretraining corpus will generally have a broader knowledge boundary than a smaller model $$B$$ trained with fewer parameters and less data. In such cases, applying the same SFT dataset for tool calling is suboptimal.
-
-Instead, SFT datasets should be designed with **each model’s knowledge boundary in mind**, ensuring that every model receives its own tailored dataset.
+- Agents are typically taught to use external tools **during supervised fine-tuning on task-specific datasets**. A key issue with this approach is that using the **same dataset across all models implicitly assumes a uniform knowledge boundary** — which is rarely true.
+-  For example, a model $$A$$ with more parameters and trained on a larger pretraining corpus will generally have a broader knowledge boundary than a smaller model $$B$$ trained with fewer parameters and less data. In such cases, applying the same SFT dataset for tool calling is suboptimal. 
+- Hence, SFT datasets should be designed with **each model’s knowledge boundary in mind**, ensuring that every model receives its own tailored dataset.
 
 
 
