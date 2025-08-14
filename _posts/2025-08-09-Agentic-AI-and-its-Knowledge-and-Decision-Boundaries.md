@@ -159,7 +159,21 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 
 In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinforcement Learning" [5] defines the tool efficiency reward function.
 
-- For PPO since for a prompt $$x$$ we dont generate multiple completions hence we don't have a sense of what is the optimal number of tool calls for a given query $$x$$ to a model $$M$$
+- For PPO since for a prompt $$x$$ we don't generate multiple completions hence we don't have a sense of what is the optimal number of tool calls for a given query $$x$$ to a model $$M$$. Hence, we design a tool efficiency reward that penalizes excessive tool caling. The tool reward is as follows:  
+
+ $$
+ \begin{align}
+  r_{tool}(x,y)) = \cos(\frac {\pi m}{2m + c})
+ \end{align}
+ $$
+
+
+
+
+ 
+ Plotted below in Figure 3 is the plot of the $$r_{tool}(x,y))$$ with a setting of $$c=0.2$$. As we can see the tool reward goes down with the increase in $$m$$
+
+ 
 
 
 
