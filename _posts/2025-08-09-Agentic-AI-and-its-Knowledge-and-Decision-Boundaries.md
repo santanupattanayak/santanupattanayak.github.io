@@ -124,6 +124,8 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 -  For example, a model $$A$$ with more parameters and trained on a larger pretraining corpus will generally have a broader knowledge boundary than a smaller model $$B$$ trained with fewer parameters and less data. In such cases, applying the same SFT dataset for tool calling is suboptimal. 
 - Hence, SFT datasets should be designed with **each model’s knowledge boundary in mind**, ensuring that every model receives its own tailored dataset.
 
+### Agentic Reinforcement Learning 
+
 
 
 
