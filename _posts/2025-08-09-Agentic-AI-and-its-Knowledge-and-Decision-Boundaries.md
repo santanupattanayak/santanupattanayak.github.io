@@ -139,6 +139,33 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
  \end{align}
  $$
 
+- We aim to design tool-integrated reward functions that value not only correctness but also optimal tool usage. Let $$r_{\phi}(x,y)$$ be a reward model with parameters $$\phi$$ that scores correctness and let $$r_{tool}(x,y)$$ be a reward term for tool-calling efficiency. We define the tool integrated reward $$r_{\phi}^{tool}(x,y)$$ as  
+
+ $$
+ \begin{align}
+  r_{\phi}^{tool}(x,y) = f(r_{\phi}(x,y), r_{tool}(x,y))
+ \end{align}
+ $$
+
+- In practice $$f$$ is chosen to be multiplicative so that if the model fails to answer correctly i.e. $$r_{\phi}(x,y) =0$$ then the the tool usage score becomes irrelevant. Using this design the tool integrated reward becomes:  
+
+ $$
+ \begin{align}
+  r_{\phi}^{tool}(x,y) = \alpha r_{\phi}(x,y)r_{tool}(x,y))
+ \end{align}
+ $$
+
+## Optimal tool calling Reward function Design 
+
+In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinforcement Learning" [5] defines the tool efficiency reward function.
+
+- For PPO since for a prompt $$x$$ we dont generate multiple completions hence we don't have a sense of what is the optimal number of tool calls for a given query $$x$$ to a model $$M$$
+
+
+
+
+
+
 
 ## References
 
@@ -149,3 +176,5 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 [3] Self-Reflection in LLM Agents: Effects on Problem-Solving Performance : https://arxiv.org/abs/2405.06682  
 
 [4] Toward a Theory of Agents as Tool-Use Decision-Makers : https://arxiv.org/pdf/2506.00886v1
+
+[5] OTC: Optimal Tool Calls via Reinforcement Learning: https://arxiv.org/pdf/2504.14870v1
