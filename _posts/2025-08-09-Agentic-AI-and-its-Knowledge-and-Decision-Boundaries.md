@@ -101,10 +101,10 @@ However, much of this alignment has focused on correctness rather than tool-use 
 
 An optimal agent should balance and optimize for:
 
-- Internal reasoning methods such as Chain of Thought (CoT), Tree of Thought (ToT), and Reflection.
-- External tools for acquiring information beyond its parametric knowledge.
+- **Internal reasoning methods** such as Chain of Thought (CoT), Tree of Thought (ToT), and Reflection.
+- **External tools** for acquiring information beyond its parametric knowledge.
 
-Over-optimizing for internal reasoning can be detrimental, especially for highly complex tasks. Therefore, in training agentic models, a key objective of SFT and alignment is to reduce unnecessary reliance on external tools while preserving task success.
+Over-optimizing for internal reasoning can be detrimental, especially for highly complex tasks. Therefore, in training agentic models, a key objective of SFT and alignment is to **reduce unnecessary reliance on external tools while preserving task success**.
 
 ## Techniques to align decision boundary to the knowledge boundary <a name="knowledge-decision-align"></a>
 
