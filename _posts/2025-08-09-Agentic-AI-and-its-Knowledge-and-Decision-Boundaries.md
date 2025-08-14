@@ -93,7 +93,7 @@ In general the AI Models are **not self-aware** as their  knowledge and decision
 Figure 2. Misaligned Knowledge and Decision Boundary
 
 We can see in Figure 2. the knowledge boundary and the decision boundary doesn't match which leads to suboptimal tool calling and performance. The model $$M$$ has the potential to answer the question $$q_1$$ using internal reasoning methods such as COT, Tree of Thought, etc. as the query is **within the knowledge boundary** of the model. However since it falls outside of the Decision boundary it would take help of the external tools to answer the question when it's not really required.
-Similarly, for query $$q3$$ the **answer is not there in the model parametric space** as it falls **outside the knowledge boundary**, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
+Similarly, for query $$q_3$$ the **answer is not there in the model parametric space** as it falls **outside the knowledge boundary**, however since the query falls within the decision boundary, the genAI model would not go for tool calling when its actually required. This might lead to hallucinations.
 
 
 Generally, until now, models have acquired knowledge primarily during the pretraining phase, which did not involve any tool usage. In the supervised fine-tuning (SFT) stage, models learn to better align their decision boundary with their knowledge boundary through curated, tool-calling–specific examples, followed by alignment via RLHF.
@@ -126,11 +126,14 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 
 ### Agentic Reinforcement Learning 
 
-- Reinforcement Learning (RL) offers a stronger framework for enabling models to understand their knowledge boundary by **allowing them to make mistakes and learn to adaptively align their decision boundary to their knowledge boundary.
+- Reinforcement Learning (RL) offers a stronger framework for enabling models to understand their knowledge boundary by **allowing them to make mistakes and learn to adaptively align their decision boundary to their knowledge boundary**.
 - In this context, a traditional **reward function that values only correctness is insufficient** — the reward must also account for **tool-calling efficiency**.
-- For a prompt $$x$$ with multiple correct completions $$\{y_1,y_2,......,y_m\}$$ and corresponding tool calling counts $$\{n_1,n_2,....,n_m\}$$,  the RL objective should guide the LLM to prefer the completion requiring the fewest tool calls, i.e.,  
-
-$$n_{min} = \min(n_1,n_2,....,n_m)$$.
+- For a prompt $$x$$ with multiple correct completions $$\{y_1,y_2,......,y_m\}$$ and corresponding tool calling counts $$\{n_1,n_2,....,n_m\}$$,  the RL objective should guide the LLM to prefer the completion requiring the fewest tool calls, i.e.,
+ $$
+ \begin{align}
+  n_{min} = \min(n_1,n_2,....,n_m)
+ \end{align}
+ $$
 
 
 ## References
