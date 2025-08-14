@@ -159,7 +159,12 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 
 In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinforcement Learning" [5] defines the tool efficiency reward function.
 
-- For PPO since for a prompt $$x$$ we don't generate multiple completions hence we don't have a sense of what is the optimal number of tool calls for a given query $$x$$ to a model $$M$$. Hence, we design a tool efficiency reward that penalizes excessive tool caling. The tool reward is as follows:  
+### OTC-PPO
+
+In standard PPO, for a given prompt $$x$$, we typically generate only one completion rather than multiple alternatives.  
+This means we lack a direct sense of the optimal number of tool calls for that specific query $$x$$ to a model $$M$$.
+To address this, OTC-PPO introduces a tool-efficiency reward that penalizes excessive tool usage. We define the tool usage as  
+
 
  $$
  \begin{align}
@@ -167,15 +172,16 @@ In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinf
  \end{align}
  $$
 
-
+where $$m$$ is the number of tool calls and $$c$$ is a positive constant that controls the decay rate.
 
 
  
- Plotted below in Figure 3 is the plot of the $$r_{tool}(x,y))$$ with a setting of $$c=0.2$$. As we can see the tool reward goes down with the increase in $$m$$
+Figure 3 (below) shows $$r_{tool}(x,y))$$ for $$c=0.2$$. As we can see the tool reward deceases as $$m$$ increases, penalizing overuse of tools.
 
- 
+### OTC-GRPO
 
-- In the GRPO version for a given prompt $$x$$ since if we sample multiple correct completions $$\{y_1,y_2,......,y_m\}$$ and they have number count of tool calling as $$\{n_1,n_2,......,n_m\}$$ then the optimal tool calling $$n$$ is  
+In the GRPO setting, for a given prompt $$x$$, we sample multiple correct completions $$\{y_1,y_2,......,y_m\}$$  and if those completions have tool-call counts $$\{n_1,n_2,......,n_m\}$$ then we can define the optimal tool call count $$n$$ for the prompt as  
+
   
  $$
  \begin{align}
@@ -183,23 +189,16 @@ In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinf
  \end{align}
  $$
  
- If the optimal tool calling $$n=0$$ then we resort to the  PPO tool calling reward as it penalizes for higher tool calling and hence is apt in this case where there is no tool calling required.
- At other places a $$sin$$ function is used which penalizes the tool reward if the tool call $$m$$ is on either side of the optimal value of $$n$$. Combining both we have the tool reward for GRPO as  :
+ - Case 1: If $$n = 0$$ (no tools should be used), we revert to the OTC-PPO reward above, which heavily penalizes any tool usage.
+ - Case 2: Otherwise, we use a sine-based penalty that decreases the reward if the number of tool calls $$m$$ deviates from the optimal n in either direction.
 
-
+The combined reward function for OTC-GRPO is:
 $$
 \begin{align}
 r_{tool}(x,y)) &= \cos(\frac {\pi m}{2m + c}); n = 0 \\
 r_{tool}(x,y)) &= \sin(\frac {\pi m}{m + n}); elsewhere 
 \end{align}
 $$
- 
-
-  
-   
-  
-
-
 
 
 ## References
