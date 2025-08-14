@@ -175,8 +175,29 @@ In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinf
 
  
 
+- In the GRPO version for a given prompt $$x$$ since if we sample multiple correct completions $$\{y_1,y_2,......,y_m\}$$ and they have number count of tool calling as $$\{n_1,n_2,......,n_m\}$$ then the optimal tool calling $$n$$ is  
+  
+ $$
+ \begin{align}
+  n = \min(n_1,n_2,.....n_m)
+ \end{align}
+ $$
+ 
+ If the optimal tool calling $$n=0$$ then we resort to the  PPO tool calling reward as it penalizes for higher tool calling and hence is apt in this case where there is no tool calling required.
+ At other places a $$sin$$ function is used which penalizes the tool reward if the tool call $$m$$ is on either side of the optimal value of $$n$$. Combining both we have the tool reward for GRPO as  :
 
 
+$$
+\begin{align}
+r_{tool}(x,y)) &= \cos(\frac {\pi m}{2m + c}); n = 0 \\
+r_{tool}(x,y)) &= \sin(\frac {\pi m}{m + n}); elsewhere 
+\end{align}
+$$
+ 
+
+  
+   
+  
 
 
 
