@@ -108,6 +108,13 @@ Over-optimizing for internal reasoning can be detrimental, especially for highly
 
 ## Techniques to align decision boundary to the knowledge boundary <a name="knowledge-decision-align"></a>
 
+The authors of [4] advocates a modification of Pretraining, Supervised Finetuning and Reinforcement Learning for better aligning the Knowledge boundary with the Decision boundary.
+
+
+# Agentic Pretraining
+
+Next-token prediction helps model compress world knowledge into a model’s parametric space, but it doesn’t teach models to acquire new knowledge through interaction. Instead, we should move towards **next-tool prediction** — training the model to decide the most appropriate external tool to invoke at each step to acquire appropriate external knowledge. This makes interaction a first-class learning objective, enabling agents to actively seek information they lack. Treating all forms of interaction (API calls, UI navigation, environment manipulation) as structured outputs paves the way for a new scaling law — one that measures knowledge acquisition, not just compression. This will help build adaptive, self-improving agents in dynamic, open-ended environments.
+
 
 
 
