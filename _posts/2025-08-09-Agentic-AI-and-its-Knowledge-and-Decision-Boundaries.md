@@ -126,15 +126,11 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
 
 ### Agentic Reinforcement Learning 
 
-- Reinforcement Learning provides a better framework for the models to understand their knowledge boundary by making mistakes and learning to **adaptively align its decision boundary to knowledge boundary**.
-- In this regard the traditional reward function that only values correctness is not going to be sufficient, the reward function needs to be modified to factor in tool calling efficiency.
-- For a given prompt $$x$$ if there are several completions $$y_1,y_2,......,y_m$$ with number of tool calls $$n_1,n_2,....,n_m$$ that provide the correct answer the RL method should help tune the LLM model to favor the one with the least tool call i.e. $$\min(n_1,n_2,....,n_m)$$.
+- Reinforcement Learning (RL) offers a stronger framework for enabling models to understand their knowledge boundary by **allowing them to make mistakes and learn to adaptively align their decision boundary to their knowledge boundary.
+- In this context, a traditional **reward function that values only correctness is insufficient** — the reward must also account for **tool-calling efficiency**.
+- For a prompt $$x$$ with multiple correct completions $$\{y_1,y_2,......,y_m\}$$ and corresponding tool calling counts $$\{n_1,n_2,....,n_m\}$$,  the RL objective should guide the LLM to prefer the completion requiring the fewest tool calls, i.e.,  
 
-
-
-
-
-
+$$n_{min} = \min(n_1,n_2,....,n_m)$$.
 
 
 ## References
