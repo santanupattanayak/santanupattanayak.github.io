@@ -192,13 +192,15 @@ In the GRPO setting, for a given prompt $$x$$, we sample multiple correct comple
  - Case 1: If $$n = 0$$ (no tools should be used), we revert to the OTC-PPO reward above, which heavily penalizes any tool usage.
  - Case 2: Otherwise, we use a sine-based penalty that decreases the reward if the number of tool calls $$m$$ deviates from the optimal n in either direction.
 
-The combined reward function for OTC-GRPO is:
-$$
-\begin{align}
-r_{tool}(x,y)) &= \cos(\frac {\pi m}{2m + c}); n = 0 \\
-r_{tool}(x,y)) &= \sin(\frac {\pi m}{m + n}); elsewhere 
-\end{align}
-$$
+The combined reward function for OTC-GRPO is:  
+
+ $$
+ \begin{align}
+ r_{tool}(x,y)) &= \cos(\frac {\pi m}{2m + c}); n = 0 \\
+ r_{tool}(x,y)) &= \sin(\frac {\pi m}{m + n}); elsewhere 
+ \end{align}
+ $$
+
 
 
 ## References
