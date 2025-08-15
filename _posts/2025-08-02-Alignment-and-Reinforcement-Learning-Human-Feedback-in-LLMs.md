@@ -46,7 +46,7 @@ There are few differences between the PPO objective shown above modified for ali
 
 ## Training the Reward Model <a name="trm"></a>
 
-Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper https://arxiv.org/pdf/2203.02155  
+Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper [1] 
 1. First step is to sample prompts from a Prompts Dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
 
 
@@ -85,7 +85,7 @@ One important aspect to note here, that we are not regressing on the reward $$r(
 
 ## Direct Preference Optimization <a name="dpo"></a>
 
-Direct Preference Optimization(DPO) is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
+Direct Preference Optimization(DPO) [2] is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
 
 <img width="926" height="190" alt="image" src="https://github.com/user-attachments/assets/823dd379-7cc9-457a-94bb-e7a0ca222f32" />
 
@@ -202,6 +202,13 @@ $$
 
 
 We will end this blog here and discuss about GRPO in a Part 2 edition of this topic.
+
+## References
+
+[1] [Training language models to follow instructions with human feedback] : https://arxiv.org/abs/2203.02155
+[2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model]: https://arxiv.org/abs/2305.18290
+
+
 
 
 
