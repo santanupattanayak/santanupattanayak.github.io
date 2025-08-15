@@ -3,7 +3,7 @@ layout: post
 title: "Agentic AI and its Knowledge and Decision Boundary"
 date: 2025-08-09 00:00:00 -0000
 author: Santanu Pattanayak
-tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF  
+tags: Agentic AI, Knowledge Boundary, Decision Boundary , Optimal Tool Calling, Optimal tool calling reward, PPO, GRPO   
 ---
 
 # Table of Contents
@@ -83,7 +83,7 @@ $$
 \end{align}
 $$
 
-As stated earlier the Knowledge boundary and the Decision boundary of the Model $$M$$ should match for optimal performance, where the external tools from $$T_ext$$ would only be called when required.
+As stated earlier the Knowledge boundary and the Decision boundary of the Model $$M$$ should match for optimal performance, where the external tools from $$T_{ext}$$ would only be called when required.
 
 <img width="770" height="285" alt="image" src="https://github.com/user-attachments/assets/6f0c806c-2c5b-4e84-aee2-aaacb61d4889" />
 
