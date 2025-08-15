@@ -14,6 +14,9 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
    1. [Agentic Pretraining](#agentic-pretraining)
    2. [Agentic Supervised Finetuning](#agentic-sft)
    3. [Agentic Reinforcement Learning](#agentic-rl)
+5. [Optimal tool calling Reward function Design](#agentic-otc)
+   1. [OTC-PPO](#otc-ppo)
+   2. [OTC-GRPO](#otc-grpo)
 
 
 
@@ -155,11 +158,11 @@ The authors of [4] advocates a modification of Pretraining, Supervised Finetunin
  \end{align}
  $$
 
-## Optimal tool calling Reward function Design 
+## Optimal tool calling Reward function Design <a name="agentic-otc"></a>
 
 In this section we will discuss how the paper "OTC: Optimal Tool Calls via Reinforcement Learning" [5] defines the tool efficiency reward function.
 
-### OTC-PPO
+### OTC-PPO <a name="otc-ppo"></a>
 
 In standard PPO, for a given prompt $$x$$, we typically generate only one completion rather than multiple alternatives.  
 This means we lack a direct sense of the optimal number of tool calls for that specific query $$x$$ to a model $$M$$.
@@ -175,13 +178,13 @@ To address this, OTC-PPO introduces a tool-efficiency reward that penalizes exce
 where $$m$$ is the number of tool calls and $$c$$ is a positive constant that controls the decay rate.
 
  
-Figure 3 (below) shows $$r_{tool}(x,y))$$ for $$c=0.2$$. As we can see the tool reward deceases as $$m$$ increases, penalizing overuse of tools.
+Figure 3 (below) shows $$r_{tool}(x,y)$$ for $$c=0.2$$. As we can see the tool reward deceases as $$m$$ increases, penalizing overuse of tools.
 
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/a7b93999-a63d-43ce-9ef3-956179350337" />
 
 Figure-3. 
 
-### OTC-GRPO
+### OTC-GRPO <a name="otc-grpo"></a>
 
 In the GRPO setting, for a given prompt $$x$$, we sample multiple correct completions $$\{y_1,y_2,......,y_m\}$$  and if those completions have tool-call counts $$\{n_1,n_2,......,n_m\}$$ then we can define the optimal tool call count $$n$$ for the prompt as  
 
@@ -204,7 +207,7 @@ The combined reward function for OTC-GRPO is:
  \end{align}
  $$
 
-We can see in Figure 4 (above) the tool reward $$\sin(\frac {\pi m}{m + n}$$ deceases for $$m$$ on either side of the chosen optimal tool calling value $$n=10$$.
+We can see in Figure 4 (above) the tool reward $$\sin(\frac {\pi m}{m + n})$$ deceases for $$m$$ on either side of the chosen optimal tool calling value $$n=10$$.
 
 
 <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c9562c1c-775f-4bd9-af7a-af78e9bf1e9f" />
@@ -212,6 +215,35 @@ We can see in Figure 4 (above) the tool reward $$\sin(\frac {\pi m}{m + n}$$ dec
  Figure 4. Plot of $$r_{tool}(x,y) = \sin(\frac {\pi m}{m + 10})$$
 
 
+As previously discussed, the tool-integrated reward is defined as the product of the reward for correctness and the optimal tool-calling reward, which we have been investigating:
+
+ $$
+ \begin{align}
+  r_{\phi}^{tool}(x,y) = \alpha r_{\phi}(x,y)r_{tool}(x,y))
+ \end{align}
+ $$
+
+Both PPO (Proximal Policy Optimization) and GRPO (Generative Reward Policy Optimization) optimize the following objective using the tool-integrated reward:
+
+ $$
+ \begin{align}
+  \mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(y|x)}[r_{\phi}^{tool}(x,y) - V(x)] -\beta KL(\pi_{\theta}(y|x) || \pi_{SFT}(y|x))
+ \end{align}
+ $$
+
+Here:
+$$\pi_{\theta}$$ denotes the policy of the LLM agent being aligned.
+$$\pi_{\text{SFT}}$$ represents the supervised fine-tuned (SFT) version of the agent.
+$$D$$ is the dataset of input prompts.
+$$V(x)$$ is a baseline used to reduce the variance of the objective.
+
+In standard PPO, the baseline $$V(x)$$ is estimated using a separate critic model. In contrast, GRPO estimates $$V(x)$$ by sampling multiple completions for a given prompt and averaging their corresponding rewards.
+
+## Conclusion
+- Current agentic alignment methods that attempt to match the decision boundary with the model's knowledge boundary remain suboptimal.
+- Agentic pretraining should replace standard pretraining—not only to teach the model how to compress and represent information, but also to enable it to call external tools to augment its knowledge and capabilities.
+- Agentic supervised fine-tuning (SFT) should focus on constructing tool-calling datasets that are tailored to each model’s specific knowledge boundary.
+- Agentic reinforcement learning (RL) should aim to align agents not just through correctness-based rewards, but also by incentivizing optimal tool usage.
 
 
 ## References
