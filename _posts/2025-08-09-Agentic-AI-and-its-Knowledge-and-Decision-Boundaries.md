@@ -174,9 +174,12 @@ To address this, OTC-PPO introduces a tool-efficiency reward that penalizes exce
 
 where $$m$$ is the number of tool calls and $$c$$ is a positive constant that controls the decay rate.
 
-
  
 Figure 3 (below) shows $$r_{tool}(x,y))$$ for $$c=0.2$$. As we can see the tool reward deceases as $$m$$ increases, penalizing overuse of tools.
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/a7b93999-a63d-43ce-9ef3-956179350337" />
+
+Figure-3. 
 
 ### OTC-GRPO
 
@@ -200,6 +203,14 @@ The combined reward function for OTC-GRPO is:
  r_{tool}(x,y)) &= \sin(\frac {\pi m}{m + n}); elsewhere 
  \end{align}
  $$
+
+We can see in Figure 4 (above) the tool reward $$\sin(\frac {\pi m}{m + n}$$ deceases for $$m$$ on either side of the chosen optimal tool calling value $$n=10$$.
+
+
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/c9562c1c-775f-4bd9-af7a-af78e9bf1e9f" />
+
+ Figure 4. Plot of $$r_{tool}(x,y) = \sin(\frac {\pi m}{m + 10})$$
+
 
 
 
