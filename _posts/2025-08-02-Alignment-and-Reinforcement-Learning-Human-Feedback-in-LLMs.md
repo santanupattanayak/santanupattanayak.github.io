@@ -205,7 +205,8 @@ We will end this blog here and discuss about GRPO in a Part 2 edition of this to
 
 ## References
 
-[1] [Training language models to follow instructions with human feedback] : https://arxiv.org/abs/2203.02155
+[1] [Training language models to follow instructions with human feedback] : https://arxiv.org/abs/2203.02155  
+
 [2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model]: https://arxiv.org/abs/2305.18290
 
 
