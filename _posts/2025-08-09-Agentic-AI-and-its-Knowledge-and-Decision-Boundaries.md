@@ -17,6 +17,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 5. [Optimal tool calling Reward function Design](#agentic-otc)
    1. [OTC-PPO](#otc-ppo)
    2. [OTC-GRPO](#otc-grpo)
+6. [Conclusion](#conclusion)
 
 
 
@@ -239,7 +240,7 @@ $$V(x)$$ is a baseline used to reduce the variance of the objective.
 
 In standard PPO, the baseline $$V(x)$$ is estimated using a separate critic model. In contrast, GRPO estimates $$V(x)$$ by sampling multiple completions for a given prompt and averaging their corresponding rewards.
 
-## Conclusion
+## Conclusion <a name="conclusion"></a>
 - Current agentic alignment methods that attempt to match the decision boundary with the model's knowledge boundary remain suboptimal.
 - Agentic pretraining should replace standard pretraining—not only to teach the model how to compress and represent information, but also to enable it to call external tools to augment its knowledge and capabilities.
 - Agentic supervised fine-tuning (SFT) should focus on constructing tool-calling datasets that are tailored to each model’s specific knowledge boundary.
