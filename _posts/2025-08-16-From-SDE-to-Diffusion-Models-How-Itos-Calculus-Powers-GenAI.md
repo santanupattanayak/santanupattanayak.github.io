@@ -29,7 +29,7 @@ At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochas
 
 Below is a plot of Brownian Motion:
 
-<img width="1010" height="428" alt="image" src="https://github.com/user-attachments/assets/433accb4-14f1-4d2a-b44d-4e5f4b43cf30" />
+<img width="900" height="350" alt="image" src="https://github.com/user-attachments/assets/433accb4-14f1-4d2a-b44d-4e5f4b43cf30" />
 
 Figure 1. Sample Brownian Motion along with the approximate gradient.
 
