@@ -24,8 +24,8 @@ At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochas
 - Brownian motion starts from 0 i.e. $$W_{0} = 0$$
 - Increments are independent and normally distributed:
   $$W_{t+\Delta t} - W_{t} \sim \mathbb{N}(0,\Delta t)$$
-  This is exactly the kind of noise we inject in diffusion models: tiny Gaussian perturbations step by step.
-- Brownian motion $$W_t$$ is path continuous as function of $$t$$ but, it's not differentiable.
+  This is exactly the kind of noise we inject in diffusion models: **tiny Gaussian perturbations step by step**.
+- Brownian motion $$W_t$$ is **path continuous** as function of $$t$$ but, **not differentiable**.
 
 Below is a plot of Brownian Motion:
 
@@ -33,6 +33,6 @@ Below is a plot of Brownian Motion:
 
 Figure 1. Sample Brownian Motion along with the approximate gradient.
 
-As we can see in the Figure 1. while the Brownian motion trajectory is path continuous, the gradients are highly oscillatory and Brownian motion as a function of time is non differentiable. 
+As we can see in the Figure 1. while the Brownian motion trajectory is path continuous, the gradients are highly oscillatory and Brownian motion as a function of $$t$$ is non differentiable. 
 
 
