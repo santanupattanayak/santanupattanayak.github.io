@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From SDE to Diffusion Models: How Itô’s Calculus Powers Generative AI"
-date: 2025-08-09 00:00:00 -0000
+date: 2025-08-16 00:00:00 -0000
 author: Santanu Pattanayak
 tags: GenAI, Diffusion Models, Ito's Calculus, Brownian Motion   
 ---
