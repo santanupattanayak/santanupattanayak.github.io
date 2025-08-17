@@ -21,7 +21,7 @@ This post walks through how the math of randomness—developed for physics and f
 ## Brownian Motion: The Language of Noise
 
 At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochastic Random Process $$\{W_t\}_{t}$$ with the below properties:  
-- $$W_{0} = 0$$
+- Brownian motion starts from 0 i.e. $$W_{0} = 0$$
 - Increments are independent and normally distributed:
   $$W_{t+\Delta t} - W_{t} \sim \mathbb{N}(0,\Delta t)$$
   This is exactly the kind of noise we inject in diffusion models: tiny Gaussian perturbations step by step.
