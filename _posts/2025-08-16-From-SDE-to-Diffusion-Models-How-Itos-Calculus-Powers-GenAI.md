@@ -14,7 +14,7 @@ tags: GenAI, Diffusion Models, Ito's Calculus, Brownian Motion
 
 ## Introduction 
 
-In recent times, diffusion models have reshaped generative AI. They create stunning images, music, and even 3D worlds—all by starting from pure noise and then running time backwards. But behind the effective technique lies some deep mathematics: stochastic differential equations (SDEs) and Itô calculus.
+In recent times, diffusion models have reshaped generative AI. They create stunning images, music, and even 3D worlds—all by starting from pure noise and then running time backwards. But behind the effective technique lies some deep mathematics: **stochastic differential equations (SDEs)** and **Itô calculus**.
 This post walks through how the math of randomness—developed for physics and finance—became the backbone of today’s AI.
 
 
@@ -28,6 +28,5 @@ At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochas
 - Brownian motion $$W_t$$ is path continuous as function of $$t$$ but, it's not differentiable.
 
 Below is a plot of Brownian Motion:
-
-![img_6.png](../img_6.png)
+![img_4.png](img_4.png)
 
