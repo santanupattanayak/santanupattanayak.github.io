@@ -28,5 +28,11 @@ At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochas
 - Brownian motion $$W_t$$ is path continuous as function of $$t$$ but, it's not differentiable.
 
 Below is a plot of Brownian Motion:
-![img_4.png](img_4.png)
+
+<img width="1010" height="428" alt="image" src="https://github.com/user-attachments/assets/433accb4-14f1-4d2a-b44d-4e5f4b43cf30" />
+
+Figure 1. Sample Brownian Motion along with the approximate gradient.
+
+As we can see in the Figure 1. while the Brownian motion trajectory is path continuous, the gradients are highly oscillatory and Brownian motion as a function of time is non differentiable. 
+
 
