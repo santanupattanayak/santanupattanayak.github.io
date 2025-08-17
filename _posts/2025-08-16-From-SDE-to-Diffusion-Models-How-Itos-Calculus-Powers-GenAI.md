@@ -23,7 +23,9 @@ This post walks through how the math of randomness—developed for physics and f
 At the heart of stochastic Calculus lies Brownian Motion, denoted by the Stochastic Random Process $$\{W_t\}_{t}$$ with the below properties:  
 - Brownian motion starts from 0 i.e. $$W_{0} = 0$$
 - Increments are independent and normally distributed:
+
   $$W_{t+\Delta t} - W_{t} \sim \mathbb{N}(0,\Delta t)$$
+
   This is exactly the kind of noise we inject in diffusion models: **tiny Gaussian perturbations step by step**.
 - Brownian motion $$W_t$$ is **path continuous** as function of $$t$$ but, **not differentiable**.
 
