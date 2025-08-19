@@ -48,7 +48,7 @@ There are few differences between the PPO objective shown above modified for ali
 
 As discussed in the previous section, the PPO objective used in InstructGPT [1] does not explicitly incorporate several common tweaks typically associated with PPO. It is unclear whether these modifications were applied during training in InstructGPT, but from a broader PPO implementation perspective it is worth revisiting these standard refinements.
 
-1. **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
+* **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
 $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage and the updated PPO objective are as follows:  
 
 $$
@@ -58,7 +58,7 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A
 \end{align}
 $$
 
-2. **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the current policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to use old trajectories or completions in this case while still estimating gradients for the current policy. This is a standard practice in PPO to enable sample efficiency. However, we should not reuse a very old policy for estimating a current policy. The importance sampling introduces a policy ratio $$\frac{\pi_{\theta}}{\pi_{old}}$$ because of the swapping of the expectation and the PPO objective can be modified as:  
+* **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the current policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to use old trajectories or completions in this case while still estimating gradients for the current policy. This is a standard practice in PPO to enable sample efficiency. However, we should not reuse a very old policy for estimating a current policy. The importance sampling introduces a policy ratio $$\frac{\pi_{\theta}}{\pi_{old}}$$ because of the swapping of the expectation and the PPO objective can be modified as:  
 
 
 $$
