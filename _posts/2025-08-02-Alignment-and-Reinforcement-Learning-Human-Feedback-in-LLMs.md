@@ -53,8 +53,8 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
 
 $$
 \begin{align}
-A_{\phi,\gamma}(x,y) &= r_{\phi}(x,y) - V_{\gamma}(x) \\
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
+&A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x) \\
+&L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
 \end{align}
 $$
 
@@ -64,6 +64,14 @@ $$
 $$
 \begin{align}
 L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
+\end{align}
+$$
+
+* **Clipped objective for Stability**: PPO belong to the class of the Trust Region Policy optimization method which focuses on somewhat monotonic policy improvement over the policy update iterations. To that end to prevent the updated policy $$\pi_{\theta}$$ from deviating excessively from $$\pi_{old}$$, the policy ratio is clipped within a predefined range $$[1 - \epsilon,1 + \epsilon]$$. The clipped surrogate objective is as follows:
+
+$$
+\begin{align}
+L^{CLIP}(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)})A_{\phi,\gamma}(x,y)) \right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
 \end{align}
 $$
 
