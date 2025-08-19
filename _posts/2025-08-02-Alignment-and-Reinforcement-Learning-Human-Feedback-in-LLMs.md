@@ -71,7 +71,7 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   
   $$
   \begin{align}
-  L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)})A_{\phi,\gamma}(x,y) \right]  \\
+  L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y) \right]  \\
   &- \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
   \end{align}
   $$
