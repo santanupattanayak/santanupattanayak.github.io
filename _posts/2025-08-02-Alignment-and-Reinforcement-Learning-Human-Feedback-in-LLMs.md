@@ -58,8 +58,7 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   \end{align}
   $$
 
-2. **Importance Sampling** :   
-  
+2. **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the new policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to use old trajectories or completions in this case while still estimating gradients for the updated policy. This is a standard practice in PPO to enable sample efficiency. However, we should reuse  
 
 
  
