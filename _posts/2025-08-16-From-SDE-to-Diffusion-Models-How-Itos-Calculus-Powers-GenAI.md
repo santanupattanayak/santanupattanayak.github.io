@@ -40,3 +40,15 @@ Figure 1. Sample Brownian Motion along with the approximate gradient.
 As we can see in the Figure 1. while the Brownian motion trajectory is path continuous, the gradients are highly oscillatory and Brownian motion as a function of $$t$$ is non differentiable. 
 
 
+## Stochastic Differential Equations (SDEs)
+
+An ordinary first order differential equation in space and time generally takes the shape of below 
+
+$$
+/begin{align}
+
+\frac {dX_{t}}{dt} = f(X_{t},t) 
+/end{align}
+$$
+
+

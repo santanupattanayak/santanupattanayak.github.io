@@ -44,6 +44,32 @@ There are few differences between the PPO objective shown above modified for ali
 1. The reward from reward model is used directly and the formulation doesn't have any baseline subtraction from reward to work with Advantages.
 2. The KL divergence in standard PPO is with respect to old policy $$\pi_{old}$$, which constraints the updates for exploration stability. In Alignment objective the KL divergence is with respect to the SFT model $$\pi_{SFT}$$ which ensures that the aligned model is not too different from the SFT model.
 
+## Practical approach to PPO for Alignment 
+
+As discussed in the previous section, the PPO objective used in InstructGPT [1] does not explicitly incorporate several common tweaks typically associated with PPO. It is unclear whether these modifications were applied during training in InstructGPT, but from a broader PPO implementation perspective it is worth revisiting these standard refinements.
+
+1. **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
+$$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage is given by:  
+  $$
+  \begin{align}
+  A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x)
+  \end{align}
+  $$
+
+Using the advantage expression in place of the raw reward, the PPO objective can be written as:  $$
+  \begin{align}
+  L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) \\
+  \end{align}
+  $$
+
+
+2. Importance Sampling  
+  
+
+
+ 
+
+
 ## Training the Reward Model <a name="trm"></a>
 
 Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper [1] 
@@ -99,6 +125,8 @@ $$
 L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)})}  \right]
 \end{align}
 $$
+
+
 
 ## Derivation of DPO Objective from PPO and the Reward Model Training loss <a name="ppo2dpo"></a>
 
