@@ -67,8 +67,8 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   \end{align}
   $$
 
-* **Clipped objective for Stability**: PPO belong to the class of the Trust Region Policy optimization method which focuses on somewhat monotonic policy improvement over the policy update iterations. To that end to prevent the updated policy $$\pi_{\theta}$$ from deviating excessively from $$\pi_{old}$$, the policy ratio is clipped within a predefined range $$[1 - \epsilon,1 + \epsilon]$$. The clipped surrogate objective is as follows:
-
+* **Clipped objective for Stability**: PPO belongs to the family of **Trust Region Policy Optimization (TRPO)** methods, which aim to achieve approximately monotonic policy improvement across update iterations. To ensure stability, PPO prevents the updated policy $$\pi_{\theta}$$ from deviating too far from the old policy $$\pi_{old}$$ by clipping the policy ratio within a predefined range. The resulting clipped surrogate objective is given by:
+  
   $$
   \begin{align}
   L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)})A_{\phi,\gamma}(x,y) \right]  \\
