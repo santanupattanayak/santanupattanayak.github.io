@@ -51,30 +51,31 @@ As discussed in the previous section, the PPO objective used in InstructGPT [1] 
 * **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
 $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage and the updated PPO objective are as follows:  
 
-$$
-\begin{align}
-&A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x) \\
-&L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
-\end{align}
-$$
+  $$
+  \begin{align}
+  &A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x) \\
+  &L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
+  \end{align}
+  $$
 
 * **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the current policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to use old trajectories or completions in this case while still estimating gradients for the current policy. This is a standard practice in PPO to enable sample efficiency. However, we should not reuse a very old policy for estimating a current policy. The importance sampling introduces a policy ratio $$\frac{\pi_{\theta}}{\pi_{old}}$$ because of the swapping of the expectation and the PPO objective can be modified as:  
 
 
-$$
-\begin{align}
-L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
-\end{align}
-$$
+  $$
+  \begin{align}
+  L(\theta) = \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
+  \end{align}
+  $$
 
 * **Clipped objective for Stability**: PPO belong to the class of the Trust Region Policy optimization method which focuses on somewhat monotonic policy improvement over the policy update iterations. To that end to prevent the updated policy $$\pi_{\theta}$$ from deviating excessively from $$\pi_{old}$$, the policy ratio is clipped within a predefined range $$[1 - \epsilon,1 + \epsilon]$$. The clipped surrogate objective is as follows:
 
-$$
-\begin{align}
-L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)})A_{\phi,\gamma}(x,y) \right]  \\
-&- \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
-\end{align}
-$$
+  $$
+  \begin{align}
+  L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{old}(y|x)}\left[\min(\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)} A_{\phi,\gamma}(x,y),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y|x)}{\pi_{old}(y|x)})A_{\phi,\gamma}(x,y) \right]  \\
+  &- \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
+  \end{align}
+  $$
+
 
  
 
