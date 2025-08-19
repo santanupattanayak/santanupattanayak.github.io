@@ -49,21 +49,16 @@ There are few differences between the PPO objective shown above modified for ali
 As discussed in the previous section, the PPO objective used in InstructGPT [1] does not explicitly incorporate several common tweaks typically associated with PPO. It is unclear whether these modifications were applied during training in InstructGPT, but from a broader PPO implementation perspective it is worth revisiting these standard refinements.
 
 1. **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
-$$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage is given by:  
+$$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage and the updated PPO objective are as follows:  
+
   $$
   \begin{align}
-  A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x)
+  A_{\phi,\gamma}(x,y) = r_{\phi}(x,y) - V_{\gamma}(x) \\
+  L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) 
   \end{align}
   $$
 
-Using the advantage expression in place of the raw reward, the PPO objective can be written as:  $$
-  \begin{align}
-  L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[A_{\phi,\gamma}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) \\
-  \end{align}
-  $$
-
-
-2. Importance Sampling  
+2. **Importance Sampling** :   
   
 
 
