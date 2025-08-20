@@ -77,6 +77,7 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   $$
 
 
+
 ## Training the Reward Model <a name="trm"></a>
 
 Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper [1] 
@@ -132,6 +133,7 @@ $$
 L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)})}  \right]
 \end{align}
 $$
+
 
 
 
