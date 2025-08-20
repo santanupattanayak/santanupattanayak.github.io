@@ -241,6 +241,27 @@ $$
 ## Group Relative Policy Optimization 
 
 
+**Group Relative Policy optimization(GRPO)** is an alternative to PPO where instead of the baseline coming from a critic model $$V_{\gamma}$$ the baseline is estimated by sampling multiple completions $$\{y_1,y_2,...y_n\}$$ and averaging their observed rewards $$\{r_1,r_2,...r_n\}$$ to form baseline.
+
+In general the advantage $$A_i$$ for a query $$x$$ with completion $$y_i$$ and reward signal $$r_i$$ is as below  
+
+$$
+\begin{align}
+A_i = \frac {r_i - \bar{r}}{\sigma}
+\end{align}
+$$
+
+where  :
+
+$$
+\begin{align}
+\bar{r} &= \frac{1}{n} \sum_{j=1:n} r_j  \\
+\sigma^{2}  &= \frac{1}{n-1} \sum_{j=1:n} (r_j - \bar{r})^{2}
+\end{align}
+$$
+
+
+
 
 
 
