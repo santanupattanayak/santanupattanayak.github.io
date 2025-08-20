@@ -263,7 +263,23 @@ $$
 
 <img width="1200" height="400" alt="image" src="https://github.com/user-attachments/assets/9fdba8e6-d47e-4a99-a30e-c09bab480737" />
 
-We will end this blog here and discuss about GRPO in a Part 2 edition of this topic.
+
+
+Figure 3: GRPO illustration
+
+The optimization framework for GRPO is much like PPO except for the baseline value computation without a trained critic, as illustrated in Figure-3.
+Hence, the optimization objective is also similar to PPO as shown below:  
+
+  $$
+  \begin{align}
+  L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\frac{1}{n}\sum_{i=1:n}\left[\min(\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)} A_{\phi}(x,y_i),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)}) A_{\phi}(x,y_i) \right]  \\
+  &- \beta.KL(\pi_{\theta}(y_i|x) || \pi_{\theta_{SFT}}(y_i|x)) 
+  \end{align}
+  $$
+
+Although the objective looks the same few subtle differences of this GRPO objective from PPO are:  
+* The advantage doesn't involve the critic model $$V_{\gamma}$$ and hence the advantage function only depends on reward model parameters. Hence while the advantage in PPO is parameterized by reward model parameter $$\phi$$ and critic model parameter $$\gamma$$ in GRPO the advantage is solely a function reward model.
+
 
 ## References
 
