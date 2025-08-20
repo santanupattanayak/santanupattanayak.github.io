@@ -261,12 +261,6 @@ $$
 $$
 
 
-
-
-
-
-
-
 <img width="1200" height="400" alt="image" src="https://github.com/user-attachments/assets/9fdba8e6-d47e-4a99-a30e-c09bab480737" />
 
 We will end this blog here and discuss about GRPO in a Part 2 edition of this topic.
