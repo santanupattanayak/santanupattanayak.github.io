@@ -238,6 +238,16 @@ $$
 | **Scalability**               |  Harder to scale due to PPO complexity        |  Highly scalable – behaves like supervised fine-tuning |
 
 
+## Group Relative Policy Optimization 
+
+
+
+
+
+
+
+<img width="918" height="474" alt="image" src="https://github.com/user-attachments/assets/9fdba8e6-d47e-4a99-a30e-c09bab480737" />
+
 We will end this blog here and discuss about GRPO in a Part 2 edition of this topic.
 
 ## References
