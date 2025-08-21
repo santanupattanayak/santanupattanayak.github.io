@@ -3,6 +3,12 @@
 
 @import "jekyll-theme-minimal";
 
+.home .wrapper {
+  max-width: 50%;        /* <- narrower/wider just for home */
+  width: 50%;
+}
+
+
 .post-wrapper {
   padding-top: 0px; /* Adjust to match header height */
 }
