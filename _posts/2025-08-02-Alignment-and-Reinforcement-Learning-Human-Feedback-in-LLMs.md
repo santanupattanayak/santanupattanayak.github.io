@@ -14,6 +14,8 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 5. [Direct Preference Optimization](#dpo)
 6. [Derivation of DPO Objective from PPO and the Reward Model Training loss](#ppo2dpo)
 7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
+8. [Group Relative Policy Optimization](#grpo)
+9. [Feature Comparison of PPO vs GRPO](#ppovsgrpo)
 
 
 ## Introduction <a name="introduction"></a>
@@ -36,7 +38,7 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r
 \end{align}
 $$
 
-The hyperparameter $$\beta$$ balances the reward maximization objective and the objective to prevent too much deviation of the model parameters from the SFT model capture through the KL divergence of the policies.
+The hyperparameter $$\beta$$ balances the reward maximization objective and the objective to prevent too much deviation of the model parameters from the SFT model capture through the KL divergence of the policies. 
 The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_{\phi}(x,y)$$ is generally computed from a trained reward model. Since the reward model assigns a score at the end of the completion of $$y$$ there isn't any reward after each token generation.
 
 There are few differences between the PPO objective shown above modified for alignment from the traditional RL PPO objective. 
@@ -238,7 +240,7 @@ $$
 | **Scalability**               |  Harder to scale due to PPO complexity        |  Highly scalable – behaves like supervised fine-tuning |
 
 
-## Group Relative Policy Optimization 
+## Group Relative Policy Optimization <a name="grpo"></a>
 
 
 **Group Relative Policy Optimization (GRPO)** is an alternative to PPO in which the baseline is not estimated by a critic model $$V_{\gamma}$$. Instead, the baseline is computed directly from the rewards of multiple sampled completions $$\{y_1,y_2,...y_n\}$$ having rewards  $${r_2,...r_n\}$$ to form baseline.
@@ -279,13 +281,29 @@ Hence, the optimization objective is also similar to PPO as shown below:
 
 Although the objective looks the same few subtle differences of this GRPO objective from PPO are:  
 * The advantage doesn't involve the critic model $$V_{\gamma}$$ and hence the advantage function only depends on reward model parameters. Hence while the advantage in PPO is parameterized by reward model parameter $$\phi$$ and critic model parameter $$\gamma$$ in GRPO the advantage is solely a function reward model.
+* GRPO uses the Monte Carlo approximation of KL divergence which ensure per sample the KL divergence penalty is positive.
+
+## Feature Comparison of PPO vs GRPO <a name="ppovsgrpo"></a>
+
+| Aspect | **PPO** | **GRPO** |
+|--------|---------|-----------|
+| **Baseline** | Uses critic network \(V_\gamma(x)\) | Uses group mean reward \(\bar{r}\) |
+| **Critic requirement** | Needs training of a separate critic (can be unstable) | No critic needed → simpler pipeline |
+| **Sample efficiency** | More sample-efficient (critic generalizes across prompts) | Less efficient (requires multiple completions per prompt) |
+| **Computation cost** | Lower (one completion + critic evaluation) | Higher (multiple completions per prompt to compute baseline) |
+| **Variance in advantage** | Depends on critic accuracy; poor critic → high variance | Variance reduced by averaging group rewards |
+| **Adaptability to non-stationary rewards** | Critic may lag if reward distribution shifts | Baseline recomputed per batch → more adaptive |
+| **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees |
+| **Implementation** | More complex (policy + critic + reward model) | Simpler (policy + reward model only) |
 
 
 ## References
 
-[1] [Training language models to follow instructions with human feedback] : https://arxiv.org/abs/2203.02155  
+[1] [Training language models to follow instructions with human feedback](#https://arxiv.org/abs/2203.02155)  
 
-[2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model]: https://arxiv.org/abs/2305.18290
+[2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](#https://arxiv.org/abs/2305.18290)
+
+[3] [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](#https://arxiv.org/pdf/2402.03300)
 
 
 
