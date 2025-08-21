@@ -3,7 +3,7 @@ layout: post
 title: "Alignment and Reinforcement Learning with Human Feedback in LLMs"
 date: 2025-08-02 00:00:00 -0000
 author: Santanu Pattanayak
-tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF  
+tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO  
 ---
 
 # Table of Contents
@@ -20,7 +20,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF
 
 ## Introduction <a name="introduction"></a>
 
-Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals. This approach is essential for mitigating issues such as harmful content, logical inconsistencies, and hallucinations—challenges that next-token prediction alone does not address or prevent. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
+Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, **alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals**. This approach is essential for mitigating issues such as **harmful content, logical inconsistencies, and hallucinations—challenges that next-token prediction alone does not address or prevent**. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
 The most commonly form of RLHF methods used are:  
 1. Proximal Policy Optimization(PPO)
 2. Direct Preference Optimization(DPO)
@@ -28,7 +28,7 @@ The most commonly form of RLHF methods used are:
 
 ## Proximal Policy Optimization <a name="ppo"></a>
 
-Proximal Policy Optimization is a trust region based Policy gradient method where the updates to the policy in each step is done in such a way that the policy parameters doesn't change too much from that in the earlier iteration. Policy gradient policies are inherently stochastic, any policy $$\pi$$ parameterized by $$\theta$$ maps the state $$s$$ to an action $$a$$ probabilistically.  
+Proximal Policy Optimization (PPO) is a policy gradient method designed to provide **stable training by constraining how much the policy can change at each update**. Instead of allowing large, potentially destabilizing shifts, PPO ensures that the new policy remains close to the previous one. Policy gradient policies are inherently stochastic, any policy $$\pi$$ parameterized by $$\theta$$ maps the state $$s$$ to an action $$a$$ probabilistically.  
 In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We don't want to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then the modified PPO objective for RLHF is as below 
 
 $$
@@ -48,7 +48,7 @@ There are few differences between the PPO objective for alignment illustrated in
 
 ## Practical approach to PPO for Alignment 
 
-As discussed in the previous section, the PPO objective used in InstructGPT [1] does not explicitly incorporate several common tweaks typically associated with PPO. It is unclear whether these modifications were applied during training in InstructGPT, but from a broader PPO implementation perspective it is worth revisiting these standard refinements.
+As noted earlier, the PPO objective used in InstructGPT [1] does not explicitly include several refinements that are commonly applied in standard PPO implementations. While it is unclear whether these modifications were used in practice during training, they are important to revisit from the broader perspective of PPO design for stability and efficiency.
 
 * **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
 $$x$$. This baseline, denoted by $$V_{\gamma}(x)$$ is typically estimated using a **trained critic model**. Formally, the advantage and the updated PPO objective are as follows:  
@@ -78,8 +78,7 @@ $$x$$. This baseline, denoted by $$V_{\gamma}(x)$$ is typically estimated using 
   \end{align}
   $$
 
-These tweaks render stability to the PPO training and ensure that the model doesn't degrade as the iterations progress.  
-
+Together, these refinements improve the stability of PPO training, reduce variance, and prevent performance degradation across iterations.
 
 
 ## Training the Reward Model <a name="trm"></a>
@@ -192,7 +191,7 @@ $$
 \end{align}
 $$
 
-From the above expression we can see that the **Optimal policy through Alignment** is a **scaled version of the SFT model policy** with the scaling being **proportional to the exponent of the reward**.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
+The derivation reveals a **critical property of alignment** - The **optimal aligned policy** is simply the **SFT policy scaled by an exponential function of the reward**. This implies that the aligned completions cannot be arbitrarily unlikely under the SFT model — **alignment reshapes the distribution but remains fundamentally constrained by the support of the original supervised policy**. In other words, **RLHF alignment can only reweight what the SFT model already knows, not invent completely new behaviors outside its distribution**.
 
 
 If we were to express the reward as a function of the policies from the optimal policy we would get 
