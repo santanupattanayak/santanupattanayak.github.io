@@ -263,7 +263,8 @@ $$
 $$
 
 
-<img width="1200" height="400" alt="image" src="https://github.com/user-attachments/assets/9fdba8e6-d47e-4a99-a30e-c09bab480737" />
+<img width="1200" height="450" alt="image" src="https://github.com/user-attachments/assets/db3f68c5-d7b4-4e9e-aa5e-269676c94a6f" />
+
 
 
 
@@ -294,7 +295,7 @@ Although the objective looks the same few subtle differences of this GRPO object
 | **Variance in advantage** | Depends on critic accuracy; poor critic → high variance                  | Variance reduced by averaging group rewards                  |
 | **Adaptability to non-stationary rewards** | Critic may lag if reward distribution shifts                             | Baseline recomputed per batch → more adaptive                |
 | **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees                     |
-| **Implementation** | More complex (policy + critic + reward model)                            | Simpler (policy and reward model only)                       |
+| **Implementation** | More complex (policy, critic and  reward model)                            | Simpler (policy and reward model only)                       |
 
 
 ## References
