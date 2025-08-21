@@ -89,7 +89,7 @@ Instead of taking the feedback of the users to a completion $$y$$ based on a giv
 1. First step is to sample prompts from a Prompts dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
 
 
-2. Second step is where we build a reward model. For a given prompt $$x$$, several model outputs $${y_i}_{i=1:m}$$ are sampled. The labelers ranks the outputs from best to worst. This comparison data is used to train the reward model. Generally the SFT model from first step is taken as a starting point for the Reward Model.
+2. Second step is where we build a reward model. For a given prompt $$x$$, several model completions are sampled. The labelers rank the outputs from best to worst. This comparison data is used to train the reward model. Generally the SFT model from first step is taken as a starting point for the Reward Model.
 
 3. Finally the SFT model from first step is optimized using the reward model using Reinforcement Learning.
 
