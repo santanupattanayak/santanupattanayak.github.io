@@ -8,7 +8,7 @@
 }
 
 .title {
-  width: 100%; // or any desired width like 400px
+  width: 75%; // or any desired width like 400px
 }
 
 
@@ -17,7 +17,7 @@
   top: 0;
   margin: 0;
   height: auto; /* 🔧 Set to desired fixed height */
-  width:  auto; /* width */
+  width:  75%; /* width */
   overflow: auto;  /* ✂️ Prevents overflow if content exceeds height */
   background-color: white;
   z-index: 1000;
@@ -33,14 +33,14 @@
 }
 
 .post-content {
-  max-width: 65%;
-  width: 65%;
+  max-width: 75%;
+  width: 75%;
   margin: 0 auto;
 }
 
 .blog {
-  max-width: 65%;
-  width: 65%;
+  max-width: 75%;
+  width: 75%;
   margin: 0 auto;
 }
 
