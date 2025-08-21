@@ -132,7 +132,7 @@ If the LLM we want to align through DPO is presented by parameterized policy $$\
 
 $$
 \begin{align}
-L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)})}  \right]
+L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)})}  \right]
 \end{align}
 $$
 
@@ -145,7 +145,7 @@ Let's look at the PPO objective and try to get an optimal policy $$\pi^{*}$$ by 
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{ref}}(y|x)}\right] 
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right] 
 \end{align}
 $$
 
@@ -156,18 +156,18 @@ $$
 \begin{align}
 L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
 &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
-&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}\right] 
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}\right] 
 \end{align}
 $$
 
 If we normalize
-$$\exp(\frac{r(x,y)}{\beta})\pi_{ref}(y|x)$$  
+$$\exp(\frac{r(x,y)}{\beta})\pi_{SFT}(y|x)$$  
 by the partition function $$Z(x)$$ to sum over all $$y$$ given $$x$$ we would be sure the same would be a probability and hence a policy which we denote by $$\pi^{*}$$. See below 
 
 $$
 \begin{align}
-Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)} \\
-\pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}
+Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)} \\
+\pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}
 \end{align}
 $$
 
@@ -176,8 +176,8 @@ Using the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ we
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}\right] \\
-&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\frac{1}{Z(x)}\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}+ \log Z(x)\right] \\
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}\right] \\
+&=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\frac{1}{Z(x)}\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}+ \log Z(x)\right] \\
 &=\mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \log Z(x)\right] \\
 &=\mathbb{E}_{x \sim D_x}-\mathbb{E}_{y \sim \pi_{\theta}(y|x)}  \log\frac{\pi_{\theta}(y|x)}  {\pi^{*}(y|x)}+ \mathbb{E}_{x \sim D_x}\log Z(x) \\
 &=\mathbb{E}_{x \sim D_x} - KL(\pi_{\theta}||\pi^{*}) + c
@@ -188,7 +188,7 @@ We can see from above to maximize the PPO objective we need to minimize the KL d
 
 $$
 \begin{align}
-\pi_{\theta}(y|x) = \pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{ref}(y|x)}
+\pi_{\theta}(y|x) = \pi^{*}(y|x) = \frac{1}{Z(x)}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}
 \end{align}
 $$
 
@@ -196,7 +196,7 @@ If we were to express the reward as a function of the policies from the above we
 
 $$
 \begin{align}
-r(x,y) =  \beta \log \frac{\pi_{\theta}(y|x)}{\pi_{ref}(y|x)} + \beta Z(x)
+r(x,y) =  \beta \log \frac{\pi_{\theta}(y|x)}{\pi_{SFT}(y|x)} + \beta Z(x)
 \end{align}
 $$
 
@@ -208,8 +208,8 @@ $$
 \begin{align}
 \mathbb{P}(y^{+} > y^{-} | x ) &= \frac {\exp(r(x,y^{+}))} {\exp(r(x,y^{+}) + \exp(r(x,y^{-}))} \\
 &= \frac {1} {1 + \exp(r(x,y^{-}) - r(x,y^{+})) } \\
-&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)} + \beta Z(x)) - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)} - \beta Z(x))) } \\
-&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) } \\
+&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{SFT}(y^{-}|x)} + \beta Z(x)) - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)} - \beta Z(x))) } \\
+&= \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{SFT}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)}) } \\
 \end{align}
 $$
 
@@ -217,7 +217,7 @@ Taking negative logarithm on either side of the above equation we get the object
 
 $$
 \begin{align}
--\log \mathbb{P}(y^{+} > y^{-} | x )&= -\log\left[ \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{ref}(y^{+}|x)}) }\right] 
+-\log \mathbb{P}(y^{+} > y^{-} | x )&= -\log\left[ \frac {1} {1 + \exp(\beta \log \frac{\pi_{\theta}(y^{-}|x)}{\pi_{SFT}(y^{-}|x)}  - \beta \log \frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)}) }\right] 
 \end{align}
 $$  
 
@@ -274,7 +274,7 @@ Hence, the optimization objective is also similar to PPO as shown below:
 
   $$
   \begin{align}
-  L^{CLIP}(\theta) &= \mathbb{E}_{x \sim D_x}\frac{1}{n}\sum_{i=1:n}\left[\min(\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)} A_{\phi}(x,y_i),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)}) A_{\phi}(x,y_i) \right]  \\
+ L(\theta) = \mathbb{E}_{x \sim D_x}\frac{1}{n}\sum_{i=1:n}\left[\min(\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)} A_{\phi}(x,y_i),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)}) A_{\phi}(x,y_i) \right]  \\
   &- \beta.KL(\pi_{\theta}(y_i|x) || \pi_{\theta_{SFT}}(y_i|x)) 
   \end{align}
   $$
