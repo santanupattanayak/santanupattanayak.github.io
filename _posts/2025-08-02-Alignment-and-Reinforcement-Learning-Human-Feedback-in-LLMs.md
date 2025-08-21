@@ -285,25 +285,25 @@ Although the objective looks the same few subtle differences of this GRPO object
 
 ## Feature Comparison of PPO vs GRPO <a name="ppovsgrpo"></a>
 
-| Aspect | **PPO** | **GRPO** |
-|--------|---------|-----------|
-| **Baseline** | Uses critic network \(V_\gamma(x)\) | Uses group mean reward \(\bar{r}\) |
-| **Critic requirement** | Needs training of a separate critic (can be unstable) | No critic needed → simpler pipeline |
-| **Sample efficiency** | More sample-efficient (critic generalizes across prompts) | Less efficient (requires multiple completions per prompt) |
-| **Computation cost** | Lower (one completion + critic evaluation) | Higher (multiple completions per prompt to compute baseline) |
-| **Variance in advantage** | Depends on critic accuracy; poor critic → high variance | Variance reduced by averaging group rewards |
-| **Adaptability to non-stationary rewards** | Critic may lag if reward distribution shifts | Baseline recomputed per batch → more adaptive |
-| **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees |
-| **Implementation** | More complex (policy + critic + reward model) | Simpler (policy + reward model only) |
+| Aspect | **PPO**                                                                  | **GRPO**                                                     |
+|--------|--------------------------------------------------------------------------|--------------------------------------------------------------|
+| **Baseline** | Uses critic network $$V_{gamma}(x)$$                                     | Uses group mean reward $$\bar{r}$$                           |
+| **Critic requirement** | Needs training of a separate critic (can be unstable)                    | No critic needed → simpler pipeline                          |
+| **Sample efficiency** | More sample-efficient (critic generalizes across prompts)                | Less efficient (requires multiple completions per prompt)    |
+| **Computation cost** | Lower (one completion and one critic evaluation)                         | Higher (multiple completions per prompt to compute baseline) |
+| **Variance in advantage** | Depends on critic accuracy; poor critic → high variance                  | Variance reduced by averaging group rewards                  |
+| **Adaptability to non-stationary rewards** | Critic may lag if reward distribution shifts                             | Baseline recomputed per batch → more adaptive                |
+| **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees                     |
+| **Implementation** | More complex (policy + critic + reward model)                            | Simpler (policy and reward model only)                       |
 
 
 ## References
 
-[1] [Training language models to follow instructions with human feedback](#https://arxiv.org/abs/2203.02155)  
+[1] [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)  
 
-[2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](#https://arxiv.org/abs/2305.18290)
+[2] [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)
 
-[3] [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](#https://arxiv.org/pdf/2402.03300)
+[3] [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/pdf/2402.03300)
 
 
 
