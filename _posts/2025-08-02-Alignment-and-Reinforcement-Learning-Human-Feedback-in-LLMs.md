@@ -39,19 +39,19 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r
 $$
 
 The hyperparameter $$\beta$$ balances the reward maximization objective and the objective to prevent too much deviation of the model parameters from the SFT model capture through the KL divergence of the policies. 
-The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_{\phi}(x,y)$$ is generally computed from a trained reward model. Since the reward model assigns a score at the end of the completion of $$y$$ there isn't any reward after each token generation.
+The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_{\phi}(x,y)$$ is generally computed using a trained reward model. Since the reward model assigns a score at the end of the completion of $$y$$ there isn't any reward after each token generation.
 
-There are few differences between the PPO objective shown above modified for alignment from the traditional RL PPO objective. 
+There are few differences between the PPO objective for alignment illustrated in InstructGPT [1] from the traditional RL PPO objective. 
 
-1. The reward from reward model is used directly and the formulation doesn't have any baseline subtraction from reward to work with Advantages.
-2. The KL divergence in standard PPO is with respect to old policy $$\pi_{old}$$, which constraints the updates for exploration stability. In Alignment objective the KL divergence is with respect to the SFT model $$\pi_{SFT}$$ which ensures that the aligned model is not too different from the SFT model.
+1. The reward from reward model is used directly and the formulation doesn't have any baseline subtraction from reward to work with advantages.
+2. The KL divergence in standard PPO is with respect to old policy $$\pi_{old}$$, which constraints the updates for exploration stability. In Alignment objective the KL divergence is with respect to the SFT model $$\pi_{SFT}$$ which ensures that the aligned model is not too different from the SFT model. 
 
 ## Practical approach to PPO for Alignment 
 
 As discussed in the previous section, the PPO objective used in InstructGPT [1] does not explicitly incorporate several common tweaks typically associated with PPO. It is unclear whether these modifications were applied during training in InstructGPT, but from a broader PPO implementation perspective it is worth revisiting these standard refinements.
 
 * **Variance reduction with advantage estimation**:  To reduce the variance of the policy gradient estimate, it is common to work with the advantage function $$A(x,y)$$ instead of using the raw reward $$r_{\phi}(x,y)$$ directly. The advantage is obtained by subtracting a baseline value function that depends only on the prompt 
-$$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a trained critic model. Formally, the advantage and the updated PPO objective are as follows:  
+$$x$$. This baseline, denoted by $$V_{\gamma}(x)$$ is typically estimated using a **trained critic model**. Formally, the advantage and the updated PPO objective are as follows:  
 
   $$
   \begin{align}
@@ -60,7 +60,7 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   \end{align}
   $$
 
-* **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the current policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to use old trajectories or completions in this case while still estimating gradients for the current policy. This is a standard practice in PPO to enable sample efficiency. However, we should not reuse a very old policy for estimating a current policy. The importance sampling introduces a policy ratio $$\frac{\pi_{\theta}}{\pi_{old}}$$ because of the swapping of the expectation and the PPO objective can be modified as:  
+* **Importance Sampling with Old policy** :  Importance sampling lets us rewrite expectations under the current policy $$\pi_{\theta}$$ in terms of expectations under the old policy $$\pi_{old}$$ . This allows us to **use old trajectories or completions while still estimating gradients for the current policy**. This is a standard practice in PPO to enable **sample efficiency**. However, we should not reuse a very old policy for estimating a current policy. The importance sampling introduces a policy ratio $$\frac{\pi_{\theta}}{\pi_{old}}$$ because of the swapping of the expectation and the PPO objective can be modified as:  
 
 
   $$
@@ -78,15 +78,18 @@ $$x$$. This baseline, denoted $$V_{\gamma}(x)$$ is typically estimated using a t
   \end{align}
   $$
 
+These tweaks render stability to the PPO training and ensure that the model doesn't degrade as the iterations progress.  
+
 
 
 ## Training the Reward Model <a name="trm"></a>
 
-Instead of taking the feedback of the users to a completion based on a given query as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper [1] 
-1. First step is to sample prompts from a Prompts Dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
+Instead of taking the feedback of the users to a completion $$y$$ based on a given query $$x$$ as the reward in alignment or RLHF, a reward model is trained. Here are the steps towards alignment as illustrated in the InstructGPT paper [1] 
+
+1. First step is to sample prompts from a Prompts dataset and a labeler comes up with the desired output behavior. This data is used for Supervised Finetuning.
 
 
-2. Second step is where we build a reward model. For a given prompt, several model outputs are sampled. The labelers ranks the outputs from best to worst. This comparison data is used to train the reward model. Generally the SFT model from first step is taken as a starting point for the Reward Model.
+2. Second step is where we build a reward model. For a given prompt $$x$$, several model outputs $${y_i}_{i=1:m}$$ are sampled. The labelers ranks the outputs from best to worst. This comparison data is used to train the reward model. Generally the SFT model from first step is taken as a starting point for the Reward Model.
 
 3. Finally the SFT model from first step is optimized using the reward model using Reinforcement Learning.
 
@@ -98,10 +101,9 @@ Figure 1: Illustration of the SFT training, Reward Model training and Reinforcem
 
 ## Reward Model Construction from SFT Model <a name="rmcfsft"></a>
 
-1. The reward model architecture in used in RLHF pipelines such as InstructGPT or ChatGPT builds on top of the SFT Model architecture and its weights as the starting weights for the Reward Model with one exception - the final layer which gives the next token probability scores over the vocabulary is replaced by a layer that gives the reward the final output. 
-2. The input to the reward model is the prompt $$x$$ along with the completion $$y$$ while the output is the reward $$r_{\phi}(x,y)$$
-3. Training the Reward Model is on the preference data set $$D$$. Let's say for the prompt $$x$$ the completion $$y^{+}$$ is preferred over the completion $$y^{-}$$  
-The reward model is trained with the softmax loss over the two completions $$y^{+}$$ and $$y^{-}$$ as follows:  
+1. The reward model architecture used in RLHF pipelines such as InstructGPT or ChatGPT builds on top of the SFT Model architecture and its weights are used as the starting weights for the Reward Model with one exception - the final layer which gives the next token probability scores over the vocabulary is replaced by a layer that gives the reward the final output. 
+2. The input to the reward model is the prompt $$x$$ along with the completion $$y$$ while the output is the reward $$r_{\phi}(x,y)$$ where $$\phi$$ is the parameter of the reward model.
+3. Training the Reward Model is on the preference data set $$D$$. Let's say for the prompt $$x$$ the completion $$y^{+}$$ is preferred over the completion $$y^{-}$$  .The reward model is trained with the softmax loss over the two completions $$y^{+}$$ and $$y^{-}$$ as follows:  
 
 $$
 \begin{align}
@@ -109,7 +111,7 @@ L(\phi) = -\mathbb{E}_{(x,y^{+},y^{-}) \sim D}  \log\left[\frac {\exp(r_{\phi}(x
 \end{align}
 $$
 
-The softmax is inspired by Bradley Terry Model which for preference pairs models the Probability of the preference completion as follows  :
+The softmax is inspired by **Bradley Terry Model** which for preference pairs models the Probability of the preference completion as follows  :
 
 $$
 \begin{align}
@@ -121,22 +123,20 @@ One important aspect to note here, that we are not regressing on the reward $$r(
 
 ## Direct Preference Optimization <a name="dpo"></a>
 
-Direct Preference Optimization(DPO) [2] is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the Language model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
+Direct Preference Optimization(DPO) [2] is a RL technique for Alignment which skips training a reward model and subsequently performing RL. Instead, given preference pairs sampled from a preference dataset $$ x,y^{+}, y^{-} \sim D$$ updates the SFT model directly instead of first building a reward model with the preference dataset and then optimizing through RL using the same. The same is illustrated in the image below taken from the DPO paper.
 
 <img width="926" height="190" alt="image" src="https://github.com/user-attachments/assets/823dd379-7cc9-457a-94bb-e7a0ca222f32" />
 
 
 Figure 2: DPO optimizing for human preferences while avoiding reinforcement learning.
 
-If the LLM we want to align through DPO is presented by parameterized policy $$\pi_{\theta}(.)$$ while the SFT LLM is represented as  $$\pi_{SFT}(.)$$ given the preference dataset $$D$$ which contains tuples of $$x,y^{+},y^{-}$$ where $$x$$ is the prompt $$y^{+},y^{-}$$ are the winning and losing completions given the prompt, the DPO loss is given as follows:  
+If the LLM we want to align through DPO is presented by parameterized policy $$\pi_{\theta}(.)$$ while the SFT LLM is represented as  $$\pi_{SFT}(.)$$ given the preference dataset $$D$$ which contains tuples $$(x,y^{+},y^{-})$$ where $$x$$ is the prompt $$y^{+},y^{-}$$ are the winning and losing completions given the prompt, the DPO loss is given as follows:  
 
 $$
 \begin{align}
 L(\pi_{\theta},\pi_{SFT}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{SFT}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)})}  \right]
 \end{align}
 $$
-
-
 
 
 ## Derivation of DPO Objective from PPO and the Reward Model Training loss <a name="ppo2dpo"></a>
@@ -149,7 +149,7 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r
 \end{align}
 $$
 
-Diving both sides by $$\beta$$ just scales the DPO objective and hence the optimal policy derived by minimizing the same wont change. Also, to bring the beta normalized reward to log scale we exponentiate it so that it can be tied to the log associated with the policies. See below:  
+Diving both sides by $$\beta$$ just scales the DPO objective and hence the optimal policy derived by minimizing the same won't change. Also, to bring the beta normalized reward to log scale we exponentiate it so that it can be tied to the log associated with the policies. See below:  
 
 
 $$
@@ -171,7 +171,7 @@ Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)} \\
 \end{align}
 $$
 
-From the above expression we can see that the optimal policy through Alignment is a scaled version of the SFT model policy with the scaling being proportional to the exponent of the reward.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
+From the above expression we can see that the **Optimal policy through Alignment** is a **scaled version of the SFT model policy** with the scaling being **proportional to the exponent of the reward**.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
 
 
 Coming back to the PPO loss, we use the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ to get the modified PPO loss as below:  
