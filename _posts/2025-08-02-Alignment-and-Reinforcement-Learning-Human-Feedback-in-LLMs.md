@@ -287,7 +287,7 @@ Although the objective looks the same few subtle differences of this GRPO object
 
 | Aspect | **PPO**                                                                  | **GRPO**                                                     |
 |--------|--------------------------------------------------------------------------|--------------------------------------------------------------|
-| **Baseline** | Uses critic network $$V_{gamma}(x)$$                                     | Uses group mean reward $$\bar{r}$$                           |
+| **Baseline** | Uses critic network $$V_{\gamma}(x)$$                                    | Uses group mean reward $$\bar{r}$$                           |
 | **Critic requirement** | Needs training of a separate critic (can be unstable)                    | No critic needed → simpler pipeline                          |
 | **Sample efficiency** | More sample-efficient (critic generalizes across prompts)                | Less efficient (requires multiple completions per prompt)    |
 | **Computation cost** | Lower (one completion and one critic evaluation)                         | Higher (multiple completions per prompt to compute baseline) |
