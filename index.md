@@ -1,6 +1,13 @@
 #
 #
-
+#
+#
+#
+#
+#
+#
+#
+#
 Welcome to my Blog space "Symmetries & Signals" where I unpack techniques and concepts in machine learning, quantum computing, optimization and genAI with a mathematical touch to them . Whether you're here for a deep dive into diffusion models or a quick intuition on vanishing gradients, I hope you find something that sparks curiosity.
 
 ---
