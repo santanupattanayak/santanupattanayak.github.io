@@ -20,7 +20,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO
 
 ## Introduction <a name="introduction"></a>
 
-Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, **alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals**. This approach is essential for mitigating issues such as **harmful content, logical inconsistencies, and hallucinations—challenges that next-token prediction alone does not address or prevent**. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
+Alignment represents a shift from traditional likelihood-based training. Rather than simply maximizing the probability of the next token, **alignment focuses on steering a language model’s outputs toward human values, preferences, and intended goals**. This approach is essential for mitigating issues such as harmful content, logical inconsistencies, and hallucinations—challenges that **next-token prediction alone does not address or prevent**. Alignment is mostly done with Reinforcement learning under the tag of Reinforcement Learning with Human Feedback (RLHF). 
 The most commonly form of RLHF methods used are:  
 1. Proximal Policy Optimization(PPO)
 2. Direct Preference Optimization(DPO)
@@ -29,6 +29,7 @@ The most commonly form of RLHF methods used are:
 ## Proximal Policy Optimization <a name="ppo"></a>
 
 Proximal Policy Optimization (PPO) is a policy gradient method designed to provide **stable training by constraining how much the policy can change at each update**. Instead of allowing large, potentially destabilizing shifts, PPO ensures that the new policy remains close to the previous one. Policy gradient policies are inherently stochastic, any policy $$\pi$$ parameterized by $$\theta$$ maps the state $$s$$ to an action $$a$$ probabilistically.  
+
 In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We don't want to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then the modified PPO objective for RLHF is as below 
 
 $$
@@ -38,7 +39,7 @@ L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r
 \end{align}
 $$
 
-The hyperparameter $$\beta$$ balances the reward maximization objective and the objective to prevent too much deviation of the model parameters from the SFT model capture through the KL divergence of the policies. 
+The hyperparameter $$\beta$$ **balances** the **reward maximization** objective and the objective to **prevent too much deviation** of the model parameters from the SFT model capture through the KL divergence of the policies. 
 The reward for completion $$y$$ given query $$x$$ which we have denoted by  $$r_{\phi}(x,y)$$ is generally computed using a trained reward model. Since the reward model assigns a score at the end of the completion of $$y$$ there isn't any reward after each token generation.
 
 There are few differences between the PPO objective for alignment illustrated in InstructGPT [1] from the traditional RL PPO objective. 
@@ -191,8 +192,7 @@ $$
 \end{align}
 $$
 
-The derivation reveals a **critical property of alignment** - The **optimal aligned policy** is simply the **SFT policy scaled by an exponential function of the reward**. This implies that the aligned completions cannot be arbitrarily unlikely under the SFT model — **alignment reshapes the distribution but remains fundamentally constrained by the support of the original supervised policy**. In other words, **RLHF alignment can only reweight what the SFT model already knows, not invent completely new behaviors outside its distribution**.
-
+The derivation highlights a **critical property of alignment**: the **optimal aligned policy** is just the **SFT policy re-weighted by an exponential of the reward**. Consequently, aligned completions cannot be arbitrarily unlikely under the SFT model— alignment reshapes probabilities but stays **constrained to the support of the supervised policy**. Put simply, RLHF can only reweight what the SFT model already knows; **it cannot create entirely new behaviors outside its distribution**.
 
 If we were to express the reward as a function of the policies from the optimal policy we would get 
 
