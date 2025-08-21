@@ -28,7 +28,7 @@ The most commonly form of RLHF methods used are:
 
 ## Proximal Policy Optimization <a name="ppo"></a>
 
-Proximal Policy Optimization is a trust method Policy gradient method of Reinforcement Learning Technique where the updates to the policy in each step is done in such a way that the policy parameters doesn't change too much from that in the earlier iteration. Given a stochastic policy $$\pi$$ parameterized by $$\theta$$ that maps any state $$s$$ to an action $$a$$ probabilistically the update rule of PPO is given by  
+Proximal Policy Optimization is a trust region based Policy gradient method where the updates to the policy in each step is done in such a way that the policy parameters doesn't change too much from that in the earlier iteration. Policy gradient policies are inherently stochastic, any policy $$\pi$$ parameterized by $$\theta$$ maps the state $$s$$ to an action $$a$$ probabilistically.  
 In the context of the LLM alignment we assume that given a query $$x$$ the LLM which acts as a policy $$\pi_{\theta}$$ generates the output $$y$$ stochastically. We don't want to shift the RL aligned model parameters $$\theta$$ to be too far from the Supervised fine-tuned(SFT) model parameters  $$\theta_{SFT}$$. If we sample the queries $$x$$ from some dataset $$D_x$$ then the modified PPO objective for RLHF is as below 
 
 $$
@@ -171,7 +171,10 @@ Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)} \\
 \end{align}
 $$
 
-Using the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ we can modify the PPO loss as below:  
+From the above expression we can see that the optimal policy through Alignment is a scaled version of the SFT model policy with the scaling being proportional to the exponent of the reward.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
+
+
+Coming back to the PPO loss, we use the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ to get the modified PPO loss as below:  
 
 
 $$
