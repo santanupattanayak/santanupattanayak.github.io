@@ -263,7 +263,8 @@ $$
 $$
 
 
-<img width="1200" height="450" alt="image" src="https://github.com/user-attachments/assets/db3f68c5-d7b4-4e9e-aa5e-269676c94a6f" />
+<img width="1000" height="400" alt="image" src="https://github.com/user-attachments/assets/f7be0b02-186e-4748-ba5c-9065f084945f" />
+
 
 
 
