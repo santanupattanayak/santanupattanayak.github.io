@@ -275,7 +275,7 @@ Hence, the optimization objective is also similar to PPO as shown below:
   $$
   \begin{align}
  L(\theta) &= \mathbb{E}_{x \sim D_x}\frac{1}{n}\sum_{i=1:n}\left[\min(\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)} A_{\phi}(x,y_i),clip(1 - \epsilon,1 + \epsilon,\frac{\pi_{\theta}(y_i|x)}{\pi_{old}(y_i|x)}) A_{\phi}(x,y_i) \right]  \\
-  &- \beta.KL(\pi_{\theta}(y_i|x) || \pi_{\theta_{SFT}}(y_i|x)) 
+  &- \beta.KL(\pi_{\theta}(.|x) || \pi_{\theta_{SFT}}(.|x)) 
   \end{align}
   $$
 
