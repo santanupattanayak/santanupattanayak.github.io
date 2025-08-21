@@ -128,11 +128,11 @@ Direct Preference Optimization(DPO) [2] is a RL technique for Alignment which sk
 
 Figure 2: DPO optimizing for human preferences while avoiding reinforcement learning.
 
-If the LLM we want to align through DPO is presented by parameterized policy $$\pi_{\theta}(.)$$ while the SFT LLM is represented as  $$\pi_{ref}(.)$$ given the preference dataset $$D$$ which contains tuples of $$x,y^{+},y^{-}$$ where $$x$$ is the prompt $$y^{+},y^{-}$$ are the winning and losing completions given the prompt, the DPO loss is given as follows:  
+If the LLM we want to align through DPO is presented by parameterized policy $$\pi_{\theta}(.)$$ while the SFT LLM is represented as  $$\pi_{SFT}(.)$$ given the preference dataset $$D$$ which contains tuples of $$x,y^{+},y^{-}$$ where $$x$$ is the prompt $$y^{+},y^{-}$$ are the winning and losing completions given the prompt, the DPO loss is given as follows:  
 
 $$
 \begin{align}
-L(\pi_{\theta},\pi_{ref}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{ref}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)})}  \right]
+L(\pi_{\theta},\pi_{SFT}) = -\mathbb{E}_{x,y^{+},y^{-} \sim D}  \log\left[ \frac{1}{1 + \exp{(\beta \log\frac{\pi_{\theta}(y^{-}|x)}{\pi_{SFT}(y^{-}|x)}} - \beta \log\frac{\pi_{\theta}(y^{+}|x)}{\pi_{SFT}(y^{+}|x)})}  \right]
 \end{align}
 $$
 
@@ -154,8 +154,8 @@ Diving both sides by $$\beta$$ just scales the DPO objective and hence the optim
 
 $$
 \begin{align}
-L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
-&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{ref}(y|x)}\right]  \\
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\frac{1}{\beta}r(x,y) -  \log\frac{\pi_{\theta}(y|x)}  {\pi_{SFT}(y|x)}\right]  \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[\log \exp(\frac{r(x,y)}{\beta})-  \log\frac{\pi_{\theta}(y|x)}  {\pi_{SFT}(y|x)}\right]  \\
 &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[-  \log\frac{\pi_{\theta}(y|x)}  {\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)}\right] 
 \end{align}
 $$
