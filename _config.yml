@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
-title: Symmetries & Signals
-description: EigenTalks by Santanu Pattanayak
+#title: Symmetries & Signals
+#description: EigenTalks by Santanu Pattanayak
 #show_downloads: true
 google_analytics:
 markdown: kramdown
