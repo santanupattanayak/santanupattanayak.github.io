@@ -3,7 +3,7 @@
 
 @import "jekyll-theme-minimal";
 
-.body .wrapper {
+.wrapper {
   max-width: 50%;        /* <- narrower/wider just for home */
   width: 50%;
 }
@@ -33,8 +33,8 @@
 
 
 .container {
-  max-width: 100%;
-  width: 100%;
+  max-width: 75%;
+  width: 75%;
   margin: 0 auto;
 }
 
