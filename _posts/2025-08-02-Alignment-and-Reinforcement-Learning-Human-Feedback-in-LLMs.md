@@ -171,9 +171,6 @@ Z(x) = \sum_{y}{\exp(\frac{r(x,y)}{\beta}) \pi_{SFT}(y|x)} \\
 \end{align}
 $$
 
-From the above expression we can see that the **Optimal policy through Alignment** is a **scaled version of the SFT model policy** with the scaling being **proportional to the exponent of the reward**.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
-
-
 Coming back to the PPO loss, we use the partition function $$Z(x)$$ and subsequently the policy $$\pi^{*}$$ to get the modified PPO loss as below:  
 
 
@@ -195,7 +192,10 @@ $$
 \end{align}
 $$
 
-If we were to express the reward as a function of the policies from the above we would get 
+From the above expression we can see that the **Optimal policy through Alignment** is a **scaled version of the SFT model policy** with the scaling being **proportional to the exponent of the reward**.  Hence, the completion favored by alignment cannot be too unlikely under the SFT model.
+
+
+If we were to express the reward as a function of the policies from the optimal policy we would get 
 
 $$
 \begin{align}
