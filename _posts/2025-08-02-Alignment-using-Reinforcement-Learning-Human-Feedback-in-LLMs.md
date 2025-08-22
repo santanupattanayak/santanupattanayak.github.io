@@ -339,8 +339,8 @@ is not too outdated , this approximation works well in practice.
 ## Conclusion <a name="conclusion"></a> 
 
 Aligning large language models (LLMs) with human values is essential to ensure their **responsible and effective deployment**. Integrating reinforcement learning with human feedback (RLHF), through methods like Proximal Policy Optimization (PPO), Direct Preference Optimization (DPO), and Group Relative Policy Optimization (GRPO), helps guide LLMs toward outputs that better reflect human intentions. 
-* PPO is ideal for cases where there is a need for stable updates to the policy, ensuring the model adapts without deviating too much from previous iterations.
-* DPO works well when optimizing for clear preferences directly from human feedback, without the complexity of calculating policy gradients.
+* PPO is ideal for cases where there is a **need for stable updates to the policy**, ensuring the model adapts without deviating too much from previous iterations.
+* DPO works well when **optimizing for clear preferences directly from human feedback**, without the complexity of calculating policy gradients.
 * GRPO is suitable for group-based decision-making, particularly in scenarios where feedback from multiple sources needs to be aggregated in a way that balances the preferences of all participants.
 These methods not only **enhance the reliability of LLMs** but also **increase trust in their applications across various domains**, from content moderation to decision support systems. By carefully selecting the appropriate RLHF method, we can significantly improve the alignment between LLMs and human values.
 
