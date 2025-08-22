@@ -9,7 +9,7 @@ layout: default
 
   ---
 
-  <h2> ## Recent Posts </h2>
+  <h2> Recent Posts </h2>
 
   {% for post in site.posts limit:5 %}
   -  {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
@@ -17,7 +17,7 @@ layout: default
 
   ---
 
-  <h2> ## Topics I Explore </h2>
+  <h2> Topics I Explore </h2>
 
   <p> - Machine Learning & Deep Learning  </p>
   <p> - Quantum Machine Learning </p>
@@ -28,14 +28,14 @@ layout: default
 
   ---
 
-  <h2> ## Books Authored by Me </h2>
+  <h2> Books Authored by Me </h2>
 
   <p> - [Pro Deep Learning with Tensorflow](https://link.springer.com/book/10.1007/978-1-4842-8931-0) </p>
   <p> - [Quantum Machine Learning](https://link.springer.com/book/10.1007/978-1-4842-6522-2) </p>
 
   ---
 
-  <h2> ## Get in Touch </h2>
+  <h2> Get in Touch </h2>
 
   <p> Have feedback, questions, or just want to say hi?  </p>
   <p> Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/). </p>
