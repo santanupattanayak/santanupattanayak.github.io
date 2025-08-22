@@ -37,3 +37,4 @@ Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note 
 ---
 
 *Knowledge is not memorized – it is realized. Saraswati sits with the still-hearted, not the loud-minded.*
+</div> <!-- Closing the content-container div -->
