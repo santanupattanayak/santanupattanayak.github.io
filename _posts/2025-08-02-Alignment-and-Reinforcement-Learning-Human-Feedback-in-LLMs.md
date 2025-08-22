@@ -3,7 +3,7 @@ layout: post
 title: "Alignment and Reinforcement Learning with Human Feedback in LLMs"
 date: 2025-08-02 00:00:00 -0000
 author: Santanu Pattanayak
-tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO  
+tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO, Reward Model  
 ---
 
 # Table of Contents
@@ -306,7 +306,7 @@ Although the objective looks the same few subtle differences of this GRPO object
 
 ## KL Divergence estimation in PPO/GPO <a name="kldiv"></a>
 
-The base PPO objective, as described below, includes a term for the KL divergence between the current policy $$\pi_{\theta}$$ and the SFT (Supervised Fine-Tuning) policy $$\pi_{SFT}$$. This KL divergence term acts as a regularizer to ensure that the updates to the policy are not too drastic, preserving stability in training.
+The base PPO objective we have seen earlier(repeated below) includes a term for the KL divergence between the current policy $$\pi_{\theta}$$ and the SFT policy $$\pi_{SFT}$$. This KL divergence term acts as a **regularizer** to ensure that the **updates to the policy are not too drastic**, preserving stability in training.
 
 $$
 \begin{align}
@@ -322,18 +322,18 @@ L(\theta) = \sum_{x_i,y_i \sim \pi_{\theta}(.|x)} \left[r_{\phi}(x,y) - \beta \l
 \end{align}
 $$
 
-* In this formulation KL divergence is approximated at just a single sample point $$(x_i,y_i)$$ . This approximation is still unbiased because the completion is taken from the desired policy $$\pi_{\theta}$$ .
-* However, in practical implementations of PPO and GRPO, the completion $$y_i$$ is typically taken from the old policy $$\pi_{old}$$ and not current policy $$\pi_{\theta}$$. This introduces a small bias, but it's an acceptable approximation. 
+* In this formulation KL divergence is approximated at just a single sample point $$(x_i,y_i)$$ . This **approximation is still unbiased** because the completion is taken from the desired policy $$\pi_{\theta}$$ .
+* However, in **practical implementations of PPO and GRPO**, the completion $$y_i$$ is typically taken from the old policy $$\pi_{old}$$ and not current policy $$\pi_{\theta}$$. This introduces a **small bias**, but it's an acceptable approximation. 
 The main purpose of the KL divergence term is to prevent large updates to the policy by penalizing significant shifts from the previous model $$\pi_{SFT}$$. As long as the old policy $$\pi_{old}$$ 
 is not too outdated , this approximation works well in practice.
-* Another thing to note that this finite approximation of KL divergence doesn't guarantee that it would be positive. GRPO approximates the sample level KL divergence penalty  as  :  
+* Another thing to note that this **finite approximation of KL divergence doesn't guarantee that it would be positive**. GRPO approximates the sample level KL divergence penalty  as  :  
   $$
   \begin{align}
   \log \frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)} \approx   \frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - \log\frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - 1
   \end{align}
   $$  
 
-  This approximation ensure that the estimated KL divergence per sample is always positive.
+  This approximation ensure that the estimated KL divergence per sample is always **positive**.
 
 
 ## Conclusion <a name="conclusion"></a> 
