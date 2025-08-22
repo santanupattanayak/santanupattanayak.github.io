@@ -318,11 +318,11 @@ $$
 When approximating this expectation over the policy $$\pi_{\theta}(.|x)$$ if we use one completion $$y_i$$ for each $$x_i$$ in $$D$$, it leads to the simplified expression:  
 $$
 \begin{align}
-L(\theta) = \sum_{x_i,y_i \sim \pi_{\theta}} \left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right] 
+L(\theta) = \sum_{x_i,y_i \sim \pi_{\theta}(.|x)} \left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right] 
 \end{align}
 $$
 
-* In this formulation KL divergence is approximated at just a single sample point $$\(x_i,y_i\)$$ . This approximation is still unbiased because the completion is taken from the desired policy $$\pi_{\theta}$$ .
+* In this formulation KL divergence is approximated at just a single sample point $$(x_i,y_i)$$ . This approximation is still unbiased because the completion is taken from the desired policy $$\pi_{\theta}$$ .
 * However, in practical implementations of PPO and GRPO, the completion $$y_i$$ is typically taken from the old policy $$\pi_{old}$$ and not current policy $$\pi_{\theta}$$. This introduces a small bias, but it's an acceptable approximation. 
 The main purpose of the KL divergence term is to prevent large updates to the policy by penalizing significant shifts from the previous model $$\pi_{SFT}$$. As long as the old policy $$\pi_{old}$$ 
 is not too outdated , this approximation works well in practice.
