@@ -11,6 +11,19 @@ layout: default
 
   <h2> Recent Posts </h2>
 
+    <div class="recent-posts">
+    <h2>Recent Posts</h2>
+    <ul>
+      {% for post in site.posts limit:5 %}
+        <li>
+          {{ post.date | date: "%Y-%m-%d" }} — 
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
   {% for post in site.posts limit:5 %}
   -  {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
   {% endfor %}
