@@ -30,10 +30,9 @@ layout: default
 
   <h2> Books Authored by Me </h2>
 
-  <p> - [Pro Deep Learning with Tensorflow](https://link.springer.com/book/10.1007/978-1-4842-8931-0) </p>
-  <p> - [Quantum Machine Learning](https://link.springer.com/book/10.1007/978-1-4842-6522-2) </p>
   
   <a href="https://link.springer.com/book/10.1007/978-1-4842-8931-0">Pro Deep Learning with Tensorflow</a>
+  <a href="[https://link.springer.com/book/10.1007/978-1-4842-6522-2)">Quantum Machine Learning</a>
 
   <hr>
 
