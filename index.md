@@ -9,7 +9,7 @@ layout: default
 
   ---
 
-  ## Recent Posts
+  <h2> ## Recent Posts </h2>
 
   {% for post in site.posts limit:5 %}
   -  {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
@@ -17,32 +17,32 @@ layout: default
 
   ---
 
-  ## Topics I Explore
+  <h2> ## Topics I Explore </h2>
 
-  - Machine Learning & Deep Learning 
-  - Quantum Machine Learning 
-  - Optimization & Domain Adaptation  
-  - Diffusion Models & Spatial Reasoning 
-  - LLMs 
-  - Philosophy of Intelligence
-
-  ---
-
-  ## Books Authored by Me
-
-  - [Pro Deep Learning with Tensorflow](https://link.springer.com/book/10.1007/978-1-4842-8931-0)
-  - [Quantum Machine Learning](https://link.springer.com/book/10.1007/978-1-4842-6522-2)
+  <p> - Machine Learning & Deep Learning  </p>
+  <p> - Quantum Machine Learning </p>
+  <p> - Optimization & Domain Adaptation  </p>
+  <p> - Diffusion Models & Spatial Reasoning </p>
+  <p> - LLMs </p>
+  <p> - Philosophy of Intelligence </p>
 
   ---
 
-  ## Get in Touch
+  <h2> ## Books Authored by Me </h2>
 
-  Have feedback, questions, or just want to say hi?  
-  Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/).
+  <p> - [Pro Deep Learning with Tensorflow](https://link.springer.com/book/10.1007/978-1-4842-8931-0) </p>
+  <p> - [Quantum Machine Learning](https://link.springer.com/book/10.1007/978-1-4842-6522-2) </p>
 
   ---
 
-  *Knowledge is not memorized – it is realized. Saraswati sits with the still-hearted, not the loud-minded.*
+  <h2> ## Get in Touch <h2>
+
+  <p> Have feedback, questions, or just want to say hi?  </p>
+  <p> Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/). </p>
+
+  ---
+
+  <p> *Knowledge is not memorized – it is realized. Saraswati sits with the still-hearted, not the loud-minded.* </p>
 
 </div> <!-- Closing the content-container div -->
 
