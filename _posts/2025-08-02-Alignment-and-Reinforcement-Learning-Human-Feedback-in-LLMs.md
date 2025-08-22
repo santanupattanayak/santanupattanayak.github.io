@@ -329,7 +329,7 @@ is not too outdated , this approximation works well in practice.
 * Another thing to note that this finite approximation of KL divergence doesn't guarantee that it would be positive. GRPO approximates the sample level KL divergence penalty  as  :  
   $$
   \begin{align}
-  \log \frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)} $\approx$   \frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - \log\frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - 1
+  \log \frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)} \approx   \frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - \log\frac{\pi_{\theta}(y|x)}{\pi_{\theta_{SFT}}(y|x)} - 1
   \end{align}
   $$  
 
