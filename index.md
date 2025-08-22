@@ -39,7 +39,7 @@ layout: default
   <h2> Get in Touch </h2>
 
   <p> Have feedback, questions, or just want to say hi?  </p>
-  <p> Reach out via [GitHub](https://github.com/santanupattanayak1) or drop me a note on [LinkedIn](https://www.linkedin.com/in/santanupattanayak/). </p>
+  <p> Reach out via <a href="https://github.com/santanupattanayak1">Github</a>[GitHub](https://github.com/santanupattanayak1) or drop me a note on  <a href="https://www.linkedin.com/in/santanupattanayak/">LinkedIn</a> .</p>
 
   <hr>
 
