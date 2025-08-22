@@ -14,7 +14,7 @@ layout: default
     <div class="recent-posts">
     <h2>Recent Posts</h2>
     <ul>
-      {% for post in site.posts limit:5 %}
+      {% for post in site.posts limit:8 %}
         <li>
           {{ post.date | date: "%Y-%m-%d" }} — 
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
