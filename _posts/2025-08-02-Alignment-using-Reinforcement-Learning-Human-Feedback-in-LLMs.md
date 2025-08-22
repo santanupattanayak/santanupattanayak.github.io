@@ -16,7 +16,7 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO, Rewar
 7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
 8. [Group Relative Policy Optimization](#grpo)
 9. [Feature Comparison of PPO vs GRPO](#ppovsgrpo)
-10. [KL Divergence estimation in PPO/GPO](#kldiv)   
+10. [KL Divergence estimation in PPO and GRPO](#kldiv)   
 11. [Conclusion](#conclusion)
 
 
@@ -304,7 +304,7 @@ Although the objective looks the same few subtle differences of this GRPO object
 | **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees                     |
 | **Implementation** | More complex (policy, critic and  reward model)                            | Simpler (policy and reward model only)                       |
 
-## KL Divergence estimation in PPO/GPO <a name="kldiv"></a>
+## KL Divergence estimation in PPO and GRPO <a name="kldiv"></a>
 
 The base PPO objective we have seen earlier(repeated below) includes a term for the KL divergence between the current policy $$\pi_{\theta}$$ and the SFT policy $$\pi_{SFT}$$. This KL divergence term acts as a **regularizer** to ensure that the **updates to the policy are not too drastic**, preserving stability in training.
 
