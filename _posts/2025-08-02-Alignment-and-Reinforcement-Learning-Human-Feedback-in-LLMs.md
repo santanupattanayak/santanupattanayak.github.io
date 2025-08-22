@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Alignment and Reinforcement Learning with Human Feedback in LLMs"
+title: "Alignment using Reinforcement Learning with Human Feedback in LLMs"
 date: 2025-08-02 00:00:00 -0000
 author: Santanu Pattanayak
 tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO, Reward Model  
