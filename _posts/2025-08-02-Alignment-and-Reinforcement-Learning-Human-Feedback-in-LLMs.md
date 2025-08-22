@@ -229,19 +229,19 @@ In essence, RLHF with DPO aligns the policy by directly treating preference data
 ## Feature Comparison between PPO style Alignment vs DPO <a name="ppovsdpo"></a>
 
 
-| **Feature / Aspect**          | **InstructGPT (PPO)**                         | **DPO**                                               |
-|------------------------------|-----------------------------------------------|-------------------------------------------------------|
-| **Reward model required**     |  Yes                                          |  No                                                   |
-| **Alignment signal**          | Scalar reward (from reward model)             | Pairwise preferences directly                         |
-| **Policy optimization**       | PPO (actor-critic, clipped surrogate loss)    | Supervised-style loss from preference modeling        |
-| **KL regularization**         |  Explicit KL penalty                          |  Implicit via preference loss structure               |
-| **Training stability**        |  Sensitive to hyperparameters                 |  Very stable                                          |
-| **Implementation complexity** | High – reward model + PPO loop + rollout buffer | Low – single pass with preference-labeled data        |
-| **Exploration**               |  Possible via sampling during PPO rollouts    |  Not included – works only with offline preference data |
-| **Sample efficiency**         |  Low – requires rollouts + reward model scoring |  High – no reward model or environment interaction    |
-| **Risk of reward hacking**    |  Moderate – depends on reward model quality   |  Low – no scalar reward to over-optimize              |
-| **Compute cost**              | High – due to reward model inference + RL rollouts | Low – simple gradient-based updates                   |
-| **Scalability**               |  Harder to scale due to PPO complexity        |  Highly scalable – behaves like supervised fine-tuning |
+| **Feature / Aspect**          | **InstructGPT (PPO)**                                | **DPO**                                               |
+|------------------------------|------------------------------------------------------|-------------------------------------------------------|
+| **Reward model required**     | Yes                                                  |  No                                                   |
+| **Alignment signal**          | Scalar reward (from reward model)                    | Pairwise preferences directly                         |
+| **Policy optimization**       | PPO (actor-critic, clipped surrogate loss)           | Supervised-style loss from preference modeling        |
+| **KL regularization**         | Explicit KL penalty                                  |  Implicit via preference loss structure               |
+| **Training stability**        | Sensitive to hyperparameters                         |  Very stable                                          |
+| **Implementation complexity** | High – reward model, PPO loop, rollout buffer        | Low – single pass with preference-labeled data        |
+| **Exploration**               | Possible via sampling during PPO rollouts            |  Not included – works only with offline preference data |
+| **Sample efficiency**         | Low – requires rollouts and reward model scoring     |  High – no reward model or environment interaction    |
+| **Risk of reward hacking**    | Moderate – depends on reward model quality           |  Low – no scalar reward to over-optimize              |
+| **Compute cost**              | High – due to reward model inference and RL rollouts | Low – simple gradient-based updates                   |
+| **Scalability**               | Harder to scale due to PPO complexity                |  Highly scalable – behaves like supervised fine-tuning |
 
 
 ## Group Relative Policy Optimization <a name="grpo"></a>
