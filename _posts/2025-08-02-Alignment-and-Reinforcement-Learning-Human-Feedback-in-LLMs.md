@@ -16,7 +16,8 @@ tags: Reinforcement Learning, RL, Alignment in LLMs, RLHF, PPO, DPO, GRPO
 7. [Feature Comparison between PPO style Alignment vs DPO](#ppovsdpo)
 8. [Group Relative Policy Optimization](#grpo)
 9. [Feature Comparison of PPO vs GRPO](#ppovsgrpo)
-10. [Conclusion](#conclusion)
+10. [KL Divergence estimation in PPO/GPO](#kl)   
+11. [Conclusion](#conclusion)
 
 
 ## Introduction <a name="introduction"></a>
@@ -303,10 +304,34 @@ Although the objective looks the same few subtle differences of this GRPO object
 | **Theoretical grounding** | Stronger links to trust-region methods, monotonic improvement guarantees | More heuristic, weaker formal guarantees                     |
 | **Implementation** | More complex (policy, critic and  reward model)                            | Simpler (policy and reward model only)                       |
 
+## KL Divergence estimation in PPO/GPO
 
-## Conclusion 
+The base PPO objective, as described below, includes a term for the KL divergence between the current policy $$\pi_{\theta}$$ and the SFT (Supervised Fine-Tuning) policy $$\pi_{SFT}$$. This KL divergence term acts as a regularizer to ensure that the updates to the policy are not too drastic, preserving stability in training.
 
-Aligning large language models (LLMs) with human values is essential to ensure their responsible and effective deployment. Integrating reinforcement learning with human feedback (RLHF), through methods like Proximal Policy Optimization (PPO), Direct Preference Optimization (DPO), and Group Relative Policy Optimization (GRPO), helps guide LLMs toward outputs that better reflect human intentions. 
+$$
+\begin{align}
+L(\theta) &= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r_{\phi}(x,y)\right] - \beta.KL(\pi_{\theta}(y|x) || \pi_{\theta_{SFT}}(y|x)) \\
+&= \mathbb{E}_{x \sim D_x}\mathbb{E}_{y \sim \pi_{\theta}(y|x)}\left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right] 
+\end{align}
+$$
+
+When approximating this expectation over the policy $$\pi_{\theta}(.|x)$$ if we use one completion $$y_i$$ for each $$x_i$$ in $$D$$, it leads to the simplified expression:  
+$$
+\begin{align}
+L(\theta) = \sum_{x_i,y_i \sim \pi_{\theta}} \left[r_{\phi}(x,y) - \beta \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right] 
+\end{align}
+$$
+
+In this formulation KL divergence is approximated at just a single sample point $$\(x_i,y_i\)$$ . This approximation is still unbiased because the completion is taken from the desired policy $$\pi_{\theta}$$ .
+However, in practical implementations of PPO and GRPO, the completion $$y_i$$ is typically taken from the old policy $$\pi_{old}$$ and not current policy $$\pi_{\theta}$$. This introduces a small bias, but it's an acceptable approximation. 
+The main purpose of the KL divergence term is to prevent large updates to the policy by penalizing significant shifts from the previous model $$\pi_{SFT}$$. As long as the old policy $$\pi_{old}$$ 
+is not too outdated , this approximation works well in practice.
+* Another thing to note that this finite approximation of KL divergence doesn't guarantee that it would be positive. GRPO approximates the sample level KL divergence penalty $$\log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right$$
+
+
+## Conclusion(#conclusion) 
+
+Aligning large language models (LLMs) with human values is essential to ensure their **responsible and effective deployment**. Integrating reinforcement learning with human feedback (RLHF), through methods like Proximal Policy Optimization (PPO), Direct Preference Optimization (DPO), and Group Relative Policy Optimization (GRPO), helps guide LLMs toward outputs that better reflect human intentions. 
 * PPO is ideal for cases where there is a need for stable updates to the policy, ensuring the model adapts without deviating too much from previous iterations.
 * DPO works well when optimizing for clear preferences directly from human feedback, without the complexity of calculating policy gradients.
 * GRPO is suitable for group-based decision-making, particularly in scenarios where feedback from multiple sources needs to be aggregated in a way that balances the preferences of all participants.
