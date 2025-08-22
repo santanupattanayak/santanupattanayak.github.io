@@ -9,7 +9,7 @@ layout: default
 
   <hr>
 
-  <h2> Recent Posts </h2>
+
 
     <div class="recent-posts">
     <h2>Recent Posts</h2>
@@ -23,10 +23,6 @@ layout: default
     </ul>
   </div>
 
-
-  {% for post in site.posts limit:5 %}
-  -  {{ post.date | date: "%Y-%m-%d" }} — [{{ post.title }}]({{ post.url | relative_url }})
-  {% endfor %}
 
   <hr>
 
