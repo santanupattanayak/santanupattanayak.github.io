@@ -330,7 +330,7 @@ is not too outdated , this approximation works well in practice.
 
  $$
 \begin{align}
- \log\frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right
+ \log \frac{\pi_{\theta}(y|x)}  {\pi_{\theta_{SFT}}(y|x)}\right
 \end{align}
  $$
 
