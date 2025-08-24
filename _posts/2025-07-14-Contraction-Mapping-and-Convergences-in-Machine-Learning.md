@@ -16,7 +16,7 @@ tags: banach fixed point, Contraction Mapping, gradient descent convergence thro
 
 ## Contraction Mapping <a name="cm"></a>
 
-*  A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction  if there exists $$0 \le c \le 1$$ such that
+A mapping or transform $$T$$ on a complete metric space $$(X,d)$$ onto itself is said to be a Contraction mapping if $$T$$ brings the points closer to each other. Mathematically, $$T:X \leftarrow X$$ if said to be a contraction  if there exists $$0 \le c \le 1$$ such that
 
 $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 
@@ -28,12 +28,13 @@ As illustrated in the Figure 1. below the distance between two points $$x$$ and 
 
 Figure 1. Contraction Mapping in a 2D metric space
 
-*  When $$c \lt 1 $$ we call it a **strict contraction**. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$
-
-* In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$.  When the metric space is a **normed vector space**, the Contraction mapping theorem is called **Banach Fixed Point Theorem**. 
+When $$c \lt 1 $$ we call it a **strict contraction**. A strict contraction has a unique fixed point $$x$$ that satisfies $$Tx = x$$  
 
 
-We can see in the definition of Contraction Mapping theorem the term **Complete metric space** has come up. We will first discuss about **Cauchy sequences** to help define **Complete metric spaces**  
+In general the **Contraction Mapping theorem** states that if $$T:X \rightarrow X$$ is a contraction mapping in a **complete metric space** $$(X,d)$$ then there is exactly one fixed point $$x \in X $$ that satisfies $$Tx=x$$.  When the metric space is a **normed vector space**, the Contraction mapping theorem is called **Banach Fixed Point Theorem**.   
+
+To fully understand and apply this theorem, we must first review two fundamental concepts: Cauchy sequences and complete metric spaces.
+
 
 ## Cauchy sequences <a name="cs"></a>
 * Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms get arbitrarily smaller as the sequence progresses.
