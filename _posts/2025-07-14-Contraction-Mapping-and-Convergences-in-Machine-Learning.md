@@ -138,9 +138,17 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alg
 
 ## Gradient Descent Convergence of Linear Regression <a name="cmlr"></a>
 
-* Let's study the convergence of Linear Regression Least square objective $$L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}$$ using Gradient descent. Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$ while the parameter of Linear regression $$\theta \in \mathbb{R}^{q}$$ is what we want to estimate through the iterative process of Gradient Descent starting from some initial value of $$\theta^{(0)}$$. $$Y \in \mathbb{R}^{p}$$ is the vector containing the targets for the $$p$$ datapoints.
+Let us now study the convergence of gradient descent when minimizing the least-squares objective:  
 
-* The **gradient descent parameter update** rule is as follows where $$t$$ is the iteration number:
+  $$
+  \begin{align}
+  L = \frac{1}{2}{\lVert {X\theta - Y} \rVert}^{2}
+  \end{align}
+  $$
+  
+Here $$X \in \mathbb{R}^{p\times q} $$ is the data matrix of $$p$$ datapoints of dimension $$q$$, $$\theta \in \mathbb{R}^{q}$$ is the parameter vector, $$Y \in \mathbb{R}^{p}$$ is the target vector.  
+
+ The **gradient descent parameter update** rule is as follows where $$t$$ is the iteration number:
 
   
   $$
@@ -148,8 +156,8 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alg
   \theta^{(t+1)} = \theta^{(t)} - \eta \nabla_{\theta} L(\theta^{(t)}) 
   \end{align}
   $$
-  
-  The gradient of the objective $$L$$ with respect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the generic gradient descent update rule simplifies the same as follows:
+
+The gradient of the objective $$L$$ with respect to the parameter vector $$\theta^{(t)}$$ is $$\nabla_{\theta} L(\theta^{(t)}) = X^{T}(X\theta^{(t)} - Y) $$. Substituting the same in the gradient descent update rule gives the following simplification:  
 
   $$
   \begin{align}
@@ -158,33 +166,41 @@ In the rest of the Chapter we will try to prove the Convergence of iterative alg
   \end{align} 
   $$
    
-   We can think about gradient descent as an interative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. Hence the thing to study is if the Gradient descent operator $$T$$ is a contraction mapping.
+We can think about gradient descent as an iterative operation with $$\theta^{(t+1)} = T\theta^{(t)}$$. Hence, the thing to study is if the Gradient descent operator $$T$$ is a contraction mapping.
 
-* Lets look at the the gradient descent operation at iterations $$m$$ and $$n$$ using the L2 norm 
+Let's look at the gradient descent operation at iterations $$m$$ and $$n$$ using the L2 norm 
 
-$$
-\begin{align}
-& \lVert T\theta^{(m)} - T\theta^{(n)} \rVert \\
-&=\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert \\
-&= \lVert (\theta^{(m)} - \theta^{(n)}) - \eta(X^{T}X\theta^{(m)} - X^{T}X\theta^{(n)}) \rVert \\
-&= \lVert (I - \eta X^{T}X) (\theta^{(m)} - \theta^{(n)}) \rVert  \\
-&\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert
-\end{align}
-$$
+  $$
+  \begin{align}
+  & \lVert T\theta^{(m)} - T\theta^{(n)} \rVert \\
+  &=\lVert \theta^{(m)} - \eta(X^{T}X\theta^{(m)} - X^{T}Y) - \theta^{(n)} + \eta(X^{T}X\theta^{(n)} - X^{T}Y) \rVert \\
+  &= \lVert (\theta^{(m)} - \theta^{(n)}) - \eta(X^{T}X\theta^{(m)} - X^{T}X\theta^{(n)}) \rVert \\
+  &= \lVert (I - \eta X^{T}X) (\theta^{(m)} - \theta^{(n)}) \rVert  \\
+  &\le \lVert (I - \eta X^{T}X)\rVert \lVert(\theta^{(m)} - \theta^{(n)}) \rVert
+  \end{align}
+  $$  
 
-* So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ . $$X^{T}*X$$ being a positive semidefinite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
+
+So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ .  
+
+$$X^{T}*X$$ being a positive semi-definite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
   
-$$ \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
+  $$
+  \begin{align}
+  \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
+  \end{align}
+  $$  
   
-* This norm should be less than 1 for gradient descent to be a contraction and subsequently guarantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated   with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tightest bound of the learning rate is provided by the maximum eigen value as shown below
+This norm should be less than 1 for gradient descent to be a contraction and subsequently guarantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated  with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tightest bound of the learning rate is provided by the maximum eigen value as shown below
 
-$$
-\begin{align}
- &    \lvert 1 - \eta\lambda_{max} \rvert < 1            \\
- &  \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1  \\
- &  \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}}   
- \end{align}
-$$
+  $$
+  \begin{align}
+  &    \lvert 1 - \eta\lambda_{max} \rvert < 1            \\
+  &  \Rightarrow -1 \lt 1 - \eta\lambda_{max} < 1  \\
+  &  \Rightarrow 0 \lt \eta \lt \frac{2}{\lambda_{max}}   
+  \end{align}
+  $$
+
 
 ## Value function convergence under the Bellman operator <a name="bc"></a>
 
