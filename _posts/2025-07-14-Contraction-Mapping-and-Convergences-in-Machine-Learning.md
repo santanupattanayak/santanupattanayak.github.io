@@ -68,7 +68,8 @@ Using the modulus inequality and noting that $$\frac{1}{n} < \frac{1}{N_\epsilon
 
   $$
   \begin{align}
-  \lvert \frac{1}{m} - \frac{1}{n} \rvert &\le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert  \\
+  &\lvert \frac{1}{m} - \frac{1}{n} \rvert  \\
+  &\le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert  \\
   &\le \frac{2}{N}  \\
   &\lt \epsilon 
   \end{align}
