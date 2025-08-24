@@ -37,22 +37,44 @@ To fully understand and apply this theorem, we must first review two fundamental
 
 
 ## Cauchy sequences <a name="cs"></a>
-* Any seqence $${\{ x_n \}}$$ in a metric space is called a Cauchy sequence if the distance between the consecutive terms get arbitrarily smaller as the sequence progresses.
-  Mathematically, if for every positive real number $$\epsilon \gt 0 $$ there exists a positive integer $$N$$ such that for any pair of positive integers $$m,n \ge N$$ the below holds, the sequence $${\{ x_n \}}$$ is said to be Cauchy. 
 
-$$ \lvert x_{m} - x_{n} \rvert \lt \epsilon$$
+A sequence $${\{ x_n \}}$$ in a metric space is said to be Cauchy if the distances between its consecutive terms get arbitrarily small as the sequence progresses. Formally, for every $$\epsilon \gt 0 $$ , there exists a positive integer $$N$$ such that for all $$m,n \ge N$$: 
 
-*  Alternatelty if $$\lim_{m,n\to\infty} \lvert x_{m} - x_{n} \rvert \to 0 $$ the sequence $$\{x_n\}$$ is Cauchy.
+  $$
+  \begin{align}
+  \lvert x_{m} - x_{n} \rvert \lt \epsilon
+  \end{align}
+  $$  
+
+Alternately, one may express the same as:
+
+  $$
+  \begin{align}
+  \lim_{m,n\to\infty} \lvert x_{m} - x_{n} \rvert \to 0
+  \end{align}
+  $$
 
 **Example**
 
-The sequence $$\{x_n\}$$ where $$x_{n} = \frac{1}{n} $$ is a Cauchy sequence. To prove the same we would like to find  $$N_{\epsilon}$$ for every $$\epsilon \gt 0$$ such that for every pair $$m,n \ge N_{\epsilon} $$  the inequality $$\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$  holds.  Applying the modulus inequality and the fact that $$\frac{1}{n} < \frac{1}{N_\epsilon}$$ and $$\frac{1}{m} < \frac{1}{N_\epsilon}$$ we get 
-   
-   $$ \lvert \frac{1}{m} - \frac{1}{n} \rvert \le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert \le \frac{2}{N} \lt \epsilon $$  
-   
-Based on the above, we can pick $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ to statisfy the Cauchy condition. Hence $$x_{n} = \frac{1}{n}$$ is a Cauchy sequence.
+Consider the sequence $$x_{n} = \frac{1}{n} $$. To prove its Cauchy sequence, pick any $$epsilon > 0$$. We need an $$N_{\epsilon}$$ for every $$\epsilon$$ such that for all $$m,n \ge N_{\epsilon} $$  
 
-To determine what the sequence converges to, we can compute $$\lim_{n\to\infty} \frac{1}{n} $$ which is $$0$$. Hence $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called **limit of the sequence**.
+$$
+\begin{align}
+\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$
+\begin{end}
+$$ 
+
+Using the modulus inequality and noting that $$\frac{1}{n} < \frac{1}{N_\epsilon}$$ and $$\frac{1}{m} < \frac{1}{N_\epsilon}$$ we get:  
+
+$$
+  \begin{align}
+  \lvert \frac{1}{m} - \frac{1}{n} \rvert &\le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert  \\
+  &\le \frac{2}{N} 
+  &\lt \epsilon $$  
+   
+From above, we see choosing $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ satisfies the Cauchy condition.
+
+Moreover, $$\lim_{n\to\infty} \frac{1}{n} = 0$$ so $$x_{n} = \frac{1}{n}$$  converges to $$0$$ which is called **limit of the sequence**.
 
 ## Complete Metric Space <a name="cms"></a>
 
