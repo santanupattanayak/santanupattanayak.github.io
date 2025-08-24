@@ -23,7 +23,9 @@ $$ \lVert Tx - Ty \rVert \le c \lVert x-y \rVert \: \forall x,y \in X $$
 As illustrated in the Figure 1. below the distance between two points $$x$$ and $$y$$ shrinks on application of the transform
  $$T$$ and hence $$T$$ is a contraction.
 
+<p align="center">
 <img  width="320" height="320" alt="image" src="https://github.com/user-attachments/assets/55ebd7b5-9e9c-462b-8d63-4d5e4d967ff5" />
+</p>
 
 
 Figure 1. Contraction Mapping in a 2D metric space
