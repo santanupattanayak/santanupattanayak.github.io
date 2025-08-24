@@ -56,21 +56,23 @@ Alternately, one may express the same as:
 
 **Example**
 
-Consider the sequence $$x_{n} = \frac{1}{n} $$. To prove its Cauchy sequence, pick any $$epsilon > 0$$. We need an $$N_{\epsilon}$$ for every $$\epsilon$$ such that for all $$m,n \ge N_{\epsilon} $$  
+Consider the sequence $$x_{n} = \frac{1}{n} $$. To prove its Cauchy sequence, we pick any $$\epsilon > 0$$. We need an $$N_{\epsilon}$$ for every chosen $$\epsilon$$ such that for all $$m,n \ge N_{\epsilon} $$  
 
-$$
-\begin{align}
-\lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon$$
-\begin{end}
-$$ 
+  $$
+  \begin{align}
+  \lvert \frac{1}{m} - \frac{1}{n} \rvert \lt \epsilon
+  \end{align}
+  $$ 
 
 Using the modulus inequality and noting that $$\frac{1}{n} < \frac{1}{N_\epsilon}$$ and $$\frac{1}{m} < \frac{1}{N_\epsilon}$$ we get:  
 
-$$
+  $$
   \begin{align}
   \lvert \frac{1}{m} - \frac{1}{n} \rvert &\le \lvert \frac{1}{m} \rvert + \lvert \frac{1}{n} \rvert  \\
   &\le \frac{2}{N} 
-  &\lt \epsilon $$  
+  &\lt \epsilon 
+  \end{align}
+  $$  
    
 From above, we see choosing $$N_{\epsilon} \gt \frac{2}{\epsilon} $$ satisfies the Cauchy condition.
 
