@@ -122,7 +122,7 @@ Now equipped with the notions of Cauchy Sequences and Complete metric spaces, we
   \end{align} 
   $$  
 
-Using the contraction property for $$m,n ge N$$, we have:  
+Using the contraction property for $$m,n \ge N$$, we have:  
 
   $$
   \begin{align}
