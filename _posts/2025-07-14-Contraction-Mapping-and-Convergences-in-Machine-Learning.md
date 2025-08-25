@@ -183,7 +183,7 @@ Let's look at the gradient descent operation at iterations $$m$$ and $$n$$ using
 
 So Gradient descent for least squares would be a contraction mapping if $$\lVert (I - \eta X^{T}X)\rVert \lt 1$$ .  
 
-$$X^{T}*X$$ being a positive semi-definite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
+$$X^{T}X$$ being a positive semi-definite symmetric matrix has eigen values $$\lambda_{i} \ge 0$$. The norm of the $$\lVert (I - \eta X^{T}X)\rVert$$ is nothing but
   
   $$
   \begin{align}
@@ -204,45 +204,62 @@ This norm should be less than 1 for gradient descent to be a contraction and sub
 
 ## Value function convergence under the Bellman operator <a name="bc"></a>
 
-* In this section we will look at the **Value function convergence** under a given policy $$\pi$$ using the Supremum norm(max norm) over the state space. We will use the standard notations of $$s$$ and $$s^{'}$$ for current and next state, $$a$$ for action at current state $$s$$. We denote the immediate reward at state $s$ on taking action $$a$$ as per the policy $$\pi$$ as $$r(s,a)$$ and $$\gamma$$ as the discount factor such that $$ 0 \le \gamma < 1 $$.
+In this section we will look at the **Value function convergence** using the Bellman operator under a given policy $$\pi$$ using the supremum norm(max norm). 
+* $$s=$$  current state,  $$s^{'}=$$ next state  
 
-* We denote the value function at a given state by $$V(s)$$ while the overall Value function for all states as $$V$$
+* $$a=$$ for action at  state $$s$$. 
 
-* As per the **Bellman operator**, which we denote by $$T$$ here we have the following recurrence wrt to Value function
+* $$r(s,a) =$$ immediate reward on taking action $$a$$ at state $$s$$ 
+* $$\gamma =$$ discount factor, $$ 0 \le \gamma < 1 $$. 
+* $$V(s)=$$ value at state $$s$$; $$V=$$ vector of value function across all states. 
 
-  $$TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s')) $$
 
-* Lets take a lookat the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their different
+As per the **Bellman operator** $$T$$ recurrence wrt to Value function is:  
 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$
- $$= \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s'))$$
- $$ - \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert$$      
+  $$
+  \begin{align}
+   TV(s) = \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V(s'))
+  \end{align}
+  $$  
 
-* The immediate reward cancels out and the expression simplifies to
+Let's take a look at the Value function for a given state $$s$$ under the same policy $$\pi$$ at two iteration number $$m$$ and $$n$$ and compute their difference:
+
+  $$
+  \begin{align}
+  \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert
+  &= \lvert \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(m)}(s')) \\
+  &- \max_{a} (r(s,a) + \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) V^{(n)}(s')) \rvert
+  \end{align}
+  $$  
+  
+The immediate reward cancels out yielding:
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert = \lvert \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) (V^{(m)}(s') - V^{(n)}(s') )   \rvert $$ 
 
-* Since $$\lvert \max_a (x_a - y_a) \rvert  \le \max_a\lvert x_a - y_a \rvert $$ we can convert our equality equation into an inequality one as below
+Since $$\lvert \max_a (x_a - y_a) \rvert  \le \max_a\lvert x_a - y_a \rvert $$ we can convert our equality equation into an inequality as:
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \lvert \sum_{s'} \mathbb{P}(s^{'} | s,a) (V^{(m)}(s') -  V^{(n)}(s') )  \rvert $$ 
 
-* Applying triangle inequality to the weighted sum inside the abs value we get
-  
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ 
 
-* The fact that $$\lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ is no greater than the supremum norm(maximum across all states) the Bellaman operator inequality simplifies to
+Applying triangle inequality to the weighted sum(weights being given by the probabilities) inside the absolute value we get:
+  
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) \lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$
+ 
+The fact that $$\lvert V^{(m)}(s') - V^{(n)}(s')    \rvert $$ is no greater than the supremum norm(maximum across all states) the Bellaman operator inequality simplifies to
 
  $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le  \max_{a} \gamma \sum_{s'} \mathbb{P}(s^{'} | s,a) {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
- * The sum of the probability across all states is 1 and hence the inequality further simplies to 
- 
- $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
-* Finally since $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$ for any state $$s$$ it should be true for the state $$s$$ corresponding to the maximum value of $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$ which is nothing but the supremum norm of $$TV^{(m)} - TV^{(n)} $$ . Hence the inequality takes the final form as below
+The sum of the probability across all states is 1 and hence the inequality further simplifies to 
+ 
+ $$ \lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$  
+ 
+Finally, since $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$ for any state $$s$$ it should be true for the state $$s$$ corresponding to the maximum value of $$\lvert TV^{(m)}(s) - TV^{(n)}(s) \rvert$$ which is nothing but the supremum norm of $$TV^{(m)} - TV^{(n)} $$ .  
+Hence, the inequality takes the final form as below
 
  $$ \lVert TV^{(m)} - TV^{(n)} \rVert_{\infty} \le   \gamma  {\lVert V^{(m)} - V^{(n)} \rVert}_{\infty} $$
 
-* Since the discount factor $$0\le \gamma \le 1 $$ hence the Bellman operator is a contraction mapping and the Value function converges.
+Since the discount factor $$0\le \gamma \le 1 $$ hence the Bellman operator is a contraction mapping and the Value function converges.
 
 
 
