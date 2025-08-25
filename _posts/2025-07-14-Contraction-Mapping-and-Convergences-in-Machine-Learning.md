@@ -265,13 +265,13 @@ Since the discount factor $$0\le \gamma \le 1 $$ hence the Bellman operator is a
 
 ## Conclusion
 
-Understanding whether an operator is a contraction is fundamental to analyzing the convergence behavior of iterative algorithms in machine learning. As we've seen, contraction mappings guarantee convergence to a unique fixed point in complete metric spaces—a principle that underpins not only classical methods like gradient descent and value iteration, but also extends to broader settings.  
+Understanding whether an operator is a **contraction** is fundamental to analyzing the convergence behavior of iterative algorithms in machine learning. As we've seen, contraction mappings guarantee convergence to a unique fixed point in complete metric spaces—a principle that underpins not only classical methods like gradient descent and value iteration, but also extends to broader settings.  
 
-While convex optimization and Bellman updates are well-known examples, the contraction perspective applies far more widely. In expectation-maximization (EM) algorithms, for instance, the E-step often defines a mapping whose fixed point corresponds to the MLE, and convergence can be reasoned about via contraction in appropriate metric spaces. Similarly, iterative algorithms for matrix completion, message passing in graphical models, and normalization flows in generative modeling often rely on mappings that are contractive under certain conditions or norms.  
+While convex optimization and Bellman updates are well-known examples, the contraction perspective applies far more widely. In **expectation-maximization (EM)** algorithms, for instance, the E-step often defines a mapping whose fixed point corresponds to the MLE, and convergence can be reasoned about via contraction in appropriate metric spaces. Similarly, **iterative algorithms for matrix completion, message passing in graphical models**, and **normalization flows** in generative modeling often rely on mappings that are contractive under certain conditions or norms.  
 
 Identifying whether an update rule or operator is a contraction—possibly in a probabilistic sense or under reparameterized norms—provides a powerful lens for proving convergence, tuning hyperparameters, or designing more stable algorithms. Crucially, this shifts the focus from just whether an algorithm empirically works to understanding why it converges—and under what conditions it may fail.  
 
-In sum, contraction mappings offer a unifying theoretical tool: once we know an operator contracts, convergence is not a matter of hope, but a mathematical certainty. As machine learning methods grow more complex, this understanding becomes ever more valuable.
+In sum, **contraction mappings offer a unifying theoretical tool**: once we know an operator contracts, convergence is not a matter of hope, but a mathematical certainty. As machine learning methods grow more complex, this understanding becomes ever more valuable.
 
 
 
