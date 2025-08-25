@@ -187,7 +187,7 @@ $$X^{T}*X$$ being a positive semi-definite symmetric matrix has eigen values $$\
   
   $$
   \begin{align}
-  \max_{i} \lvert 1 - \eta\lambda_{i} \rvert$$
+  \max_{i} \lvert 1 - \eta\lambda_{i} \rvert
   \end{align}
   $$  
   
