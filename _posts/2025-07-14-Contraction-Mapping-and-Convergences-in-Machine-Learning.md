@@ -191,7 +191,7 @@ $$X^{T}*X$$ being a positive semi-definite symmetric matrix has eigen values $$\
   \end{align}
   $$  
   
-This norm should be less than 1 for gradient descent to be a contraction and subsequently guarantee convergence. Given that any of the eigen values of $$X^{T}*X$$  can be associated  with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tightest bound of the learning rate is provided by the maximum eigen value as shown below
+This norm should be less than 1 for gradient descent to be a contraction and subsequently guarantee convergence. Given that any of the eigen values of $$X^{T}X$$  can be associated  with the norm of the  $$\lVert (I - \eta X^{T}X)\rVert$$ it can be seen that the tightest bound of the learning rate is provided by the maximum eigen value as shown below
 
   $$
   \begin{align}
