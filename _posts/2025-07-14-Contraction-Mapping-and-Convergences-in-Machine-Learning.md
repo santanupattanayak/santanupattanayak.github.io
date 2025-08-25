@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Contraction Mapping and Convergences in Machine Learning"
+title: "Contraction Mapping and Convergences in Machine Learning Algorithms"
 date: 2025-07-14 00:00:00 -0000
 author: Santanu Pattanayak
-tags: banach fixed point, Contraction Mapping, gradient descent convergence through Contraction Mapping. 
+tags: banach fixed point, Contraction Mapping, gradient descent convergence through Contraction Mapping, Value function Fixed point,fixed point, Bellman Operator fixed point
 ---
 # Table of Contents
 1. [Contraction Mapping](#cm)
@@ -263,7 +263,7 @@ Hence, the inequality takes the final form as below
 Since the discount factor $$0\le \gamma \le 1 $$ hence the Bellman operator is a contraction mapping and the Value function converges.
 
 
-## Conclusion
+## Conclusion <a name="conclusion"></a>
 
 Understanding whether an operator is a **contraction** is fundamental to analyzing the convergence behavior of iterative algorithms in machine learning. As we've seen, contraction mappings guarantee convergence to a unique fixed point in complete metric spaces—a principle that underpins not only classical methods like gradient descent and value iteration, but also extends to broader settings.  
 
