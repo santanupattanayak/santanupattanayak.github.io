@@ -89,9 +89,9 @@ Let us look at the **second term** which we are able to factorize as product of 
 
 $$
 \begin{align}
-\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )] 
+\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [2\epsilon (\bar{y}   - \hat{y{_D}} )]  \\
 
-&= 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon]
+= 2 \mathop {\mathbb E}_ {D \sim P(D)}[(\bar{y} - \hat{y_{D}})]        \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon]
 \end{align}
 $$
 
@@ -101,11 +101,12 @@ The **third term** also simplifies to be the noise variance which is the irreduc
 
  $$
 \begin{align}
-\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon^{2}]
- &= \mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}]
+\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})}  [\epsilon^{2}] \\
+ = \mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}]
 \end{align}
+$$
  
- Since $$\sigma$$ doesnt depend on the distribution over $$D$$ hence 
+ Since $$\sigma$$ doesn't depend on the distribution over $$D$$ hence 
 $$
 \begin{align}
 \mathop {\mathbb E}_ {D \sim P(D)} [\sigma^{2}] = \sigma^{2}
@@ -120,9 +121,9 @@ $$
 
 \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2}] \\
 
-&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] \\
+= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] \\
 
-&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
+= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
 
 \end{align}
 $$
@@ -132,7 +133,7 @@ Let us inspect the final product term here. The noise distribution doesn't invol
 $$
 \begin{align}
 \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}}) \\
-&= \mathop {\mathbb E}_ {D \sim P(D)} 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})
+= \mathop {\mathbb E}_ {D \sim P(D)} 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})
 \end{align}
 $$
 
