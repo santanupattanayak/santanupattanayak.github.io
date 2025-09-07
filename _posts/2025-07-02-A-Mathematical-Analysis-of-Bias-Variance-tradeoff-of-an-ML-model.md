@@ -13,10 +13,10 @@ tags: Bias, Variance.
 ## Introduction <a name="introduction"></a>
 
 Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  We sample a set of $$m$$ points from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
-where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.   
+where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.  
 
 Since $$m$$ data-points from the distribution $$P(x,y)$$ can be chosen in multiple ways the training dataset $$D$$ has a distribution which follows   
-$$D \sim P^{m} (x_i,y_i) $$ as illustrated in Figure-1.   
+$$D \sim P^{m} (x,y) $$ as illustrated in Figure-1.  
 
 Given a model class and training methodology each dataset $$D$$ would produce a different model parameterized by $$\theta_{D}$$ and that's what leads to the **variance of the model** . Because of this variability for a given input vecgtor $$x$$ models trained on different datasets $$D$$ would produce different predictions $$\hat{y_{D}}$$ . The variance of the model can be represented in terms of variance over the parameters of the models trained with datasets $$D \sim P(D)$$
 
@@ -41,7 +41,15 @@ We will choose this prediction representation for variance of model for our  bia
 
 Figure-1. Illustration of Variance of a Model  
 
-The other source of unpredictability as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For regression problems, which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$ (See Figure-2). In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $${\mathbb E(y|x)} = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
+The other source of unpredictability as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications.  
+For regression problems, which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  
+$$
+\begin{align}
+y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})
+\end{align}
+$$
+(See Figure-2). In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $${\mathbb E(y|x)} = \bar{y}(x)$$.  
+This leads to an **irreducible error** $$\epsilon$$ that the model cannot predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
 $$\mathop {\mathbb E}_{D \sim P(D)} \hat{y{_D}} = \bar{y}$$ and hence the **bias of the model** is defined as 
 
 $$
