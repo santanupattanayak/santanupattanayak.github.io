@@ -12,8 +12,15 @@ tags: Bias, Variance.
 
 ## Introduction <a name="introduction"></a>
 
-Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  We sample a set of $$m$$ points from $$P(x,y)$$ which we call as training dataset $$D$$. The training dataset $$D$$ of $$m$$ points can be represented as $$D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}$$
-where each of the datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.  
+Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  Instead, we sample a set of $$m$$ datapoints from $$P(x,y)$$ which we call as training dataset $$D$$: 
+
+$$
+\begin{align}
+D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}
+\end{align}
+$$
+
+These $$m$$ datapoints $$(x_i,y_i)$$ are independently  and identically sampled from  $$P(x,y)$$.  
 
 Since $$m$$ data-points from the distribution $$P(x,y)$$ can be chosen in multiple ways the training dataset $$D$$ has a distribution which follows   
 $$D \sim P^{m} (x,y) $$ as illustrated in Figure-1.  
