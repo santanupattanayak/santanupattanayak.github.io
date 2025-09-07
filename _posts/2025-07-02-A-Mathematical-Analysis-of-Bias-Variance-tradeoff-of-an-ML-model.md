@@ -39,7 +39,7 @@ We will choose this prediction representation for variance of model for our  bia
 <img width="1300" alt="image" src="https://github.com/user-attachments/assets/5a166d40-4ee1-422c-a186-0625bd663249" />
 
 
-    Figure-1. Illustration of Variance of a Model  
+Figure-1. Illustration of Variance of a Model  
 
 The other source of unpredictability as well as variability in prediction comes from the fact that the target $$y$$ is not fully predictable from $$x$$ for most of the applications. For regression problems, which we would use to illustrate this bias variance tradeoff, the target is generally modeled as  $$y = \bar{y}(x) + \epsilon$$  where $$\epsilon \sim N(0,\sigma^{2})$$ (See Figure-2). In essence $$y$$ given $$x$$ follows a normal distribution  $$y|x \sim N(\bar{y}(x),\sigma^{2})$$ and hence best prediction we can make is just the mean of the distribution i.e. $${\mathbb E(y|x)} = \bar{y}(x)$$. This leads to an **irreducible error** $$\epsilon$$ that the model can't predict. If the chosen model class and the training methodology is good, for a feature vector $$x$$ the predictions $$y_D$$ pertaining to the models for each dataset  $$D \sim P^m(x,y)$$ should be as close as possible to predictable component of $$y$$ that is $$\bar{y}$$. Infact the model predictions $$\hat {y_D}$$ would be an unbiased estimator of predictable component $$\bar{y}$$ if
 $$\mathop {\mathbb E}_{D \sim P(D)} \hat{y{_D}} = \bar{y}$$ and hence the **bias of the model** is defined as 
@@ -59,7 +59,7 @@ So bias is the model's inability to catch up to the predictable component of the
 
 
 
-    Figure-2.  Error for a given test input x  
+Figure-2.  Error for a given test input x  
 
 
 ## Bias Variance and Irreducible Error decomposition <a name="bvd"></a>
