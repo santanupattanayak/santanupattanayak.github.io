@@ -66,7 +66,7 @@ For regression problems, which we would use to illustrate this bias variance tra
 
 $$
 \begin{align}
-y = \bar{y}(x) + \epsilon$$ ,  \epsilon \sim N(0,\sigma^{2})
+y = \bar{y}(x) + \epsilon ,  \epsilon \sim N(0,\sigma^{2})
 \end{align}
 $$
 
@@ -79,7 +79,13 @@ y|x \sim N(\bar{y}(x),\sigma^{2})
 \end{align}
 $$
 
-and hence best prediction we can make is just the mean of the distribution $${\mathbb E}(y|x) = \bar{y}(x)$$.  
+and hence best prediction we can make is just the mean of the distribution 
+
+$$
+\begin{align}
+{\mathbb E}(y|x) = \bar{y}(x)
+\end{align}
+$$
 
 The residue $$\epsilon$$ represents an **irreducible error**(see Figure 2.0)  that the model cannot predict.  
 
