@@ -9,6 +9,7 @@ tags: Bias, Variance.
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Bias Variance and Irreducible Error decomposition](#bvd)
+3. [Bias Variance Tradeoff](#tradeoff)
 
 ## Introduction <a name="introduction"></a>
 
@@ -210,3 +211,13 @@ So combining the components left after all the **simplifications of the 3 terms*
 $$ L = \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + (\hat{y{_D}} - {\mathbb E}[\hat{y{_D}}] )^{2}]  + \sigma^{2} $$
 
 The first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
+
+## Bias Variance Tradeoff 
+
+A model can suffer from **high bias** when its architecture is overly simplistic—for example, choosing a shallow network instead of a deeper one. Increasing the model’s complexity generally helps reduce this bias by allowing it to capture more of the underlying patterns in the data. However, pushing complexity too far, especially when the available dataset is small, often leads to overfitting. In that case, the model starts fitting not just the underlying signal but also the noise present in the training data.
+When overfitting occurs, the training loss may look excellent, but the model fails to generalize to unseen data, even if that data carries a similar underlying signal. Here, by signal we mean the predictable component of the target, as opposed to the random fluctuations or noise.
+
+Examples
+- In Convolutional Neural Networks (CNNs) for image classification, a very shallow CNN might miss important hierarchical features like edges, textures, and object parts, leading to high bias. On the other hand, an overly deep CNN trained on a small dataset (say, a few thousand images) may memorize specific patterns in the training set, leading to overfitting.
+
+- In Large Language Models (LLMs), a small transformer with just a few layers can struggle to capture long-range dependencies in text, exhibiting high bias. But scaling to a very large transformer without sufficient pretraining data can cause the model to latch onto spurious correlations or memorize training text, hurting generalization.
