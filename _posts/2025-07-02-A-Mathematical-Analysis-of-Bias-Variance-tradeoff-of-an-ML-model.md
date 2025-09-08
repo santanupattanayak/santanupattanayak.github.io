@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Mathematical Analysis of Bias-Variance tradeoff of an ML model"
+title: "A Mathematical Analysis of Bias-Variance decomposition and new tradeoff patterns in Over-parameterized Neural Networks"
 date: 2025-07-02 00:00:00 -0000
 author: Santanu Pattanayak
 tags: Bias, Variance. 
@@ -212,7 +212,7 @@ $$ L = \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}
 
 The first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
 
-## Bias Variance Tradeoff 
+## Traditional Bias Variance Tradeoff 
 
 A model can suffer from **high bias** when its architecture is overly simplistic—for example, choosing a shallow network instead of a deeper one. Increasing the model’s complexity generally helps reduce this bias by allowing it to capture more of the underlying patterns in the data.  
 
@@ -223,3 +223,9 @@ Examples
 - In Convolutional Neural Networks (CNNs) for image classification, a very shallow CNN might miss important hierarchical features like edges, textures, and object parts, leading to high bias. On the other hand, an overly deep CNN trained on a small dataset (say, a few thousand images) may memorize specific patterns in the training set, leading to overfitting.
 
 - In Large Language Models (LLMs), a small transformer with just a few layers can struggle to capture long-range dependencies in text, exhibiting high bias. But scaling to a very large transformer without sufficient pretraining data can cause the model to latch onto spurious correlations or memorize training text, hurting generalization.
+
+In traditional ML models, as model complexity increases, the bias typically decreases monotonically because the model can capture more of the underlying structure in the data. At the same time, the variance increases monotonically since the model becomes more sensitive to fluctuations or noise in the training set.
+The generalization error (test loss) initially decreases with complexity, since the drop in bias dominates. Beyond a certain point, however, the rising variance outweighs the bias reduction, causing the generalization error to increase again. This gives rise to the well-known U-shaped curve of the bias–variance tradeoff, as shown below in Figure 3.
+
+
+## Rethinking Bias-Variance Trade-off for Overparameterized Networks 
