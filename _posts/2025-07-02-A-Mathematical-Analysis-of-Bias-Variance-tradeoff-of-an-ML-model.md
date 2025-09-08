@@ -17,7 +17,7 @@ Whenever we build a model, it is not feasible to train on all datapoints of feat
 
 $$
 \begin{align}
-D={(x_1,y_1), (x_2,y_2), .... (x_m,y_m)}
+D=\{(x_1,y_1), (x_2,y_2), .... (x_m,y_m)\}
 \end{align}
 $$
 
