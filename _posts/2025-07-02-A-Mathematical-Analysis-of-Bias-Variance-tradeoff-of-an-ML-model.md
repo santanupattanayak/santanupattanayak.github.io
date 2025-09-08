@@ -171,7 +171,8 @@ $$
 
 &\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2}] \\
 &= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] \\
-&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
+&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} \\
+&+ 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
 \end{align}
 $$
  
@@ -185,9 +186,15 @@ $$
 $$
 
 
-The first product term $$(\bar{y}   - {\mathbb E} [\hat{y{_D}}])$$  is constant with respect to the distribution of training dataset $$D$$ and hence can be taken out of expectation. We denote it by $$C$$. So the product term simplifies to 
+The first product term $$(\bar{y}   - {\mathbb E} [\hat{y{_D}}])$$  is constant(say $$c$$) with respect to the training dataset distribution $$P(D)$$and hence the product term simplifies to:   
 
- $$C{\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})} $$
+
+$$
+\begin{align}
+{\mathop {\mathbb E}_ {D \sim P(D)} c({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})}
+\end{align}
+$$
+
 
 
 Since $${\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})}= 0$$ the product term vanishes from the **1st term** and we are left with 
