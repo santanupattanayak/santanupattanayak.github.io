@@ -187,7 +187,7 @@ $$
 
 The first product term $$(\bar{y}   - {\mathbb E} [\hat{y{_D}}])$$  is constant with respect to the distribution of training dataset $$D$$ and hence can be taken out of expectation. We denote it by $$C$$. So the product term simplifies to 
 
- $$C*{\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})} $$
+ $$C{\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})} $$
 
 
 Since $${\mathop {\mathbb E}_ {D \sim P(D)} ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})}= 0$$ the product term vanishes from the **1st term** and we are left with 
