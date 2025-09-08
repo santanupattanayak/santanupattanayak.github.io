@@ -215,6 +215,7 @@ The first term and second term are nothing but the square of the **bias** and th
 ## Bias Variance Tradeoff 
 
 A model can suffer from **high bias** when its architecture is overly simplistic—for example, choosing a shallow network instead of a deeper one. Increasing the model’s complexity generally helps reduce this bias by allowing it to capture more of the underlying patterns in the data.  
+
 However, pushing complexity too far, especially when the available dataset is small, often leads to overfitting. In that case, the model starts fitting not just the underlying signal but also the noise present in the training data.
 When overfitting occurs, the training loss may look excellent, but the model fails to generalize to unseen data, even if that data carries a similar underlying signal. Here, by signal we mean the predictable component of the target, as opposed to the random fluctuations or noise.
 
