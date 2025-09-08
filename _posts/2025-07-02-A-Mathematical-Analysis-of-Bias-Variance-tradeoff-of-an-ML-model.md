@@ -55,7 +55,7 @@ We will use this prediction-based form for variance in our analysis.
 
 
 
-<img width="1300" height="600" alt="image" src="https://github.com/user-attachments/assets/5a166d40-4ee1-422c-a186-0625bd663249" />
+<img width="1300" height="500" alt="image" src="https://github.com/user-attachments/assets/5a166d40-4ee1-422c-a186-0625bd663249" />
 
 
 Figure-1. Illustration of Variance of a Model  
@@ -104,7 +104,7 @@ So bias is the model's inability to catch up to the predictable component of the
 
 
 
-<img width="1300" height="600" alt="image" src="https://github.com/user-attachments/assets/c075678b-7496-4b64-a0a6-2d9c20e2b854" />
+<img width="1300" height="500" alt="image" src="https://github.com/user-attachments/assets/c075678b-7496-4b64-a0a6-2d9c20e2b854" />
 
 
 
