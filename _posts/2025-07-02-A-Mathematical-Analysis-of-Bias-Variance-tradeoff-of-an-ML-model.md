@@ -223,7 +223,7 @@ In traditional ML models, as model complexity increases, the bias typically decr
 The generalization error (test loss) initially decreases with complexity, since the drop in bias dominates. Beyond a certain point, however, the rising variance outweighs the bias reduction, causing the generalization error to increase again. This gives rise to the well-known U-shaped curve of the bias–variance tradeoff, as shown below in Figure 3.
 
 
-## Rethinking Bias-Variance Trade-off for Overparameterized Networks 
+## Rethinking Bias-Variance Trade-off for Over parameterized Networks 
 
 The traditional bias-variance tradeoff does not hold in the case of over-parameterized neural networks. While bias still decreases monotonically with increasing model complexity, variance does not follow the expected upward trend. Instead, variance typically rises initially as the width of the network (i.e., the number of neurons per layer) increases, but then begins to decline with further increases in width—resulting in a uni-modal variance curve.  
 
