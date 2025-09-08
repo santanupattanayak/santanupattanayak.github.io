@@ -170,8 +170,8 @@ $$
 \begin{align}
 
 &\mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - \hat{y{_D}} )^{2}] \\
-& = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] \\
-& = \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
+&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}] + {\mathbb E} [\hat{y{_D}}] -\hat{y{_D}} )^{2}] \\
+&= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\sigma^{2})} [(\bar{y}   - {\mathbb E} [\hat{y{_D}}])^{2} + ({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})^{2} + 2(\bar{y}   - {\mathbb E} [\hat{y{_D}}])({\mathbb E} [\hat{y{_D}}] -\hat{y{_D}})]
 \end{align}
 $$
  
