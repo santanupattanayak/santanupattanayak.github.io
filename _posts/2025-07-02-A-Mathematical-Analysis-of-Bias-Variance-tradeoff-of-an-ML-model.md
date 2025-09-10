@@ -232,7 +232,10 @@ Figure-3 Traditional Bias Variance Tradeoff Curve
 
 The traditional bias-variance tradeoff does not hold in the case of over-parameterized neural networks. The same is the theme of the paper [1] While bias still decreases monotonically with increasing model complexity, variance does not follow the expected upward trend. Instead, variance typically rises initially as the width of the network (i.e., the number of neurons per layer) increases, but then begins to decline with further increases in width—resulting in a uni-modal variance curve.  
 
-This **non-monotonic behavior of variance** gives rise to the **double descent pattern** in generalization error. As model complexity increases, the generalization error first decreases, then spikes near the interpolation threshold(where model parameters equals training samples and hence training error can be zero), and finally descends again as the model becomes increasingly over-parameterized.
+This **non-monotonic behavior of variance** gives rise to the **double descent pattern** in generalization error. As model complexity increases, the generalization error first decreases, then spikes near the interpolation threshold(where model parameters equals training samples and hence training error can be zero), and finally descends again as the model becomes increasingly over-parameterized. See Figure-4 illustrated below. 
+
+<img width="800" height="450" alt="image" src="https://github.com/user-attachments/assets/2139c788-32ce-495b-b1b6-e6703ad6ff02" />
+
 
 
 ## Conclusion 
