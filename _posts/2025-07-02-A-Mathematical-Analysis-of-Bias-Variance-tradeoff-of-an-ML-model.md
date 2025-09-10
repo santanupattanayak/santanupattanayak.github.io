@@ -10,6 +10,7 @@ tags: Bias, Variance.
 1. [Introduction](#introduction)
 2. [Bias Variance and Irreducible Error decomposition](#bvd)
 3. [Bias Variance Tradeoff](#tradeoff)
+4. [Rethinking Bias Variance Tradeoff]((#rbvt)
 
 ## Introduction <a name="introduction"></a>
 
@@ -110,7 +111,7 @@ So bias is the model's inability to catch up to the predictable component of the
 
 
 
-Figure-2.  Error for a given test input x  
+Figure-2.  Error for a given test input $$x$$  
 
 
 ## Bias Variance and Irreducible Error decomposition <a name="bvd"></a>
@@ -212,19 +213,30 @@ $$ L = \mathop {\mathbb E}_ {D \sim P(D)}  [(\bar{y}   - {\mathbb E} [\hat{y{_D}
 
 The first term and second term are nothing but the square of the **bias** and the **variance** of the model respectively as we have defined earlier. The final term is the **irreducible noise variance**. So we can see that the test loss can be decomposed into the bias and variance of the model along with the irreducible noise component. 
 
-## Traditional Bias Variance Tradeoff 
+## Traditional Bias Variance Tradeoff <a name="rbvt"></a> 
 
 A model can suffer from **high bias** when its architecture is overly simplistic—for example, choosing a shallow network instead of a deeper one. Increasing the model’s complexity generally helps reduce this bias by allowing it to capture more of the underlying patterns in the data.  
 
-However, pushing complexity too far, especially when the available dataset is small, often leads to overfitting. In that case, the model starts fitting not just the underlying signal but also the noise present in the training data.
-When overfitting occurs, the training loss may look excellent, but the model fails to generalize to unseen data, even if that data carries a similar underlying signal. Here, by signal we mean the predictable component of the target, as opposed to the random fluctuations or noise.
+However, **pushing complexity too far**, especially when the **available dataset is small**, often leads to **overfitting**. In that case, the model starts fitting not just the underlying signal but also the noise present in the training data.
+When overfitting occurs, the training loss may look excellent, but the model **fails to generalize to unseen data**, even if that data carries a similar underlying signal. Here, by signal we mean the predictable component of the target, as opposed to the random fluctuations or noise.
 
-In traditional ML models, as model complexity increases, the bias typically decreases monotonically because the model can capture more of the underlying structure in the data. At the same time, the variance increases monotonically since the model becomes more sensitive to fluctuations or noise in the training set.
-The generalization error (test loss) initially decreases with complexity, since the drop in bias dominates. Beyond a certain point, however, the rising variance outweighs the bias reduction, causing the generalization error to increase again. This gives rise to the well-known U-shaped curve of the bias–variance tradeoff, as shown below in Figure 3.
+In traditional ML models, as **model complexity increases**, the **bias typically decreases monotonically** because the model can capture more of the **underlying structure in the data**. At the same time, the **variance increases monotonically** since the model becomes more **sensitive to fluctuations or noise** in the training set.
+The generalization error (test loss) initially decreases with complexity, since the drop in bias dominates. Beyond a certain point, however, the rising variance outweighs the bias reduction, causing the generalization error to increase again. This gives rise to the well-known **U-shaped curve** of the bias–variance tradeoff, as shown below in Figure 3.
+
+<img width="800" height="450" alt="image" src="https://github.com/user-attachments/assets/e52db487-4f11-4997-87b0-82bf63dcaa12" />
+
+Figure-3 Traditional Bias Variance Tradeoff Curve
 
 
-## Rethinking Bias-Variance Trade-off for Over parameterized Networks 
+## Rethinking Bias-Variance Trade-off for Over parameterized Networks <a name="tradeoff"></a>  
 
-The traditional bias-variance tradeoff does not hold in the case of over-parameterized neural networks. While bias still decreases monotonically with increasing model complexity, variance does not follow the expected upward trend. Instead, variance typically rises initially as the width of the network (i.e., the number of neurons per layer) increases, but then begins to decline with further increases in width—resulting in a uni-modal variance curve.  
+The traditional bias-variance tradeoff does not hold in the case of over-parameterized neural networks. The same is the theme of the paper [1] While bias still decreases monotonically with increasing model complexity, variance does not follow the expected upward trend. Instead, variance typically rises initially as the width of the network (i.e., the number of neurons per layer) increases, but then begins to decline with further increases in width—resulting in a uni-modal variance curve.  
 
 This **non-monotonic behavior of variance** gives rise to the **double descent pattern** in generalization error. As model complexity increases, the generalization error first decreases, then spikes near the interpolation threshold(where model parameters equals training samples and hence training error can be zero), and finally descends again as the model becomes increasingly over-parameterized.
+
+
+## Conclusion 
+
+
+## References 
+1. [Rethinking Bias-Variance Trade-off for Generalization of Neural Networks](https://arxiv.org/pdf/2002.11328)
