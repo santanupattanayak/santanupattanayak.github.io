@@ -10,7 +10,7 @@ tags: Bias, Variance.
 1. [Introduction](#introduction)
 2. [Bias Variance and Irreducible Error decomposition](#bvd)
 3. [Bias Variance Tradeoff](#tradeoff)
-4. [Rethinking Bias Variance Tradeoff]((#rbvt)
+4. [Rethinking Bias Variance Tradeoff](#rbvt)
 
 ## Introduction <a name="introduction"></a>
 
