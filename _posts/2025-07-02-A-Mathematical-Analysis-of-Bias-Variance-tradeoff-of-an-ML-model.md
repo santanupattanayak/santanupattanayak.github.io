@@ -234,7 +234,8 @@ The traditional bias-variance tradeoff does not hold in the case of over-paramet
 
 This **non-monotonic behavior of variance** gives rise to the **double descent pattern** in generalization error. As model complexity increases, the generalization error first decreases, then spikes near the interpolation threshold(where model parameters equals training samples and hence training error can be zero), and finally descends again as the model becomes increasingly over-parameterized. See Figure-4 illustrated below. 
 
-<img width="750" height="375" alt="image" src="https://github.com/user-attachments/assets/2139c788-32ce-495b-b1b6-e6703ad6ff02" />
+<img width="941" height="300" alt="image" src="https://github.com/user-attachments/assets/2ee2fa25-6b34-44e0-9f96-03f2330f68a2" />
+
 
 
 
