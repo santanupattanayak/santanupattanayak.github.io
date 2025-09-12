@@ -12,7 +12,7 @@ tags: UAT, Universal approximation theorem, Neural networks,
 
 ## Introduction
 
-The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in real analysis and functional analysis.
+The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **real analysis** and **functional analysis**.
 This post explores the UAT, its formal statement, and the real analysis theorems that underlie it.
 
 
@@ -36,4 +36,19 @@ $$
 \sup_{x}\left|f(x) - F(x)\right| \lt \epsilon
 \end{align}
 $$
+
+Supremum norm is defined as the max absolute difference between the function over the domain $$[0,1]^{n} $$ of the function.
+
+Supremum norm is actually $$L^{p}$$ norm where $$p=\infty$$. $$L^{p}$$ norm of a function $$f(x)$$ over a domain $$D$$ is defined as:  
+
+$$
+\begin{align}
+\|f\|_{p} = \int_{x \sim D} |f(x)|^{p} dx
+\end{align}
+$$
+
+
+
+
+
 
