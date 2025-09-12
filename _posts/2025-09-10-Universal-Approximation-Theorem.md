@@ -75,9 +75,10 @@ The theorem is basically saying that **given enough neurons** we can approximate
 ## What guarantees  Universal Approximation Theorem <a name="uat"></a>
 
 The big question is how do we know neural nets can approximate any function?  
+
 This is where real analysis theorems come in. Given any domain  say $$D = [0,1]^{n}$$ we need to find a family of functions which can approximate any continuous function over the domain $$D$$. Generally such a **function space** is denoted by $$C([0,1]^{n})$$.  
 
-When we talk about spaces of real $$\mathbb{R}$$ and rational numbers $$\mathbb{Q}$$ we say $$\mathbbQ$$ is **dense** in $$\mathbb{R}$$ since any real number is arbitrarily close to some rational number. In essence if we draw an open set of any non-zero radius $$r$$ around any real number $$x$$ denoted by $$(x-r,x+r)$$ it is bound to contain one or more rational numbers. 
+When we talk about spaces of real $$\mathbb{R}$$ and rational numbers $$\mathbb{Q}$$ we say $$\mathbb{Q}$$ is **dense** in $$\mathbb{R}$$ since any real number is arbitrarily close to some rational number. In essence if we draw an open set of any non-zero radius $$r$$ around any real number $$x$$ denoted by $$(x-r,x+r)$$ it is bound to contain one or more rational numbers. 
 And hence computers which store everything in rational numbers can represent any real number with negligible error. 
 
 
