@@ -10,7 +10,7 @@ tags: UAT, Universal approximation theorem, Neural networks,
 1. [Introduction to Universal Approximation theorem ](#introduction)
 
 
-## Introduction
+## Introduction <a name="introduction"></a>
 
 The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **real analysis** and **functional analysis**.
 This post explores the UAT, its formal statement, and the real analysis theorems that underlie it.
@@ -49,7 +49,7 @@ $$
 $$ 
 
 
-## The Universal Approximation Theorem
+## The Early Versions of Universal Approximation Theorem <a name="uat"></a>
 
 The earliest rigorous versions of UAT were proved independently by Cybenko (1989) and Hornik, Stinchcombe, and White (1989). One simplified version is:
 
@@ -70,4 +70,10 @@ $$
 \end{align}
 $$  
 
-The theorem is basically saying that **given enough neurons** we can approximate the function $$f(x)$$ with its Neural Network approximation $$F(x)$$ such that the maximum absolute difference between $$f(x)$$ and $$F(x)$$ can be bounded to arbitrary precision threshold $$\epsilon$$
+The theorem is basically saying that **given enough neurons** we can approximate the function $$f(x)$$ with its Neural Network approximation $$F(x)$$ such that the maximum absolute difference between $$f(x)$$ and $$F(x)$$ can be bounded to arbitrary precision threshold $$\epsilon$$ .
+
+## What guarantees  Universal Approximation Theorem <a name="uat"></a>
+
+The big question is how do we know neural nets can approximate any function? This is where real analysis theorems come in. Given any domain  say $$D = [0,1]^{n}$$ we need to find a family of functions which can approximate any continuous function over the domain $$D$$. Generally such a function spaces is denoted by $$C([0,1]^{n})$$. 
+When we talk about spaces or real $$\mathbb{R}$$ and rational numbers $$\mathbb{Q}$$ we say $$Q$$ is dense in $$\mathbb{R}$$ since any real number is arbitrarily close to some rational number. In essence if we draw an open set of any non zero radius $$r$$ around any real number $$x \in \mathbb{R}$$ denoted by $$(x-r,x+r)$$ it is bound to contain one or more rational numbers. 
+And hence computers which store everything in rational numbers can represent any real number with minimal error.  
