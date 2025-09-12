@@ -68,4 +68,6 @@ $$
 \begin{align}
 \sup_{x}\left|f(x) - F(x)\right| \lt \epsilon
 \end{align}
-$$
+$$  
+
+The theorem is basically saying that **given enough neurons** we can approximate the function $$f(x)$$ with its Neural Network approximation $$F(x)$$ such that the maximum absolute difference between $$f(x)$$ and $$F(x)$$ can be bounded to arbitrary precision threshold $$\epsilon$$
