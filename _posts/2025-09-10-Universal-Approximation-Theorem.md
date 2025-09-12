@@ -69,22 +69,3 @@ $$
 \sup_{x}\left|f(x) - F(x)\right| \lt \epsilon
 \end{align}
 $$
-
-
-
-Supremum norm is defined as the max absolute difference between the function over the domain $$[0,1]^{n} $$ of the function.
-
-
-Supremum norm is actually $$L^{p}$$ norm where $$p=\infty$$. 
-
-$$
-\begin{align}
-\|f\|_{p} = \int_{x \sim D} |f(x)|^{p} dx
-\end{align}
-$$
-
-When $$p=2$$ we get $$L^{2}$$ norm for which is the extension of the $$l_2$$ norm or Euclidean norm defined over vectors. We can think of functions as vectors with finite or infinite dimensions corresponding to the various inputs in its domain.   
-
-
-
-
