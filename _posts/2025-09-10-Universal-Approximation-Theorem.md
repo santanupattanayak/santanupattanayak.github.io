@@ -92,7 +92,7 @@ As per **Weierstrass Approximation Theorem**  any continuous function $$f$$ on a
 
 $$
 \begin{align}
-sup_{x \in [a,b]} |f(x) - P(x) \lt \epsilon
+\sup_{x \in [a,b]} |f(x) - P(x)| \lt \epsilon
 \end{align}
 $$
 
@@ -101,7 +101,8 @@ hence we move on to **Stone–Weierstrass Theorem** which is a generalization of
 
 **Stone–Weierstrass Theorem** states that  :
 Suppose we have a family of function $$A \subset  C([a,b]^{n}) $$ such that:
-1. $$A$$ forms an algebra (An algebra satisfies all conditions of vector space with an additional constraint that it is closed under function multiplication)
+1. $$A$$ forms an algebra. An algebra satisfies all conditions of vector space with an additional constraint that it is closed under function multiplication.  
+
    For an algebra if $$f,g \in A$$ then a) $$f+g \in A$$ b) \alpha f \in A$$ c) $$fg \in A$$
 
 2. Separate points i.e. there exists atleast one function $$f$$ in $$A$$ for which $$f(x) \ne f(y)$$ if $$x \ne y$$
