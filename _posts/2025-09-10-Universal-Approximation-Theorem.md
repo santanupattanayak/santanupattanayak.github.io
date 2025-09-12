@@ -51,7 +51,7 @@ $$
 
 ## The Universal Approximation Theorem
 
-The earliest rigorous versions were proved independently by Cybenko (1989) and Hornik, Stinchcombe, and White (1989). One simplified version is:
+The earliest rigorous versions of UAT were proved independently by Cybenko (1989) and Hornik, Stinchcombe, and White (1989). One simplified version is:
 
 Let $$\sigma: \mathbb{R} \rightarrow \mathbb{R} $$ be any continuous squashing function such as sigmoid. Then for any continuous function $$f$$ defined on the cube $$[0,1]^{n}$$ and for any tolerance $$\epsilon \gt 0$$ there exists a neural network of the form
 
