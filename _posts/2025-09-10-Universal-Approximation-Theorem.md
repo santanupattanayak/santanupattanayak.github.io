@@ -28,16 +28,24 @@ $$
 The $$l_p$$ norm generalizes the $$l_2$$ to any value $$p$$ and is similarly defined as  :
 $$
 \begin{align}
-\|x\|_{p} =   \sum_{i=1}^{d} |x|^{p} 
+\|x\|_{p} =   (\sum_{i=1}^{d} |x|^{p})^{\frac{1}{p}} 
 \end{align}
 $$
 
 $$L^{p}$$ norm is extension of the $$l_p$$ norm of vectors to functions over defined domain $$D$$. Any function $$f(x)$$ can be viewed as a vector of values over the different values of input $$x$$ over the domain. The $$L^{p}$$ norm of a function $$f(x) , x \in D$$ is given by:  
 $$
 \begin{align}
-\|f\|_{p} = \int_{x \sim D} |f(x)|^{p} dx
+\|f\|_{p} = (\int_{x \sim D} |f(x)|^{p} dx)^{\frac{1}{p}}
 \end{align}
-$$
+$$  
+
+When $$p=\infty$$ we get the $$L^{\infty}$$ norm which is also called the Supremum norm. Supremum norm is the nothing but the maximum of the absolute values of the function since:  
+
+\begin{align}
+\lim_{p \rightarrow \infty} \|f\|_{p} &= \lim_{p \rightarrow \infty} (\int_{x \sim D} |f(x)|^{p} dx)^{\frac{1}{p}}
+ \|f\|_{\infty} &= \max_{x} |f(x)|    
+\end{align}
+$$ 
 
 
 ## The Universal Approximation Theorem
