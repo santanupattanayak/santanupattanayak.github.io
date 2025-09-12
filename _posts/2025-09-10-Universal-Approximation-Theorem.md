@@ -21,7 +21,7 @@ The Euclidean or the $$l_2$$ norm of a vector $$x$$ in a d-dimensional vector sp
 
 $$
 \begin{align}
-\|x\|_{2} =   \sum_{i=1}^{d} |x|^{2} 
+\|x\|_{2} =   (\sum_{i=1}^{d} |x|^{2})^{\frac{1}{2}} 
 \end{align}
 $$
 
@@ -32,7 +32,7 @@ $$
 \end{align}
 $$
 
-$$L^{p}$$ norm is extension of the $$l_p$$ norm of vectors to functions over defined domain $$D$$. Any function $$f(x)$$ can be viewed as a vector of values over the different values of input $$x$$ over the domain. The $$L^{p}$$ norm of a function $$f(x) , x \in D$$ is given by:  
+$$L^{p}$$ norm is the extension of the $$l_p$$ norm of vectors to functions over a defined domain . Any function $$f(x)$$ can be viewed as a vector of values over the different values of input $$x$$ over a defined domain $$D$$ . The $$L^{p}$$ norm of a function $$f(x) | x \in D$$ is given by:  
 $$
 \begin{align}
 \|f\|_{p} = (\int_{x \sim D} |f(x)|^{p} dx)^{\frac{1}{p}}
@@ -41,9 +41,9 @@ $$
 
 When $$p=\infty$$ we get the $$L^{\infty}$$ norm which is also called the Supremum norm. Supremum norm is the nothing but the maximum of the absolute values of the function since:  
 
+$$
 \begin{align}
-\lim_{p \rightarrow \infty} \|f\|_{p} &= \lim_{p \rightarrow \infty} (\int_{x \sim D} |f(x)|^{p} dx)^{\frac{1}{p}}
- \|f\|_{\infty} &= \max_{x} |f(x)|    
+\lim_{p \rightarrow \infty} \|f\|_{p} = \|f\|_{\infty} =  \lim_{p \rightarrow \infty} ( \int_{x \sim D} |f(x)|^{p} dx )^{\frac{1}{p}} = \max_{x} |f(x)| 
 \end{align}
 $$ 
 
