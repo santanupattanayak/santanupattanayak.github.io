@@ -86,5 +86,25 @@ We need Neural Networks to be able to form a family of functions $$F \subset C([
 Theorems from Real Analysis guarantees that the family of function Neural networks forms with various activation functions do create dense subset of the desired function space. The two such theorems we will look into are **Weierstrass Approximation Theorem** and its generalization **Stone–Weierstrass Theorem**
 
 
+## Weierstrass Approximation Theorem and Stone–Weierstrass Theorem
+
+As per **Weierstrass Approximation Theorem**  any continuous function $$f$$ on a compact interval $$[a,b]$$ can be uniformly approximated by a polynomial $$P(x)$$. Mathematically for every function $$f(x) \in C[a,b]$$ there exists a polynomial function P(x) such that
+
+$$
+\begin{align}
+sup_{x \in [a,b]} |f(x) - P(x) \lt \epsilon
+\end{align}
+$$
+
+Before neural nets, polynomials were the universal approximators. As an example $$sin(x)$$ can be approximated by its Taylor series polynomial expansion. While useful as a start Weierstrass Approximation Theorem is not very useful from a Neural Network perspective as we don't really have explicit polynomial activations in Neural Networks.
+hence we move on to **Stone–Weierstrass Theorem** which is a generalization of Weierstrass Approximation Theorem.
+
+**Stone–Weierstrass Theorem** states that  :
+Suppose we have a family of function $$A \subset  C([a,b]^{n}) $$ such that:
+1. $$A$$ forms an algebra (An algebra satisfies all conditions of vector space with an additional constraint that it is closed under function multiplication)
+2. Separate points i.e. there exists atleast one function $$f$$ in $$A$$ for which $$f(x) \ne f(y)$$ if $$x \ne y$$
+3. Contains constant functions
+
+Then, $$A$$ is said to be dense in $$C([a,b]^{n})$$
 
 
