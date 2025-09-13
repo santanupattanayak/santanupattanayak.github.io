@@ -122,11 +122,8 @@ Let us now see if Neural Networks with *Sigmoid* or *Tanh* functions would satis
 - Constants: By choosing  $$ w=0, \sigma(b) $$ is a constant function (e.g., $$\sigma(0)= \frac{1}{2}$$ for sigmoid while $$\tanh(0) = 0 $$. With scaling and shifting, we can approximate any constant.
 - Algebra :
   A neural network with sigmoid functions can approximate a step function. A function  
-  $$
-  \begin{align}
-  G(x) = \sigma(k(x - a)) - \sigma(k(x-b)) 
-  \end{align}
-  $$
+  $$ G(x) = \sigma(k(x - a)) - \sigma(k(x-b)) $$  
+
   for a large $$k$$ can approximate a rectangular pulse function in the interval $$[a,b]$$. Any continuous function on a compact (closed and bounded) set can be approximated to any desired accuracy by a sum of rectangular pulse functions, or a "staircase" function. Since shifted and scaled sigmoid functions we approximate pulse  it can approximate a continuous function by adding up the outputs of multiple neurons, each creating a pulse.
 
 
