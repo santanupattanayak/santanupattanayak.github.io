@@ -111,3 +111,23 @@ Suppose we have a family of function $$A \subset  C([a,b]^{n}) $$ such that:
 Then, $$A$$ is said to be dense in $$C([a,b]^{n})$$
 
 
+
+
+## Does Neural networks with Sigmoid and Tanh activation satisfy Stone-Weierstrass Theorem
+
+Let us now see if Neural Networks with *Sigmoid* or *Tanh* functions would satisfy the requirements of the Stone-Weirstrass theorem.  
+
+- Separate Points: *Sigmoid* and *tanh* are strictly monotone. So for any two points x,y \in  $$C([a,b]^{n})$$ we can find hyperplane $$wz + b$$ such that  
+  $$ \sigma(wx +b) \ne \sigma(wy +b) $$
+- Constants: By choosing  $$ w=0, \sigma(b) $$ is a constant function (e.g., $$\sigma(0)= \frac{1}{2}$$ for sigmoid while $$\tanh(0) = 0 $$. With scaling and shifting, we can approximate any constant.
+- Algebra :
+  A neural network with sigmoid functions can approximate a step function. A function  
+  $$
+  \begin{align}
+  G(x) = \sigma(k(x - a)) - \sigma(k(x-b)) 
+  \end{align}
+  $$
+  for a large $$k$$ can approximate a rectangular pulse function in the interval $$[a,b]$$. Any continuous function on a compact (closed and bounded) set can be approximated to any desired accuracy by a sum of rectangular pulse functions, or a "staircase" function. Since shifted and scaled sigmoid functions we approximate pulse  it can approximate a continuous function by adding up the outputs of multiple neurons, each creating a pulse.
+
+
+
