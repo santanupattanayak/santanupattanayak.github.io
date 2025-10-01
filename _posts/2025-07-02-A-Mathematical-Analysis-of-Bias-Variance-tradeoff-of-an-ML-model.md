@@ -9,8 +9,10 @@ tags: Bias, Variance.
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Bias Variance and Irreducible Error decomposition](#bvd)
-3. [Bias Variance Tradeoff](#tradeoff)
-4. [Rethinking Bias Variance Tradeoff](#rbvt)
+3. [Bias Variance Tradeoff](#bvt)
+4. [Rethinking Bias-Variance Trade-off for Over parameterized Networks](#rtbvt)
+5. [Understanding Double Descent using Linear Regression](#tradeoff)
+6. [Conclusion](#conclusion)
 
 ## Introduction <a name="introduction"></a>
 
@@ -228,7 +230,7 @@ The generalization error (test loss) initially decreases with complexity, since 
 Figure-3 Traditional Bias Variance Tradeoff Curve
 
 
-## Rethinking Bias-Variance Trade-off for Over parameterized Networks <a name="tradeoff"></a>  
+## Rethinking Bias-Variance Trade-off for Over parameterized Networks <a name="rtbvt"></a>  
 
 The traditional bias-variance tradeoff does not hold in the case of over-parameterized neural networks. The same is the theme of the paper [1] While bias still decreases monotonically with increasing model complexity, variance does not follow the expected upward trend. Instead, variance typically rises initially as the width of the network (i.e., the number of neurons per layer) increases, but then begins to decline with further increases in width—resulting in a uni-modal variance curve.  
 
@@ -261,15 +263,73 @@ Because the system is overdetermined ($$m > n$$), the least-squares solution can
 Now let us examine what happens at the **interpolation threshold**, where the number of parameters equals the number of data points ($$n = m$$). In this case, the system of linear equations admits an exact solution:  
 
 $$
-\theta = X^{-1}y.
+\theta = X^{-1}Y.
 $$  
 
 At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold.  
 
+Beyond the **interpolation threshold**, when the number of parameters $$n$$ exceeds the number of data points $$m$$, the system becomes under-determined and admits infinitely many solutions. Optimization methods such as gradient descent tend to favor *minimum-norm* (or low-norm) solutions. In this case, the solution can be written as  
+
+$$
+\theta = X^{\top}(XX^{\top})^{-1}y.
+$$  
+
+For the underdetermined system  
+
+$$
+X\theta = y, \quad \text{with } \operatorname{rank}(X) = m,
+$$  
+
+the general solution can be decomposed into two parts: a component in the **row space** of $$X$$ and a component in the **null space** of $$X$$. That is,  
+
+$$
+\theta = \theta_{\text{row}} + \theta_{\text{null}}, 
+\quad \text{where } X\theta_{\text{null}} = 0.
+$$  
+
+Any row-space solution can be expressed as a linear combination of the rows of $$X$$:  
+
+$$
+\theta_{\text{row}} = X^{\top}k.
+$$  
+
+Substituting this into the system yields  
+
+$$
+X\theta_{\text{row}} = Y 
+\;\;\implies\;\;
+XX^{\top}k = Y 
+\;\;\implies\;\;
+k = (XX^{\top})^{-1}Y.
+$$  
+
+Thus, the row-space solution is  
+
+$$
+\theta_{\text{row}} = X^{\top}(XX^{\top})^{-1}Y.
+$$  
+
+Since this solution lies entirely in the row space of $$X$$ and excludes any null-space component, it is the *minimum-norm solution*. Gradient descent, when initialized at zero, naturally converges to this solution in the over-parameterized regime.  
+
+Crucially, low-norm solutions have a reduced tendency to overfit noise. Hence, beyond the interpolation threshold, the variance of the model decreases because the additional degrees of freedom allow the optimizer to select such low-norm solutions.  
+
+This behavior, illustrated in the linear regression case, extends to neural networks as well and gives rise to the characteristic **double descent** pattern in generalization.  
 
 
 
-## Conclusion 
+## Conclusion <a name="conclusion"></a>  
+
+The bias–variance framework provides a powerful lens to understand the generalization behavior of machine learning models. In classical settings, model complexity trades off bias for variance, leading to the well-known U-shaped test error curve. However, in modern over-parameterized neural networks, this picture is incomplete.  
+
+Through the lens of linear regression, we saw why the **double descent** phenomenon emerges:  
+- In the **overdetermined regime** ($$m > n$$), models cannot perfectly fit noise, and variance gradually increases as capacity grows.  
+- At the **interpolation threshold** ($$m = n$$), the model fits both signal and noise exactly, maximizing variance and producing the worst generalization.  
+- In the **overparameterized regime** ($$n > m$$), optimization biases (e.g., gradient descent favoring minimum-norm solutions) reduce variance again, leading to improved generalization despite massive model capacity.  
+
+This shift—from the traditional U-shaped curve to the double descent curve—captures a core insight into why highly overparameterized models such as deep neural networks often generalize surprisingly well in practice.  
+
+Ultimately, double descent illustrates that **more parameters do not always imply worse generalization**. Instead, implicit biases in optimization and the geometry of high-dimensional solution spaces play a critical role. Understanding these principles is not only theoretically illuminating but also practically relevant as we continue to build increasingly large and expressive models.  
+
 
 
 ## References 
