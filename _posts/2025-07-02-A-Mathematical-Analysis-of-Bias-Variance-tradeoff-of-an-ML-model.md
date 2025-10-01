@@ -277,7 +277,7 @@ $$
 For the underdetermined system  
 
 $$
-X\theta = y, \quad \text{with } \operatorname{rank}(X) = m,
+X\theta = Y, \quad \text{with } \operatorname{rank}(X) = m,
 $$  
 
 the general solution can be decomposed into two parts: a component in the **row space** of $$X$$ and a component in the **null space** of $$X$$. That is,  
