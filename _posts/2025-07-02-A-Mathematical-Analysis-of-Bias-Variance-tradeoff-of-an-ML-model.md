@@ -244,24 +244,27 @@ Near the interpolation zone, where the model parameters equal the number of data
 
 Let us build some intuition for why the **double descent generalization pattern** appears in the over-parameterized regime of neural networks by first examining a simple linear regression model.  
 
-Suppose we have $$m$$ data points and $$n$$ parameters. When $$m > n$$ (i.e., more data points than parameters), the system of equations is overdetermined and admits no exact solution in general. In this case, given a data matrix $$X \in \mathbb{R}^{m \times n}$$ and a target vector $$y \in \mathbb{R}^m$$, the least-squares solution is  
+Suppose we have $$m$$ data points and $$n$$ parameters. When $$m > n$$ (i.e., more data points than parameters), the system of equations is overdetermined and admits no exact solution in general. In this case, given a data matrix $$X \in \mathbb{R}^{m \times n}$$ and a target vector $$Y \in \mathbb{R}^m$$, the least-squares solution is  
 
 $$
-\theta = (X^{\top}X)^{-1}X^{\top}y.
+\theta = (X^{\top}X)^{-1}X^{\top}Y.
 $$  
 
-It is important to note that the target $$y$$ can be decomposed into a predictable component $$\bar{y}(x)$$ and an unpredictable noise term $$\epsilon$$:  
+It is important to note that the target $$y$$ for feature vector $$x$$ can be decomposed into a predictable component $$\bar{y}(x)$$ and an unpredictable noise term $$\epsilon$$:  
 
 $$
 y(x) = \bar{y}(x) + \epsilon.
 $$  
 
-Because the system is overdetermined ($$m > n$$), the least-squares solution cannot achieve zero error in general. In particular, it cannot fit the entire noise component of $$y$$. However, as the number of parameters $$n$$ increases, the model gains more flexibility and can begin fitting not only the true signal but also portions of the noise. This increasing capacity to overfit noise is precisely what drives the rise in variance and generalization error as we approach the interpolation threshold—before eventually decreasing again in the highly overparameterized regime.  
+Because the system is overdetermined ($$m > n$$), the least-squares solution cannot achieve zero error in general. In particular, it cannot fit the entire noise component of $$y$$. However, as the number of parameters $$n$$ increases, the model gains more flexibility and can begin fitting not only the true signal but also portions of the noise. This increasing capacity to overfit noise is precisely what drives the rise in variance and generalization error as we approach the interpolation threshold—before eventually decreasing again in the highly over-parameterized regime.  
 
+Now let us examine what happens at the **interpolation threshold**, where the number of parameters equals the number of data points ($$n = m$$). In this case, the system of linear equations admits an exact solution:  
 
+$$
+\theta = X^{-1}y.
+$$  
 
-
-
+At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold.  
 
 
 
