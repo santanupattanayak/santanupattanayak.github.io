@@ -328,7 +328,7 @@ Through the lens of linear regression, we saw why the **double descent** phenome
 
 This shift—from the traditional U-shaped curve to the double descent curve—captures a core insight into why highly overparameterized models such as deep neural networks often generalize surprisingly well in practice.  
 
-Ultimately, double descent illustrates that **more parameters do not always imply worse generalization**. Instead, implicit biases in optimization and the geometry of high-dimensional solution spaces play a critical role. Understanding these principles is not only theoretically illuminating but also practically relevant as we continue to build increasingly large and expressive models.  
+Ultimately, double descent illustrates that **more parameters do not always imply worse generalization**. Instead, implicit biases in optimization and the geometry of high-dimensional solution spaces play a critical role. Understanding these principles is not only theoretically important but also practically relevant as we continue to build increasingly large and expressive models.  
 
 
 
