@@ -7,8 +7,10 @@ tags: UAT, Universal approximation theorem, Neural networks,
 ---
 
 # Table of Contents
-1. [Introduction to Universal Approximation theorem ](#introduction)
-
+1. [Introduction to Universal Approximation theorem](#introduction)
+2. [The Early Versions of Universal Approximation Theorem](#uat)
+3. [What guarantees Universal Approximation Theorem](#guat)
+4. [Universal Approximation theorem for NN with ReLU activation](#reluaut)
 
 ## Introduction <a name="introduction"></a>
 
@@ -74,7 +76,7 @@ The theorem is basically saying that **given enough neurons** we can approximate
 
 
 
-## What guarantees  Universal Approximation Theorem <a name="uat"></a>
+## What guarantees Universal Approximation Theorem <a name="guat"></a>
 
 We can define **pulse functions** within a given range through scaled and shifted sigmoid functions. For example we can define a pulse function in the range $$[a,b]$$ through the subtraction of two scaled sigmoid functions shown below:
 
@@ -98,6 +100,10 @@ The same can be composed exactly by combining the earlier illustrated pulse func
 
 <img width="852" height="495" alt="image" src="https://github.com/user-attachments/assets/7cc9b915-87cc-449d-92c2-25a9a974bb43" />
 
+Hence, given only a hidden layer of sigmoid activations we can approximate any complex function with enough neurons in the hidden layer.
+Do note that this approximation theorem, doesn't really tell how many neurons are required in the hidden layer or if the learning methodology would be able to learn the approximation well enough.
+
+## Universal Approximation theorem for NN with ReLU activation <a> name="reluuat" <\a>
 
 The big question is how do we know neural nets can approximate any function?  
 

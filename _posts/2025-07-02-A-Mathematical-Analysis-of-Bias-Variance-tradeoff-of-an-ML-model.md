@@ -236,6 +236,31 @@ This **non-monotonic behavior of variance** gives rise to the **double descent p
 
 <img width="941" height="300" alt="image" src="https://github.com/user-attachments/assets/2ee2fa25-6b34-44e0-9f96-03f2330f68a2" />
 
+With increase in model complexity the bias as we can see from the plots above goes down monotonically, while the variance has a uni-modal trend with its peak near the interpolation zone, where the overfitting is highest. 
+Near the interpolation zone, where the model parameters equal the number of datapoints, the variance is maximum as the model overfits to the data. 
+
+Let us try to get some intuition as to why the double descent generalization pattern appears in the over-parameterized regime of Neural Networks by looking a simple linear regression models.
+
+- When the number of datapoints $$m > n$$; $$n$$ being the number of parameters, then there is no solution for the parameters. In that case given the data matrix $$X$$ of dimension $$m \times n$$ and target vector $$y$$ of dimension $$n$$, the least square solution for linear regression is  
+
+$$
+\begin{align}
+\theta = (X^{T}X)^{-1}X^{T}Y
+\end{align}
+$$
+
+Do note that in general the target $$y$$ for each input feature vector $$x$$ has a predictable component $$\bar{y}(x)$$ and noise $$\epsilon$$ which is the unpredictable component. 
+Since there is no exact solution to the system of linear equations for $$m > n$$, hence the least square solution cannot have $$0$$ error which means the least square solution cannot in general fit to the entire noise we have in the target vector $$Y$$. 
+Ofcourse as $$n$$ increases the level of overfitting to the noise increases as the model tries to reduce the error by assigning weights to the parameters.
+
+
+- 
+
+
+
+
+
+
 
 
 
