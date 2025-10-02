@@ -304,7 +304,7 @@ As the number of parameters $$n$$ increases relative to the number of samples $$
 Beyond the **interpolation threshold**, when the number of parameters $$n$$ exceeds the number of data points $$m$$, the system becomes under-determined and admits infinitely many solutions. Optimization methods such as gradient descent tend to favor *minimum-norm* (or low-norm) solutions. In this case, the solution can be written as  
 
 $$
-\theta = X^{\top}(XX^{\top})^{-1}y.
+\theta = X^{\top}(XX^{\top})^{-1}Y.
 $$  
 
 For the underdetermined system  
