@@ -271,13 +271,13 @@ $$
 At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold. 
 
 Let us try to analyse the variance upto the interpolation zone mathematically using properties from Random matrix theory.
-Given a data matrix \(X\), the covariance of the linear regression parameter estimates is  
+Given a data matrix $$X$$, the covariance of the linear regression parameter estimates is  
 
 $$
 \operatorname{Cov}(\theta \mid X) = \sigma^{2}(X^{\top}X)^{-1}
 $$
 
-If the rows of \(X\) are sampled i.i.d. from a multivariate normal distribution with covariance \(\Sigma\), then the scatter matrix  
+If the rows of $$X$$ are sampled i.i.d. from a multivariate normal distribution with covariance $$\Sigma$$, then the scatter matrix  
 
 $$
 S = X^{\top}X \;\sim\; \mathcal{W}_n(\Sigma, m),
