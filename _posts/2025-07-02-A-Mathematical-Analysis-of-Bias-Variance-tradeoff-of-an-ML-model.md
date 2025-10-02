@@ -168,7 +168,7 @@ $$
 $$
 
 
-Finally lets target the **1st term** which would give us our **bias** and **variance** component of the test loss. For starters we will add and subract the mean of the predictions over various model $$\mathop {\mathbb E}_ {D \sim P(D)} [\hat{y{_D}}] $$ as it concerns both the bias and variance. To avoid clutter of notation we will just refer to it as $${\mathbb E} [\hat{y{_D}}] $$ in the below deduction.  
+Finally lets target the **1st term** which would give us our **bias** and **variance** component of the test loss. For starters we will add and subtract the mean of the predictions over various model $$\mathop {\mathbb E}_ {D \sim P(D)} [\hat{y{_D}}] $$ as it concerns both the bias and variance. To avoid clutter of notation we will just refer to it as $${\mathbb E} [\hat{y{_D}}] $$ in the below deduction.  
 
 $$
 \begin{align}
