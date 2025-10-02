@@ -270,6 +270,7 @@ $$
 
 At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold. 
 
+Let us try to analyse the variance upto the interpolation zone mathematically using properties from Random matrix theory.
 Given a data matrix \(X\), the covariance of the linear regression parameter estimates is  
 
 \[
