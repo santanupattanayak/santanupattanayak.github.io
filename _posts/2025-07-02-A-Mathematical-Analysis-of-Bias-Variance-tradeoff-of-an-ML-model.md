@@ -238,6 +238,8 @@ This **non-monotonic behavior of variance** gives rise to the **double descent p
 
 <img width="941" height="300" alt="image" src="https://github.com/user-attachments/assets/2ee2fa25-6b34-44e0-9f96-03f2330f68a2" />
 
+Figure-4.  Double Descent generalization pattern  
+
 With increase in model complexity the bias as we can see from the plots above goes down monotonically, while the variance has a uni-modal trend with its peak near the interpolation zone, where the overfitting is highest. 
 Near the interpolation zone, where the model parameters equal the number of datapoints, the variance is maximum as the model overfits to the data. 
 
