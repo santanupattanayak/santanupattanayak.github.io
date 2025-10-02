@@ -268,7 +268,36 @@ $$
 \theta = X^{-1}Y.
 $$  
 
-At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold.  
+At this point, the model is forced to interpolate the training data exactly, fitting both the true signal and the noise without distinction. As a result, the variance of the model is maximized, which explains the peak in generalization error observed at the interpolation threshold. 
+
+Given a data matrix \(X\), the covariance of the linear regression parameter estimates is  
+
+\[
+\operatorname{Cov}(\theta \mid X) = \sigma^{2}(X^{\top}X)^{-1}.
+\]
+
+If the rows of \(X\) are sampled i.i.d. from a multivariate normal distribution with covariance \(\Sigma\), then the scatter matrix  
+
+\[
+S = X^{\top}X \;\sim\; \mathcal{W}_n(\Sigma, m),
+\]  
+
+follows a Wishart distribution with \(m\) degrees of freedom and scale \(\Sigma\). A standard result for the Wishart is  
+
+\[
+\mathbb{E}[S^{-1}] = \frac{1}{m-n-1}\,\Sigma^{-1}, \quad m>n+1.
+\]
+
+Using this result, the expected covariance of the regression parameters becomes  
+
+\[
+\mathbb{E}_{X}\!\left[\operatorname{Cov}(\theta \mid X)\right] 
+= \sigma^{2}\,\mathbb{E}_{S}[S^{-1}] 
+= \sigma^{2}\,\frac{1}{m-n-1}\,\Sigma^{-1}, \quad m>n+1.
+\]
+
+As the number of parameters \(n\) increases relative to the number of samples \(m\), the variance of the estimator grows, and near the interpolation threshold \(m \approx n+1\), the variance diverges. This explains why the variance of linear regression estimators peaks sharply around the **interpolation threshold**.
+
 
 Beyond the **interpolation threshold**, when the number of parameters $$n$$ exceeds the number of data points $$m$$, the system becomes under-determined and admits infinitely many solutions. Optimization methods such as gradient descent tend to favor *minimum-norm* (or low-norm) solutions. In this case, the solution can be written as  
 
