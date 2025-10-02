@@ -139,7 +139,7 @@ L &= \mathop {\mathbb E}_ {D \sim P(D)} \mathop {\mathbb E}_{\epsilon \sim N(0,\
 \end{align}
 $$
 
-Let us look at the **second term** which we are able to factorize as product of expectations as the model predictions $$\hat{y{_D}}$$ doesn't have noise distribution dependency which the noise $$\epsilon$$ doesnt have data distribution dependency :
+Let us look at the **second term** which we are able to factorize as product of expectations as the model predictions $$\hat{y{_D}}$$ doesn't have noise distribution dependency while the noise $$\epsilon$$ doesn't have data distribution dependency :
 
 $$
 \begin{align}
