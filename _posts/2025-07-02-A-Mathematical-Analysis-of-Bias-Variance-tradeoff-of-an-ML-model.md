@@ -16,6 +16,9 @@ tags: Bias, Variance.
 
 ## Introduction <a name="introduction"></a>
 
+In any supervised learning setting, our goal is to find a model that generalizes well — that is, performs well not just on the training data but also on unseen samples.
+The bias–variance tradeoff provides a powerful framework to understand why models either underfit or overfit. In this post, we will derive this relationship mathematically, starting from the expected error of a model and decomposing it into bias, variance, and irreducible noise components.
+
 Whenever we build a model, it is not feasible to train on all datapoints of feature vector $$x$$ and their corresponding target $$y$$ under the distribution $$P(x,y)$$.  Instead, we draw a training dataset $$D$$ of $$m$$ points from $$P(x,y)$$:  
 
 $$
@@ -357,7 +360,7 @@ The bias–variance framework provides a powerful lens to understand the general
 Through the lens of linear regression, we saw why the **double descent** phenomenon emerges:  
 - In the **overdetermined regime** ($$m > n$$), models cannot perfectly fit noise, and variance gradually increases as capacity grows.  
 - At the **interpolation threshold** ($$m = n$$), the model fits both signal and noise exactly, maximizing variance and producing the worst generalization.  
-- In the **overparameterized regime** ($$n > m$$), optimization biases (e.g., gradient descent favoring minimum-norm solutions) reduce variance again, leading to improved generalization despite massive model capacity.  
+- In the **over-parameterized regime** ($$n > m$$), optimization biases (e.g., gradient descent favoring minimum-norm solutions) reduce variance again, leading to improved generalization despite massive model capacity.  
 
 This shift—from the traditional U-shaped curve to the double descent curve—captures a core insight into why highly overparameterized models such as deep neural networks often generalize surprisingly well in practice.  
 
