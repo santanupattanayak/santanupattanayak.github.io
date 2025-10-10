@@ -111,7 +111,7 @@ Do note that this approximation theorem, doesn't really tell how many neurons ar
 
 We need to define few things to prove the UAT mathematically.
 
-### Linear functional
+### Linear Functional
 
 Let $$ (X, \| \cdot \|) $$ be a **normed linear space** over the field $$ \mathbb{F} $$, where $$ \mathbb{F} = \mathbb{R} $$ or $$ \mathbb{C} $$.
 
@@ -139,7 +139,13 @@ In an $$ L^2 $$ space, the elements of the dual coincide with those of the origi
 
 **Key points:**
 1. Any functional $$ L $$ in a finite-dimensional normed vector space corresponds to some element $$ a $$ in the dual space $$ X^* $$, which itself forms a normed linear space.  
-2. For an $$ L^2 $$ (Hilbert) space, $$ X^* = X $$; thus, linear functionals correspond to vectors in $$ X $$ acting on other vectors via the **inner product** (dot product).
+2. For an $$ L^2 $$ (Hilbert) space, $$ X^* = X $$; thus, linear functionals correspond to vectors in $$ X $$ acting on other vectors via the **inner product** (dot product).  
+3. If $$ U $$ is a closed convex subset of $$ X $$, it is orthogonal to the space $$ X - U $$. Hence any element $$ a \in X - U $$ is orthogonal to all elements in $$ U $$, i.e.  
+   $$ a^{T}x = 0 \quad \forall x \in U. $$  
+   Since $$ a $$ corresponds to a functional, any $$ L $$ in the dual space of $$ X - U $$ satisfies  
+   $$ L(x) = 0 \quad \forall x \in U. $$
+
+    
 
 
 ### Examples
