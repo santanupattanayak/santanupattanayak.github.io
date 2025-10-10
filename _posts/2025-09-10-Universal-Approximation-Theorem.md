@@ -113,40 +113,34 @@ We need to define few things to prove the UAT mathematically.
 
 ### Linear functional
 
+Let $$ (X, \| \cdot \|) $$ be a **normed linear space** over the field $$ \mathbb{F} $$, where $$ \mathbb{F} = \mathbb{R} $$ or $$ \mathbb{C} $$.
 
-
-Let $$( (X, \| \cdot \|)$$ be a **normed linear space** over the field  $$\mathbb{F}$$, where $$\mathbb{F} = \mathbb{R}$$ or $$\mathbb{C}$$.
-
-A **linear functional** on $$X$$ is a map  
-$$
-f : X \to \mathbb{F}
-$$
-that satisfies the following two properties for all $$x, y \in X $$ and all scalars $$ \alpha \in \mathbb{F}$$:
+A **linear functional** on $$ X $$ is a map $$ L : X \to \mathbb{F} $$ satisfying, for all $$ x, y \in X $$ and all scalars $$ \alpha \in \mathbb{F} $$:
 
 $$
 \begin{aligned}
-f(x + y) &= f(x) + f(y), \\
-f(\alpha x) &= \alpha f(x).
+L(x + y) &= L(x) + L(y), \\
+L(\alpha x) &= \alpha L(x).
 \end{aligned}
 $$
 
-Thus, a linear functional is simply a **linear map from a vector space into its underlying scalar field**.
+Thus, a linear functional is simply a **linear map** from a vector space into its underlying scalar field.
 
----
+For a finite-dimensional normed linear space such as $$ \mathbb{R}^n $$, which is a Hilbert space, linear functionals act on vectors to produce scalars in $$ \mathbb{R} $$.  
+A linear functional $$ L $$ acts on each vector $$ x \in \mathbb{R}^n $$ as:
 
-### Continuity (Boundedness)
-
-A linear functional \( f \) is said to be **continuous** (or **bounded**) if there exists a constant $$C > 0$$ such that  
 $$
-|f(x)| \le C \|x\|, \quad \forall x \in X
+L(x) = a^{T}x,
 $$
 
-The **operator norm** of $$f$$ is defined as  
-$$
-\|f\| = \sup_{\|x\| \le 1} |f(x)|
-$$
+where the vector $$ a $$ corresponds to an element of the **dual space** $$ X^* $$.
 
----
+In an $$ L^2 $$ space, the elements of the dual coincide with those of the original space; hence $$ a \in X $$ as well.
+
+**Key points:**
+1. Any functional $$ L $$ in a finite-dimensional normed vector space corresponds to some element $$ a $$ in the dual space $$ X^* $$, which itself forms a normed linear space.  
+2. For an $$ L^2 $$ (Hilbert) space, $$ X^* = X $$; thus, linear functionals correspond to vectors in $$ X $$ acting on other vectors via the **inner product** (dot product).
+
 
 ### Examples
 
