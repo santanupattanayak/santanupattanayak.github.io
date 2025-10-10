@@ -126,7 +126,7 @@ $$
 
 Thus, a linear functional is simply a **linear map** from a vector space into its underlying scalar field.
 
-For a finite-dimensional normed linear space such as $$ \mathbb{R}^n $$, which is a Hilbert space, linear functionals act on vectors to produce scalars in $$ \mathbb{R} $$.  
+For a **finite-dimensional normed linear space** such as $$ \mathbb{R}^n $$, which is a Hilbert space, linear functionals act on vectors to produce scalars in $$ \mathbb{R} $$.  
 A linear functional $$ L $$ acts on each vector $$ x \in \mathbb{R}^n $$ as:
 
 $$
@@ -144,6 +144,12 @@ In an $$ L^2 $$ space, the elements of the dual coincide with those of the origi
    $$ a^{T}x = 0 \quad \forall x \in U. $$  
    Since $$ a $$ corresponds to a functional, any $$ L $$ in the dual space of $$ X - U $$ satisfies  
    $$ L(x) = 0 \quad \forall x \in U. $$
+
+For an **infinite-dimensional normed linear space** such as $$ C[a,b] $$, which consists of all continuous functions on the closed interval $$ [a,b] $$, the form of linear functionals differs from those in finite-dimensional spaces.  
+Since $$ C[a,b] $$ is equipped with the **supremum norm** (also called the $$ L^{\infty} $$ norm), it is **not self-dual**—unlike Hilbert spaces with the $$ L^2 $$ norm.  
+As a result, the linear functionals on $$ C[a,b] $$ are generally not elements of $$ C[a,b] $$ itself, but instead belong to its dual space, which has a richer and more abstract structure.
+
+
 
     
 
