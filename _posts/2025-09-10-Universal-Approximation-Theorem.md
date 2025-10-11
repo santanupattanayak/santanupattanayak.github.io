@@ -128,15 +128,15 @@ Thus, a linear functional is simply a **linear map** from a vector space into it
 
 ### Linear Functional in Finite Dimension
 For a **finite-dimensional normed linear space** such as $$ \mathbb{R}^n $$, which is a Hilbert space, linear functionals act on vectors to produce scalars in $$ \mathbb{R} $$.  
-A linear functional $$ L $$ acts on each vector $$ x \in \mathbb{R}^n $$ as:
+It can be shown that any linear functional $$ L $$ acts on each vector $$ x \in \mathbb{R}^n $$ as:
 
 $$
 L(x) = a^{T}x,
 $$
 
-where the vector $$ a $$ corresponds to an element of the **dual space** $$ X^* $$.
+where the vector $$ a $$ corresponds to an element of the **dual space** $$ X^* $$. This is called the **Reisz representation theorem**.
 
-In an $$ L^2 $$ space, the elements of the dual coincide with those of the original space; hence $$ a \in X $$ as well.
+Since in an $$L^2$$ space, the elements of the dual coincide with those of the original space; hence $$ a \in X $$ as well.
 
 **Key points:**
 1. Any functional $$ L $$ in a finite-dimensional normed vector space corresponds to some element $$ a $$ in the dual space $$ X^* $$, which itself forms a normed linear space.  
