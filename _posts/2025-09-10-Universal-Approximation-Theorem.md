@@ -153,7 +153,8 @@ As a result, the linear functionals on $$ C[a,b] $$ are generally not elements o
 
 Example of **Functional** on $$C[a,b]$$
 
-Let $$X = C[a,b]$$ with the sup norm $$\|f\|_\infty = \sup_{x \in [a,b]} |f(x)|$$ . We can define a linear functional $$L$$ on $$X$$ such that  
+Let $$X = C[a,b]$$ with the sup norm $$\|f\|_\infty = \sup_{x \in [a,b]} |f(x)|$$ . 
+We can define a linear functional $$L$$ on $$X$$ such that  
 
 $$ 
 L(g) = \int_a^b f(x)\,dx 
