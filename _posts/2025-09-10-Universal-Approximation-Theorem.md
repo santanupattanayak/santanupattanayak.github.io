@@ -171,6 +171,12 @@ $$
 L(f) = f(x_0), \quad \forall f \in X.
 $$
 
+Another slightly modified version of the evaluation functional given two fixed points $$x_{0},x_{1} \in [a,b]$$ can be  
+
+$$
+L(f) = f(x_0) - f(x_1), \quad \forall f \in X.
+$$
+
 In the case of a **finite-dimensional $$L^2$$ normed linear space** $$X$$, every linear functional corresponds to an element of the same space $$X$$, since the dual space $$X^*$$ is isomorphic to $$X$$ itself. Each such functional acts on the elements of $$X$$ via the **dot product**, as established by the **Riesz Representation Theorem**.
 
 For **infinite-dimensional normed spaces**, such as the **$$L^{\infty}$$ space**, the Riesz Representation Theorem takes a different form compared to $$L^2$$ (Hilbert) spaces. Unlike $$L^2$$ spaces, $$L^{\infty}$$ is **not self-dual**. Its **dual space** $$\left(L^{\infty}\right)^*$$ is much larger and is given by the space of **bounded finitely additive signed measures** on the underlying measurable space, denoted by $$\text{ba}(X, \Sigma)$$.
