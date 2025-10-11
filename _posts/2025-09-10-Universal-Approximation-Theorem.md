@@ -154,27 +154,27 @@ As a result, the linear functionals on $$ C[a,b] $$ are generally not elements o
 Example of **Functional** on $$C[a,b]$$
 
 Let $$X = C[a,b]$$ with the sup norm $$\|f\|_\infty = \sup_{x \in [a,b]} |f(x)|$$ . 
-We can define a linear functional $$L$$ on $$X$$ such that  
+We can define a linear functional $$L_{a}$$ on $$X$$ such that  
 
 $$ 
-L(g) = \int_a^b f(x)\,dx 
+L_{a}(f) = \int_a^b f(x)\,dx 
 $$  
 
 The functional is bounded since 
 $$
-\|L(f)\| \le (b - a)\|f\|_\infty 
+\|L_{a}(f)\| \le (b - a)\|f\|_\infty 
 $$
 
 Another example of a functional on $$X$$ is the **evaluation functional**, which maps each function $$f \in X$$ to its value at a fixed point $$x_0 \in [a,b]$$:
 
 $$
-L(f) = f(x_0), \quad \forall f \in X.
+L_{b}(f) = f(x_0), \quad \forall f \in X.
 $$
 
 Another slightly modified version of the evaluation functional given two fixed points $$x_{0},x_{1} \in [a,b]$$ can be  
 
 $$
-L(f) = f(x_0) - f(x_1), \quad \forall f \in X.
+L_{c}(f) = f(x_0) - f(x_1), \quad \forall f \in X.
 $$
 
 In the case of a **finite-dimensional $$L^2$$ normed linear space** $$X$$, every linear functional corresponds to an element of the same space $$X$$, since the dual space $$X^*$$ is isomorphic to $$X$$ itself. Each such functional acts on the elements of $$X$$ via the **dot product**, as established by the **Riesz Representation Theorem**.
@@ -186,6 +186,10 @@ Thus, for every continuous linear functional $$L$$ on $$L^{\infty}$$, there exis
 $$
 L(f) = \int_X f(x) \, d\nu(x), \quad \forall f \in L^{\infty}.
 $$
+
+The signed measures for the functional $$L_{a}$$ is $$d\nu = dx$$.
+The measure for $$L_{b}$$ is $$d\nu = \delta(x - x_{0})dx$$ as it collapses the function at $$x_{0}$$ and for similar reasons the measure for $$L_{c}$$ is $$d\nu = (\delta(x - x_{0}) - \delta(x - x_{1}))dx$$ 
+
 
 
 ### Remarks
