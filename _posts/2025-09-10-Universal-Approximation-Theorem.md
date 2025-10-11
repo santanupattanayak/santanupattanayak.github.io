@@ -179,7 +179,7 @@ $$
 
 In the case of a **finite-dimensional $$L^2$$ normed linear space** $$X$$, every linear functional corresponds to an element of the same space $$X$$, since the dual space $$X^*$$ is isomorphic to $$X$$ itself. Each such functional acts on the elements of $$X$$ via the **dot product**, as established by the **Riesz Representation Theorem**.
 
-For **infinite-dimensional normed spaces**, such as the **$$L^{\infty}$$ space**, the Riesz Representation Theorem takes a different form compared to $$L^2$$ (Hilbert) spaces. Unlike $$L^2$$ spaces, $$L^{\infty}$$ is **not self-dual**. Its **dual space** $$\left(L^{\infty}\right)^*$$ is much larger and is given by the space of **bounded finitely additive signed measures** on the underlying measurable space, denoted by $$\text{ba}(X, \Sigma)$$.
+For **infinite-dimensional normed spaces**, such as the **$$L^{\infty}$$ space**, the Riesz Representation Theorem takes a different form compared to $$L^2$$ (Hilbert) spaces. Unlike $$L^2$$ spaces, $$L^{\infty}$$ is **not self-dual**. Its **dual space** $$\left(L^{\infty}\right)^*$$ is much larger and is given by the space of **bounded finitely additive signed measures** on the underlying measurable space.
 
 Thus, for every continuous linear functional $$L$$ on $$L^{\infty}$$, there exists a finitely additive signed measure $$\nu$$ such that:
 
@@ -187,6 +187,7 @@ $$
 L(f) = \int_X f(x) \, d\nu(x), \quad \forall f \in L^{\infty}.
 $$
 
+Measures in mathematics are a way of assigning positive value (can be some notion of length, area, volume) to certain subsets of a given set. A signed measure also allows for negative weight. We will not go into technical depth of measures but rather look at how these signed measures look for the functionals $$L_a,L_b,L_c$$.
 The signed measures for the functional $$L_{a}$$ is $$d\nu = dx$$.
 The measure for $$L_{b}$$ is $$d\nu = \delta(x - x_{0})dx$$ as it collapses the function at $$x_{0}$$ and for similar reasons the measure for $$L_{c}$$ is $$d\nu = (\delta(x - x_{0}) - \delta(x - x_{1}))dx$$ 
 
