@@ -165,9 +165,10 @@ $$
 \|L(f)\| \le (b - a)\|f\|_\infty 
 $$
 
-Another functional on $$X$$ can be the evaluation of the functions $$f \in X$$ at a given point say $$x_0 \in [a,b]$$ 
+Another example of a functional on $$X$$ is the **evaluation functional**, which maps each function $$f \in X$$ to its value at a fixed point $$x_0 \in [a,b]$$:
+
 $$
-L(f) = f(x_0)  \forall f \in X
+L(f) = f(x_0), \quad \forall f \in X.
 $$
 
 In the case of a **finite-dimensional $$L^2$$ normed linear space** $$X$$, every linear functional corresponds to an element of the same space $$X$$, since the dual space $$X^*$$ is isomorphic to $$X$$ itself.  
