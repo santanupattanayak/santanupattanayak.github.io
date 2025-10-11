@@ -162,8 +162,32 @@ $$|L(f)| \le (b - a)\|f\|_\infty $$
 
 Another functional on $$X$$ can be the evaluation of the functions $$f \in X$$ at a given point say $$x_0 \in [a,b]$$ 
 $$
-L(f) = f(x_0)
+L(f) = f(x_0)  \forall f \in X
 $$
+
+In the case of a **finite-dimensional $$L^2$$ normed linear space** $$X$$, every linear functional corresponds to an element of the same space $$X$$, since the dual space $$X^*$$ is isomorphic to $$X$$ itself.  
+Each such functional acts on the elements of $$X$$ via the **dot product**, as established by the **Riesz Representation Theorem**.
+
+For **infinite-dimensional normed spaces**, such as the **$$L^{\infty}$$ space**, the Riesz Representation Theorem takes a different form compared to $$L^2$$ (Hilbert) spaces.
+
+The $$L^{\infty}$$ space consists of (equivalence classes of) essentially bounded measurable functions, equipped with the **supremum norm**:
+
+$$
+\|f\|_{\infty} = \text{ess sup}_{x \in X} |f(x)|.
+$$
+
+Unlike $$L^2$$ spaces, $$L^{\infty}$$ is **not self-dual**.  
+Its **dual space** $$\left(L^{\infty}\right)^*$$ is much larger and is given by the space of **bounded finitely additive signed measures** on the underlying measurable space, denoted by $$\text{ba}(X, \Sigma)$$.
+
+Thus, for every continuous linear functional $$L$$ on $$L^{\infty}$$, there exists a finitely additive signed measure $$\nu$$ such that:
+
+$$
+L(f) = \int_X f(x) \, d\nu(x), \quad \forall f \in L^{\infty}.
+$$
+
+This representation generalizes the idea of the Riesz theorem in $$L^2$$ spaces, but the key difference is that $$\nu$$ is not necessarily **countably additive**—hence it may not correspond to a standard measure in the usual Lebesgue sense.
+
+
 
 
 
