@@ -192,8 +192,8 @@ The signed measures for the functional $$L_{a}$$ is $$d\nu = dx$$.
 The measure for $$L_{b}$$ is $$d\nu = \delta(x - x_{0})dx$$ as it collapses the function at $$x_{0}$$ and for similar reasons the measure for $$L_{c}$$ is $$d\nu = (\delta(x - x_{0}) - \delta(x - x_{1}))dx$$ 
 
 **Key Points**
-* The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted \( X^* \).
-* In $$L2$$ space the notion of orthogonality was easy, any vector $$a$$ corresponding to a function $$L$$ is orthogonal to $$x$$ if $$L(x) = a^{T}x = 0 $$. Simply the dot product of the element $$a$$ corresponding to the functional $$L$$ and vector $$x$$ is zero when $$a \perp x$$ . This allowed us to see elements in the self-dual space $$a \in X- U$$ are all orthogonal to all elements in closed and convex subset $$U \subset X$$
+* The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted $$X^*$$.
+* In $$L2$$ space the notion of orthogonality was easy as it has a geometric intuition, any vector $$a$$ corresponding to a function $$L$$ is orthogonal to $$x$$ if $$L(x) = a^{T}x = 0 $$. Simply the dot product of the element $$a$$ corresponding to the functional $$L$$ and vector $$x$$ is zero when $$a \perp x$$ . This allowed us to see elements in the self-dual space $$a \in X- U$$ are all orthogonal to all elements in closed and convex subset $$U \subset X$$
    In $$L^{\infty}$$ space the notion of orthogonality is given by linear functionals in its dual such that if for a Linear functional $$L \in X^*$$ given by some signed measure gives $$L(x) = 0$$, then we say the signed measure is orthogonal to $$x$$.
    With this notion of orthogonality, if $$U$$ is a closed subspace of infinite dimensional L^{\infty} space $$X$$ then there would exist functionals L in $$X^*$$ which would annihilate all of $$U$$ as follows:  
    $$
