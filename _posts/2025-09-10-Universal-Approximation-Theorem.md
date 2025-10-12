@@ -187,16 +187,14 @@ $$
 L(f) = \int_X f(x) \, d\nu(x), \quad \forall f \in L^{\infty}.
 $$
 
-Measures in mathematics are a way of assigning positive value (can be some notion of length, area, volume) to certain subsets of a given set. A signed measure also allows for negative weight. We will not go into technical depth of measures but rather look at how these signed measures look for the functionals $$L_a,L_b,L_c$$.
+Measures in mathematics are a way of assigning positive value (can be some notion of length, area, volume) to certain subsets of a given set. A signed measure also allows for negative weight. We will not go into technical depth of measures but rather look at how these signed measures look for the functionals $$L_a,L_b,L_c$$.  
 The signed measures for the functional $$L_{a}$$ is $$d\nu = dx$$.
 The measure for $$L_{b}$$ is $$d\nu = \delta(x - x_{0})dx$$ as it collapses the function at $$x_{0}$$ and for similar reasons the measure for $$L_{c}$$ is $$d\nu = (\delta(x - x_{0}) - \delta(x - x_{1}))dx$$ 
 
-
-
-### Remarks
-
-- The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted \( X^* \).
-- Fundamental results like the **Hahn–Banach Theorem** and the **Riesz Representation Theorem** describe the structure of such functionals.
+**Key Points**
+1. The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted \( X^* \).
+2. In L2 space the notion of orthogonality was easy, any vector $$a$$ corresponding to a function $$L$$ is orthogonal to $$x$$ if $$L(x) = a^{T}x = 0 $$. Simply the dot product of the element $$a$$ corresponding to the functional $$L$$ and vector $$x$$ is zero when $$a \perp x$$
+3. Fundamental results like the **Hahn–Banach Theorem** and the **Riesz Representation Theorem** describe the structure of such functionals.
 
 
 
