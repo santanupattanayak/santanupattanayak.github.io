@@ -139,9 +139,9 @@ where the vector $$ a $$ corresponds to an element of the **dual space** $$ X^* 
 Since in an $$L^2$$ space, the elements of the dual coincide with those of the original space; hence $$ a \in X $$ as well.
 
 **Key points:**
-1. Any functional $$ L $$ in a finite-dimensional normed vector space corresponds to some element $$ a $$ in the dual space $$ X^* $$, which itself forms a normed linear space.  
-2. For an $$ L^2 $$ (Hilbert) space, $$ X^* = X $$; thus, linear functionals correspond to vectors in $$ X $$ acting on other vectors via the **inner product** (dot product).  
-3. If $$ U $$ is a closed convex subset of $$ X $$, it is orthogonal to the space $$ X - U $$. Hence any element $$ a \in X - U $$ is orthogonal to all elements in $$ U $$, i.e.  
+* Any functional $$ L $$ in a finite-dimensional normed vector space corresponds to some element $$ a $$ in the dual space $$ X^* $$, which itself forms a normed linear space.
+* For an $$ L^2 $$ (Hilbert) space, $$ X^* = X $$; thus, linear functionals correspond to vectors in $$ X $$ acting on other vectors via the **inner product** (dot product).
+* If $$ U $$ is a closed convex subset of $$ X $$, it is orthogonal to the space $$ X - U $$. Hence any element $$ a \in X - U $$ is orthogonal to all elements in $$ U $$, i.e.  
    $$ a^{T}x = 0 \quad \forall x \in U. $$  
    Since $$ a $$ corresponds to a functional, any $$ L $$ in the dual space of $$ X - U $$ satisfies  
    $$ L(x) = 0 \quad \forall x \in U. $$
@@ -192,15 +192,19 @@ The signed measures for the functional $$L_{a}$$ is $$d\nu = dx$$.
 The measure for $$L_{b}$$ is $$d\nu = \delta(x - x_{0})dx$$ as it collapses the function at $$x_{0}$$ and for similar reasons the measure for $$L_{c}$$ is $$d\nu = (\delta(x - x_{0}) - \delta(x - x_{1}))dx$$ 
 
 **Key Points**
-1. The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted \( X^* \).
-2. In L2 space the notion of orthogonality was easy, any vector $$a$$ corresponding to a function $$L$$ is orthogonal to $$x$$ if $$L(x) = a^{T}x = 0 $$. Simply the dot product of the element $$a$$ corresponding to the functional $$L$$ and vector $$x$$ is zero when $$a \perp x$$
-3. Fundamental results like the **Hahn–Banach Theorem** and the **Riesz Representation Theorem** describe the structure of such functionals.
+* The collection of all **bounded linear functionals** on \( X \) forms a normed linear space called the **dual space**, denoted \( X^* \).
+* In $$L2$$ space the notion of orthogonality was easy, any vector $$a$$ corresponding to a function $$L$$ is orthogonal to $$x$$ if $$L(x) = a^{T}x = 0 $$. Simply the dot product of the element $$a$$ corresponding to the functional $$L$$ and vector $$x$$ is zero when $$a \perp x$$ . This allowed us to see elements in the self-dual space $$a \in X- U$$ are all orthogonal to all elements in closed and convex subset $$U \subset X$$
+   In $$L^{\infty}$$ space the notion of orthogonality is given by linear functionals in its dual such that if for a Linear functional $$L \in X^*$$ given by some signed measure gives $$L(x) = 0$$, then we say the signed measure is orthogonal to $$x$$.
+   With this notion of orthogonality, if $$U$$ is a closed subspace of infinite dimensional L^{\infty} space $$X$$ then there would exist functionals L in $$X^*$$ which would annihilate all of $$U$$ as follows:  
+   $$
+   L(x) = 0 \forall x \in U
+   $$
+   The orthogonality in $$L^{\infty}$$ is not in the geometric sense but in the sense of function vanishing on the subspace.
+   In this sense the orthogonal complement $$U^{\perp}$$ can be defined as 
 
-
-
-
-
-
+   $$
+   U^{\perp} = { L |  L(x) = 0 \forall x \in U}
+   $$
 
 
 ## Does Neural networks with Sigmoid and Tanh activation satisfy Stone-Weierstrass Theorem
