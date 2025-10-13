@@ -218,7 +218,7 @@ For instance:
 
 
 
-## Orthogonality and Duality in Infinite Dimensions
+### Orthogonality and Duality in Infinite Dimensions
 
 In $$\mathbb{R}^n$$, orthogonality has a clear **geometric interpretation**: two vectors are orthogonal if their inner product is zero.  
 
