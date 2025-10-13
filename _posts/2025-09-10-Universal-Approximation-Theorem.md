@@ -197,7 +197,6 @@ $$
 L(f) = f(x_1) - f(x_2).
 $$
 
----
 
 ### Representation via Signed Measures
 
