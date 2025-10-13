@@ -128,13 +128,13 @@ Thus, a linear functional is simply a **linear map** from a vector space into it
 
 
 
-## Linear Functionals in Finite-Dimensional Spaces
+### Linear Functionals in Finite-Dimensional Spaces
 
-In a **finite-dimensional normed linear space** such as $$\mathbb{R}^n$$, which is also a **Hilbert space**, a *linear functional* acts on vectors to produce scalars in $$\mathbb{R}$$.  
+In a **finite-dimensional normed linear space** such as $$\mathbb{R}^n$$, which is also a **Hilbert space**, a **linear functional** acts on vectors to produce scalars in $$\mathbb{R}$$.  
 For any linear functional $$L$$ acting on a vector $$x$$, there exists a corresponding vector $$y$$ in the same space such that  
 
 $$
-L(x) = \langle x, y \rangle,
+L(x) = y^{T}x = \langle x, y \rangle
 $$
 
 where $$\langle \cdot , \cdot \rangle$$ denotes the inner product.  
@@ -142,19 +142,19 @@ The vector $$y$$ belongs to the **dual space** $$X^*$$, which is the space of al
 
 This correspondence between $$L$$ and $$y$$ is formalized by the **Riesz Representation Theorem**, which asserts that every continuous linear functional on a Hilbert space can be uniquely represented as an inner product with a fixed element of that space.  
 
-Since in finite dimensions the dual space coincides with the original space, i.e. $$X^* = X$$, any linear functional can be represented as the inner product with some vector in $$X$$. Thus, the dual space of a finite-dimensional Hilbert space is isomorphic to the space itself.
+Since in finite dimensional Hilbert Space the dual space coincides with the original space, i.e. $$X^* = X$$, any linear functional can be represented as the inner product with some vector in $$X$$. Thus, the dual space of a finite-dimensional Hilbert space is isomorphic to the space itself.
 
-If $$C$$ is a **closed convex subset** of $$X$$, it has an associated orthogonal complement $$C^\perp$$ consisting of all elements orthogonal to $$C$$.  
-Any element $$y \in C^\perp$$ satisfies  
+If $$U$$ is a **closed convex subset** of $$X$$, it has an associated orthogonal complement $$U^\perp$$ consisting of all elements orthogonal to $$U$$.  
+Any element $$y \in U^\perp$$ satisfies  
 
 $$
-\langle x, y \rangle = 0 \quad \text{for all } x \in C.
+\langle x, y \rangle = 0 \quad \text{for all } x \in U
 $$
 
-Since each functional $$L$$ corresponds to a unique $$y$$, this also implies that any functional $$L \in X^*$$ satisfies $$L(x) = 0$$ for all $$x \in C$$ whenever $$y \in C^\perp$$.
+Since each functional $$L$$ corresponds to a unique $$y$$, this also implies that any functional $$L \in X^*$$ satisfies $$L(x) = 0$$ for all $$x \in C$$ whenever $$y \in U^\perp$$.
 
 
-## Linear Functionals in Infinite-Dimensional Spaces
+### Linear Functionals in Infinite-Dimensional Spaces
 
 When we move to an **infinite-dimensional normed linear space**, such as $$C[a,b]$$, the space of continuous functions on a closed and compact interval $$[a,b]$$, the structure of linear functionals changes significantly.  
 
@@ -164,14 +164,13 @@ $$
 \|f\|_\infty = \sup_{x \in [a,b]} |f(x)|.
 $$
 
-Unlike finite-dimensional Hilbert spaces, $$C[a,b]$$ with this norm is **not self-dual**.  
+Unlike finite-dimensional Hilbert spaces, $$C[a,b]$$ with supremum norm is **not self-dual**.  
 Its dual space $$C[a,b]^*$$ consists not of continuous functions, but of more general objects—specifically, *bounded finitely additive signed measures* on $$[a,b]$$.  
 
 This distinction means that the elements of $$C[a,b]^*$$ cannot be represented by inner products with other functions in $$C[a,b]$$; instead, they are expressed in terms of integrals with respect to signed measures.
 
 
-
-## Examples of Functionals on $$C[a,b]$$
+### Examples of Functionals on $$C[a,b]$$
 
 Consider $$X = C[a,b]$$ with the sup norm $$\|f\|_\infty$$.  
 A simple example of a linear functional is  
@@ -200,7 +199,7 @@ $$
 
 ---
 
-## Representation via Signed Measures
+### Representation via Signed Measures
 
 The **Riesz Representation Theorem** for $$C[a,b]$$ states that every continuous linear functional $$L$$ on $$C[a,b]$$ can be represented as an integral with respect to a **finitely additive signed measure** $$\mu$$:  
 
@@ -211,13 +210,13 @@ $$
 Here, measures provide a generalization of length, area, or volume, assigning a (possibly signed) “weight” to subsets of $$[a,b]$$.  
 
 For instance:
-- The functional $$L_{x_0}(f) = f(x_0)$$ corresponds to the **Dirac measure** $$\delta_{x_0}$$, so  
+- The functional $$L_{x_0}(f) = f(x_0)$$ corresponds to the **Dirac measure** $$\nu = \delta_{x_0}$$, so  
   $$
-  L_{x_0}(f) = \int_a^b f(x)\, d\delta_{x_0}(x).
+  L_{x_0}(f) = \int_a^b f(x)\, d\delta_{x_0}(x)
   $$
-- The difference functional $$L(f) = f(x_1) - f(x_2)$$ corresponds to the **signed measure** $$\delta_{x_1} - \delta_{x_2}$$.
+- The difference functional $$L(f) = f(x_1) - f(x_2)$$ corresponds to the **signed measure** $$\nu = \delta_{x_1} - \delta_{x_2}$$
 
----
+
 
 ## Orthogonality and Duality in Infinite Dimensions
 
