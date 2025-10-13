@@ -107,7 +107,7 @@ Do note that this approximation theorem, doesn't really tell how many neurons ar
 
 
 
-## Mathematical approach to proving UAT 
+## Mathematical Concepts Review to understand Universal Approximation theorem
 
 We need to define few things to prove the UAT mathematically.
 
@@ -231,6 +231,8 @@ $$
 
 In this sense, the orthogonality in $$C[a,b]$$ is not geometric but **functional**: a functional (or the signed measure corresponding to it) is orthogonal to a subspace if it vanishes on all functions within that subspace.  
 This abstract notion replaces the inner product-based orthogonality found in Hilbert spaces.
+
+
 
 
 
