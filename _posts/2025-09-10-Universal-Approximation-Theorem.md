@@ -257,22 +257,122 @@ $$
 In this sense, the orthogonality in $$C[a,b]$$ is not geometric but **functional**: a functional (or the signed measure corresponding to it) is orthogonal to a subspace if it vanishes on all functions within that subspace.  
 This abstract notion replaces the inner product-based orthogonality found in Hilbert spaces.
 
+This notion of orthogonality in $$L^{\infty}$$ space is also called Hahn Banach Separation principal.
 
-## Cebenko's Universality Approximation Explanation
 
-Now that we have defined some high level mathematical concepts let's dive into Cebenko's proof.
+## **Cybenko’s Universal Approximation Theorem — An Intuitive Proof**
 
-Again as before let us consider the space of continuous function $$C\[I_n\]$$ where $$I_n=[0,1]^{n}$$ be the **n-dimensional unit cube** which serves as our domain. 
+Now that we have defined some of the foundational mathematical ideas, let us walk through **Cybenko’s** original proof of the **Universal Approximation Theorem**.
 
-We say that the functions of the form 
+
+
+### **Premise**
+
+Consider the space of continuous functions  
 $$
-F(x) = \sum_{i=1:m} \alpha_{i}\sigma(w_{i}.x + b_{i})
+C(I_n), \quad \text{where } I_n = [0,1]^n,
 $$  
+the **n-dimensional unit cube**, which serves as our domain.
 
-are dense in $$C\[I_n\]$$ with respect to the supremum norm. If we denote this set of functions by $$S$$ any function $$f \in C\[I_n\]$$ is arbitrarily close to functions in $$S$$.
+We define the family of functions of the form  
+$$
+f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
+$$  
+where  
+- \( \sigma \) is a fixed **activation function**,  
+- \( w_i \in \mathbb{R}^n \), \( b_i \in \mathbb{R} \) are parameters, and  
+- \( \alpha_i \in \mathbb{R} \) are coefficients.
+
+Let this collection of finite linear combinations be denoted by \( S \subset C(I_n) \).
+
+---
+
+### **Density Claim**
+
+Cybenko’s theorem states that the set \( S \) is **dense** in \( C(I_n) \) with respect to the **supremum norm**.  
+That is, for every continuous function \( f \in C(I_n) \) and every \( \varepsilon > 0 \), there exists a function \( g \in S \) such that
+
+$$
+\| f - g \|_{\infty} < \varepsilon.
+$$
+
+Equivalently, the **closure** of \( S \), denoted \( \overline{S} \), equals the entire space \( C(I_n) \).
+
+---
+
+### **Proof by Contradiction**
+
+Suppose, for contradiction, that \( \overline{S} \neq C(I_n) \).  
+Then the closure of \( S \), call it \( R = \overline{S} \), is a **proper closed subspace** of \( C(I_n) \).
+
+---
+
+### **Introducing Orthogonality**
+
+By the **Hahn–Banach separation principle**, there exists a **non-zero bounded linear functional**  
+\( L \in C(I_n)^* \) (the dual space) such that
+
+$$
+L(f) = 0 \quad \text{for all } f \in R.
+$$
+
+Since \( S \subset R \), it follows that  
+$$
+L(f) = 0 \quad \text{for all } f \in S.
+$$
 
 
 
+### **Riesz Representation**
 
+From the **Riesz Representation Theorem**, every bounded linear functional on \( C(I_n) \) can be represented as an **integral against a finite signed measure** \( \mu \) on \( I_n \):
+
+$$
+L(f) = \int_{I_n} f(x)\, d\mu(x),
+$$
+for some \( \mu \neq 0 \) in the dual space \( M(I_n) = C(I_n)^* \).
+
+
+
+### **Applying to the Function Family**
+
+Since each \( f \in S \) has the form  
+$$
+f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
+$$  
+the orthogonality condition \( L(f) = 0 \) gives
+
+$$
+\int_{I_n} \sigma(w \cdot x + b)\, d\mu(x) = 0 
+\quad \text{for all } w \in \mathbb{R}^n, \, b \in \mathbb{R}.
+$$
+
+
+
+### **Role of Discriminatory Functions**
+
+A function \( \sigma \) is said to be **discriminatory** if the only measure \( \mu \) satisfying
+
+$$
+\int_{I_n} \sigma(w \cdot x + b)\, d\mu(x) = 0
+\quad \text{for all } w,b
+$$
+is the **zero measure**, i.e., \( \mu = 0 \).
+
+Common activation functions like the **sigmoid** satisfy this property.
+
+Since our assumption led to the existence of a **non-zero** signed measure \( \mu \) that makes all these integrals vanish, this contradicts the discriminatory property of \( \sigma \).
+
+
+
+### **Conclusion**
+
+Hence, our assumption that \( \overline{S} \neq C(I_n) \) must be false.  
+Therefore, \( S \) is **dense** in \( C(I_n) \), proving that finite linear combinations of the form
+
+$$
+\sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i)
+$$
+can approximate any continuous function on \( I_n \) arbitrarily well.
 
 
