@@ -9,10 +9,11 @@ tags: UAT, Universal approximation theorem, Neural networks,
 # Table of Contents
 1. [Introduction to Universal Approximation theorem](#introduction)
 2. [Norm of a function](#norm)
-2. [The Early Versions of Universal Approximation Theorem](#uat)
-3. [Practical Illustration why Universal Approximation Theorem works](#practical)
-4. [Mathematical Concepts Review to understand Universal Approximation theorem](#maths)
-4. [Cybenko’s Universal Approximation Theorem — A Mathematically Intuitive Proof](#proof)
+3. [The Early Versions of Universal Approximation Theorem](#uat)
+4. [Practical Illustration why Universal Approximation Theorem works](#practical)
+5. [Mathematical Concepts Review to understand Universal Approximation theorem](#maths)
+6. [Cybenko’s Universal Approximation Theorem — A Mathematically Intuitive Proof](#proof)
+7. [Conclusion](#conclusion)
 
 ## Introduction <a name="introduction"></a>
 
@@ -55,7 +56,7 @@ $$
 
 ## The Early Versions of Universal Approximation Theorem <a name="uat"></a>
 
-The earliest rigorous versions of UAT were proved independently by Cybenko (1989) and Hornik, Stinchcombe, and White (1989). One simplified version is:
+The earliest rigorous versions of UAT were proved independently by Cybenko (1989)[1] and Hornik, Stinchcombe, and White (1989). One simplified version is:
 
 Let $$\sigma: \mathbb{R} \rightarrow \mathbb{R} $$ be any continuous squashing function such as sigmoid. Then for any continuous function $$f$$ defined on the cube $$I_n = [0,1]^{n}$$ and for any tolerance $$\epsilon \gt 0$$ there exists a neural network of the form
 
@@ -350,7 +351,7 @@ Since our assumption led to the existence of a **non-zero** signed measure $$\mu
 
 
 
-### **Conclusion**
+### **Conclusion** <a name="conclusion"></a>
 
 Hence, our assumption that $$\overline{S} \neq C(I_n)$$ must be false.  
 Therefore, $$S$$ is **dense** in $$C(I_n)$$, proving that finite linear combinations of the form
@@ -361,7 +362,21 @@ $$
 can approximate any continuous function on $$I_n$$ arbitrarily well.
 
 
+##Conclusion
+The Universal Approximation Theorem serves as a cornerstone connecting mathematical theory with the practical capabilities of neural networks. It assures us that, under mild conditions on the activation function, even a single-hidden-layer network can approximate any continuous function on a compact domain to arbitrary precision.  
 
+Cybenko’s proof reveals the deeper analytical structure behind this fact — drawing upon concepts like linear functionals, signed measures, and the Hahn–Banach separation theorem. The key lies in the discriminatory property of the activation function: if no nontrivial signed measure can annihilate all activations, the span of these activations must be dense in the space of continuous functions.  
+
+However, the theorem is existential, not constructive. It tells us such networks exist but says nothing about the number of neurons required or how to efficiently find their parameters through training. In practice, extremely wide single-layer networks may be needed to approximate highly complex functions.  
+
+This is where depth becomes crucial. Adding more hidden layers allows neural networks to represent compositional structures, enabling them to approximate complex, hierarchical functions with far fewer neurons. Deeper networks can capture intricate features and dependencies that would require an impractically wide shallow network to represent.  
+
+In essence, the Universal Approximation Theorem guarantees that neural networks are capable of representing any function — while the theory of deep architectures explains how they can do so efficiently. Representational power is not the bottleneck; the real challenges lie in optimization, generalization, and interpretability. The theorem thus remains a guiding principle, illuminating the mathematical foundation beneath the empirical success of deep learning.
+
+
+## References
+
+[1] Approximation by Superpositions of a Sigmoidal Function : https://web.njit.edu/~usman/courses/cs675_fall18/10.1.1.441.7873.pdf  
 
 
 
