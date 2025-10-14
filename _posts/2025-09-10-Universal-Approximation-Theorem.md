@@ -55,7 +55,7 @@ $$
 
 The earliest rigorous versions of UAT were proved independently by Cybenko (1989) and Hornik, Stinchcombe, and White (1989). One simplified version is:
 
-Let $$\sigma: \mathbb{R} \rightarrow \mathbb{R} $$ be any continuous squashing function such as sigmoid. Then for any continuous function $$f$$ defined on the cube $$[0,1]^{n}$$ and for any tolerance $$\epsilon \gt 0$$ there exists a neural network of the form
+Let $$\sigma: \mathbb{R} \rightarrow \mathbb{R} $$ be any continuous squashing function such as sigmoid. Then for any continuous function $$f$$ defined on the cube $$I_n = [0,1]^{n}$$ and for any tolerance $$\epsilon \gt 0$$ there exists a neural network of the form
 
 $$
 \begin{align}
@@ -165,7 +165,7 @@ $$
 $$
 
 Unlike finite-dimensional Hilbert spaces, $$C[a,b]$$ with supremum norm is **not self-dual**.  
-Its dual space $$C[a,b]^*$$ consists not of continuous functions, but of more general objects—specifically, *bounded finitely additive signed measures* on $$[a,b]$$.  
+Its dual space $$C[a,b]^*$$ consists not of continuous functions, but of more general objects—specifically, **bounded finitely additive signed measures** on $$[a,b]$$.  
 
 This distinction means that the elements of $$C[a,b]^*$$ cannot be represented by inner products with other functions in $$C[a,b]$$; instead, they are expressed in terms of integrals with respect to signed measures.
 
@@ -257,6 +257,19 @@ $$
 In this sense, the orthogonality in $$C[a,b]$$ is not geometric but **functional**: a functional (or the signed measure corresponding to it) is orthogonal to a subspace if it vanishes on all functions within that subspace.  
 This abstract notion replaces the inner product-based orthogonality found in Hilbert spaces.
 
+
+## Cebenko's Universality Approximation Explanation
+
+Now that we have defined some high level mathematical concepts let's dive into Cebenko's proof.
+
+Again as before let us consider the space of continuous function $$C\[I_n\]$$ where $$I_n=[0,1]^{n}$$ be the **n-dimensional unit cube** which serves as our domain. 
+
+We say that the functions of the form 
+$$
+F(x) = \sum_{i=1:m} \alpha_{i}\sigma(w_{i}.x + b_{i})
+$$  
+
+are dense in $$C\[I_n\]$$ with respect to the supremum norm. If we denote this set of functions by $$S$$ any function $$f \in C\[I_n\]$$ is arbitrarily close to functions in $$S$$.
 
 
 
