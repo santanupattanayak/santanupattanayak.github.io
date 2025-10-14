@@ -8,16 +8,18 @@ tags: UAT, Universal approximation theorem, Neural networks,
 
 # Table of Contents
 1. [Introduction to Universal Approximation theorem](#introduction)
+2. [Norm of a function](#norm)
 2. [The Early Versions of Universal Approximation Theorem](#uat)
-3. [What guarantees Universal Approximation Theorem](#guat)
-4. [Universal Approximation theorem for NN with ReLU activation](#reluaut)
+3. [Practical Illustration why Universal Approximation Theorem works](#practical)
+4. [Mathematical Concepts Review to understand Universal Approximation theorem](#maths)
+4. [Cybenko’s Universal Approximation Theorem — A Mathematically Intuitive Proof](#proof)
 
 ## Introduction <a name="introduction"></a>
 
 The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **real analysis** and **functional analysis**.
 This post explores the UAT, its formal statement, and the real analysis theorems that underlie it.
 
-## Norm of a function
+## Norm of a function <a name="norm"></a>
 The norm of a function would appear multiple times in our discussion of UAT and hence it makes sense to go over it before we dive into the various aspects of UAT.
 The Euclidean or the $$l_2$$ norm of a vector $$x$$ in a d-dimensional vector space is defined as  :
 
@@ -76,7 +78,7 @@ The theorem is basically saying that **given enough neurons** we can approximate
 
 
 
-## What guarantees Universal Approximation Theorem <a name="guat"></a>
+## Practical Illustration why Universal Approximation Theorem works <a name="practical"></a>
 
 We can define **pulse functions** within a given range through scaled and shifted sigmoid functions. For example we can define a pulse function in the range $$[a,b]$$ through the subtraction of two scaled sigmoid functions shown below:
 
@@ -107,7 +109,7 @@ Do note that this approximation theorem, doesn't really tell how many neurons ar
 
 
 
-## Mathematical Concepts Review to understand Universal Approximation theorem
+## Mathematical Concepts Review to understand Universal Approximation theorem <a name="maths"></a>
 
 We need to define few things to prove the UAT mathematically.
 
@@ -260,7 +262,7 @@ This abstract notion replaces the inner product-based orthogonality found in Hil
 This notion of orthogonality in $$L^{\infty}$$ space is also called Hahn Banach Separation principal.
 
 
-## **Cybenko’s Universal Approximation Theorem — An Intuitive Proof**
+## Cybenko’s Universal Approximation Theorem — A Mathematically Intuitive Proof <a name="proof"></a>
 
 Now that we have defined some of the foundational mathematical ideas, let us walk through **Cybenko’s** original proof of the **Universal Approximation Theorem**.
 
