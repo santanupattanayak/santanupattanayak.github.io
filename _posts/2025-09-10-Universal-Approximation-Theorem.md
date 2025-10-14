@@ -325,18 +325,12 @@ for some $$\mu \neq 0$$ in the dual space $$M(I_n) = C(I_n)^*$$
 
 ### **Applying Reiz representation and Orthogonality to the Sigmoid Function Family**
 
-Since each $$f \in S$$ has the form  
-$$
-f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
-$$  
-the orthogonality condition $$L(f) = 0$$ gives
+Since each $$g \in S$$ has the form $$ g(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i) $$ the orthogonality condition $$L(g) = 0$$ gives  
 
 $$
 \int_{I_n} \sigma(w \cdot x + b)\, d\mu(x) = 0 
 \quad \text{for all } w \in \mathbb{R}^n, \, b \in \mathbb{R}
 $$
-
-
 
 ### **Role of Discriminatory Functions**
 
@@ -363,5 +357,7 @@ $$
 \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i)
 $$
 can approximate any continuous function on $$I_n$$ arbitrarily well.
+
+
 
 
