@@ -220,7 +220,7 @@ These subsets $$A_i$$ can be singleton sets consisting of single element.
 The integration above means sum the values of $$f(x)$$ weighted by the measure $$\nu$$ of the set around each point $$x$$.
 Basically measure generalizes the concept of integration over sets.
 
-**Probability measure** - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$\mathbb{R}$$ i.e. $$X:\omega \rightarrow \mathbb{R}$$
+**Probability measure** - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$\mathbb{R}$$ i.e. $$X:\Omega \rightarrow \mathbb{R}$$
   Then the expectation of the random variable is expressed in terms of measure as below 
 
 $$
