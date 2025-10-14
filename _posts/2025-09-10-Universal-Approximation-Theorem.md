@@ -206,7 +206,49 @@ $$
 L(f) = \int_a^b f(x)\, d\mu(x).
 $$
 
-Here, measures provide a generalization of length, area, or volume, assigning a (possibly signed) “weight” to subsets of $$[a,b]$$.  
+#### High level brief of measures 
+In classical calculus, integration is done with respect to a variable $$x$$(written as $$dx$$). In measure theory, we integrate a function with respect to a measure $$nu$$(written as $$d\nu$$) which generalizes the idea of length, area, volume or probability.
+Integration of a function $$f$$ with respect to a measure $$\nu$$ over a set $$A$$ is written as
+
+$$
+L(f) = \int_{x \in A} f(x)\, d\mu(x).
+$$
+The integration above means sum the values of $$f(x)$$ weighted by the measure $$\nu$$ of the set around each point $$x$$.
+Basically measure generalizes the concept of integration over sets.
+
+* Probability measure - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$R$$ i.e. $$X:\omega \rightarraow {mathbb}{R}$$
+  Then the expectation of the random variable is expressed as 
+
+$$
+\int_{\omega} X(\omega)\ d\mu(w)
+$$
+If the density of the random variable also called measure is $$p(x)$$ we have $$d\nu(x) = p(x)dx$$ and hence we can write the integral as 
+
+$$
+\int_{x \in R} X d\mu(x) = \int_{x \in R} Xp(x)dx
+$$
+
+* Standard integration: For a standard integration in the interval $$[a,b]$$ 
+
+$$
+\int_{a^b } f(x) dx =  \int_{a^b } f(x) dx
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 For instance:
 - The functional $$L_{x_0}(f) = f(x_0)$$ corresponds to the **Dirac measure** $$\nu = \delta_{x_0}$$, so  
@@ -231,6 +273,8 @@ $$
 
 In this sense, the orthogonality in $$C[a,b]$$ is not geometric but **functional**: a functional (or the signed measure corresponding to it) is orthogonal to a subspace if it vanishes on all functions within that subspace.  
 This abstract notion replaces the inner product-based orthogonality found in Hilbert spaces.
+
+
 
 
 
