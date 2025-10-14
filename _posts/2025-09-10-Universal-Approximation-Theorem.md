@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Universal Approximation theorem"
+title: "How Neural Networks Approximate Any Function: A Mathematical Dive into Universal Approximation theorem"
 date: 2025-08-09 00:00:00 -0000
 author: Santanu Pattanayak
 tags: UAT, Universal approximation theorem, Neural networks, 
@@ -16,7 +16,7 @@ tags: UAT, Universal approximation theorem, Neural networks,
 
 ## Introduction <a name="introduction"></a>
 
-The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **real analysis** and **functional analysis**.
+The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **normed linear spaces**, **real analysis**, **functional analysis** as well as in "measure theory"
 This post explores the UAT, its formal statement, and the real analysis theorems that underlie it.
 
 ## Norm of a function <a name="norm"></a>
@@ -217,9 +217,9 @@ L(f) = \int_{x \in A} f(x)\, d\mu(x).
 $$ 
 
 The measure is defined over "interesting" subsets of $$A$$ and while integrating set a disjoint set of subsets $$\{A_i\}_i$$ of $$A$$ the union of which should be $$A$$.
-These subsets $$A_i$$ can be singleton sets consisting of single element.
+These subsets $$A_i$$ can be singleton sets consisting of single element.  Do note that these "interesting subsets" of $$A$$ forms a collection called **sigma algebra** $$\mathcal{F}$$ and the measure is a function defined on the subsets of sigma algebra and not on the outcomes $$x \in A$$. To keep things contained we will not discuss measurable spaces in details hence , I advise readers unfamiliar with the same to go through it to get a good sense of measure.  
 
-The integration above means sum the values of $$f(x)$$ weighted by the measure $$\nu$$ of the set around each point $$x$$.
+The integration wrt to the measure denotes sum the values of $$f(x)$$ weighted by the measure $$\mu$$ of the set $$A$$ around each point $$x$$.
 Basically measure generalizes the concept of integration over sets.
 
 **Probability measure** - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$\mathbb{R}$$ i.e. $$X:\Omega \rightarrow \mathbb{R}$$
@@ -359,6 +359,8 @@ $$
 \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i)
 $$
 can approximate any continuous function on $$I_n$$ arbitrarily well.
+
+
 
 
 
