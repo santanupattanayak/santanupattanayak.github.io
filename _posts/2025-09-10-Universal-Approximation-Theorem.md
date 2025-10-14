@@ -305,20 +305,19 @@ Equivalently, the **closure** of $$S$$, denoted $$ \overline{S}$$, equals the en
 Suppose, for contradiction, that $$ \overline{S} \neq C(I_n)$$.  
 Then the closure of $$S$$, call it $$R = \overline{S}$$, is a **proper closed subspace** of $$C(I_n)$$.
 
----
 
 ### **Introducing Orthogonality**
 
 By the **Hahn–Banach separation principle**, there exists a **non-zero bounded linear functional**  
-\( L \in C(I_n)^* \) (the dual space) such that
+$$L \in C(I_n)^*$$ (the dual space) such that
 
 $$
-L(f) = 0 \quad \text{for all } f \in R.
+L(f) = 0 \quad \forall f \in R.
 $$
 
-Since \( S \subset R \), it follows that  
+Since $$S \subset R$$, it follows that  
 $$
-L(f) = 0 \quad \text{for all } f \in S.
+L(f) = 0 \quad \forall f \in S.
 $$
 
 
@@ -328,51 +327,51 @@ $$
 From the **Riesz Representation Theorem**, every bounded linear functional on \( C(I_n) \) can be represented as an **integral against a finite signed measure** \( \mu \) on \( I_n \):
 
 $$
-L(f) = \int_{I_n} f(x)\, d\mu(x),
+L(f) = \int_{I_n} f(x) d\mu(x)
 $$
-for some \( \mu \neq 0 \) in the dual space \( M(I_n) = C(I_n)^* \).
+for some $$\mu \neq 0$$ in the dual space $$M(I_n) = C(I_n)^*$$
 
 
 
-### **Applying to the Function Family**
+### **Applying Reiz representation and Orthogonality to the Sigmoid Function Family**
 
-Since each \( f \in S \) has the form  
+Since each $$f \in S$$ has the form  
 $$
 f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
 $$  
-the orthogonality condition \( L(f) = 0 \) gives
+the orthogonality condition $$L(f) = 0$$ gives
 
 $$
 \int_{I_n} \sigma(w \cdot x + b)\, d\mu(x) = 0 
-\quad \text{for all } w \in \mathbb{R}^n, \, b \in \mathbb{R}.
+\quad \text{for all } w \in \mathbb{R}^n, \, b \in \mathbb{R}
 $$
 
 
 
 ### **Role of Discriminatory Functions**
 
-A function \( \sigma \) is said to be **discriminatory** if the only measure \( \mu \) satisfying
+A function $$\sigma$$ is said to be **discriminatory** if the only measure $$\mu$$ satisfying
 
 $$
 \int_{I_n} \sigma(w \cdot x + b)\, d\mu(x) = 0
 \quad \text{for all } w,b
 $$
-is the **zero measure**, i.e., \( \mu = 0 \).
+is the **zero measure**, i.e., $$\mu = 0$$.
 
 Common activation functions like the **sigmoid** satisfy this property.
 
-Since our assumption led to the existence of a **non-zero** signed measure \( \mu \) that makes all these integrals vanish, this contradicts the discriminatory property of \( \sigma \).
+Since our assumption led to the existence of a **non-zero** signed measure $$\mu$$ that makes all these integrals vanish, this contradicts the discriminatory property of $$\sigma$$.
 
 
 
 ### **Conclusion**
 
-Hence, our assumption that \( \overline{S} \neq C(I_n) \) must be false.  
-Therefore, \( S \) is **dense** in \( C(I_n) \), proving that finite linear combinations of the form
+Hence, our assumption that $$\overline{S} \neq C(I_n)$$ must be false.  
+Therefore, $$S$$ is **dense** in $$C(I_n)$$, proving that finite linear combinations of the form
 
 $$
 \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i)
 $$
-can approximate any continuous function on \( I_n \) arbitrarily well.
+can approximate any continuous function on $$I_n$$ arbitrarily well.
 
 
