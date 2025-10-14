@@ -208,11 +208,15 @@ $$
 
 #### High level brief of measures 
 In classical calculus, integration is done with respect to a variable $$x$$(written as $$dx$$). In measure theory, we integrate a function with respect to a measure $$\mu$$(written as $$d\mu$$) which generalizes the idea of length, area, volume or probability.
-Integration of a function $$f$$ with respect to a measure $$\nu$$ over a set $$A$$ is written as
+Integration of a function $$f$$ with respect to a measure $$\mu$$ over a set $$A$$ is written as
 
 $$
 L(f) = \int_{x \in A} f(x)\, d\mu(x).
-$$
+$$ 
+
+The measure is defined over "interesting" subsets of $$A$$ and while integrating set a disjoint set of subsets $$\{A_i\}_i$$ of $$A$$ the union of which should be $$A$$.
+These subsets $$A_i$$ can be singleton sets consisting of single element.
+
 The integration above means sum the values of $$f(x)$$ weighted by the measure $$\nu$$ of the set around each point $$x$$.
 Basically measure generalizes the concept of integration over sets.
 
