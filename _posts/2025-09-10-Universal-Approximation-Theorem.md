@@ -279,31 +279,31 @@ $$
 f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
 $$  
 where  
-- \( \sigma \) is a fixed **activation function**,  
-- \( w_i \in \mathbb{R}^n \), \( b_i \in \mathbb{R} \) are parameters, and  
-- \( \alpha_i \in \mathbb{R} \) are coefficients.
+- $$\sigma$$ is a fixed **activation function**,  
+- $$w_i \in \mathbb{R}^n$$, $$b_i \in \mathbb{R}$$ are  hidden layer parameters 
+- $$\alpha_i \in \mathbb{R}$$ are output layer linear coefficients combining the nonlinear sigmoid activations.
 
 Let this collection of finite linear combinations be denoted by \( S \subset C(I_n) \).
 
----
+
 
 ### **Density Claim**
 
-Cybenko’s theorem states that the set \( S \) is **dense** in \( C(I_n) \) with respect to the **supremum norm**.  
-That is, for every continuous function \( f \in C(I_n) \) and every \( \varepsilon > 0 \), there exists a function \( g \in S \) such that
+Cybenko’s theorem states that the set $$S$$ is **dense** in $$C(I_n)$$ with respect to the **supremum norm**.  
+That is, for every continuous function $$f \in C(I_n)$$ and every $$ \varepsilon > 0 $$, there exists a function $$g \in S $$ such that
 
 $$
-\| f - g \|_{\infty} < \varepsilon.
+\| f - g \|_{\infty} < \varepsilon
 $$
 
-Equivalently, the **closure** of \( S \), denoted \( \overline{S} \), equals the entire space \( C(I_n) \).
+Equivalently, the **closure** of $$S$$, denoted $$ \overline{S}$$, equals the entire space $$C(I_n)$$.
 
----
+
 
 ### **Proof by Contradiction**
 
-Suppose, for contradiction, that \( \overline{S} \neq C(I_n) \).  
-Then the closure of \( S \), call it \( R = \overline{S} \), is a **proper closed subspace** of \( C(I_n) \).
+Suppose, for contradiction, that $$ \overline{S} \neq C(I_n)$$.  
+Then the closure of $$S$$, call it $$R = \overline{S}$$, is a **proper closed subspace** of $$C(I_n)$$.
 
 ---
 
