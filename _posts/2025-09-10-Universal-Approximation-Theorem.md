@@ -203,11 +203,11 @@ $$
 The **Riesz Representation Theorem** for $$C[a,b]$$ states that every continuous linear functional $$L$$ on $$C[a,b]$$ can be represented as an integral with respect to a **finitely additive signed measure** $$\mu$$:  
 
 $$
-L(f) = \int_a^b f(x)\, d\mu(x).
+L(f) = \int_a^b f(x)\ d\mu(x).
 $$
 
 #### High level brief of measures 
-In classical calculus, integration is done with respect to a variable $$x$$(written as $$dx$$). In measure theory, we integrate a function with respect to a measure $$nu$$(written as $$d\nu$$) which generalizes the idea of length, area, volume or probability.
+In classical calculus, integration is done with respect to a variable $$x$$(written as $$dx$$). In measure theory, we integrate a function with respect to a measure $$\mu$$(written as $$d\mu$$) which generalizes the idea of length, area, volume or probability.
 Integration of a function $$f$$ with respect to a measure $$\nu$$ over a set $$A$$ is written as
 
 $$
@@ -216,48 +216,27 @@ $$
 The integration above means sum the values of $$f(x)$$ weighted by the measure $$\nu$$ of the set around each point $$x$$.
 Basically measure generalizes the concept of integration over sets.
 
-* Probability measure - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$R$$ i.e. $$X:\omega \rightarraow {mathbb}{R}$$
-  Then the expectation of the random variable is expressed as 
+**Probability measure** - Let $$X$$ be random variable mapping the elements $$\omega \in \Omega$$ to $$\mathbb{R}$$ i.e. $$X:\omega \rightarrow \mathbb{R}$$
+  Then the expectation of the random variable is expressed in terms of measure as below 
 
 $$
 \int_{\omega} X(\omega)\ d\mu(w)
 $$
-If the density of the random variable also called measure is $$p(x)$$ we have $$d\nu(x) = p(x)dx$$ and hence we can write the integral as 
+If the probability density of the random variable which is our called measure here is $$p(x)$$ we have $$d\mu(x) = p(x)dx$$ and hence we can write the integral as 
 
 $$
 \int_{x \in R} X d\mu(x) = \int_{x \in R} Xp(x)dx
 $$
 
-* Standard integration: For a standard integration in the interval $$[a,b]$$ 
-
-$$
-\int_{a^b } f(x) dx =  \int_{a^b } f(x) dx
-$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-For instance:
-- The functional $$L_{x_0}(f) = f(x_0)$$ corresponds to the **Dirac measure** $$\nu = \delta_{x_0}$$, so  
+**Evaluation measure**
+The functional $$L_{x_0}(f) = f(x_0)$$ corresponds to the **Dirac measure** $$\mu = \delta_{x_0}$$, so  
   $$
   L_{x_0}(f) = \int_a^b f(x)\, d\delta_{x_0}(x)
   $$
-- The difference functional $$L(f) = f(x_1) - f(x_2)$$ corresponds to the **signed measure** $$\nu = \delta_{x_1} - \delta_{x_2}$$
 
-
+**Signed measure**
+When measures can take negative value we called it a signed measure. The difference functional $$L(f) = f(x_1) - f(x_2)$$ corresponds to the **signed measure** $$\mu = \delta_{x_1} - \delta_{x_2}$$
+As stated earlier the dual of the $$L^{\infty}$$ space consists of signed measures.
 
 ### Orthogonality and Duality in Infinite Dimensions
 
