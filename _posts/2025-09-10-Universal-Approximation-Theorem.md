@@ -351,7 +351,7 @@ Since our assumption led to the existence of a **non-zero** signed measure $$\mu
 
 
 
-### **Conclusion** <a name="conclusion"></a>
+### Conclusion <a name="conclusion"></a>
 
 Hence, our assumption that $$\overline{S} \neq C(I_n)$$ must be false.  
 Therefore, $$S$$ is **dense** in $$C(I_n)$$, proving that finite linear combinations of the form
