@@ -268,24 +268,16 @@ Now that we have defined some of the foundational mathematical ideas, let us wal
 
 ### **Premise**
 
-Consider the space of continuous functions  
-$$
-C(I_n), \quad \text{where } I_n = [0,1]^n,
-$$  
-the **n-dimensional unit cube**, which serves as our domain.
+Consider the space of continuous functions $$C(I_n), \quad \text{where } I_n = [0,1]^n $$ the **n-dimensional unit cube**, which serves as our domain.
 
-We define the family of functions of the form  
-$$
-f(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i),
-$$  
+We define the family of functions of the form $$ g(x) = \sum_{i=1}^{m} \alpha_i \, \sigma(w_i \cdot x + b_i) $$  
+
 where  
 - $$\sigma$$ is a fixed **activation function**,  
 - $$w_i \in \mathbb{R}^n$$, $$b_i \in \mathbb{R}$$ are  hidden layer parameters 
 - $$\alpha_i \in \mathbb{R}$$ are output layer linear coefficients combining the nonlinear sigmoid activations.
 
-Let this collection of finite linear combinations be denoted by \( S \subset C(I_n) \).
-
-
+Let this collection of functions formed by finite linear combinations of the sigmoid activations in the hidden layer be denoted by $$S \subset C(I_n)$$.
 
 ### **Density Claim**
 
@@ -305,7 +297,6 @@ Equivalently, the **closure** of $$S$$, denoted $$ \overline{S}$$, equals the en
 Suppose, for contradiction, that $$ \overline{S} \neq C(I_n)$$.  
 Then the closure of $$S$$, call it $$R = \overline{S}$$, is a **proper closed subspace** of $$C(I_n)$$.
 
-
 ### **Introducing Orthogonality**
 
 By the **Hahn–Banach separation principle**, there exists a **non-zero bounded linear functional**  
@@ -315,16 +306,15 @@ $$
 L(f) = 0 \quad \forall f \in R.
 $$
 
-Since $$S \subset R$$, it follows that  
+Since $$S \subset R$$, it follows that
+
 $$
 L(f) = 0 \quad \forall f \in S.
 $$
 
-
-
 ### **Riesz Representation**
 
-From the **Riesz Representation Theorem**, every bounded linear functional on \( C(I_n) \) can be represented as an **integral against a finite signed measure** \( \mu \) on \( I_n \):
+From the **Riesz Representation Theorem**, every bounded linear functional on $$C(I_n)$$ can be represented as an **integral against a finite signed measure** $$\mu$$ on $$I_n$$:
 
 $$
 L(f) = \int_{I_n} f(x) d\mu(x)
