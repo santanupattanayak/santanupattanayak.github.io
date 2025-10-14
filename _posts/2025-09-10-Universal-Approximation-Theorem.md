@@ -351,7 +351,7 @@ Since our assumption led to the existence of a **non-zero** signed measure $$\mu
 
 
 
-### Conclusion <a name="conclusion"></a>
+### Conclusion 
 
 Hence, our assumption that $$\overline{S} \neq C(I_n)$$ must be false.  
 Therefore, $$S$$ is **dense** in $$C(I_n)$$, proving that finite linear combinations of the form
@@ -362,7 +362,7 @@ $$
 can approximate any continuous function on $$I_n$$ arbitrarily well.
 
 
-##Conclusion
+## Conclusion <a name="conclusion"></a>
 The Universal Approximation Theorem serves as a cornerstone connecting mathematical theory with the practical capabilities of neural networks. It assures us that, under mild conditions on the activation function, even a single-hidden-layer network can approximate any continuous function on a compact domain to arbitrary precision.  
 
 Cybenko’s proof reveals the deeper analytical structure behind this fact — drawing upon concepts like linear functionals, signed measures, and the Hahn–Banach separation theorem. The key lies in the discriminatory property of the activation function: if no nontrivial signed measure can annihilate all activations, the span of these activations must be dense in the space of continuous functions.  
