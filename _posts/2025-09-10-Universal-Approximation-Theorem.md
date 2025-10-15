@@ -158,7 +158,7 @@ $$
 \langle x, y \rangle = 0 \quad \text{for all } x \in U
 $$
 
-Since each functional $$L$$ corresponds to a unique $$y$$, this also implies that any functional $$L \in X^*$$ satisfies $$L(x) = 0$$ for all $$x \in C$$ whenever $$y \in U^\perp$$.
+Since each functional $$L$$ corresponds to a unique $$y$$, this also implies that any functional $$L \in X^*$$ satisfies $$L(x) = 0$$ for all $$x \in U$$ whenever $$y \in U^\perp$$.
 
 
 ### Linear Functionals in Infinite-Dimensional Spaces
@@ -221,8 +221,8 @@ $$
 L(f) = \int_{x \in A} f(x)\, d\mu(x).
 $$ 
 
-The measure is defined over "interesting" subsets of $$A$$ and while integrating set a disjoint set of subsets $$\{A_i\}_i$$ of $$A$$ the union of which should be $$A$$.
-These subsets $$A_i$$ can be singleton sets consisting of single element.  Do note that these "interesting subsets" of $$A$$ forms a collection called **sigma algebra** $$\mathcal{F}$$ and the measure is a function defined on the subsets of sigma algebra and not on the outcomes $$x \in A$$. To keep things contained we will not discuss measurable spaces in details hence , I advise readers unfamiliar with the same to go through it to get a good sense of measure.  
+The measure is defined over "interesting" subsets of $$A$$ and while integrating we choose a disjoint collection of subsets $$\{A_i\}_i$$ of $$A$$ such that  $$\bigcup_{i} A_i = A$$.
+These subsets $$A_i$$ can also be singleton sets consisting of single element.  Do note that these "interesting subsets" of $$A$$ forms a collection called **sigma algebra** $$\mathcal{F}$$ and the measure is a function defined on the subsets of sigma algebra and not on the elements $$x \in A$$. To keep things contained we will not discuss measurable spaces in details hence , I advise readers unfamiliar with the same to go through it to get a good sense of measure.  
 
 The integration wrt to the measure denotes sum the values of $$f(x)$$ weighted by the measure $$\mu$$ of the set $$A$$ around each point $$x$$.
 Basically measure generalizes the concept of integration over sets.
