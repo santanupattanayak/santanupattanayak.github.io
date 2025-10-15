@@ -17,8 +17,8 @@ tags: UAT, Universal approximation theorem, Neural networks,
 
 ## Introduction <a name="introduction"></a>
 
-The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **normed linear spaces**, **real analysis**, **functional analysis** as well as in "measure theory"
-This post explores the UAT, its formal statement, and the real analysis theorems that underlie it.
+The Universal Approximation Theorem (UAT) is one of the cornerstones of modern deep learning theory. At its heart, it asserts that a sufficiently large neural network can approximate any continuous function to arbitrary accuracy under certain conditions. While the statement is popular in machine learning circles, its mathematical foundations are deeply rooted in **normed linear spaces**, **real analysis**, **functional analysis** as well as in **measure theory**.
+This post explores the UAT, its formal statement, and the mathematical and practical aspects that underlie it.
 
 ## Norm of a function <a name="norm"></a>
 The norm of a function would appear multiple times in our discussion of UAT and hence it makes sense to go over it before we dive into the various aspects of UAT.
@@ -45,7 +45,7 @@ $$
 \end{align}
 $$  
 
-When $$p=\infty$$ we get the $$L^{\infty}$$ norm which is also called the Supremum norm. Supremum norm is the nothing but the maximum of the absolute values of the function since:  
+When $$p=\infty$$ we get the $$L^{\infty}$$ norm which is also called the **supremum norm**. Supremum norm is the nothing but the maximum of the absolute values of the function since:  
 
 $$
 \begin{align}
@@ -91,22 +91,26 @@ $$
 
 The scale $$k$$ can be chosen appropriately large. In the below plot we can see three pulses $$y_1 = G(x,a=0.5,b=1.5) $$,  $$y_2 = G(x,a=2,b=3) $$ and $$y_3 = G(x,a=3.2,b=4.2) $$
 
-<img width="1000" height="600" alt="impulse functions" src="https://github.com/user-attachments/assets/f2d5ae59-fff9-4a27-bbf3-4a4233347b4b" />
+<img width="1000" height="400" alt="impulse functions" src="https://github.com/user-attachments/assets/f2d5ae59-fff9-4a27-bbf3-4a4233347b4b" />
+
+Figure 1.0 Impulse functions through shifted sigmoids
 
 Now any complicated continuous function can be approximated closely by summing up these pulse functions $$G(x,a,b)$$ which themselves are nothing but composed of sigmoids. Hence the theorem of Universal Approximation theorem as stated in the earlier section holds true where the hidden layer can be composed of the sigmoids that make up the pulse functions and then the output layer weights combine them to form the final function.
 
-If we plan to approximate a function such as below 
+If we plan to approximate a function such as in Figure 2.0
 
-<img width="827" height="497" alt="image" src="https://github.com/user-attachments/assets/cef5aa9a-9761-4fe3-9f6e-7150221b6175" />
+<img width="827" height="400" alt="image" src="https://github.com/user-attachments/assets/cef5aa9a-9761-4fe3-9f6e-7150221b6175" />
 
-The same can be composed exactly by combining the earlier illustrated pulse functions as $$y = y_1 + 2y_2 + 1.5y_3$$
+Figure 2.0 Desired function to approximate
 
-<img width="852" height="495" alt="image" src="https://github.com/user-attachments/assets/7cc9b915-87cc-449d-92c2-25a9a974bb43" />
+The same can be composed exactly by combining the impulse functions(see Figure 1.0) as $$y = y_1 + 2y_2 + 1.5y_3$$
+
+<img width="852" height="400" alt="image" src="https://github.com/user-attachments/assets/7cc9b915-87cc-449d-92c2-25a9a974bb43" />
+
+Figure 3.0 Function approximation using pulse functions
 
 Hence, given only a hidden layer of sigmoid activations we can approximate any complex function with enough neurons in the hidden layer.
 Do note that this approximation theorem, doesn't really tell how many neurons are required in the hidden layer or if the learning methodology would be able to learn the approximation well enough.
-
-
 
 
 
