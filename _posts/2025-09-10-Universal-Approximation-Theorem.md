@@ -380,7 +380,7 @@ In essence, the Universal Approximation Theorem guarantees that neural networks 
 
 ## References
 
-[1] Approximation by Superpositions of a Sigmoidal Function : https://web.njit.edu/~usman/courses/cs675_fall18/10.1.1.441.7873.pdf  
+[1] [Approximation by Superpositions of a Sigmoidal Function](https://web.njit.edu/~usman/courses/cs675_fall18/10.1.1.441.7873.pdf)  
 
 
 
