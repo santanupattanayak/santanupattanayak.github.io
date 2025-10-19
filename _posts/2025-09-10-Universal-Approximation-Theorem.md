@@ -151,6 +151,8 @@ This correspondence between $$L$$ and $$y$$ is formalized by the **Riesz Represe
 
 Since in finite dimensional Hilbert Space the dual space coincides with the original space, i.e. $$X^* = X$$, any linear functional can be represented as the inner product with some vector in $$X$$. Thus, the dual space of a finite-dimensional Hilbert space is isomorphic to the space itself.
 
+### Orthogonality in Finite Dimensional Spaces
+
 If $$U$$ is a **closed convex subset** of $$X$$, it has an associated orthogonal complement $$U^\perp$$ consisting of all elements orthogonal to $$U$$.  
 Any element $$y \in U^\perp$$ satisfies  
 
@@ -159,6 +161,20 @@ $$
 $$
 
 Since each functional $$L$$ corresponds to a unique $$y$$, this also implies that any functional $$L \in X^*$$ satisfies $$L(x) = 0$$ for all $$x \in U$$ whenever $$y \in U^\perp$$.
+
+As an intuitive example, consider $$U = \mathbb{R}^2$$ as a closed and convex subset of $$X = \mathbb{R}^3$$.  
+If we choose any vector $$a \in X - U$$, it will have zero dot product with every element of $$U$$.  
+
+For instance, let $$a = [0, 0, c]^{T}$$.  
+Any element of $$U = \mathbb{R}^2$$ can be written as $$x = [x_1, x_2, 0]^{T}$$.  
+Hence, $$a \in X - U = (X - U)^{*}$$, and we have  
+
+$$
+a^{T}x = 0 \cdot x_1 + 0 \cdot x_2 + c \cdot 0 = 0, \quad \forall x \in U.
+$$  
+
+Thus, the functional $$f_{a}(x)= a^{T}x$$ associated with $$a \in X - U = (X - U)^{*}$$, denoted by $$f_{a}(x)$$, **annihilates** all elements of $$U$$.
+ 
 
 
 ### Linear Functionals in Infinite-Dimensional Spaces
