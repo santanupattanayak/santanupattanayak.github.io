@@ -166,14 +166,14 @@ As an intuitive example, consider $$U = \mathbb{R}^2$$ as a closed and convex su
 If we choose any vector $$a \in X - U$$, it will have zero dot product with every element of $$U$$.  
 
 For instance, let $$a = [0, 0, c]^{T}$$.  
-Any element of $$U = \mathbb{R}^2$$ can be written as $$x = [x_1, x_2, 0]^{T}$$.  
-Hence, $$a \in X - U = (X - U)^{*}$$, and we have  
+Any element of $$U = \mathbb{R}^2$$ can be written as $$x = [x_1, x_2, 0]^{T}$$. Since, $$a \in X - U = (X - U)^{*}$$, and we have
+
 
 $$
 a^{T}x = 0 \cdot x_1 + 0 \cdot x_2 + c \cdot 0 = 0, \quad \forall x \in U.
 $$  
 
-Thus, the functional $$f_{a}(x)= a^{T}x$$ associated with $$a \in X - U = (X - U)^{*}$$, denoted by $$f_{a}(x)$$, **annihilates** all elements of $$U$$.
+Thus, the functional $$f_{a}(x)= a^{T}x$$ associated with $$a \in X - U = (X - U)^{*}$$, denoted by $$f_{a}(x)$$, **annihilates** all elements of $$U$$ which captures the notion of orthogonality in a general sense.
  
 
 
