@@ -22,19 +22,19 @@ This shift from **imitation-driven SFT** to **alignment-oriented RL** marks a si
 Nevertheless, **SFT continues to play an essential role** as a preconditioning step before RL-based alignment. 
 
 
-## From Pretraining to Alignment: Understanding the Roles of Each Stage
-
 
 ## The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment
 
-| **Stage** | **Primary Objective / Loss Function** | **Data Source** | **Goal / Outcome** | **Key Challenges** |
-|------------|--------------------------------------|------------------|--------------------|--------------------|
-| **Pretraining** | Minimize language modeling loss:<br>$$\mathcal{L}_{\text{pre}} = -\mathbb{E}_{(x,y)\sim D_{\text{corpus}}} [\log P_\theta(y|x)]$$ | Massive unlabeled text corpora (web, books, code, etc.) | Learn broad linguistic, factual, and structural knowledge; capture general world representations. | High compute cost; biases in data; lack of grounding to human intent or task-level understanding. |
-| **Supervised Fine-Tuning (SFT)** | Minimize supervised imitation loss:<br>$$\mathcal{L}_{\text{SFT}} = -\mathbb{E}_{(x,y^*)\sim D_{\text{inst}}} [\log P_\theta(y^*|x)]$$ | Curated instruction–response datasets (human-written or synthetic) | Teach the model to follow instructions, structure responses, and stay aligned with factual or stylistic norms. | Distribution collapse around demonstrated behaviors; loss of diversity; reduced generalization to unseen prompts. |
-| **Alignment (RLHF / PPO)** | Maximize preference-weighted reward:<br>$$\mathcal{L}_{\text{RL}} = -\mathbb{E}_{x\sim D,\ y\sim \pi_\theta} [r(y|x)] + \beta\, D_{KL}(\pi_\theta \Vert \pi_{\text{ref}})$$ | Human or AI preference signals via pairwise comparisons or reward models | Align responses with human values, tone, and intent while preserving pretrained diversity and fluency. | Reward hacking; instability in optimization; balancing reward improvement with knowledge retention. |
 
----
+| **Attribute** | **Pretraining** | **Supervised Fine-Tuning (SFT)** | **Alignment (RLHF / PPO)** |
+|----------------|-----------------|----------------------------------|-----------------------------|
+| **Primary Objective** | Predict the next token in a sequence — learn general patterns of language, reasoning, and world knowledge by minimizing the difference between predicted and actual text. | Learn to imitate high-quality human or curated responses by minimizing cross-entropy loss over instruction–response pairs. | Optimize model behavior using reward signals from human or AI feedback, improving preference alignment while constraining divergence from the reference policy. |
+| **Data Source** | Massive unlabeled text corpora (web, books, academic papers, code, etc.). | Curated instruction–response datasets (human-written or synthetically generated). | Preference data — human or AI rankings, comparisons, or reward model outputs. |
+| **Goal / Outcome** | Acquire broad linguistic, factual, and structural understanding of the world. | Teach the model to follow instructions, stay factual, and maintain a coherent conversational style. | Refine the model’s responses to align with human intent, tone, and ethical expectations while preserving its pretrained diversity. |
+| **Optimization Method** | Gradient descent on the language modeling objective (e.g., AdamW). | Supervised gradient descent minimizing imitation loss. | Policy-gradient optimization (e.g., PPO or related methods) with reward shaping and KL regularization. |
+| **Key Challenges** | Expensive training; data bias; lack of grounding to human values or context. | Distribution collapse around demonstrated examples; loss of diversity and generalization. | Reward hacking; optimization instability; tuning balance between reward gain and knowledge retention. |
 
-Each stage in the pipeline serves a distinct purpose — **pretraining** builds the foundation of knowledge, **SFT** shapes that knowledge into coherent task-following behavior, and **RL-based alignment** fine-tunes those behaviors to better reflect human preferences. Together, they form a sequential refinement process that converts a general-purpose model into a safe and useful assistant.
+
+Each stage contributes uniquely to the model’s final behavior. **Pretraining** builds a foundation of general knowledge, **SFT** organizes this knowledge into structured instruction-following behavior, and **RL-based alignment** fine-tunes those behaviors to better reflect human preferences without eroding the model’s prior understanding.
 
 
