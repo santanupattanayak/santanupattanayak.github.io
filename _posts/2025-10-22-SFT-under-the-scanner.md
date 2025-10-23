@@ -11,15 +11,13 @@ tags: UAT, Universal approximation theorem, Neural networks,
 
 ## Introduction <a name="introduction"></a>
 
-Supervised Fine-Tuning (SFT) has long been the first stage of post-training for large language models. After pretraining on massive unlabeled corpora, models are refined using curated instruction–response pairs, teaching them to follow human-like instructions and remain grounded in factual, stylistic, or ethical norms. This process is simple, stable, and data-efficient — yet it has begun to reveal some fundamental limitations.  
+Supervised Fine-Tuning (SFT) has long been the first post-training stage for large language models. After pretraining on massive unlabeled corpora, models are refined using curated instruction–response pairs to follow human-like directions and adhere to factual, stylistic, or ethical norms. This process is simple and stable but reveals key limitations.
 
-SFT optimizes a cross-entropy loss that compels the model to imitate the provided responses as closely as possible. While this quickly improves surface-level helpfulness and fluency, it often causes the model’s output distribution to collapse around the demonstrated behaviors — compromising the performance of already well-learned behaviors acquired during pretraining across diverse modalities. The result is a model that performs well on seen data but loses diversity, creativity, and sometimes even factual robustness when operating in open-ended or interactive environments.  
+SFT minimizes a cross-entropy loss that forces imitation of target responses. While it improves immediate helpfulness and fluency, it often collapses the model’s output distribution around demonstrated behaviors—diminishing diversity, creativity, and even factual robustness in open-ended settings.
 
-In contrast, Reinforcement Learning (RL)–based post-training, particularly through methods such as Proximal Policy Optimization (PPO), treats the model as a policy that must balance learning from human feedback with preserving its prior knowledge. Rather than imitating demonstrations verbatim, PPO aligns the model using reward signals derived from human or AI preferences — enabling it to improve along directions that enhance user satisfaction while maintaining consistency with its pretrained distribution.  
+Reinforcement Learning (RL)–based post-training, especially via Proximal Policy Optimization (PPO), treats the model as a policy that learns from feedback while preserving prior knowledge. Instead of copying demonstrations, PPO aligns the model through reward signals reflecting human or AI preferences, enhancing user satisfaction without distorting its pretrained distribution.
 
-This shift from **imitation-driven SFT** to **alignment-oriented RL** marks a significant evolution in the fine-tuning paradigm for large models. RL methods have demonstrated stronger capabilities in **preserving generalization**, **avoiding distribution collapse**, and **achieving more stable alignment**, even when supervision is limited or noisy.  
-
-Nevertheless, **SFT continues to play an essential role** as a preconditioning step before RL-based alignment. 
+This shift from imitation-driven SFT to alignment-focused RL represents a key evolution in fine-tuning. RL better preserves generalization, prevents distribution collapse, and achieves more stable alignment—even when supervision is sparse. Still, SFT remains an essential precursor, instilling basic instruction-following behaviors that set the stage for effective RL-based alignment.
 
 
 
