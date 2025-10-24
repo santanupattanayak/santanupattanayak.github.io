@@ -159,12 +159,16 @@ L_{DFT} &= -\mathbb{E}_{x,y* \sim D} [sg(\pi_{\theta}(y*|x)) \log \pi_{\theta}(y
 \end{align}
 $$
 
-Using this corrective factor makes the $$L_{DFT}$$ loss in RL form have equal implicit reward of $$1$$ instead of $$w$$ for all curated responses $$y$$. This prevents over-emphasizing the learning on low probability curated responses leading to a more stable learning. This formulation shares some equivalence to RL with Verifiable Rewards(RLVR) that assigns the same reward for all correct verification.  
+Using this corrective factor makes the $$L_{DFT}$$ loss in RL form have equal implicit reward of $$1$$ instead of $$w$$ for all curated responses $$y$$. This prevents over-emphasizing the learning on low probability curated responses leading to a more stable learning.  
+
+This formulation shares some equivalence to RL with Verifiable Rewards(RLVR) that assigns the same reward for all correct verification.  
 
 
 Generally the entire trajectory corrective factor introduces instability and hence the corrective factor is applied at the token level in the practical implementation of DFT loss.
 $$
+\begin{align}
 L_{DFT} = -\mathbb{E}_{x,y* \sim D} [ \sum_{t=1}^{|y*|} sg(\pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*}, x)) \log \pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*},x)] 
+\end{align}
 $$
 
 
