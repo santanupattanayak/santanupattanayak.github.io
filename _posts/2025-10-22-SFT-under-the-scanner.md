@@ -127,3 +127,16 @@ $$
 
 This **discourages overconfidence** and helps maintain a broader response distribution — further reducing the tendency to collapse or forget previously learned behaviors.
 
+## Modifications to SFT to Consider 
+
+While SFT has its own pitfalls it is necessary to allow the model to follow instructions and setup the stage for RL for human alignment.
+
+The same has been illustrated by the slide from deeplearning.ai, where the pretrained model is not able to follow instructions.
+
+
+![img_5.png](img_5.png)
+
+Figure 1.0 illustrating why SFT is required.
+
+In this context we will discuss two recent approaches to Finetuning.
+
