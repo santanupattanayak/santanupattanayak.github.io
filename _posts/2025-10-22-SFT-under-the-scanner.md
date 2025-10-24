@@ -215,7 +215,7 @@ L_{RL2} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [\log \p
 \end{align}
 $$
 
-Since $$L_RL1$$ and $$L_RL2$$ have the same gradient they can be thought of conjugate to each other as they fall into the same equivalence class with respect to the gradient. Now we can clearly see 
+Since $$L_{RL1}$$ and $$L_{RL2}$$ have the same gradient they can be thought of conjugate to each other as they fall into the same equivalence class with respect to the gradient. Now we can clearly see 
 
 $$L_{SFT}$$ and $$L_{RL2}$$ have the same objective structure with the exception that in SFT the expectation is over the offline dataset $$D$$ while in RL its over the policy and the reward or advantage is  SFT is uniformly $$1$$ for all prompt-response pairs.
 
