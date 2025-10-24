@@ -39,68 +39,67 @@ Each stage contributes uniquely to the model’s final behavior. **Pretraining**
 ## Mathematical Explanation as to why SFT forgets more 
 
 
-While the above gives a surface level intuition as to why SFT forgets more than RL. Let's look at it in a little more detail.
+While the above provides a surface-level intuition for why SFT tends to forget more than RL, let’s examine it in greater detail.  
 
-In **Supervised Fine-Tuning (SFT)**, the model is trained on curated **instruction–response pairs** $$\{x, y\}$$ from a dataset $$D$$. The training objective of SFT is to maximize the **probability** of the response $$y$$ conditioned on the instruction $$x$$ under the model. If the model is denoted as a policy $$\pi_{\theta}$$ then the loss and the gradient of the SFT loss is of the form. 
-
-$$
-\begin{align}
-L_{SFT} = -\mathbb{E}_{x,y \sim D} [\log \pi_{\theta}(y|x)] \\
-\nabla_{\theta} L_{SFT} = -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)]
-\end{align}
-$$
-
-This is equivalent to minimizing the **cross-entropy loss** between the model’s predicted response tokens and the ground-truth response tokens, given the prompt $$x$$.  
-
-In RL, we do not imitate curated instruction-response pairs but rather change the policy $$\pi_{\theta}$$ based on rewards $$r(x,y)$$  on responses $$y$$ sampled from  the existing RL policy given a prompt $$x$$.  
-The objective and gradient of the objective for Policy gradient based optimization methods is as follows  :
+In **Supervised Fine-Tuning (SFT)**, the model is trained on curated **instruction–response pairs** $$\{x, y\}$$ from a dataset $$D$$.  
+The training objective of SFT is to maximize the **likelihood** of the response $$y$$ conditioned on the instruction $$x$$ under the model.  
+If the model is denoted as a policy $$\pi_{\theta}$$, then the loss and its gradient take the following form:
 
 $$
 \begin{align}
-L_{RL} = -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \\
-\nabla_{\theta} L_{RL} = -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
+L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\log \pi_{\theta}(y|x)] \\
+\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)]
 \end{align}
 $$
 
-If we compare $$\nabla_{\theta} L_{SFT}$$ and  $$\nabla_{\theta} L_{RL}$$ there are two major differences :
-1. \nabla_{\theta} L_{SFT} doesn't have the reward $$r(x,y)$$ term and hence we can treat the same as $$r(x,y)=1$$ for all the instruct-response pairs in $$D_{SFT}$$.
-2. The expectation in SFT is over just the dataset samples and not over the entire policy distribution as in RL.
+This is equivalent to minimizing the **cross-entropy loss** between the model’s predicted response tokens and the ground-truth tokens, given the prompt $$x$$.  
 
-We will now try to make the expectation in SFT gradient equivalent to that in RL and see how the overall expression differs from RL.
+In **Reinforcement Learning (RL)**, instead of imitating curated instruction–response pairs, the policy $$\pi_{\theta}$$ is updated based on **rewards** $$r(x, y)$$ received for responses $$y$$ sampled from the current policy given a prompt $$x$$.  
+For policy-gradient methods, the objective and its gradient are given by:
 
 $$
 \begin{align}
-\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
-&= -\mathbb{E}_{x\sim D}-\mathbb{E}_{y \sim \delta_{y*(x)}(y)}  [\nabla_{\theta}\log \pi_{\theta}(y|x)] 
+L_{RL} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \\
+\nabla_{\theta} L_{RL} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
 \end{align}
 $$
 
-Notice that we have broken down the expectation over the SFT dataset D as product of expectation over prompts $$x$$ from dataset $$D$$ and expectation over dirac distribution $$\delta_{y*(x)}(y)$$ where the entire probability mass is at $$y*(x)$$ for a given prompt $$x$$.
+Comparing $$\nabla_{\theta} L_{SFT}$$ and $$\nabla_{\theta} L_{RL}$$, we can observe two major differences:
 
-Now we will do importance sampling to convert the outer expectation to be over the policy as shown below. 
+1. In $$\nabla_{\theta} L_{SFT}$$ there is **no reward term** $$r(x, y)$$, which effectively means we can view SFT as having $$r(x, y) = 1$$ for all instruction–response pairs in $$D_{SFT}$$.  
+2. The expectation in SFT is taken **only over the dataset samples**, rather than over the full policy distribution as in RL.  
+
+Next, we reformulate the SFT gradient so that its expectation is also taken over the policy distribution, enabling a direct comparison with RL:
 
 $$
 \begin{align}
 \nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
-&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \delta_{y*(x)}(y)}  [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
-&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \pi_{\theta}(.|x)}  [\frac{\delta_{y*(x)}(y)}{\pi_{\theta}(.|x)}\nabla_{\theta}\log \pi_{\theta}(y|x)] 
+&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \delta_{y^*(x)}(y)} [\nabla_{\theta}\log \pi_{\theta}(y|x)]
 \end{align}
 $$
 
+Here, we decompose the expectation over the SFT dataset $$D$$ into an expectation over prompts $$x$$ drawn from $$D$$, and an inner expectation over a **Dirac distribution** $$\delta_{y^*(x)}(y)$$, where all the probability mass is concentrated at the ground-truth response $$y^*(x)$$ for a given prompt $$x$$.  
 
+We can now apply **importance sampling** to express the inner expectation in terms of the policy distribution:
 
+$$
+\begin{align}
+\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \delta_{y^*(x)}(y)} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
+&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \pi_{\theta}(.|x)} \left[\frac{\delta_{y^*(x)}(y)}{\pi_{\theta}(y|x)} \nabla_{\theta}\log \pi_{\theta}(y|x)\right]
+\end{align}
+$$
 
+From this, we see that an additional **weight term** emerges:
 
+$$
+w = \frac{\delta_{y^*(x)}(y)}{\pi_{\theta}(y|x)} = \frac{1}{\pi_{\theta}(y^*(x)|x)}
+$$
 
+for each SFT pair $$(x, y^*(x))$$.  
+This weight $$w$$ can be interpreted as an **implicit reward** for the instruction–response pair once the SFT gradient is expressed over the policy distribution.  
 
-
-
-
-
-
-
-
-
+However, if a given SFT example $$(x, y^*(x))$$ has **low probability** under the current policy $$\pi_{\theta}$$, then $$\frac{1}{\pi_{\theta}(y^*(x)|x)}$$ becomes **large**, leading to disproportionately high values of $$w$$.  
+This results in an **ill-posed reward structure** for SFT, where extremely large gradient magnitudes can arise around specific dataset points, ultimately causing **entropy collapse** and greater **forgetting** compared to RL.
 
 
 
