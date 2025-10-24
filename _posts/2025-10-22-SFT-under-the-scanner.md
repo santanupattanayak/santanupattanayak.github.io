@@ -145,14 +145,12 @@ In this context we will discuss two recent approaches to Finetuning.
 The paper [1] proposes a modified version of **Supervised Fine-Tuning (SFT)** that removes the effect of the unstable implicit reward factor $$w$$ by introducing a corrective scaling term $$\frac{1}{w}$$.  
 The key idea is to neutralize the implicit reward magnitude without allowing unwanted gradients to flow through this term.
 
-Formally, since  
-$$
-\frac{1}{w} = \pi_{\theta}(y|x),
-$$  
-the corrective factor $$\alpha_{\text{correction}}$$ is defined as:  
+Formally, since $$ w^{-1} = \pi_{\theta}(y|x) $$ the corrective factor $$\alpha_{\text{correction}}$$ is defined as:  
+
 $$
 \alpha_{\text{correction}} = sg\!\left(\frac{1}{w}\right) = sg\!\left(\pi_{\theta}(y^*|x)\right),
 $$  
+
 where the **stop-gradient** operator $$sg$$ prevents any gradients from propagating through the correction factor $$\alpha_{\text{correction}}$$.  
 In practice, this corresponds to **`detach()`** in PyTorch or **`tf.stop_gradient()`** in TensorFlow.
 
