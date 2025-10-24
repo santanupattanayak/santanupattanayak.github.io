@@ -202,7 +202,7 @@ $$
 $$
 \begin{align}
 L_{RL1} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \\
-\nabla_{\theta} L_{RL} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
+\nabla_{\theta} L_{RL1} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
 \end{align}
 $$
 
