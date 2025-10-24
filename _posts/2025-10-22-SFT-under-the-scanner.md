@@ -36,10 +36,10 @@ This shift from imitation-driven SFT to alignment-focused RL represents a key ev
 Each stage contributes uniquely to the model’s final behavior. **Pretraining** builds a foundation of general knowledge, **SFT** organizes this knowledge into structured instruction-following behavior, and **RL-based alignment** fine-tunes those behaviors to better reflect human preferences without eroding the model’s prior understanding.
 
 
-## Mathematical Explanation as to why SFT forgets more 
+## Mathematical Explanation as to why SFT forgets more than RL
 
 
-While the above provides a surface-level intuition for why SFT tends to forget more than RL, let’s examine it in greater detail.  
+While we have been discussing surface-level intuition for why SFT tends to forget more than RL, let’s examine it in greater detail mathematically through their objectives.
 
 In **Supervised Fine-Tuning (SFT)**, the model is trained on curated **instruction–response pairs** $$\{x, y\}$$ from a dataset $$D$$.  
 The training objective of SFT is to maximize the **likelihood** of the response $$y$$ conditioned on the instruction $$x$$ under the model.  
