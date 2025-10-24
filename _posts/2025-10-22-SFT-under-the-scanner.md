@@ -142,41 +142,46 @@ In this context we will discuss two recent approaches to Finetuning.
 
 ### Reward Rectification via Dynamic Reweighting
 
-The paper in [1] proposes a modified version of SFT that eliminates the effect of unstable implicit reward factor of $$w$$ by introducing  a scaling factor of $$\frac{1}{w}$$. We just want to have the factor eliminate the implicit reward magnitude but not have unnecessary gradients flow through the same as. 
+The paper [1] proposes a modified version of **Supervised Fine-Tuning (SFT)** that removes the effect of the unstable implicit reward factor $$w$$ by introducing a corrective scaling term $$\frac{1}{w}$$.  
+The key idea is to neutralize the implicit reward magnitude without allowing unwanted gradients to flow through this term.
 
+Formally, since  
 $$
-\frac{1}{w} = \pi_{\theta}(y|x)
+\frac{1}{w} = \pi_{\theta}(y|x),
+$$  
+the corrective factor $$\alpha_{\text{correction}}$$ is defined as:  
 $$
-
-Hence, we can compute the factor $$\alpha_{correction}$$ as 
-
-$$
-\alpha_{correction} = sg(\frac{1}{w}) = sg(\pi_{\theta}(y*|x))
-$$
-The stop gradient operator $$sg$$ ensures that no gradient flows because through the correction factor of  $$\alpha_{correction}$$.  The $$sg$$ operator is Pytorch is **detach()** while in Tensorflow the equivalent operator is **tf.stop_gradient()**.
-
-Using this corrective factor we can express this Dynamic reweighing loss gradient and loss as follows. :
+\alpha_{\text{correction}} = sg\!\left(\frac{1}{w}\right) = sg\!\left(\pi_{\theta}(y^*|x)\right),
+$$  
+where the **stop-gradient** operator $$sg$$ prevents any gradients from propagating through the correction factor $$\alpha_{\text{correction}}$$.  
+In practice, this corresponds to **`detach()`** in PyTorch or **`tf.stop_gradient()`** in TensorFlow.
 
 
-$$
-\begin{align}
-L_{DFT} &= -\mathbb{E}_{x,y* \sim D} [sg(\pi_{\theta}(y*|x)) \log \pi_{\theta}(y*|x)] \\
-\nabla_{\theta} L_{DFT} &= -\mathbb{E}_{x,y* \sim D} [sg(\pi_{\theta}(y*|x)) \nabla_{\theta}\log \pi_{\theta}(y*|x)]
-\end{align}
-$$
-
-Using this corrective factor makes the $$L_{DFT}$$ loss in RL form have equal implicit reward of $$1$$ instead of $$w$$ for all curated responses $$y$$. This prevents over-emphasizing the learning on low probability curated responses leading to a more stable learning.  
-
-This formulation shares some equivalence to RL with Verifiable Rewards(RLVR) that assigns the same reward for all correct verification.  
 
 
-Generally the entire trajectory corrective factor introduces instability and hence the corrective factor is applied at the token level in the practical implementation of DFT loss.
+Using this correction, the **Dynamic Fine-Tuning (DFT)** loss and its gradient can be written as:
 
 $$
 \begin{align}
-L_{DFT} = -\mathbb{E}_{x,y* \sim D} [ \sum_{t=1}^{|y*|} sg(\pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*}, x)) \log \pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*},x)] 
+L_{DFT} &= -\mathbb{E}_{x, y^* \sim D} [\, sg(\pi_{\theta}(y^*|x)) \, \log \pi_{\theta}(y^*|x) \,] \\
+\nabla_{\theta} L_{DFT} &= -\mathbb{E}_{x, y^* \sim D} [\, sg(\pi_{\theta}(y^*|x)) \, \nabla_{\theta}\log \pi_{\theta}(y^*|x) \,]
 \end{align}
 $$
+
+This formulation ensures that the **implicit reward** for all curated responses $$y^*$$ is uniformly **1**, rather than being scaled by $$w$$.  
+As a result, the model avoids overemphasizing low-probability dataset responses, leading to **more stable learning**.
+
+This approach is conceptually similar to **Reinforcement Learning with Verifiable Rewards (RLVR)**, where every verified correct response receives the same fixed reward, maintaining stability in updates.
+
+Applying the correction factor to the entire trajectory can cause instability.  
+Therefore, in practice, the corrective scaling is applied **at the token level** within each sequence:
+
+$$
+L_{DFT} = -\mathbb{E}_{x, y^* \sim D} \Bigg[ \sum_{t=1}^{|y^*|} sg\!\big(\pi_{\theta}(y_{t}^{*} | y_{<t}^{*}, x)\big) \log \pi_{\theta}(y_{t}^{*} | y_{<t}^{*}, x) \Bigg]
+$$
+
+This token-wise formulation stabilizes training by ensuring smooth gradient propagation while maintaining consistent reward normalization across tokens.
+
 
 ### Proximal SFT 
 
