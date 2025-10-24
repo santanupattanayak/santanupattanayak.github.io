@@ -145,7 +145,7 @@ In this context we will discuss two recent approaches to Finetuning.
 The paper [1] proposes a modified version of **Supervised Fine-Tuning (SFT)** that removes the effect of the unstable implicit reward factor $$w$$ by introducing a corrective scaling term $$\frac{1}{w}$$.  
 The key idea is to neutralize the implicit reward magnitude without allowing unwanted gradients to flow through this term.
 
-Formally, since 
+Since 
 $$
 \frac{1}{w} = \pi_{\theta}(y|x)
 $$
