@@ -140,3 +140,43 @@ Figure 1.0 illustrating why SFT is required.
 
 In this context we will discuss two recent approaches to Finetuning.
 
+### Reward Rectification via Dynamic Reweighting
+
+The paper in [1] proposes a modified version of SFT that eliminates the effect of unstable implicit reward factor of $$w$$ by introducing  a scaling factor of $$\frac{1}{w}$$. We just want to have the factor eliminate the implicit reward magnitude but not have unnecessary gradients flow through the same as $$\frac{1}{w} = \pi_{\theta}(y|x)$$. Hence, we can compute the factor $$\alpha_{correction}$$ as 
+
+$$
+\alpha_{correction} = sg(\frac{1}{w}) = sg(\pi_{\theta}(y*|x))
+$$
+The stop gradient operator $$sg$$ ensures that no gradient flows because through the correction factor of  $$\alpha_{correction}$$.  The $$sg$$ operator is Pytorch is **detach()** while in Tensorflow the equivalent operator is **tf.stop_gradient()**.
+
+Using this corrective factor we can express this Dynamic reweighing loss gradient and loss as follows. :
+
+
+$$
+\begin{align}
+L_{DFT} &= -\mathbb{E}_{x,y* \sim D} [sg(\pi_{\theta}(y*|x)) \log \pi_{\theta}(y*|x)] \\
+\nabla_{\theta} L_{DFT} &= -\mathbb{E}_{x,y* \sim D} [sg(\pi_{\theta}(y*|x)) \nabla_{\theta}\log \pi_{\theta}(y*|x)]
+\end{align}
+$$
+
+Using this corrective factor makes the $$L_{DFT}$$ loss in RL form have equal implicit reward of $$1$$ instead of $$w$$ for all curated responses $$y$$. This prevents over-emphasizing the learning on low probability curated responses leading to a more stable learning. This formulation shares some equivalence to RL with Verifiable Rewards(RLVR) that assigns the same reward for all correct verification.  
+
+
+Generally the entire trajectory corrective factor introduces instability and hence the corrective factor is applied at the token level in the practical implementation of DFT loss.
+$$
+L_{DFT} = -\mathbb{E}_{x,y* \sim D} [ \sum_{t=1}^{|y*|} sg(\pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*}, x)) \log \pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*},x)] 
+$$
+
+
+
+
+  
+## References
+
+[1] [ON THE GENERALIZATION OF SFT: A REINFORCEMENT LEARNING PERSPECTIVE WITH REWARD RECTIFICATION](https://arxiv.org/pdf/2508.05629)  
+
+
+
+
+
+
