@@ -186,7 +186,79 @@ $$
 This token-wise formulation stabilizes training by ensuring smooth gradient propagation while maintaining consistent reward normalization across tokens.
 
 
-### Proximal SFT 
+## Proximal SFT
+
+**Proximal Supervised Fine-Tuning (PSFT)** enhances standard Supervised Fine-Tuning (SFT) by introducing a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.  
+This formulation draws a close parallel between SFT and policy-gradient–based reinforcement learning (RL), revealing that SFT can be viewed as a *special case* of RL where the rewards are uniform.
+
+
+
+### Connecting SFT and Policy Gradients
+
+In SFT, the model is trained on a fixed dataset of prompt–response pairs $$(x, y^*) \sim D$$.  
+The loss minimizes the negative log-likelihood of the correct response:
+
+$$
+\begin{align}
+\nabla_{\theta} L_{SFT} 
+&= -\mathbb{E}_{x, y \sim D} \big[\nabla_{\theta}\log \pi_{\theta}(y|x)\big] \\
+&= -\mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \delta_{y^*(x)}(y)} \big[\nabla_{\theta}\log \pi_{\theta}(y|x)\big]
+\end{align}
+$$
+
+Here, the expectation is taken over a **Dirac delta distribution** centered on the gold response $$y^*(x)$$, meaning the model is updated only using the ground-truth sample from the dataset.
+
+
+### RL Objective Formulation
+
+In contrast, the RL objective optimizes the expected reward under the model’s policy distribution:
+
+$$
+\begin{align}
+L_{RL1} &= -\mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} [r(x,y)] \\
+\nabla_{\theta} L_{RL} &= -\mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} 
+\big[\nabla_{\theta}\log \pi_{\theta}(y|x) \, r(x,y)\big]
+\end{align}
+$$
+
+Using the log-derivative trick, the corresponding loss can equivalently be expressed as:
+
+$$
+L_{RL2} = -\mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} 
+\big[\log \pi_{\theta}(y|x) \, r(x,y)\big]
+$$
+
+Both $$L_{RL1}$$ and $$L_{RL2}$$ share identical gradients, and can thus be considered **conjugate** in the sense that they belong to the same equivalence class with respect to their gradient operator.
+
+
+### Viewing SFT as a Special Case of RL
+
+From this perspective, **SFT** can be interpreted as a **degenerate case** of the RL objective, where:
+
+- The reward $$r(x,y) = 1$$ for all prompt–response pairs, and  
+- The expectation over responses is replaced by a deterministic distribution centered on $$y^*(x)$$.
+
+Hence, the SFT loss structurally matches $$L_{RL2}$$, differing only in the **sampling distribution**:
+
+$$
+\text{SFT: } \mathbb{E}_{y \sim \delta_{y^*(x)}}[\cdot]
+\quad \text{vs.} \quad
+\text{RL: } \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)}[\cdot]
+$$
+
+This equivalence forms the foundation for **Proximal SFT**, which augments the SFT objective with a *PPO-style trust region* to ensure stable updates while preserving the efficiency of supervised training.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
