@@ -36,3 +36,46 @@ This shift from imitation-driven SFT to alignment-focused RL represents a key ev
 Each stage contributes uniquely to the model’s final behavior. **Pretraining** builds a foundation of general knowledge, **SFT** organizes this knowledge into structured instruction-following behavior, and **RL-based alignment** fine-tunes those behaviors to better reflect human preferences without eroding the model’s prior understanding.
 
 
+## Mathematical Explanation as to why SFT forgets more 
+
+
+While the above gives a surface level intuition as to why SFT forgets more than RL. Let's look at it in a little more detail.
+
+In **Supervised Fine-Tuning (SFT)**, the model is trained on curated **instruction–response pairs** $$\{x, y\}$$ from a dataset $$D$$. The training objective of SFT is to maximize the **probability** of the response $$y$$ conditioned on the instruction $$x$$ under the model. If the model is denoted as a policy $$\pi_{\theta}$$ then the loss and the gradient of the SFT loss is of the form. 
+
+$$
+\begin{align}
+L_{SFT} = -\mathbb{E}_{x,y \sim D} [\log \pi_{\theta}(y|x)] \\
+\nabla_{\theta} L_{SFT} = -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)]
+\end{align}
+$$
+
+This is equivalent to minimizing the **cross-entropy loss** between the model’s predicted response tokens and the ground-truth response tokens, given the prompt $$x$$.  
+
+In RL, we do not imitate curated instruction-response pairs but rather change the policy $$\pi_{\theta}$$ based on rewards $$r(x,y)$$  on responses $$y$$ sampled from  the existing RL policy given a prompt $$x$$.  
+The objective and gradient of the objective for Policy gradient based optimization methods is as follows  :
+
+$$
+\begin{align}
+L_{RL} = -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \\
+\nabla_{\theta} L_{RL} = -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
+\end{align}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
