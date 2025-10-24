@@ -165,6 +165,7 @@ This formulation shares some equivalence to RL with Verifiable Rewards(RLVR) tha
 
 
 Generally the entire trajectory corrective factor introduces instability and hence the corrective factor is applied at the token level in the practical implementation of DFT loss.
+
 $$
 \begin{align}
 L_{DFT} = -\mathbb{E}_{x,y* \sim D} [ \sum_{t=1}^{|y*|} sg(\pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*}, x)) \log \pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*},x)] 
