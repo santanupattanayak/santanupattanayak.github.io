@@ -62,6 +62,31 @@ L_{RL} = -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \
 \end{align}
 $$
 
+If we compare $$\nabla_{\theta} L_{SFT}$$ and  $$\nabla_{\theta} L_{RL}$$ there are two major differences :
+1. \nabla_{\theta} L_{SFT} doesn't have the reward $$r(x,y)$$ term and hence we can treat the same as $$r(x,y)=1$$ for all the instruct-response pairs in $$D_{SFT}$$.
+2. The expectation in SFT is over just the dataset samples and not over the entire policy distribution as in RL.
+
+We will now try to make the expectation in SFT gradient equivalent to that in RL and see how the overall expression differs from RL.
+
+$$
+\begin{align}
+\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
+&= -\mathbb{E}_{x\sim D}-\mathbb{E}_{y \sim \delta_{y*(x)}(y)}  [\nabla_{\theta}\log \pi_{\theta}(y|x)] 
+\end{align}
+$$
+
+Notice that we have broken down the expectation over the SFT dataset D as product of expectation over prompts $$x$$ from dataset $$D$$ and expectation over dirac distribution $$\delta_{y*(x)}(y)$$ where the entire probability mass is at $$y*(x)$$ for a given prompt $$x$$.
+
+Now we will do importance sampling to convert the outer expectation to be over the policy as shown below. 
+
+$$
+\begin{align}
+\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
+&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \delta_{y*(x)}(y)}  [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
+&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \pi_{\theta}(.|x)}  [\frac{\delta_{y*(x)}(y)}{\pi_{\theta}(.|x)}\nabla_{\theta}\log \pi_{\theta}(y|x)] 
+\end{align}
+$$
+
 
 
 
