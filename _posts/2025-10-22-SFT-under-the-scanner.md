@@ -133,7 +133,8 @@ While SFT has its own pitfalls it is necessary to allow the model to follow inst
 
 The same has been illustrated by the slide from deeplearning.ai, where the pretrained model is not able to follow instructions.
 
-![img_5.png](img_5.png)
+![Picture 1](https://github.com/user-attachments/assets/79b05cc9-e9fa-44f8-a9c8-7d9e69dd37d6)
+
 
 Figure 1.0 illustrating why SFT is required.
 
