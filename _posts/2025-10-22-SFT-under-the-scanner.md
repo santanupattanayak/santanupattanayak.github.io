@@ -142,7 +142,13 @@ In this context we will discuss two recent approaches to Finetuning.
 
 ### Reward Rectification via Dynamic Reweighting
 
-The paper in [1] proposes a modified version of SFT that eliminates the effect of unstable implicit reward factor of $$w$$ by introducing  a scaling factor of $$\frac{1}{w}$$. We just want to have the factor eliminate the implicit reward magnitude but not have unnecessary gradients flow through the same as $$\frac{1}{w} = \pi_{\theta}(y|x)$$. Hence, we can compute the factor $$\alpha_{correction}$$ as 
+The paper in [1] proposes a modified version of SFT that eliminates the effect of unstable implicit reward factor of $$w$$ by introducing  a scaling factor of $$\frac{1}{w}$$. We just want to have the factor eliminate the implicit reward magnitude but not have unnecessary gradients flow through the same as. 
+
+$$
+\frac{1}{w} = \pi_{\theta}(y|x)
+$$
+
+Hence, we can compute the factor $$\alpha_{correction}$$ as 
 
 $$
 \alpha_{correction} = sg(\frac{1}{w}) = sg(\pi_{\theta}(y*|x))
@@ -171,6 +177,9 @@ $$
 L_{DFT} = -\mathbb{E}_{x,y* \sim D} [ \sum_{t=1}^{|y*|} sg(\pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*}, x)) \log \pi_{\theta}(y_{t}^{*} | y_{\lt t}^{*},x)] 
 \end{align}
 $$
+
+### Proximal SFT 
+
 
 
 
