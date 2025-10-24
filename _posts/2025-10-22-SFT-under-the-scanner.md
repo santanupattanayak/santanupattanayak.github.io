@@ -101,5 +101,29 @@ This weight $$w$$ can be interpreted as an **implicit reward** for the instructi
 However, if a given SFT example $$(x, y^*(x))$$ has **low probability** under the current policy $$\pi_{\theta}$$, then $$\frac{1}{\pi_{\theta}(y^*(x)|x)}$$ becomes **large**, leading to disproportionately high values of $$w$$.  
 This results in an **ill-posed reward structure** for SFT, where extremely large gradient magnitudes can arise around specific dataset points, ultimately causing **entropy collapse** and greater **forgetting** compared to RL.
 
+In this context, let us see why RL forgets less by revisiting the RL loss gradient. 
 
+$$
+\nabla_{\theta} L_{RL} = -\mathbb{E}_{x \sim D}\mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta} \log \pi_{\theta}(y|x) \, r(x, y)]
+$$
+
+
+* **Reward replaces Dirac weighting**  
+   In SFT, the gradient is weighted by a Dirac delta centered at the ground-truth response — effectively forcing the model to assign high probability to a single target output.  
+   In contrast, the RL gradient uses a **reward signal** $$r(x, y)$$ derived from task performance or preference models.  
+   This makes the gradient weight **bounded and meaningful**, rather than inversely proportional to the model’s own probability of producing that response.
+
+*  **Expectation is over the current policy**  
+   RL updates depend on samples drawn from the **current policy** $$\pi_{\theta}(y|x)$$, not on a fixed dataset.  
+   The model thus learns from what it actually generates, making updates **self-consistent** with its behavior.  
+   This avoids the sharp gradient corrections that SFT applies to low-probability dataset responses, leading to smoother learning and less forgetting.
+
+*  **Entropy regularization **  
+   Most RL objectives, such as PPO and other trust region based methods, include an **entropy term** that promotes exploration and diversity:
+
+   $$
+   L = L_{RL} - \beta \, \mathbb{E}_{x}\mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\log \pi_{\theta}(y|x)]
+   $$
+
+   This **discourages overconfidence** and helps maintain a broader response distribution — further reducing the tendency to collapse or forget previously learned behaviors.
 
