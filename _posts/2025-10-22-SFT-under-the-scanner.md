@@ -190,7 +190,7 @@ This token-wise formulation stabilizes training by ensuring smooth gradient prop
 
 **Proximal Supervised Fine-Tuning (PSFT)** aims to enhance SFT by introducing a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.
 
-As discussed earlier, **SFT** can be viewed as a special case of **policy-gradient–based reinforcement learning (RL)**, where prompt–response pairs are drawn from a *fixed dataset* $$D$$ rather than from the model’s policy. In this formulation, the reward (or advantage) is uniformly set to $$1$$ for all prompt–response pairs.
+As discussed earlier, **SFT** can be viewed as a special case of **policy-gradient–based reinforcement learning (RL)**, where prompt–response pairs are drawn from a **fixed dataset** $$D$$ rather than from the model’s policy. In this formulation, the reward (or advantage) is uniformly set to $$1$$ for all prompt–response pairs.
 
 Building on this connection, [2] introduces **Proximal SFT (PSFT)** — an adaptation of SFT that applies the *proximal optimization principle* from PPO to stabilize supervised updates.
 
@@ -219,7 +219,7 @@ This re-weighting allows optimization to proceed over samples from the old polic
 
 
 
-**Clipping the Policy Ratio**: To **prevent excessive policy updates**, PPO introduces a *clipped surrogate objective* that constrains the change in the policy ratio:
+**Clipping the Policy Ratio**: To **prevent excessive policy updates**, PPO introduces a **clipped surrogate objective** that constrains the change in the policy ratio:
 
 $$
 R_{\theta}(y|x) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}
@@ -240,29 +240,6 @@ R_{\theta}(y|x) \, r(x,y),\,
 $$
 
 This **trust-region constraint** ensures that the updated policy remains close to the old one, thereby stabilizing training and avoiding destructive gradient updates — a principle that directly motivates **Proximal SFT**.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
