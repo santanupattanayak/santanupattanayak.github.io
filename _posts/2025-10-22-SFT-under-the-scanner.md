@@ -268,14 +268,15 @@ $$
 the gradient of the $$L_{\text{SFT}}$$ loss is given by   
 
 $$
-\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\nabla_{\theta} R_{\theta}(x,y) \mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \log\pi_{\theta}(y|x)]
+\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \nabla_{\theta} R_{\theta}(x,y)  \log\pi_{\theta}(y|x)]
 $$
 
-where 
+where. 
+
 $$
 \begin{align}
-\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) &= 0   R_{\theta}(x,y) > 1+ \epsilon\\
-&= 1 \text{elsewhere}
+\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) &= 0   R_{\theta}(x,y) > 1+ \epsilon, \\
+&= 1   elsewhere
 \end{align}
 $$
 
