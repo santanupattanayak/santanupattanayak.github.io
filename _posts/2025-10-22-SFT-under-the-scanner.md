@@ -222,7 +222,7 @@ This re-weighting allows optimization to proceed over samples from the old polic
 **Clipping the Policy Ratio**: To **prevent excessive policy updates**, PPO introduces a **clipped surrogate objective** that constrains the change in the policy ratio:
 
 $$
-R_{\theta}(y|x) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}
+R_{\theta}(x,y) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}
 $$
 
 The clipped RL loss is then formulated as:
@@ -233,8 +233,8 @@ L_{RL} =
 \mathbb{E}_{y \sim \pi_{\text{old}}(\cdot|x)} 
 \left[
 \min\Big(
-R_{\theta}(y|x) \, r(x,y),\,
-\text{clip}(1 - \epsilon, 1 + \epsilon, R_{\theta}(y|x)) \, r(x,y)
+R_{\theta}(x,y) \, r(x,y),\,
+\text{clip}(1 - \epsilon, 1 + \epsilon, R_{\theta}(x,y)) \, r(x,y)
 \Big)
 \right]
 $$
