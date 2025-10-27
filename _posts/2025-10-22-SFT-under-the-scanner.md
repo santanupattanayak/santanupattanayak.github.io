@@ -7,6 +7,14 @@ tags: UAT, Universal approximation theorem, Neural networks,
 ---
 
 # Table of Contents
+1. [Introduction](#introduction)
+2. [The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment](#pipeline)
+3. [Mathematical Explanation as to why SFT forgets more than RL](#forgets)
+4. [Why SFT Still Matters](#sft)
+5. [Reward Rectification via Dynamic Reweighting](#dft)
+6. [Proximal SFT](#pfst)
+7. [Conclusion](#conclusion)
+
 
 
 ## Introduction <a name="introduction"></a>
@@ -21,7 +29,7 @@ This shift from imitation-driven SFT to alignment-focused RL represents a key ev
 
 
 
-## The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment
+## The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment <a name="pipeline"></a>
 
 
 | **Attribute** | **Pretraining** | **Supervised Fine-Tuning (SFT)** | **Alignment (RLHF / PPO)** |
@@ -36,7 +44,7 @@ This shift from imitation-driven SFT to alignment-focused RL represents a key ev
 Each stage contributes uniquely to the model’s final behavior. **Pretraining** builds a foundation of general knowledge, **SFT** organizes this knowledge into structured instruction-following behavior, and **RL-based alignment** fine-tunes those behaviors to better reflect human preferences without eroding the model’s prior understanding.
 
 
-## Mathematical Explanation as to why SFT forgets more than RL
+## Mathematical Explanation as to why SFT forgets more than RL <a name="forgets"></a>
 
 
 While we have been discussing surface-level intuition for why SFT tends to forget more than RL, let’s examine it in greater detail mathematically through their objectives.
@@ -127,7 +135,7 @@ $$
 
 This **discourages overconfidence** and helps maintain a broader response distribution — further reducing the tendency to collapse or forget previously learned behaviors.
 
-## Modifications to SFT to Consider 
+## Why SFT Still Matters <a name="sft"></a>
 
 While SFT has its own pitfalls it is necessary to allow the model to follow instructions and setup the stage for RL for human alignment.
 
@@ -140,7 +148,7 @@ Figure 1.0 illustrating why SFT is required.
 
 In this context we will discuss two recent approaches to Finetuning.
 
-## Reward Rectification via Dynamic Reweighting
+## Reward Rectification via Dynamic Reweighting <a name="dft"></a>
 
 The paper [1] proposes a modified version of **Supervised Fine-Tuning (SFT)** that removes the effect of the unstable implicit reward factor $$w$$ by introducing a corrective scaling term $$\frac{1}{w}$$.  
 The key idea is to neutralize the implicit reward magnitude without allowing unwanted gradients to flow through this term.
@@ -186,7 +194,7 @@ $$
 This token-wise formulation stabilizes training by ensuring smooth gradient propagation while maintaining consistent reward normalization across tokens.
 
 
-## Proximal SFT 
+## Proximal SFT  <a name="psft"></a>
 
 **Proximal Supervised Fine-Tuning (PSFT)** aims to enhance SFT by introducing a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.
 
@@ -303,14 +311,11 @@ $$
 
 where the scaling factor $$R_{\theta}(x,y)$$ amplifies updates for responses $$y$$ that are **more probable under the new policy** compared to the old one. This dynamic weighting encourages **self-consistent learning** — reinforcing responses that the model already prefers, while constraining drastic shifts outside the trust region.
 
+## Conclusion 
 
-
-
-
-
-
-
-
+In summary, while Supervised Fine-Tuning (SFT) remains a valuable step in aligning large language models toward human instructions, its limitations are increasingly clear. By optimizing a cross-entropy imitation loss over a fixed set of demonstrations, SFT often drives the policy to collapse around the seen behaviors—diminishing diversity, suppressing richly learned representations from pre-training, and reducing robustness in open-ended interactions.
+By contrast, reinforcement-learning-based alignment frameworks, such as Proximal Policy Optimization (PPO), recast the model as a policy and use reward signals derived from human or AI preferences. This paradigm shift—from imitation to alignment—helps ensure the model retains prior knowledge, prevents abrupt policy shifts, and consistently improves toward user-aligned objectives, even when explicit supervision is sparse or noisy.
+Nevertheless, SFT should not be dismissed entirely. It plays a crucial preparatory role: instilling the model with basic instruction-following behaviours and smoothing the path for subsequent RL fine-tuning. Having explored both the mathematical roots of SFT’s weaknesses and modified SFT formulations (such as Dynamic or Proximal SFT) that mitigate those weaknesses, the next step is clear: focus on hybrid strategies that combine the stability of SFT with the targeted precision of RL. By doing so, we can harness the full representational richness of pretrained models while aligning them more safely, robustly and flexibly for real-world use.
 
   
 ## References
