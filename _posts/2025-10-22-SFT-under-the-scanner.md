@@ -200,7 +200,7 @@ This token-wise formulation stabilizes training by ensuring smooth gradient prop
 
 As discussed earlier, **SFT** can be viewed as a special case of **policy-gradient–based reinforcement learning (RL)**, where prompt–response pairs are drawn from a **fixed dataset** $$D$$ rather than from the model’s policy. In this formulation, the reward (or advantage) is uniformly set to $$1$$ for all prompt–response pairs.
 
-Building on this connection, [2] introduces **Proximal SFT (PSFT)** — an adaptation of SFT that applies the *proximal optimization principle* from PPO to stabilize supervised updates.
+Building on this connection, [2] introduces **Proximal SFT (PSFT)** — an adaptation of SFT that applies the **proximal optimization principle** from PPO to stabilize supervised updates.
 
 
 The general Policy gradient based RL objective is defined as:
