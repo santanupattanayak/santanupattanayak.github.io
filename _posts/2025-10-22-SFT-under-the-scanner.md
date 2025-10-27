@@ -242,7 +242,7 @@ $$
 This **trust-region constraint** ensures that the updated policy remains close to the old one, thereby stabilizing training and avoiding destructive gradient updates — a principle that directly motivates **Proximal SFT**.
 
 
-Inspired by the PPO objective, the **Proximal Supervised Fine-Tuning (PSFT)** objective updates the policy $$\pi_{\theta}$$ using the formulation below. Here, the reward for all datapoints in the SFT dataset is fixed to \( 1 \), and the expectation—unlike in RL—is taken over a static dataset \( D \):
+Inspired by the PPO objective, the **Proximal Supervised Fine-Tuning (PSFT)** objective updates the policy $$\pi_{\theta}$$ using the formulation below. Here, the reward for all datapoints in the SFT dataset is fixed to $$1$$, and the expectation, unlike in RL, is taken over a static SFT dataset $$D$$:
 
 $$
 L_{\text{PSFT}} =
