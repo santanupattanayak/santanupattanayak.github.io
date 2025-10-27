@@ -140,7 +140,7 @@ Figure 1.0 illustrating why SFT is required.
 
 In this context we will discuss two recent approaches to Finetuning.
 
-### Reward Rectification via Dynamic Reweighting
+## Reward Rectification via Dynamic Reweighting
 
 The paper [1] proposes a modified version of **Supervised Fine-Tuning (SFT)** that removes the effect of the unstable implicit reward factor $$w$$ by introducing a corrective scaling term $$\frac{1}{w}$$.  
 The key idea is to neutralize the implicit reward magnitude without allowing unwanted gradients to flow through this term.
@@ -186,7 +186,7 @@ $$
 This token-wise formulation stabilizes training by ensuring smooth gradient propagation while maintaining consistent reward normalization across tokens.
 
 
-### Proximal SFT 
+## Proximal SFT 
 
 **Proximal Supervised Fine-Tuning (PSFT)** aims to enhance SFT by introducing a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.
 
@@ -204,7 +204,7 @@ $$
 This objective undergoes two key modifications to improve stability and efficiency:
 
 
-**Importance Sampling**: To avoid re-sampling from the updated policy at each iteration and to measure policy shift relative to an *old policy* $$\pi_{\text{old}}$$, PPO rewrites the expectation using **importance sampling**:
+**Importance Sampling**: To avoid re-sampling from the updated policy at each iteration and to measure policy shift relative to an **old policy** $$\pi_{\text{old}}$$, PPO rewrites the expectation using **importance sampling**:
 
 $$
 \begin{align}
@@ -242,9 +242,19 @@ $$
 This **trust-region constraint** ensures that the updated policy remains close to the old one, thereby stabilizing training and avoiding destructive gradient updates — a principle that directly motivates **Proximal SFT**.
 
 
+Inspired by the PPO objective, the **Proximal Supervised Fine-Tuning (PSFT)** objective updates the policy \( \pi_{\theta} \) using the formulation below. Here, the reward for all datapoints in the SFT dataset is fixed to \( 1 \), and the expectation—unlike in RL—is taken over a static dataset \( D \):
 
+$$
+L_{\text{PSFT}} =
+\mathbb{E}_{(x, y) \sim D} \left[
+\min \Big(
+R_{\theta}(x, y),
+\text{clip}\big(1 - \epsilon,\, 1 + \epsilon,\, R_{\theta}(x, y)\big)
+\Big)
+\right]
+$$
 
-
+This formulation, analogous to PPO, constrains the magnitude of policy updates—preventing the model from drifting too far from its previous distribution. As a result, it promotes **stable, gradual learning** and mitigates the risk of **distributional collapse** often observed in conventional SFT.
 
 
 
