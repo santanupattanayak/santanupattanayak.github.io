@@ -256,7 +256,7 @@ $$
 
 This formulation, analogous to PPO, constrains the magnitude of policy updates—preventing the model from drifting too far from its previous distribution. As a result, it promotes **stable, gradual learning** and mitigates the risk of **distributional collapse** often observed in conventional SFT.
 
-Now let us  inspect the gradient of the $$L_{PSFT}$$ loss and how it compares to the gradient of the standard SFT loss.
+Now let us  inspect the gradient of the $$L_{\text{PSFT}}$$ loss and how it compares to the gradient of the standard SFT loss.
 
 
 
