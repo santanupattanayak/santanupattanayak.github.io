@@ -259,6 +259,32 @@ This formulation, analogous to PPO, constrains the magnitude of policy updatesâ€
 Now let us  inspect the gradient of the $$L_{\text{PSFT}}$$ loss and how it compares to the gradient of the standard SFT loss.
 
 
+While the gradient of the SFT loss is 
+
+$$
+\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\nabla_{\theta} \log\pi_{\theta}(y|x) ]
+$$
+
+the gradient of the $$L_{\text{SFT}}$$ loss is given by   
+
+$$
+\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\nabla_{\theta} R_{\theta}(x,y) \mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \log\pi_{\theta}(y|x)]
+$$
+
+where 
+$$
+\begin{align}
+\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) &= 0   R_{\theta}(x,y) > 1+ \epsilon\\
+&= 1 \text{elsewhere}
+\end{align}
+$$
+
+
+
+
+
+
+
 
 
   
