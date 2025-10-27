@@ -256,30 +256,55 @@ $$
 
 This formulation, analogous to PPO, constrains the magnitude of policy updates—preventing the model from drifting too far from its previous distribution. As a result, it promotes **stable, gradual learning** and mitigates the risk of **distributional collapse** often observed in conventional SFT.
 
-Now let us  inspect the gradient of the $$L_{\text{PSFT}}$$ loss and how it compares to the gradient of the standard SFT loss.
+Now let us examine the gradient of the **Proximal SFT** loss, $$L_{\text{PSFT}}$$, and compare it with the gradient of the standard SFT objective.
 
-
-While the gradient of the SFT loss is 
-
-$$
-\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\nabla_{\theta} \log\pi_{\theta}(y|x) ]
-$$
-
-the gradient of the $$L_{\text{SFT}}$$ loss is given by   
+The gradient of the **standard SFT** loss is given by:
 
 $$
-\nabla_{\theta}L_{\text{SFT}} = \mathbb{E}_{x,y \sim D} [\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \nabla_{\theta} R_{\theta}(x,y)  \log\pi_{\theta}(y|x)]
+\nabla_{\theta} L_{\text{SFT}} 
+= \mathbb{E}_{x, y \sim D} \left[\nabla_{\theta} \log \pi_{\theta}(y|x)\right]
 $$
 
-where  
-
+In contrast, the gradient of the **Proximal SFT** loss can be expressed as:
 
 $$
-\begin{align}
-\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) &= 0   R_{\theta}(x,y) > 1+ \epsilon, \\
-&= 1. elsewhere
-\end{align}
+\nabla_{\theta} L_{\text{PSFT}} 
+= \mathbb{E}_{x, y \sim D} 
+\left[\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \,
+\nabla_{\theta} R_{\theta}(x,y) \,
+\log \pi_{\theta}(y|x)\right]
 $$
+
+where the **trust-region indicator** $$\mathbb{1}_{\text{trust}}(R_{\theta}(x,y))$$ is defined as:
+
+$$
+\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) =
+\begin{cases}
+0, & R_{\theta}(x,y) > 1 + \epsilon \\
+1, & \text{otherwise}
+\end{cases}
+$$
+
+Here, $$R_{\theta}(x,y) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}$$ denotes the ratio between the new and old policy probabilities.
+
+
+
+Intuitively, when the new-to-old policy ratio exceeds the upper trust bound ($$R_{\theta}(x,y) > 1 + \epsilon$$), the gradient is **suppressed to zero**, effectively halting updates for such samples. This prevents **large, destabilizing policy shifts**.
+
+Within the trust region, however, the PSFT gradient term  
+
+$$
+R_{\theta}(x,y) \, \nabla_{\theta} R_{\theta}(x,y) \, \log \pi_{\theta}(y|x)
+$$  
+
+acts as a **scaled version** of the SFT gradient  
+
+$$
+\nabla_{\theta} \log \pi_{\theta}(y|x),
+$$  
+
+where the scaling factor $$R_{\theta}(x,y)$$ amplifies updates for responses $$y$$ that are **more probable under the new policy** compared to the old one. This dynamic weighting encourages **self-consistent learning** — reinforcing responses that the model already prefers, while constraining drastic shifts outside the trust region.
+
 
 
 
