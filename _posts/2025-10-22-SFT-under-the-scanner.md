@@ -188,36 +188,71 @@ This token-wise formulation stabilizes training by ensuring smooth gradient prop
 
 ### Proximal SFT 
 
-**Proximal Supervised Fine-Tuning (PSFT)** aims to improve SFT by incorporating a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.
+**Proximal Supervised Fine-Tuning (PSFT)** aims to enhance SFT by introducing a **trust-region–based optimization strategy**, inspired by **Proximal Policy Optimization (PPO)**.
 
-As seen earlier SFT can be thought of as a special case of Policy gradient based RL whether the prompt-responses from a fixed dataset $$D$$ instead from the policy and the reward or advantage is uniformly $$1$$ for all prompt-response pairs.
+As discussed earlier, **SFT** can be viewed as a special case of **policy-gradient–based reinforcement learning (RL)**, where prompt–response pairs are drawn from a *fixed dataset* $$D$$ rather than from the model’s policy. In this formulation, the reward (or advantage) is uniformly set to $$1$$ for all prompt–response pairs.
+
+Building on this connection, [2] introduces **Proximal SFT (PSFT)** — an adaptation of SFT that applies the *proximal optimization principle* from PPO to stabilize supervised updates.
+
+
+The general Policy gradient based RL objective is defined as:
+
+$$
+L_{RL} = \mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\theta}(y|x)} [r(x, y)]
+$$
+
+This objective undergoes two key modifications to improve stability and efficiency:
+
+
+**Importance Sampling**: To avoid re-sampling from the updated policy at each iteration and to measure policy shift relative to an *old policy* $$\pi_{\text{old}}$$, PPO rewrites the expectation using **importance sampling**:
 
 $$
 \begin{align}
-\nabla_{\theta} L_{SFT} &= -\mathbb{E}_{x,y \sim D} [\nabla_{\theta}\log \pi_{\theta}(y|x)] \\
-&= -\mathbb{E}_{x\sim D}\mathbb{E}_{y \sim \delta_{y^*(x)}(y)} [\nabla_{\theta}\log \pi_{\theta}(y|x)]
+L_{RL} 
+&= \mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} [r(x, y)] \\
+&= \mathbb{E}_{x \sim D} \, \mathbb{E}_{y \sim \pi_{\text{old}}(\cdot|x)} 
+\left[\frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)} \, r(x, y)\right]
 \end{align}
 $$
 
-$$
-\begin{align}
-L_{RL1} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [r(x,y)] \\
-\nabla_{\theta} L_{RL1} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)}[\nabla_{\theta}\log \pi_{\theta}(y|x)r(x,y)]
-\end{align}
-$$
+This re-weighting allows optimization to proceed over samples from the old policy, while the ratio term explicitly tracks how much the new policy diverges from it.
 
-Based on the gradient of the RL objective, the RL loss can be also written as 
+
+
+**Clipping the Policy Ratio**: To **prevent excessive policy updates**, PPO introduces a *clipped surrogate objective* that constrains the change in the policy ratio:
 
 $$
-\begin{align}
-L_{RL2} &= -\mathbb{E}_{x \sim D} \mathbb{E}_{y \sim \pi_{\theta}(.|x)} [\log \pi_{\theta}(y|x) r(x,y)] \\
-\
-\end{align}
+R_{\theta}(y|x) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}
 $$
 
-Since $$L_{RL1}$$ and $$L_{RL2}$$ have the same gradient they can be thought of conjugate to each other as they fall into the same equivalence class with respect to the gradient. Now we can clearly see 
+The clipped RL loss is then formulated as:
 
-$$L_{SFT}$$ and $$L_{RL2}$$ have the same objective structure with the exception that in SFT the expectation is over the offline dataset $$D$$ while in RL its over the policy and the reward or advantage is  SFT is uniformly $$1$$ for all prompt-response pairs.
+$$
+L_{RL} = 
+\mathbb{E}_{x \sim D} \, 
+\mathbb{E}_{y \sim \pi_{\text{old}}(\cdot|x)} 
+\left[
+\min\Big(
+R_{\theta}(y|x) \, r(x,y),\,
+\text{clip}(1 - \epsilon, 1 + \epsilon, R_{\theta}(y|x)) \, r(x,y)
+\Big)
+\right]
+$$
+
+This **trust-region constraint** ensures that the updated policy remains close to the old one, thereby stabilizing training and avoiding destructive gradient updates — a principle that directly motivates **Proximal SFT**.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -241,7 +276,7 @@ $$L_{SFT}$$ and $$L_{RL2}$$ have the same objective structure with the exception
 ## References
 
 [1] [ON THE GENERALIZATION OF SFT: A REINFORCEMENT LEARNING PERSPECTIVE WITH REWARD RECTIFICATION](https://arxiv.org/pdf/2508.05629)  
-
+[2] [Proximal Supervised Fine-Tuning](https://arxiv.org/abs/2508.17784)
 
 
 
