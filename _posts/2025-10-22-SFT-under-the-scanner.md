@@ -313,8 +313,10 @@ where the scaling factor $$R_{\theta}(x,y)$$ amplifies updates for responses $$y
 
 ## Conclusion 
 
-In summary, while Supervised Fine-Tuning (SFT) remains a valuable step in aligning large language models toward human instructions, its limitations are increasingly clear. By optimizing a cross-entropy imitation loss over a fixed set of demonstrations, SFT often drives the policy to collapse around the seen behaviors—diminishing diversity, suppressing richly learned representations from pre-training, and reducing robustness in open-ended interactions.
-By contrast, reinforcement-learning-based alignment frameworks, such as Proximal Policy Optimization (PPO), recast the model as a policy and use reward signals derived from human or AI preferences. This paradigm shift—from imitation to alignment—helps ensure the model retains prior knowledge, prevents abrupt policy shifts, and consistently improves toward user-aligned objectives, even when explicit supervision is sparse or noisy.
+In summary, while Supervised Fine-Tuning (SFT) remains a valuable step in aligning large language models toward human instructions, its limitations are increasingly clear. By optimizing a cross-entropy imitation loss over a fixed set of demonstrations, SFT often drives the policy to collapse around the seen behaviors—diminishing diversity, suppressing richly learned representations from pre-training, and reducing robustness in open-ended interactions.  
+
+By contrast, reinforcement-learning-based alignment frameworks, such as Proximal Policy Optimization (PPO), recast the model as a policy and use reward signals derived from human or AI preferences. This paradigm shift—from imitation to alignment—helps ensure the model retains prior knowledge, prevents abrupt policy shifts, and consistently improves toward user-aligned objectives, even when explicit supervision is sparse or noisy.  
+
 Nevertheless, SFT should not be dismissed entirely. It plays a crucial preparatory role: instilling the model with basic instruction-following behaviours and smoothing the path for subsequent RL fine-tuning. Having explored both the mathematical roots of SFT’s weaknesses and modified SFT formulations (such as Dynamic or Proximal SFT) that mitigate those weaknesses, the next step is clear: focus on hybrid strategies that combine the stability of SFT with the targeted precision of RL. By doing so, we can harness the full representational richness of pretrained models while aligning them more safely, robustly and flexibly for real-world use.
 
   
