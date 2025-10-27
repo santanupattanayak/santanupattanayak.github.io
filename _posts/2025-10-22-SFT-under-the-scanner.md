@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "When Imitation Falls Short: Fixing the Flaws in SFT"
-date: 2025-08-09 00:00:00 -0000
+date: 2025-10-22 00:00:00 -0000
 author: Santanu Pattanayak
 tags: UAT, Universal approximation theorem, Neural networks, 
 ---
