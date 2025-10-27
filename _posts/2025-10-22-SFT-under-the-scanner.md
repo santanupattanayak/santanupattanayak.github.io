@@ -271,7 +271,7 @@ $$
 \nabla_{\theta} L_{\text{PSFT}} 
 = \mathbb{E}_{x, y \sim D} 
 \left[\mathbb{1}_{\text{trust}}(R_{\theta}(x,y)) \,
-\nabla_{\theta} R_{\theta}(x,y) \,
+R_{\theta}(x,y) \nabla_{\theta}  \,
 \log \pi_{\theta}(y|x)\right]
 $$
 
@@ -285,8 +285,6 @@ $$
 \end{cases}
 $$
 
-Here, $$R_{\theta}(x,y) = \frac{\pi_{\theta}(y|x)}{\pi_{\text{old}}(y|x)}$$ denotes the ratio between the new and old policy probabilities.
-
 
 
 Intuitively, when the new-to-old policy ratio exceeds the upper trust bound ($$R_{\theta}(x,y) > 1 + \epsilon$$), the gradient is **suppressed to zero**, effectively halting updates for such samples. This prevents **large, destabilizing policy shifts**.
@@ -294,7 +292,7 @@ Intuitively, when the new-to-old policy ratio exceeds the upper trust bound ($$R
 Within the trust region, however, the PSFT gradient term  
 
 $$
-R_{\theta}(x,y) \, \nabla_{\theta} R_{\theta}(x,y) \, \log \pi_{\theta}(y|x)
+R_{\theta}(x,y) \, \nabla_{\theta} \log \pi_{\theta}(y|x)
 $$  
 
 acts as a **scaled version** of the SFT gradient  
