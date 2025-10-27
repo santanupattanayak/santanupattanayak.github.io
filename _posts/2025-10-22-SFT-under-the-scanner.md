@@ -116,17 +116,17 @@ $$
 $$
 
 
-**Reward replaces Dirac weighting**. 
+**Reward replaces Dirac weighting**: 
 In SFT, the gradient is weighted by a Dirac delta centered at the ground-truth response — effectively forcing the model to assign high probability to a single target output.
 In contrast, the RL gradient uses a **reward signal** $$r(x, y)$$ derived from task performance or preference models.
 This makes the gradient weight **bounded and meaningful**, rather than inversely proportional to the model’s own probability of producing that response.
 
-**Expectation is over the current policy**. 
+**Expectation is over the current policy**:
 RL updates depend on samples drawn from the **current policy** $$\pi_{\theta}(y|x)$$, not on a fixed dataset.
 The model thus learns from what it actually generates, making updates **self-consistent** with its behavior.
 This avoids the sharp gradient corrections that SFT applies to low-probability dataset responses, leading to smoother learning and less forgetting.
 
-**Entropy regularization**
+**Entropy regularization**:
 Most RL objectives, such as PPO and other trust region based methods, include an **entropy term** that promotes exploration and diversity:
 
 $$
