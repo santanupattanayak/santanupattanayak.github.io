@@ -30,9 +30,9 @@ Mem0 models memory as a **directed labeled graph**:
 
 
 
-\[
+$$
 \mathcal{G} = (\mathcal{V}, \mathcal{E})
-\]
+$$
 
 
 
@@ -46,13 +46,13 @@ This structure enables relational reasoning, efficient retrieval, and scalable u
 ## Mathematical Breakdown
 
 ### 1. Node Construction
-From a conversation transcript \(C = \{u_1, u_2, \dots, u_T\}\), Mem0 extracts salient facts:
+From a conversation transcript $$(C = \{u_1, u_2, \dots, u_T\}\)$$ , Mem0 extracts salient facts:
 
 
 
-\[
+$$
 f_{\text{extract}}: C \to \mathcal{V}
-\]
+$$
 
 
 
@@ -60,13 +60,13 @@ Each node is embedded as:
 
 
 
-\[
+$$
 \mathbf{v}_i \in \mathbb{R}^d
-\]
+$$
 
 
 
-where \(d\) is the embedding dimension.
+where $$d$$ is the embedding dimension.
 
 ---
 
@@ -75,9 +75,9 @@ Relations between nodes are predicted via:
 
 
 
-\[
+$$
 r = f_{\text{rel}}(\mathbf{v}_i, \mathbf{v}_j)
-\]
+$$
 
 
 
@@ -85,25 +85,25 @@ yielding edges:
 
 
 
-\[
+$$
 e_{ij} = (\mathbf{v}_i, r, \mathbf{v}_j)
-\]
+$$
 
 
 
 ---
 
 ### 3. Retrieval via Graph Traversal
-Given a query \(q\), Mem0:
-1. Encodes it: \(\mathbf{q}\)
-2. Finds top-\(k\) similar nodes via cosine similarity
+Given a query $$q$$, Mem0:
+1. Encodes it: $$\mathbf{q}$$
+2. Finds top-$$k$$ similar nodes via cosine similarity
 3. Expands to neighbors:
 
 
 
-\[
+$$
 \mathcal{N}(v_i) = \{ v_j \mid (v_i, r, v_j) \in \mathcal{E} \}
-\]
+$$
 
 
 
