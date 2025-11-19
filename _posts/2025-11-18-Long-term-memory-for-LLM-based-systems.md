@@ -36,8 +36,8 @@ $$
 
 
 
-- **Nodes (\(\mathcal{V}\))** represent entities or facts (e.g., “Santanu likes Itô calculus”).
-- **Edges (\(\mathcal{E}\))** represent semantic or temporal relations (e.g., “prefers”, “authored”).
+- **Nodes $$\mathcal{V}$$** represent entities or facts (e.g., “Santanu likes Itô calculus”).
+- **Edges $$\mathcal{E}$$** represent semantic or temporal relations (e.g., “prefers”, “authored”).
 
 This structure enables relational reasoning, efficient retrieval, and scalable updates.
 
@@ -46,7 +46,7 @@ This structure enables relational reasoning, efficient retrieval, and scalable u
 ## Mathematical Breakdown
 
 ### 1. Node Construction
-From a conversation transcript $$(C = \{u_1, u_2, \dots, u_T\}\)$$ , Mem0 extracts salient facts:
+From a conversation transcript $$C = \{u_1, u_2, \dots, u_T\}$$ , Mem0 extracts salient facts:
 
 
 
