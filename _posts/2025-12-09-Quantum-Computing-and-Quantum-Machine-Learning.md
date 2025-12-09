@@ -69,6 +69,8 @@ $$
 $$
 
 Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{(\alpha + \beta)^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{(\alpha - \beta)^{2}}{2}$$.
+This illustrates the fact the same vector can collapse to a different set of basis vectors based on the basis used for measurement.
+
 
 
 
