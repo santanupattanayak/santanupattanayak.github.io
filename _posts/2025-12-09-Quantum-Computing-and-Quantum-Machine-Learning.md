@@ -31,10 +31,10 @@ $$
 |\phi\rangle = \alpha |0\rangle + \beta |1\rangle
 $$
 
-where $|\alpha|^2$ is the probability of measuring the system in state `|0⟩`, and $|\beta|^2$ is the probability of measuring it in state `|1⟩`.  
+where $$|\alpha|^2$$ is the probability of measuring the system in state $$\ket{0}$$, and $$|\beta|^2$$ is the probability of measuring it in state $$\ket{1}$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**, a concept we will revisit soon.
 
-To get an intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with `|0⟩`, while the *spin-down* state corresponds to `|1⟩`. This physical analogy offers one concrete realization of how qubits are built in practice.
+To get an intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$\ket{0}$$, while the *spin-down* state corresponds to $$\ket{1}$$. This physical analogy offers one concrete realization of how qubits are built in practice.
 
 
 
