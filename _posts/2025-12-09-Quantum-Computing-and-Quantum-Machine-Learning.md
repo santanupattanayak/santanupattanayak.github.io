@@ -61,9 +61,11 @@ $$
 We can re-write the superposition qubit state in a different basis altogether as shown below 
 
 $$
-|\phi\rangle &= \alpha |0\rangle + \beta |1\rangle
-&= \frac{(\alpha + \beta)}{\sqrt(2)} \frac{(\ket{0} + \ket{1})}{\sqrt(2)} + \frac{(\alpha - \beta)}{\sqrt(2)} \frac{(\ket{0} - \ket{1})}{\sqrt(2)}
+\begin{align}
+|\phi\rangle &= \alpha |0\rangle + \beta |1\rangle \\
+&= \frac{(\alpha + \beta)}{\sqrt(2)} \frac{(\ket{0} + \ket{1})}{\sqrt(2)} + \frac{(\alpha - \beta)}{\sqrt(2)} \frac{(\ket{0} - \ket{1})}{\sqrt(2)} \\
 &= \frac{(\alpha + \beta)}{\sqrt(2)} \ket{+} + \frac{(\alpha - \beta)}{\sqrt(2)} \ket{-}
+\end{align}
 $$
 
 Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{(\alpha + \beta)^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{(\alpha - \beta)^{2}}{2}$$.
