@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Quantum Computing and Quantum Machine Learning"
+date: 2025-11-18 00:00:00 -0000
+author: Santanu Pattanayak
+tags: MachineLearning.LLM memory, DeepLearning,Research 
+---
+
 # Table of Contents
 1. [Introduction](#introduction)
 2. [The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment](#pipeline)
