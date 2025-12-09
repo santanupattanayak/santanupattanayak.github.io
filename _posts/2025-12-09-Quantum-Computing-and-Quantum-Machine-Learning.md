@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quantum Computing and Quantum Machine Learning"
-date: 2025-11-18 00:00:00 -0000
+date: 2025-12-09 00:00:00 -0000
 author: Santanu Pattanayak
 tags: MachineLearning.LLM memory, DeepLearning,Research 
 ---
