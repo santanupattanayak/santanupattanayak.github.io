@@ -51,4 +51,12 @@ $$
 \left(\frac{1}{\sqrt{2}}\right)^2 = \frac{1}{2}.
 $$
 
-To build intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$|0\rangle$$, while the *spin-down* state corresponds to $$|1\rangle$$. This provides one concrete physical realization of how qubits can be implemented.
+## Realization of a Qubit
+To build intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$\ket{0}$$, while the *spin-down* state corresponds to $$\ket{1}$$. This provides one concrete physical realization of how qubits can be implemented.
+
+Also as per the atomic model an electron can exist in one of the **ground state** or in one of the remaining energy state which we collectively call as the **excited state**. Ground state can be denoted by $$\ket{0}$$ which the excited state can be denoted as $$\ket{1}$$. 
+
+By projecting light on an electron for an appropriate amount of time an electron in ground state $$\ket{0}$$ can be moved to an excited state $$\ket{1}$$ and vice versa. 
+An electron can be moved to a superposition state of $$\ket{0}$$ and $$\ket{1}$$ by reducing the duration of the time light is projected on to the atom.
+
+
