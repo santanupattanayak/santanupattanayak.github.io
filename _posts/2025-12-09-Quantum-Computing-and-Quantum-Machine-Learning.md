@@ -37,7 +37,7 @@ It is important to emphasize that these probabilities **do not** imply the qubit
 
 ## Measurement
 
-A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$|\psi\rangle$$ will collapse to either $$|0\rangle$$ or $$|1\rangle$$ during measurement.
+A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\phi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
 
 For example, consider the qubit state:
 
@@ -45,7 +45,7 @@ $$
 |\phi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
 $$
 
-If we prepare 1000 identical copies of this state and measure each one, we would expect to obtain roughly 500 outcomes of $$|0\rangle$$ and 500 outcomes of $$|1\rangle$$. This is because each basis state has probability
+If we prepare 1000 identical copies of this state and measure each one, we would expect to obtain roughly 500 outcomes of $$\ket{0}$$ and 500 outcomes of $$\ket{1}$$. This is because each basis state has probability
 
 $$
 \left(\frac{1}{\sqrt{2}}\right)^2 = \frac{1}{2}.
