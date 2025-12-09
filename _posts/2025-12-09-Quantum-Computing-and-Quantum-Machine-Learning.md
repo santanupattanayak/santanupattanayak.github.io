@@ -20,10 +20,11 @@ tags: MachineLearning.LLM memory, DeepLearning,Research
 Quantum computing and quantum machine learning are often misunderstood or oversimplified in popular articles that attempt to explain them at a surface level. Through this series of blog posts, I aim to demystify the core concepts behind Quantum Computing and Quantum Machine Learning, highlight where they can be genuinely useful in the long run, and showcase applications that are already beginning to benefit from them.  
 To appreciate these topics, we must first build a solid understanding of the foundations of quantum computation.
 
-# Quantum Bit aka Qubit 
+## Quantum Bit (Qubit)
+
 Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
 
-A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors [1, 0] and [0, 1]. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. Thus, we write these basis states as `|0⟩` and `|1⟩`.
+A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors `[1, 0]` and `[0, 1]`. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. Thus, we write these basis states as `|0⟩` and `|1⟩`.
 
 A general qubit state is a linear combination (superposition) of these basis states:
 
@@ -31,10 +32,23 @@ $$
 |\phi\rangle = \alpha |0\rangle + \beta |1\rangle
 $$
 
-where $$|\alpha|^2$$ is the probability of measuring the system in state $$\ket{0}$$, and $$|\beta|^2$$ is the probability of measuring it in state $$\ket{1}$$.  
-It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**, a concept we will revisit soon.
+where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
+It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
 
-To get an intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$\ket{0}$$, while the *spin-down* state corresponds to $$\ket{1}$$. This physical analogy offers one concrete realization of how qubits are built in practice.
+## Measurement
 
+A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$|\psi\rangle$$ will collapse to either $$|0\rangle$$ or $$|1\rangle$$ during measurement.
 
+For example, consider the qubit state:
 
+$$
+|\phi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
+$$
+
+If we prepare 1000 identical copies of this state and measure each one, we would expect to obtain roughly 500 outcomes of $$|0\rangle$$ and 500 outcomes of $$|1\rangle$$. This is because each basis state has probability
+
+$$
+\left(\frac{1}{\sqrt{2}}\right)^2 = \frac{1}{2}.
+$$
+
+To build intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$|0\rangle$$, while the *spin-down* state corresponds to $$|1\rangle$$. This provides one concrete physical realization of how qubits can be implemented.
