@@ -34,7 +34,8 @@ $$
 
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
-The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. These probability amplitudes represent vectors in the Hilbert Space and hence they can be added and subtracted meaningfully as well will see later. 
+
+The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$.
 
 ## Measurement
 
@@ -51,6 +52,23 @@ If we prepare 1000 identical copies of this state and measure each one, we would
 $$
 \left(\frac{1}{\sqrt{2}}\right)^2 = \frac{1}{2}.
 $$
+
+Do note that 
+$$
+|\phi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
+$$
+
+We can re-write the superposition qubit state in a different basis altogether as shown below 
+
+$$
+|\phi\rangle &= \alpha |0\rangle + \beta |1\rangle
+&= \frac{(\alpha + \beta)}{\sqrt(2)} \frac{(\ket{0} + \ket{1})}{\sqrt(2)} + \frac{(\alpha - \beta)}{\sqrt(2)} \frac{(\ket{0} - \ket{1})}{\sqrt(2)}
+&= \frac{(\alpha + \beta)}{\sqrt(2)} \ket{+} + \frac{(\alpha - \beta)}{\sqrt(2)} \ket{-}
+$$
+
+Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{(\alpha + \beta)^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{(\alpha - \beta)^{2}}{2}$$.
+
+
 
 ## Realization of a Qubit
 To build intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$\ket{0}$$, while the *spin-down* state corresponds to $$\ket{1}$$. This provides one concrete physical realization of how qubits can be implemented.
