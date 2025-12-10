@@ -24,7 +24,7 @@ To appreciate these topics, we must first build a solid understanding of the fou
 
 Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
 
-A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. The complex transpose of the state vector are denoted by **bra notation**. Thus, we write these basis states as $$\ket{0}$$ and $$\ket{1}$$.
+A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. The complex transpose of the state vector are denoted by **bra notation**. Thus, we write these basis states in ket notation as $$\ket{0}$$ and $$\ket{1}$$. Their complex conjugate transpose would be represented through bra notation as $$\bra{0}$$ and $$\bra{1}$$.
 
 
 A general qubit state is a linear combination (superposition) of these basis states:
@@ -36,7 +36,7 @@ $$
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
 
-The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha. \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$. 
+The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha, \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$. 
 
 Quantum states are represented by **unit vectors**. Since the squared magnitudes of the amplitudes—i.e., the probabilities associated with the basis states—must sum to 1, we require:
 
