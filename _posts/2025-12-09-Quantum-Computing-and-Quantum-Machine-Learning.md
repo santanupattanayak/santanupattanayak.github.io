@@ -210,7 +210,7 @@ e^{-i\theta/2} & 0 \\
 \end{bmatrix}
 $$
 
-### Effect on Basis States (Example: \( R_z(\theta) \))
+### Effect on Basis States ( Example: $$R_z(\theta)$$ )
 
 $$
 R_z(\theta)\ket{0} = e^{-i\theta/2}\ket{0}
