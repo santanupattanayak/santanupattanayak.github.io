@@ -399,5 +399,8 @@ This orchestrated use of quantum properties allows quantum algorithms to outperf
 
 ## Conclusion
 
-With this we come to the end of this article. Here we have covered the very basic ideas of Quantum computing and quantum properties that are essential to appreciate Quantum algorithms.
-In the follow up blog  we will see some applications of Quantum Computing and Quantum Machine learning which could demonstrate a "Quantum Advantage" over classical ones and some use cases where Quantum Computing is already being used.
+## Conclusion
+
+With this, we conclude the first part of the series. In this article, we built a mathematical and conceptual foundation for understanding **qubits**, **quantum states**, **measurement**, **entanglement**, **quantum gates**, and **interference**—the essential ingredients that make quantum computation fundamentally different from classical computation. These ideas form the groundwork needed to truly appreciate why quantum algorithms behave the way they do, and why they hold the potential to outperform classical methods for certain classes of problems.
+
+In the next article, we will explore **how these quantum mechanical principles translate into real computational advantages**. We will examine concrete quantum algorithms, early applications of **Quantum Machine Learning**, and scenarios where quantum systems already demonstrate capabilities unattainable by classical approaches. The goal is to connect the mathematical foundations covered here to meaningful use cases, and to highlight where genuine **Quantum Advantage** may emerge—both now and in the years to come.
