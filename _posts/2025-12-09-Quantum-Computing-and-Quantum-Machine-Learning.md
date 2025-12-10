@@ -17,12 +17,12 @@ tags: MachineLearning.LLM memory, DeepLearning,Research
 8. [Quantum Algorithms Leverage Superposition, Entanglement, and Interference](#bigpic)
 7. [Conclusion](#conclusion)
 
-## Introduction
+## Introduction <a name="introduction"></a>
 
 Quantum computing and quantum machine learning are often misunderstood or oversimplified in popular articles that attempt to explain them at a surface level. Through this series of blog posts, I aim to demystify the core concepts behind Quantum Computing and Quantum Machine Learning, highlight where they can be genuinely useful in the long run, and showcase applications that are already beginning to benefit from them.  
 To appreciate these topics, we must first build a solid understanding of the foundations of quantum computation.
 
-## Quantum Bit (Qubit)
+## Quantum Bit (Qubit) <a name="qubit"></a>
 
 Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
 
@@ -69,7 +69,7 @@ Thus, the normalization condition requires that the probabilities corresponding 
 
 
 
-## Measurement
+## Measurement <a name="measurement"></a>
 
 A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\phi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
 
@@ -103,7 +103,7 @@ This illustrates the fact the same vector can collapse to a different set of bas
 
 
 
-## Realization of a Qubit
+## Realization of a Qubit <a name="real"></a>
 To build intuition for qubit basis states, consider an electron’s **spin**. The *spin-up* state can be associated with $$\ket{0}$$, while the *spin-down* state corresponds to $$\ket{1}$$. This provides one concrete physical realization of how qubits can be implemented.
 
 Also as per the atomic model an electron can exist in one of the **ground state** or in one of the remaining energy state which we collectively call as the **excited state**. Ground state can be denoted by $$\ket{0}$$ which the excited state can be denoted as $$\ket{1}$$. 
@@ -112,7 +112,7 @@ By projecting light on an electron for an appropriate amount of time an electron
 An electron can be moved to a superposition state of $$\ket{0}$$ and $$\ket{1}$$ by reducing the duration of the time light is projected on to the atom.
 
 
-## Quantum Correlation through Entanglement 
+## Quantum Correlation through Entanglement <a name="corr"></a>
 
 Quantum states involving multiple qubits can exhibit strong correlations arising from a uniquely quantum property known as **entanglement**. A general two-qubit state can be written as:
 
@@ -156,7 +156,7 @@ $$
 If we measure one photon and find it in the spin-up state, we immediately know **with probability 1** that the other photon is in the spin-down state. This perfect correlation is a hallmark of quantum entanglement.
 
 
-## Quantum Gates
+## Quantum Gates <a name="gates"></a>
 
 Much like how classical gates alter the state of the bits Quantum gates are designed to alter the state of the Quantum states. Quantum gates are unitary operations that transform qubit states while preserving their overall probability. Below, we explore some fundamental 1-qubit gates—**X**, **Hadamard**, and **Rotation** gates—and a key 2-qubit gate, the **CNOT** gate. These gates form the building blocks of all quantum circuits.
 
@@ -313,7 +313,7 @@ $$
 
 which is precisely the condition for $$U$$ to be a **unitary matrix**. Thus, unitarity ensures that quantum gates preserve probability and maintain valid quantum states.
 
-## Quantum Interference 
+## Quantum Interference  <a name="interference"></a>
 
 
 Quantum interference occurs because quantum amplitudes can **add** or **cancel** depending on their signs and phases. This allows quantum systems to enhance certain outcomes (constructive interference) and suppress others (destructive interference).
@@ -360,7 +360,7 @@ The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$ �
 Quantum algorithms exploit this ability to **shape amplitudes**, starting from an equal superposition of solution space, the quantum circuit(based on composition of quantum gates) accenture the amplitude of the desired solution  through constructive interference, while reducing the amplitude magnitude through destructive interference.
 
 
-## Quantum Algorithms Leverage Superposition, Entanglement, and Interference
+## Quantum Algorithms Leverage Superposition, Entanglement, and Interference <a name="bigpic"></a>
 
 Quantum algorithms derive their power from three fundamental quantum mechanical properties: **superposition**, **entanglement**, and **interference**. Together, these properties allow a quantum system to evolve from an initial state to a final state that encodes the desired solution, using a carefully designed sequence of quantum gates.
 
@@ -397,7 +397,6 @@ Quantum algorithms work by:
 
 This orchestrated use of quantum properties allows quantum algorithms to outperform classical ones for specific tasks, revealing the true computational power of quantum mechanics.
 
-## Conclusion
 
 ## Conclusion
 
