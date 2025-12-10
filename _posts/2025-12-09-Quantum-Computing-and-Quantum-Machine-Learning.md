@@ -82,8 +82,7 @@ An electron can be moved to a superposition state of $$\ket{0}$$ and $$\ket{1}$$
 
 ## Quantum Correlation through Entanglement 
 
-Quantum states involving multiple qubits can exhibit strong correlations arising from a uniquely quantum property known as **entanglement**.  
-A general two-qubit state can be written as:
+Quantum states involving multiple qubits can exhibit strong correlations arising from a uniquely quantum property known as **entanglement**. A general two-qubit state can be written as:
 
 $$
 \ket{\phi} = \alpha_{00}\ket{00} + \alpha_{01}\ket{01} + \alpha_{10}\ket{10} + \alpha_{11}\ket{11}
@@ -97,8 +96,7 @@ $$
 |\alpha_{00}|^{2} + |\alpha_{01}|^{2} + |\alpha_{10}|^{2} + |\alpha_{11}|^{2} = 1.
 $$
 
-If we choose  
-$$\alpha_{00} = \alpha_{11} = \frac{1}{\sqrt{2}}, \qquad \alpha_{01} = \alpha_{10} = 0,$$  
+If we choose $$\alpha_{00} = \alpha_{11} = \frac{1}{\sqrt{2}}, \qquad \alpha_{01} = \alpha_{10} = 0,$$  
 we obtain the well-known **Bell state**:
 
 $$
@@ -114,3 +112,13 @@ $$
 Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$—with probability 1—because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
 
 This demonstrates how entanglement creates **strong, non-classical correlations** between qubits, where measuring one qubit instantaneously determines the state of the other, regardless of physical separation.
+
+To illustrate a physical example of quantum entanglement, consider a quantum system with **zero total angular momentum** that emits two photons, $$P_1$$ and $$P_2$$. Photons possess spin, and because angular momentum must be conserved, if one photon is measured to have spin-up (represented by $$\ket{0}$$), the other must have spin-down (represented by $$\ket{1}$$), and vice versa.
+
+Since each photon has an equal tendency to be in either spin state, the joint state of the two photons is described by the entangled state:
+
+$$
+\ket{\phi} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})
+$$
+
+If we measure one photon and find it in the spin-up state, we immediately know **with probability 1** that the other photon is in the spin-down state. This perfect correlation is a hallmark of quantum entanglement.
