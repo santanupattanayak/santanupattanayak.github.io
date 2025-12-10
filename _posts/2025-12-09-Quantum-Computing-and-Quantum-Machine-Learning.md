@@ -113,7 +113,7 @@ Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$
 
 This demonstrates how entanglement creates **strong, non-classical correlations** between qubits, where measuring one qubit instantaneously determines the state of the other, regardless of physical separation.
 
-To illustrate a physical example of quantum entanglement, consider a quantum system with **zero total angular momentum** that emits two photons, $$P_1$$ and $$P_2$$. Photons possess spin, and because angular momentum must be conserved, if one photon is measured to have spin-up (represented by $$\ket{0}$$), the other must have spin-down (represented by $$\ket{1}$$), and vice versa.
+To illustrate a physical example of quantum entanglement, consider a quantum system with **zero total angular momentum** that emits two photons, $$P_1$$ and $$P_2$$. Photons possess spin, and because angular momentum must be conserved, if one photon is in spin-up state (represented by $$\ket{0}$$), the other must be in  spin-down state (represented by $$\ket{1}$$), and vice versa.
 
 Since each photon has an equal tendency to be in either spin state, the joint state of the two photons is described by the entangled state:
 
