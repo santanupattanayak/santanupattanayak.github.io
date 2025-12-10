@@ -24,7 +24,8 @@ To appreciate these topics, we must first build a solid understanding of the fou
 
 Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
 
-A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. Thus, we write these basis states as `|0⟩` and `|1⟩`.
+A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. The complex transpose of the state vector are denoted by **bra notation**. Thus, we write these basis states as $$\ket{0}$$ and $$\ket{1}$$.
+
 
 A general qubit state is a linear combination (superposition) of these basis states:
 
@@ -35,7 +36,36 @@ $$
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
 
-The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha. \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$.
+The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha. \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$. 
+
+Quantum states are represented by **unit vectors**. Since the squared magnitudes of the amplitudes—i.e., the probabilities associated with the basis states—must sum to 1, we require:
+
+$$
+\langle \phi | \phi \rangle = 1.
+$$
+
+For a single-qubit state  
+$$
+\ket{\phi} = \alpha\ket{0} + \beta\ket{1},
+$$  
+we can verify this normalization as follows:
+
+$$
+\begin{align}
+\langle \phi | \phi \rangle 
+&= (\alpha^{*}\bra{0} + \beta^{*}\bra{1})(\alpha\ket{0} + \beta\ket{1}) \\
+&= \alpha^{*}\alpha \bra{0}\ket{0} 
+    + \alpha^{*}\beta \bra{0}\ket{1}
+    + \beta^{*}\alpha \bra{1}\ket{0}
+    + \beta^{*}\beta \bra{1}\ket{1} \\
+&= |\alpha|^{2} + 0 + 0 + |\beta|^{2} \\
+&= |\alpha|^{2} + |\beta|^{2} = 1.
+\end{align}
+$$
+
+Thus, the normalization condition requires that the probabilities corresponding to each basis state sum to 1.
+
+
 
 ## Measurement
 
@@ -130,7 +160,7 @@ Much like how classical gates alter the state of the bits Quantum gates are desi
 
 
 
-### 1. X Gate 
+###  X Gate 
 
 The **X gate** acts like a quantum version of the classical NOT gate. It flips the state of a qubit:
 
@@ -155,7 +185,7 @@ As we can see the **X gate** swaps the amplitudes of the basis states.
 
 
 
-### 2. Hadamard Gate (H Gate)
+### Hadamard Gate (H Gate)
 
 The **Hadamard gate** maps basis states to coherent combinations of $$\ket{0}$$ and $$\ket{1}$$.
 
@@ -179,7 +209,7 @@ $$
 
 The Hadamard gate is crucial for quantum parallelism, creating states that encode multiple possibilities simultaneously.
 
-### 3. Rotation Gates
+### Rotation Gates
 
 Rotation gates rotate the state of a qubit and allow for fine-grained, continuous transformations.
 
@@ -223,7 +253,7 @@ $$
 Rotation gates introduce controlled phase and amplitude adjustments—essential for building arbitrary single-qubit operations. We can create any desired state for a qubit in the 2-dimensional Hilbert space by suitable combination of these 3 rotation gates.
 
 
-### 4. CNOT Gate (Controlled-NOT)
+### CNOT Gate (Controlled-NOT)
 
 The **CNOT gate** is a 2-qubit gate that flips the target qubit *only if* the control qubit is in state $$\ket{1}$$. Its matrix form (with first qubit as control) is:
 
@@ -257,3 +287,9 @@ $$
 
 
 The **X**, **H**, and **rotation gates** form a universal set for single-qubit transformations. With the **CNOT** gate included, we obtain a universal gate set capable of constructing *any* quantum computation. The ability of CNOT to create entanglement is essential for quantum algorithms, quantum teleportation, and quantum error correction.
+
+Since the Quantum
+
+## Quantum Interference 
+
+Quantum inter
