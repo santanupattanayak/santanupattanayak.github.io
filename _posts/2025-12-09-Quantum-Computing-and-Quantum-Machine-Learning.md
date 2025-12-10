@@ -24,7 +24,7 @@ To appreciate these topics, we must first build a solid understanding of the fou
 
 Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
 
-A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors `[1, 0]` and `[0, 1]`. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. Thus, we write these basis states as `|0⟩` and `|1⟩`.
+A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. Thus, we write these basis states as `|0⟩` and `|1⟩`.
 
 A general qubit state is a linear combination (superposition) of these basis states:
 
@@ -35,7 +35,7 @@ $$
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
 
-The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$.
+The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha. \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$.
 
 ## Measurement
 
@@ -53,12 +53,9 @@ $$
 \left(\frac{1}{\sqrt{2}}\right)^2 = \frac{1}{2}.
 $$
 
-Do note that 
-$$
-|\phi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
-$$
 
-We can re-write the superposition qubit state in a different basis altogether as shown below 
+
+We can re-write the general superposition qubit state $$\ket{\phi} = \alpha \ket{0} + \beta \ket{1} $$ in a different basis altogether as shown below 
 
 $$
 \begin{align}
@@ -68,7 +65,7 @@ $$
 \end{align}
 $$
 
-Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{(\alpha + \beta)^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{(\alpha - \beta)^{2}}{2}$$.
+Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{|\alpha + \beta|^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{|\alpha - \beta|^{2}}{2}$$.
 This illustrates the fact the same vector can collapse to a different set of basis vectors based on the basis used for measurement.
 
 
@@ -83,3 +80,37 @@ By projecting light on an electron for an appropriate amount of time an electron
 An electron can be moved to a superposition state of $$\ket{0}$$ and $$\ket{1}$$ by reducing the duration of the time light is projected on to the atom.
 
 
+## Quantum Correlation through Entanglement 
+
+Quantum states involving multiple qubits can exhibit strong correlations arising from a uniquely quantum property known as **entanglement**.  
+A general two-qubit state can be written as:
+
+$$
+\ket{\phi} = \alpha_{00}\ket{00} + \alpha_{01}\ket{01} + \alpha_{10}\ket{10} + \alpha_{11}\ket{11}
+$$
+
+Here, $$\ket{ij}$$ represents the joint basis state in which the first qubit is in state $$\ket{i}$$ and the second qubit is in state $$\ket{j}$$.
+
+Since measurement must yield exactly one of these basis states, the probability amplitudes must satisfy:
+
+$$
+|\alpha_{00}|^{2} + |\alpha_{01}|^{2} + |\alpha_{10}|^{2} + |\alpha_{11}|^{2} = 1.
+$$
+
+If we choose  
+$$\alpha_{00} = \alpha_{11} = \frac{1}{\sqrt{2}}, \qquad \alpha_{01} = \alpha_{10} = 0,$$  
+we obtain the well-known **Bell state**:
+
+$$
+\ket{\phi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})
+$$
+
+Suppose we measure the first qubit. If the outcome collapses it to $$\ket{0}$$, then the post-measurement joint state becomes:
+
+$$
+\ket{\psi} = \ket{00}
+$$
+
+Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$—with probability 1—because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
+
+This demonstrates how entanglement creates **strong, non-classical correlations** between qubits, where measuring one qubit instantaneously determines the state of the other, regardless of physical separation.
