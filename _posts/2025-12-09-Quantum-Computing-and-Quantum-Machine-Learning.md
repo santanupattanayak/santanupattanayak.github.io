@@ -8,11 +8,13 @@ tags: MachineLearning.LLM memory, DeepLearning,Research
 
 # Table of Contents
 1. [Introduction](#introduction)
-2. [The Modern Training Pipeline — Roles of Pretraining, SFT, and Alignment](#pipeline)
-3. [Mathematical Explanation as to why SFT forgets more than RL](#forgets)
-4. [Why SFT Still Matters](#sft)
-5. [Reward Rectification via Dynamic Reweighting](#dft)
-6. [Proximal SFT](#pfst)
+2. [Quantum Bit (Qubit)](#qubit)
+3. [Measurement](#measurement)
+4. [Realization of a Qubit](#real)
+5. [Quantum Correlation through Entanglement](#corr)
+6. [Quantum Gates](#gates)
+7. [Quantum Interference](#interference)
+8. [Quantum Algorithms Leverage Superposition, Entanglement, and Interference](#bigpic)
 7. [Conclusion](#conclusion)
 
 ## Introduction
@@ -378,7 +380,7 @@ Entangling gates such as CNOT create correlations between qubits that cannot be 
 ### Interference: Amplifying Correct Answers, Cancelling Wrong Ones
 The final—and often most important—step uses **interference**. By carefully designing a sequence of unitary operations through quantum gates, the amplitudes of basis states are manipulated so that states corresponding to **correct solutions** undergo **constructive interference**, increasing their probability amplitude while states corresponding to **incorrect solutions** undergo **destructive interference**, suppressing their amplitude
 
-Mathematically, the algorithm applies unitary transformations \(U_1, U_2, \ldots, U_k\) such that:
+Mathematically, the algorithm applies unitary transformations $$ U_1, U_2, \ldots, U_k$$ such that:
 
 $$
 \ket{\psi_{\text{final}}} = U_k \cdots U_2 U_1 \ket{\psi_{\text{init}}}
@@ -394,3 +396,8 @@ Quantum algorithms work by:
 * **Guiding the evolution** through interference so that the final measurement yields the desired answer with high probability  
 
 This orchestrated use of quantum properties allows quantum algorithms to outperform classical ones for specific tasks, revealing the true computational power of quantum mechanics.
+
+## Conclusion
+
+With this we come to the end of this article. Here we have covered the very basic ideas of Quantum computing and quantum properties that are essential to appreciate Quantum algorithms.
+In the follow up blog  we will see some applications of Quantum Computing and Quantum Machine learning which could demonstrate a "Quantum Advantage" over classical ones and some use cases where Quantum Computing is already being used.
