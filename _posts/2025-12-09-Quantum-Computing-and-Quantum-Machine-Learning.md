@@ -122,3 +122,151 @@ $$
 $$
 
 If we measure one photon and find it in the spin-up state, we immediately know **with probability 1** that the other photon is in the spin-down state. This perfect correlation is a hallmark of quantum entanglement.
+
+
+$$ Quantum Gates
+
+Much like how classical gates alter the state of the bits Quantum gates are designed to alter the state of the Quantum states. 
+## Quantum Gates: Single-Qubit and Two-Qubit Operations
+
+Quantum gates are unitary operations that transform qubit states while preserving their overall probability. Below, we explore some fundamental 1-qubit gates—**X**, **Hadamard**, and **Rotation** gates—and a key 2-qubit gate, the **CNOT** gate. These gates form the building blocks of all quantum circuits.
+
+---
+
+## 1. X Gate (Pauli-X Gate)
+
+The **X gate** acts like a quantum version of the classical NOT gate. It flips the state of a qubit:
+
+$$
+X = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+$$
+
+### Effect on Basis States
+
+$$
+X\ket{0} = \ket{1}
+$$
+
+$$
+X\ket{1} = \ket{0}
+$$
+
+It swaps the amplitudes of the basis states.
+
+---
+
+## 2. Hadamard Gate (H Gate)
+
+The **Hadamard gate** creates equal superpositions. It maps basis states to coherent combinations of $$\ket{0}$$ and $$\ket{1}$$.
+
+$$
+H = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}
+$$
+
+### Effect on Basis States
+
+$$
+H\ket{0} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})
+$$
+
+$$
+H\ket{1} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
+$$
+
+The Hadamard gate is crucial for quantum parallelism, creating states that encode multiple possibilities simultaneously.
+
+---
+
+## 3. Rotation Gates
+
+Rotation gates rotate the state of a qubit on the Bloch sphere. They allow fine-grained, continuous transformations.
+
+### Rotation Around X-axis  
+$$
+R_x(\theta) = 
+\begin{bmatrix}
+\cos(\theta/2) & -i\sin(\theta/2) \\
+-i\sin(\theta/2) & \cos(\theta/2)
+\end{bmatrix}
+$$
+
+### Rotation Around Y-axis  
+$$
+R_y(\theta) = 
+\begin{bmatrix}
+\cos(\theta/2) & -\sin(\theta/2) \\
+\sin(\theta/2) & \cos(\theta/2)
+\end{bmatrix}
+$$
+
+### Rotation Around Z-axis  
+$$
+R_z(\theta) =
+\begin{bmatrix}
+e^{-i\theta/2} & 0 \\
+0 & e^{i\theta/2}
+\end{bmatrix}
+$$
+
+### Effect on Basis States (Example: \( R_z(\theta) \))
+
+$$
+R_z(\theta)\ket{0} = e^{-i\theta/2}\ket{0}
+$$
+
+$$
+R_z(\theta)\ket{1} = e^{i\theta/2}\ket{1}
+$$
+
+Rotation gates introduce controlled phase and amplitude adjustments—essential for building arbitrary single-qubit operations.
+
+---
+
+## 4. CNOT Gate (Controlled-NOT)
+
+The **CNOT gate** is a 2-qubit gate that flips the target qubit *only if* the control qubit is in state $$\ket{1}$$. Its matrix form (with first qubit as control) is:
+
+$$
+\text{CNOT} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+$$
+
+### Effect on Basis States
+
+$$
+\text{CNOT}\ket{00} = \ket{00}
+$$
+
+$$
+\text{CNOT}\ket{01} = \ket{01}
+$$
+
+$$
+\text{CNOT}\ket{10} = \ket{11}
+$$
+
+$$
+\text{CNOT}\ket{11} = \ket{10}
+$$
+
+---
+
+## Why These Gates Matter
+
+- The **X**, **H**, and **rotation gates** form a universal set for single-qubit transformations.  
+- With the **CNOT** gate included, we obtain a universal gate set capable of constructing *any* quantum computation.  
+- The ability of CNOT to create entanglement is essential for quantum algorithms, quantum teleportation, and quantum error correction.
+
+If you want, I can also add Bloch sphere visualizations, gate circuit diagrams, or show how these gates combine to form more complex operations.
