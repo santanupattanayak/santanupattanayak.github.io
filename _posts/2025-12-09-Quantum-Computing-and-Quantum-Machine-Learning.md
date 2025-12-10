@@ -287,6 +287,19 @@ $$
 \text{CNOT}\ket{11} = \ket{10}
 $$
 
+If the control qubit is in basis state $$\ket{x}$$ while the target qubit is in basis $$\ket{y}$$ then the joint quantum state $$\ket{xy}$$ is transformed as follows:
+
+$$
+\ket{xy} \rightarrow \ket{x,x \oplus y}
+$$
+
+We can create the entangled Bell state using the Hadamard Gate and CNOT gate as illustrated in the image below:
+
+![img_7.png](img_7.png)
+
+Figure 2: Quantum Entanglement Illustration.
+
+
 
 The **X**, **H**, and **rotation gates** form a universal set for single-qubit transformations. With the **CNOT** gate included, we obtain a universal gate set capable of constructing *any* quantum computation. The ability of CNOT to create entanglement is essential for quantum algorithms, quantum teleportation, and quantum error correction.
 
