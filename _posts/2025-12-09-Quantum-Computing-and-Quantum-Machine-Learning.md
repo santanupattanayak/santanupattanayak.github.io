@@ -288,8 +288,30 @@ $$
 
 The **X**, **H**, and **rotation gates** form a universal set for single-qubit transformations. With the **CNOT** gate included, we obtain a universal gate set capable of constructing *any* quantum computation. The ability of CNOT to create entanglement is essential for quantum algorithms, quantum teleportation, and quantum error correction.
 
-Since the Quantum
+Since quantum states are **unit vectors**, every **quantum gate** must be **unitary** to preserve the norm of the state during evolution.  
+If a quantum gate $$U$$ transforms a state $$\ket{\phi}$$ into a new state $$\ket{\psi} = U\ket{\phi}$$, then the output must still satisfy the unit-norm condition:
+
+$$
+\langle \psi | \psi \rangle = 1.
+$$
+
+Substituting $$\ket{\psi} = U\ket{\phi}$$:
+
+$$
+\langle \psi | \psi \rangle
+= (U\ket{\phi})^\dagger (U\ket{\phi})
+= \bra{\phi} U^\dagger U \ket{\phi}.
+$$
+
+Since this must equal 1 **for all quantum states** $$\ket{\phi}$$, the only possibility is:
+
+$$
+U^\dagger U = I,
+$$
+
+which is precisely the condition for $$U$$ to be a **unitary matrix**.  
+Thus, unitarity ensures that quantum gates preserve probability and maintain valid quantum states.
 
 ## Quantum Interference 
 
-Quantum inter
+The transforms applued 
