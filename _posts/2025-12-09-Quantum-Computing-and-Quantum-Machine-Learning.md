@@ -309,9 +309,50 @@ $$
 U^\dagger U = I,
 $$
 
-which is precisely the condition for $$U$$ to be a **unitary matrix**.  
-Thus, unitarity ensures that quantum gates preserve probability and maintain valid quantum states.
+which is precisely the condition for $$U$$ to be a **unitary matrix**. Thus, unitarity ensures that quantum gates preserve probability and maintain valid quantum states.
 
 ## Quantum Interference 
 
-The transforms applued 
+
+Quantum interference occurs because quantum amplitudes can **add** or **cancel** depending on their signs and phases. This allows quantum systems to enhance certain outcomes (constructive interference) and suppress others (destructive interference).
+
+Consider a general single-qubit state:
+
+$$
+\ket{\psi} = \alpha\ket{0} + \beta\ket{1}.
+$$
+
+The Hadamard gate is:
+
+$$
+H = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}.
+$$
+
+Applying the Hadamard gate on the general qubit state $$\ket{\psi}$$
+
+$$
+H\ket{\psi}
+= \alpha H\ket{0} + \beta H\ket{1}
+= \alpha\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})
++ \beta\frac{1}{\sqrt{2}}(\ket{0} - \ket{1}).
+$$
+
+Rearranging the amplitudes for each of the basis states we get:
+
+$$
+H\ket{\psi}
+= \frac{1}{\sqrt{2}}\left[(\alpha + \beta)\ket{0} + (\alpha - \beta)\ket{1}\right].
+$$
+
+
+The amplitude of $$\ket{0}$$ becomes $$\alpha + \beta$$, which clearly illustrates **constructive interference** when $$\alpha$$ and $$\beta$$ are positive real numbers.
+
+In the more general case where the amplitudes are complex, whether $$\alpha + \beta$$ leads to constructive or destructive interference depends on both the **relative signs** and the **relative phases** of the amplitudes.
+
+The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$ — its magnitude increases or decreases depending on the interplay of phase and sign between $$\alpha$$ and $$\beta$$.
+ 
+Quantum algorithms exploit this ability to **shape amplitudes**, starting from an equal superposition of solution space, the quantum circuit(based on composition of quantum gates) accenture the amplitude of the desired solution  through constructive interference, while reducing the amplitude magnitude through destructive interference.
