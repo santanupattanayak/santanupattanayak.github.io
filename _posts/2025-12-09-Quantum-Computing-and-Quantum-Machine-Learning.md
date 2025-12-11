@@ -67,7 +67,7 @@ Thus, the normalization condition requires that the probabilities corresponding 
 
 ## Measurement <a name="measurement"></a>
 
-A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\psi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
+A qubit, like any other quantum system, does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\psi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
 
 For example, consider the qubit state:
 
@@ -144,7 +144,7 @@ $$
 \ket{\psi} = \ket{00}
 $$
 
-Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$—with probability 1—because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
+Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$ with probability 1, because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
 
 This demonstrates how entanglement creates **strong, non-classical correlations** between qubits, where measuring one qubit instantaneously determines the state of the other, regardless of physical separation.
 
@@ -389,7 +389,7 @@ The amplitude of $$\ket{0}$$ becomes $$\alpha + \beta$$, which clearly illustrat
 
 In the more general case where the amplitudes are complex, whether $$\alpha + \beta$$ leads to constructive or destructive interference depends on both the **relative signs** and the **relative phases** of the amplitudes.
 
-The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$ — its magnitude increases or decreases depending on the interplay of phase and sign between $$\alpha$$ and $$\beta$$.
+The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$, its magnitude increases or decreases depending on the interplay of phase and sign between $$\alpha$$ and $$\beta$$.
  
 Quantum algorithms exploit this ability to **shape amplitudes**, starting from an equal superposition of solution space, the quantum circuit(based on composition of quantum gates) accenture the amplitude of the desired solution  through constructive interference, while reducing the amplitude magnitude through destructive interference.
 
@@ -412,7 +412,7 @@ representing **all possible inputs simultaneously**. Quantum gates then operate 
 Entangling gates such as CNOT create correlations between qubits that cannot be captured classically. These correlations allow quantum algorithms to propagate information globally across the state space, ensuring that local operations influence the full system.
 
 ### Interference: Amplifying Correct Answers, Cancelling Wrong Ones
-The final—and often most important—step uses **interference**. By carefully designing a sequence of unitary operations through quantum gates, the amplitudes of basis states are manipulated so that states corresponding to **correct solutions** undergo **constructive interference**, increasing their probability amplitude while states corresponding to **incorrect solutions** undergo **destructive interference**, suppressing their amplitude
+The final and often the most important step uses **interference**. By carefully designing a sequence of unitary operations through quantum gates, the amplitudes of basis states are manipulated so that states corresponding to **correct solutions** undergo **constructive interference**, increasing their probability amplitude while states corresponding to **incorrect solutions** undergo **destructive interference**, suppressing their amplitude
 
 Mathematically, the algorithm applies unitary transformations $$ U_1, U_2, \ldots, U_k$$ such that:
 
@@ -434,6 +434,6 @@ This orchestrated use of quantum properties allows quantum algorithms to outperf
 
 ## Conclusion
 
-With this, we conclude the first part of the series. In this article, we built a mathematical and conceptual foundation for understanding **qubits**, **quantum states**, **measurement**, **entanglement**, **quantum gates**, and **interference**—the essential ingredients that make quantum computation fundamentally different from classical computation. These ideas form the groundwork needed to truly appreciate why quantum algorithms behave the way they do, and why they hold the potential to outperform classical methods for certain classes of problems.
+With this, we conclude the first part of the series. In this article, we built a mathematical and conceptual foundation for understanding **qubits**, **quantum states**, **measurement**, **entanglement**, **quantum gates**, and **interference**, the essential ingredients that make quantum computation fundamentally different from classical computation. These ideas form the groundwork needed to truly appreciate why quantum algorithms behave the way they do, and why they hold the potential to outperform classical methods for certain classes of problems.
 
 In the next article, we will explore **how these quantum mechanical principles translate into real computational advantages**. We will examine concrete quantum algorithms, early applications of **Quantum Machine Learning**, and scenarios where quantum systems already demonstrate capabilities unattainable by classical approaches. The goal is to connect the mathematical foundations covered here to meaningful use cases, and to highlight where genuine **Quantum Advantage** may emerge—both now and in the years to come.
