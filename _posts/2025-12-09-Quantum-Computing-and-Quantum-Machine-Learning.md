@@ -46,11 +46,7 @@ $$
 \langle \phi | \phi \rangle = 1.
 $$
 
-For a single-qubit state  
-$$
-\ket{\phi} = \alpha\ket{0} + \beta\ket{1},
-$$  
-we can verify this normalization as follows:
+For a single-qubit state $$\ket{\phi} = \alpha\ket{0} + \beta\ket{1} $$ we can verify this normalization as follows:
 
 $$
 \begin{align}
