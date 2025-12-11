@@ -303,9 +303,7 @@ We can create the entangled Bell state using the Hadamard Gate and CNOT gate as 
 Figure 2: Quantum Entanglement Illustration.
 
 As we can see from the figure above, we begin with both the control and target qubits in the state $$\ket{0}$$. After applying the Hadamard gate to the control qubit, its state becomes  
-$$\frac{1}{\sqrt{2}}(\ket{0} + \ket{1}),$$  
-and the joint state of the two qubits is  
-$$\frac{1}{\sqrt{2}}(\ket{00} + \ket{10}).$$
+$$\frac{1}{\sqrt{2}}(\ket{0} + \ket{1}),$$ and the joint state of the two qubits is $$\frac{1}{\sqrt{2}}(\ket{00} + \ket{10}).$$
 
 Next, on application of the CNOT gate,the basis state transformation  
 $$\ket{10} \rightarrow \ket{1,\, 1 \oplus 0} = \ket{11}$$  
