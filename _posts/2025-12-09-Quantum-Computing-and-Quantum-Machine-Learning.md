@@ -293,12 +293,30 @@ $$
 \ket{xy} \rightarrow \ket{x,x \oplus y}
 $$
 
+#### Quantum Entanglement using CNOT and Hadamard Gate
+
 We can create the entangled Bell state using the Hadamard Gate and CNOT gate as illustrated in the image below:
 
 <img width="1000" height="479" alt="image" src="https://github.com/user-attachments/assets/4fbf59d7-3f85-4708-b151-3cd592ef7d7b" />
 
 
 Figure 2: Quantum Entanglement Illustration.
+
+As we can see from the figure above, we begin with both the control and target qubits in the state $$\ket{0}$$. After applying the Hadamard gate to the control qubit, its state becomes  
+$$\frac{1}{\sqrt{2}}(\ket{0} + \ket{1}),$$  
+and the joint state of the two qubits is  
+$$\frac{1}{\sqrt{2}}(\ket{00} + \ket{10}).$$
+
+Next, on application of the CNOT gate,the basis state transformation  
+$$\ket{10} \rightarrow \ket{1,\, 1 \oplus 0} = \ket{11}$$  
+modifies only the second term, producing the final entangled state:
+
+$$
+\frac{1}{\sqrt{2}}(\ket{00} + \ket{11})
+$$
+
+This is one of the Bell states, illustrating how a simple sequence of gates can generate entanglement.
+
 
 
 
