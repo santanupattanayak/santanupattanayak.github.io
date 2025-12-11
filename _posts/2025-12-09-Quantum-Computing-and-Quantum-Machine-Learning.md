@@ -297,7 +297,8 @@ $$
 
 We can create the entangled Bell state using the Hadamard Gate and CNOT gate as illustrated in the image below:
 
-<img width="1000" height="479" alt="image" src="https://github.com/user-attachments/assets/4fbf59d7-3f85-4708-b151-3cd592ef7d7b" />
+<img width="985" height="467" alt="image" src="https://github.com/user-attachments/assets/d927d99f-6540-4486-8c5c-39d3387ab12b" />
+
 
 
 Figure 2: Quantum Entanglement Illustration.
