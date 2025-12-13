@@ -32,7 +32,7 @@ A **qubit**, on the other hand, is a two-state quantum system that can exist in 
 A general qubit state is a linear combination (superposition) of these basis states:
 
 $$
-|\phi\rangle = \alpha |0\rangle + \beta |1\rangle
+|\psi\rangle = \alpha |0\rangle + \beta |1\rangle
 $$
 
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
@@ -205,7 +205,11 @@ $$
 H\ket{1} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
 $$
 
-The Hadamard gate is crucial for quantum parallelism, creating states that encode multiple possibilities simultaneously.
+The Hadamard gate plays a central role in enabling **quantum parallelism** by creating superposition states that simultaneously encode multiple computational possibilities. Suppose we wish to evaluate $$N$$ possible inputs within a quantum algorithm. By using only $$\log_2(N)$$ qubits and applying Hadamard gates, we can prepare a superposition over all $$N$$ basis states, effectively representing all possibilities at once.
+
+Subsequent unitary operations act **coherently and in parallel** on every branch of this superposition. In this sense, a single quantum circuit evaluates a function on all $$N$$ inputs simultaneously, an effect known as quantum parallelism.
+
+This provides an **exponential reduction in memory representation** compared to classical systems, which require storing and processing each of the $$N$$ inputs explicitly. However, the true computational advantage arises only when the algorithm is designed to exploit **interference**(discussed in next section) to amplify desired outcomes and suppress incorrect ones during measurement, distinguishing quantum parallelism from mere brute-force parallel execution.
 
 ### Rotation Gates
 
