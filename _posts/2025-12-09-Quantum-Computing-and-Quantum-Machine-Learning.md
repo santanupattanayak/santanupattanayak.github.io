@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Quantum Computing and Quantum Machine Learning"
+title: "Introduction to Quantum Computing and Quantum Machine Learning"
 date: 2025-12-09 00:00:00 -0000
 author: Santanu Pattanayak
-tags: MachineLearning.LLM memory, DeepLearning,Research 
+tags: Quantum Computing, Quantum Machine Learning 
 ---
 
 # Table of Contents
@@ -24,7 +24,7 @@ To appreciate these topics, we must first build a solid understanding of the fou
 
 ## Quantum Bit (Qubit) <a name="qubit"></a>
 
-Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values—0 or 1—and at any given time it holds exactly one of these values.
+Let’s begin with the familiar: a **classical bit**. A bit can take one of two possible values, 0 or 1, and at any given time it holds exactly one of these values.
 
 A **qubit**, on the other hand, is a two-state quantum system that can exist in a superposition of both 0 and 1 simultaneously. The basis states 0 and 1 form an orthogonal basis, typically represented as the vectors $$[1, 0]^{T}$$ and $$[0, 1]^{T} $$. In quantum mechanics, vectors live in a complex Hilbert space and are expressed using **ket notation**. The complex transpose of the state vector are denoted by **bra notation**. Thus, we write these basis states in ket notation as $$\ket{0}$$ and $$\ket{1}$$. Their complex conjugate transpose would be represented through bra notation as $$\bra{0}$$ and $$\bra{1}$$.
 
@@ -38,7 +38,7 @@ $$
 where $$|\alpha|^2$$ is the probability of measuring the system in state $$|0\rangle$$, and $$|\beta|^2$$ is the probability of measuring it in state $$|1\rangle$$.  
 It is important to emphasize that these probabilities **do not** imply the qubit is secretly in one of the two states. Prior to measurement, the qubit genuinely exists in a superposition of both. The probabilities only describe the outcomes **when we finally perform a measurement**.
 
-The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\phi}$$ can be written as the vector $$[\alpha, \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$. 
+The co-efficients $$\alpha$$ and $$\beta$$ are complex numbers and they are referred to as probability amplitudes. The state $$\ket{\psi}$$ can be written as the vector $$[\alpha, \beta]^{T}$$ where the first dimension corresponds to basis $$\ket{0}$$ while the second dimension corresponds to  $$\ket{1}$$. 
 
 Quantum states are represented by **unit vectors**. Since the squared magnitudes of the amplitudes—i.e., the probabilities associated with the basis states—must sum to 1, we require:
 
@@ -46,11 +46,11 @@ $$
 \langle \phi | \phi \rangle = 1.
 $$
 
-For a single-qubit state $$\ket{\phi} = \alpha\ket{0} + \beta\ket{1} $$ we can verify this normalization as follows:
+For a single-qubit state $$\ket{\psi} = \alpha\ket{0} + \beta\ket{1} $$ we can verify this normalization as follows:
 
 $$
 \begin{align}
-\langle \phi | \phi \rangle 
+\langle \psi | \psi \rangle 
 &= (\alpha^{*}\bra{0} + \beta^{*}\bra{1})(\alpha\ket{0} + \beta\ket{1}) \\
 &= \alpha^{*}\alpha \bra{0}\ket{0} 
     + \alpha^{*}\beta \bra{0}\ket{1}
@@ -67,12 +67,12 @@ Thus, the normalization condition requires that the probabilities corresponding 
 
 ## Measurement <a name="measurement"></a>
 
-A qubit—like any other quantum system—does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\phi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
+A qubit, like any other quantum system, does not reveal its superposition state when measured. Instead, measurement causes the state to **collapse** to one of the basis states. Thus, a superposition state $$\ket{\psi}$$ will collapse to either $$\ket{0}$$ or $$\ket{1}$$ during measurement.
 
 For example, consider the qubit state:
 
 $$
-|\phi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
+|\psi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}} |1\rangle
 $$
 
 If we prepare 1000 identical copies of this state and measure each one, we would expect to obtain roughly 500 outcomes of $$\ket{0}$$ and 500 outcomes of $$\ket{1}$$. This is because each basis state has probability
@@ -83,11 +83,11 @@ $$
 
 
 
-We can re-write the general superposition qubit state $$\ket{\phi} = \alpha \ket{0} + \beta \ket{1} $$ in a different basis altogether as shown below 
+We can re-write the general superposition qubit state $$\ket{\psi} = \alpha \ket{0} + \beta \ket{1} $$ in a different basis altogether as shown below 
 
 $$
 \begin{align}
-|\phi\rangle &= \alpha |0\rangle + \beta |1\rangle \\
+|\psi\rangle &= \alpha |0\rangle + \beta |1\rangle \\
 &= \frac{(\alpha + \beta)}{\sqrt(2)} \frac{(\ket{0} + \ket{1})}{\sqrt(2)} + \frac{(\alpha - \beta)}{\sqrt(2)} \frac{(\ket{0} - \ket{1})}{\sqrt(2)} \\
 &= \frac{(\alpha + \beta)}{\sqrt(2)} \ket{+} + \frac{(\alpha - \beta)}{\sqrt(2)} \ket{-}
 \end{align}
@@ -95,6 +95,13 @@ $$
 
 Now if we measure qubit in the $$\ket{+},\ket{-}$$ basis then we would observe $$\ket{+}$$ with probability $$\frac{|\alpha + \beta|^{2}}{2}$$ and $$\ket{-}$$ with probability $$\frac{|\alpha - \beta|^{2}}{2}$$.
 This illustrates the fact the same vector can collapse to a different set of basis vectors based on the basis used for measurement.
+
+Am measurement operation is symbolically represented as below 
+
+<img width="825" height="284" alt="image" src="https://github.com/user-attachments/assets/5a09b5c1-3ca7-4305-8a86-f01f246fb3cc" />
+
+Figure 1.0 Meausurement operation.
+
 
 
 
@@ -113,7 +120,7 @@ An electron can be moved to a superposition state of $$\ket{0}$$ and $$\ket{1}$$
 Quantum states involving multiple qubits can exhibit strong correlations arising from a uniquely quantum property known as **entanglement**. A general two-qubit state can be written as:
 
 $$
-\ket{\phi} = \alpha_{00}\ket{00} + \alpha_{01}\ket{01} + \alpha_{10}\ket{10} + \alpha_{11}\ket{11}
+\ket{\psi} = \alpha_{00}\ket{00} + \alpha_{01}\ket{01} + \alpha_{10}\ket{10} + \alpha_{11}\ket{11}
 $$
 
 Here, $$\ket{ij}$$ represents the joint basis state in which the first qubit is in state $$\ket{i}$$ and the second qubit is in state $$\ket{j}$$.
@@ -128,7 +135,7 @@ If we choose $$\alpha_{00} = \alpha_{11} = \frac{1}{\sqrt{2}}, \qquad \alpha_{01
 we obtain the well-known **Bell state**:
 
 $$
-\ket{\phi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})
 $$
 
 Suppose we measure the first qubit. If the outcome collapses it to $$\ket{0}$$, then the post-measurement joint state becomes:
@@ -137,7 +144,7 @@ $$
 \ket{\psi} = \ket{00}
 $$
 
-Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$—with probability 1—because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
+Given this outcome, measuring the second qubit will **always** yield $$\ket{0}$$ with probability 1, because in this Bell state the only component consistent with the first qubit being in $$\ket{0}$$ is the joint state $$\ket{00}$$.
 
 This demonstrates how entanglement creates **strong, non-classical correlations** between qubits, where measuring one qubit instantaneously determines the state of the other, regardless of physical separation.
 
@@ -146,7 +153,7 @@ To illustrate a physical example of quantum entanglement, consider a quantum sys
 Since each photon has an equal tendency to be in either spin state, the joint state of the two photons is described by the entangled state:
 
 $$
-\ket{\phi} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})
 $$
 
 If we measure one photon and find it in the spin-up state, we immediately know **with probability 1** that the other photon is in the spin-down state. This perfect correlation is a hallmark of quantum entanglement.
@@ -386,7 +393,7 @@ The amplitude of $$\ket{0}$$ becomes $$\alpha + \beta$$, which clearly illustrat
 
 In the more general case where the amplitudes are complex, whether $$\alpha + \beta$$ leads to constructive or destructive interference depends on both the **relative signs** and the **relative phases** of the amplitudes.
 
-The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$ — its magnitude increases or decreases depending on the interplay of phase and sign between $$\alpha$$ and $$\beta$$.
+The same reasoning applies to the amplitude $$\alpha - \beta$$ of $$\ket{1}$$, its magnitude increases or decreases depending on the interplay of phase and sign between $$\alpha$$ and $$\beta$$.
  
 Quantum algorithms exploit this ability to **shape amplitudes**, starting from an equal superposition of solution space, the quantum circuit(based on composition of quantum gates) accenture the amplitude of the desired solution  through constructive interference, while reducing the amplitude magnitude through destructive interference.
 
@@ -409,7 +416,7 @@ representing **all possible inputs simultaneously**. Quantum gates then operate 
 Entangling gates such as CNOT create correlations between qubits that cannot be captured classically. These correlations allow quantum algorithms to propagate information globally across the state space, ensuring that local operations influence the full system.
 
 ### Interference: Amplifying Correct Answers, Cancelling Wrong Ones
-The final—and often most important—step uses **interference**. By carefully designing a sequence of unitary operations through quantum gates, the amplitudes of basis states are manipulated so that states corresponding to **correct solutions** undergo **constructive interference**, increasing their probability amplitude while states corresponding to **incorrect solutions** undergo **destructive interference**, suppressing their amplitude
+The final and often the most important step uses **interference**. By carefully designing a sequence of unitary operations through quantum gates, the amplitudes of basis states are manipulated so that states corresponding to **correct solutions** undergo **constructive interference**, increasing their probability amplitude while states corresponding to **incorrect solutions** undergo **destructive interference**, suppressing their amplitude
 
 Mathematically, the algorithm applies unitary transformations $$ U_1, U_2, \ldots, U_k$$ such that:
 
@@ -431,6 +438,6 @@ This orchestrated use of quantum properties allows quantum algorithms to outperf
 
 ## Conclusion
 
-With this, we conclude the first part of the series. In this article, we built a mathematical and conceptual foundation for understanding **qubits**, **quantum states**, **measurement**, **entanglement**, **quantum gates**, and **interference**—the essential ingredients that make quantum computation fundamentally different from classical computation. These ideas form the groundwork needed to truly appreciate why quantum algorithms behave the way they do, and why they hold the potential to outperform classical methods for certain classes of problems.
+With this, we conclude the first part of the series. In this article, we built a mathematical and conceptual foundation for understanding **qubits**, **quantum states**, **measurement**, **entanglement**, **quantum gates**, and **interference**, the essential ingredients that make quantum computation fundamentally different from classical computation. These ideas form the groundwork needed to truly appreciate why quantum algorithms behave the way they do, and why they hold the potential to outperform classical methods for certain classes of problems.
 
 In the next article, we will explore **how these quantum mechanical principles translate into real computational advantages**. We will examine concrete quantum algorithms, early applications of **Quantum Machine Learning**, and scenarios where quantum systems already demonstrate capabilities unattainable by classical approaches. The goal is to connect the mathematical foundations covered here to meaningful use cases, and to highlight where genuine **Quantum Advantage** may emerge—both now and in the years to come.
