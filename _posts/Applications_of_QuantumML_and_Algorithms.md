@@ -38,7 +38,7 @@ $$
 \ket{\phi_{0}} = H^{\otimes n} \ket{0}^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x}
 $$
 
-Let the target be represented as the winner $$\ket{w}$$ and linear combination of all the other  $$2^{n} - 1 =N-1$$ states be represented as the loser state $$ket{l}$$
+Let the target be represented as the winner $$\ket{w}$$ and linear combination of all the other  $$2^{n} - 1 =N-1$$ states be represented as the loser state $$\ket{l}$$
 
 $$
 \begin{align}
