@@ -42,7 +42,7 @@ Let the target be represented as the winner $$\ket{w}$$ and linear combination o
 
 $$
 \ket{\phi_{0}} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x} \\
-&=  \frac{\sqrt{2^n -1}}{\sqrt{2^n}} \frac{1}{\sqrt{2^n -1}}\sum_{x \ne w } \ket{x} + \frac{1}{\sqrt{2^n}}\ket{w} \\
+&=  \frac{\sqrt{2^n -1}}{\sqrt{2^n}} \frac{1}{\sqrt{2^n -1}}\sum_{x \neq w } \ket{x} + \frac{1}{\sqrt{2^n}}\ket{w} \\
 &=   \frac{\sqrt{2^n -1}}{\sqrt{2^n}} \ket{l} +  \frac{1}{\sqrt{2^n}}\ket{w}
 $$
 
