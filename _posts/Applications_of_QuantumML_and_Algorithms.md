@@ -37,4 +37,9 @@ $$
 \ket{\phi_{0}} = H^{\otimes n} \ket{0}^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x}
 $$
 
+* Next, a Quantum Circuit applies  the Unitary transform $$U_f$$ to the state $$\ket{\phi_{0}}$$ to implement the function $$f$$ on each of the basis state.
+
+$$
+U_f \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} (-1)^{f(x)} \ket{x}
+
 
