@@ -41,5 +41,5 @@ $$
 
 $$
 U_f \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} (-1)^{f(x)} \ket{x}
-
+$$
 
