@@ -34,7 +34,7 @@ Here is how the algorithm proceeds
 This can be achieved by applying Hadamard gate $$H$$ on all the $$n$$ qubits such that 
 
 $$
-H^{\otimes n} \ket{0}^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x}
+\ket{\phi_{0}} = H^{\otimes n} \ket{0}^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x}
 $$
 
 
