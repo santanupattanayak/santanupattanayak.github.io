@@ -41,10 +41,24 @@ $$
 Let the target be represented as the winner $$\ket{w}$$ and linear combination of all the other  $$2^{n} - 1 =N-1$$ states be represented as the loser state $$ket{l}$$
 
 $$
-\ket{\phi_{0}} = \frac{1}{\sqrt{2^n}} \sum_{x \in \{0, 1\}^n} \ket{x} \\
-&=  \frac{\sqrt{2^n -1}}{\sqrt{2^n}} \frac{1}{\sqrt{2^n -1}}\sum_{x \neq w } \ket{x} + \frac{1}{\sqrt{2^n}}\ket{w} \\
-&=   \frac{\sqrt{2^n -1}}{\sqrt{2^n}} \ket{l} +  \frac{1}{\sqrt{2^n}}\ket{w}
+\begin{aligned}
+\ket{\phi_0}
+&= \frac{1}{\sqrt{2^n}} \sum_{x \in \{0,1\}^n} \ket{x} \\
+&= \frac{1}{\sqrt{2^n}} \left( \sum_{x \neq w} \ket{x} + \ket{w} \right) \\
+&= \frac{\sqrt{2^n - 1}}{\sqrt{2^n}}
+\left( \frac{1}{\sqrt{2^n - 1}} \sum_{x \neq w} \ket{x} \right)
++ \frac{1}{\sqrt{2^n}} \ket{w} \\
+&= \sqrt{\frac{2^n - 1}{2^n}} \, \ket{l}
+\;+\; \frac{1}{\sqrt{2^n}} \, \ket{w},
+\end{aligned}
 $$
+
+where
+
+$$
+\ket{l} = \frac{1}{\sqrt{2^n - 1}} \sum_{x \neq w} \ket{x}.
+$$
+
 
 
 * Next, a Quantum Circuit applies  the Unitary transform $$U_f$$ to the state $$\ket{\phi_{0}}$$ to implement the function $$f$$ on each of the basis state.
