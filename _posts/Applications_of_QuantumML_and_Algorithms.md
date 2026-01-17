@@ -23,7 +23,8 @@ In this blog post, we explore several algorithms within this paradigm—some tha
 
 ## Grover's Algorithm for Database Search <a name="grover"></a>
 
-Let us first look into Grover's search algorithm where given a database of $$N$$ elements, we want to return the index of the target $$x$$ satisfying certain criteria. Let's say if the criteria is defined by a function $$f$$ we would like to find the $$\hat{x}$$ such that
+Let us first look into Grover's search algorithm where given a database of $$N$$ elements, we want to return the index of the target $$x$$ satisfying certain criteria. Let's say if the criteria is defined by a function $$f$$ we would like to find the $$\hat{x}$$ such that 
+
 $$
 f(\hat{x}) = 1
 $$
