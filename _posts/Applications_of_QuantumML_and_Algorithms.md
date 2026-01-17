@@ -45,7 +45,7 @@ $$
 \ket{\phi_0} &= \frac{1}{\sqrt{2^n}} \sum_{x \in \{0,1\}^n} \ket{x} \\
 &= \frac{1}{\sqrt{2^n}} \left( \sum_{x \neq w} \ket{x} + \ket{w} \right) \\
 &= \frac{\sqrt{2^n - 1}}{\sqrt{2^n}} \left( \frac{1}{\sqrt{2^n - 1}} \sum_{x \neq w} \ket{x} \right) + \frac{1}{\sqrt{2^n}} \ket{w} \\
-&= \sqrt{\frac{2^n - 1}{2^n}} \, \ket{l} \;+\; \frac{1}{\sqrt{2^n}} \, \ket{w},
+&= \sqrt{\frac{2^n - 1}{2^n}} \, \ket{l} + \frac{1}{\sqrt{2^n}} \, \ket{w},
 \end{align}
 $$
 
